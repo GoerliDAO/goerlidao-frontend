@@ -2,7 +2,7 @@ import "src/style.scss";
 
 import { useMediaQuery } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import { styled, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import {
   darkTheme as rainbowDarkTheme,
   lightTheme as rainbowLightTheme,
@@ -11,7 +11,8 @@ import {
 import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import LandingPage from "src/components/LandingPage";
 import Messages from "src/components/Messages/Messages";
 import { MigrationCallToAction } from "src/components/MigrationCallToAction";
 import { MigrationNotification } from "src/components/MigrationNotification";
@@ -53,45 +54,6 @@ const classes = {
   drawerPaper: `${PREFIX}-drawerPaper`,
   notification: `${PREFIX}-notification`,
 };
-
-const StyledDiv = styled("div")(({ theme }) => ({
-  [`& .${classes.drawer}`]: {
-    [theme.breakpoints.up("md")]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-  },
-
-  [`& .${classes.content}`]: {
-    flexGrow: 1,
-    padding: "15px",
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: transitionDuration,
-    }),
-    marginLeft: drawerWidth,
-    marginTop: "-48.5px",
-  },
-
-  [`& .${classes.contentShift}`]: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: transitionDuration,
-    }),
-    marginLeft: 0,
-  },
-
-  // necessary for content to be below app bar
-  [`& .${classes.toolbar}`]: theme.mixins.toolbar,
-
-  [`& .${classes.drawerPaper}`]: {
-    width: drawerWidth,
-  },
-
-  [`& .${classes.notification}`]: {
-    marginLeft: "264px",
-  },
-}));
 
 // 😬 Sorry for all the console logging
 const DEBUG = false;
@@ -200,7 +162,7 @@ function App() {
   }, [location]);
 
   return (
-    <StyledDiv>
+    <>
       <RainbowKitProvider
         chains={chains}
         theme={
@@ -215,7 +177,9 @@ function App() {
             <Toaster>{t => <Messages toast={t} />}</Toaster>
             <StagingNotification />
             <TopBar theme={theme} toggleTheme={toggleTheme} handleDrawerToggle={handleDrawerToggle} />
-            <nav className={classes.drawer}>
+
+            {/* HIDDEN UNTIL FINAL LANDING PAGE IS DONE, THEN DELETED */}
+            <nav className="hidden">
               {isSmallerScreen ? (
                 <NavDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
               ) : (
@@ -227,7 +191,7 @@ function App() {
               <MigrationCallToAction setMigrationModalOpen={setMigrationModalOpen} />
               <Suspense fallback={<div></div>}>
                 <Routes>
-                  <Route path="/" element={<Navigate to="/stake" />} />
+                  <Route path="/" element={<LandingPage />} />
                   <Route
                     path="/stake"
                     element={<StakeVersionContainer setMigrationModalOpen={setMigrationModalOpen} />}
@@ -267,7 +231,7 @@ function App() {
           <MigrationNotification isModalOpen={migrationModalOpen} onClose={migModalClose} />
         </ThemeProvider>
       </RainbowKitProvider>
-    </StyledDiv>
+    </>
   );
 }
 
