@@ -130,7 +130,7 @@ function App() {
   // ... been reloaded within App.
   useEffect(() => {
     if (shouldTriggerSafetyCheck()) {
-      toast("Safety Check: Always verify you're on app.olympusdao.finance!");
+      toast("Safety Check: Always verify you're on https://goerli.com");
     }
     loadDetails("app");
   }, []);
