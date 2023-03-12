@@ -49,7 +49,8 @@ function TopBar({ handleDrawerToggle }: TopBarProps) {
   return (
     <div className="container mx-auto flex items-center justify-between m-4">
       <a href="/">GOERLIDAO</a>
-      <div className="grid grid-cols-4 grid-rows-1 gap-16 text-sm">
+      <div className="grid grid-cols-5 grid-rows-1 gap-16 text-sm">
+        <a href="/dashboard">Dashboard</a>
         <a href="/stake">Stake</a>
         <a href="/bonds">Bond</a>
         <a href="/bridge">Bridge</a>
