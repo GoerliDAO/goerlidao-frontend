@@ -47,28 +47,30 @@ function TopBar({ handleDrawerToggle }: TopBarProps) {
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up(1048));
   return (
-    <div className="container mx-auto flex items-center justify-between m-4">
-      <a href="/">GOERLIDAO</a>
-      <div className="grid grid-cols-5 grid-rows-1 gap-16 text-sm">
-        <a href="/dashboard">Dashboard</a>
-        <a href="/stake">Stake</a>
-        <a href="/bonds">Bond</a>
-        <a href="/bridge">Bridge</a>
-        <a href="">Docs</a>
+    <div className=" bg-blue-800">
+      <div className="p-4 container mx-auto flex items-center justify-between">
+        <a href="/">GOERLIDAO</a>
+        <div className="grid grid-cols-5 grid-rows-1 gap-16 text-sm">
+          <a href="/dashboard">Dashboard</a>
+          <a href="/stake">Stake</a>
+          <a href="/bonds">Bond</a>
+          <a href="/bridge">Bridge</a>
+          <a href="">Docs</a>
+        </div>
+        <ConnectButton />
+        {!desktop && (
+          <Button
+            id="hamburger"
+            aria-label="open drawer"
+            size="large"
+            variant="text"
+            color="secondary"
+            onClick={handleDrawerToggle}
+          >
+            <SvgIcon component={MenuIcon} />
+          </Button>
+        )}
       </div>
-      <ConnectButton />
-      {!desktop && (
-        <Button
-          id="hamburger"
-          aria-label="open drawer"
-          size="large"
-          variant="text"
-          color="secondary"
-          onClick={handleDrawerToggle}
-        >
-          <SvgIcon component={MenuIcon} />
-        </Button>
-      )}
     </div>
   );
 }

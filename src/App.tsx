@@ -12,7 +12,6 @@ import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Route, Routes, useLocation } from "react-router-dom";
-import LandingPage from "src/components/LandingPage";
 import Messages from "src/components/Messages/Messages";
 import { MigrationCallToAction } from "src/components/MigrationCallToAction";
 import { MigrationNotification } from "src/components/MigrationNotification";
@@ -34,6 +33,7 @@ import { girth as gTheme } from "src/themes/girth.js";
 import { light as lightTheme } from "src/themes/light.js";
 import { BondModalContainer } from "src/views/Bond/components/BondModal/BondModal";
 import { BondModalContainerV3 } from "src/views/Bond/components/BondModal/BondModalContainerV3";
+import LandingPage from "src/views/LandingPage";
 import { useAccount, useConnect, useNetwork, useProvider } from "wagmi";
 
 // Dynamic Imports for code splitting

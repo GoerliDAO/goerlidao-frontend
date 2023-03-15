@@ -2,7 +2,6 @@ import { Box, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Icon, MiniCard, Paper } from "@olympusdao/component-library";
 import { useState } from "react";
-import PageTitle from "src/components/PageTitle";
 
 const PREFIX = "Bridge";
 
@@ -24,7 +23,6 @@ const Bridge = () => {
 
   return (
     <>
-      <PageTitle name="Bridge" />
       <div id="stake-view">
         {open && (
           <Paper enableBackground>
