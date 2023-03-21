@@ -1,6 +1,17 @@
 import NHaasGroteskRegular from "src/assets/fonts/NHaasGroteskDSPro-55Rg.woff2";
 import NHassGroteskMedium from "src/assets/fonts/NHaasGroteskDSPro-65Md.woff2";
 import NHaasGroteskSemibold from "src/assets/fonts/NHaasGroteskDSPro-75Bd.woff2";
+import ShreeDevanagariRegular from "src/assets/fonts/ShreeDevanagari.ttf";
+
+// const ShreeDevanagari, normal style and normal weight, .ttf format, and swap display src local and src url, and unicode range
+export const ShreeDevanagari = `
+@font-face {
+  font-family: "ShreeDevanagari";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local('ShreeDevanagari'), url(${ShreeDevanagariRegular}) format('truetype');
+}`;
 
 const NHassGrotesk = `
 @font-face {
@@ -65,4 +76,5 @@ const NHassGrotesk = `
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
 }
 `;
-export default NHassGrotesk;
+
+export default ShreeDevanagari + NHassGrotesk;

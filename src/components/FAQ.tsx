@@ -1,4 +1,5 @@
 import { Disclosure } from "@headlessui/react";
+import { useTheme } from "@mui/material";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 interface QAComponentProps {
@@ -8,18 +9,29 @@ interface QAComponentProps {
 }
 
 const QAComponent = ({ question, answer, open }: QAComponentProps) => {
+  const theme = useTheme();
   return (
-    <div className="border-t border-black py-10">
+    <div
+      style={{
+        borderTop: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
+      }}
+      className="py-10"
+    >
       <Disclosure defaultOpen={open}>
         {({ open }) => (
           <>
             <Disclosure.Button className="flex w-full justify-between">
               <p className="text-2xl">{question}</p>
-              <div className="text-lg p-2.5 rounded-full border border-black">
+              <div
+                style={{
+                  border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
+                }}
+                className="text-lg p-2.5 rounded-full"
+              >
                 {open ? <AiOutlineMinus /> : <AiOutlinePlus />}
               </div>
             </Disclosure.Button>
-            <Disclosure.Panel className="text-lg w-full md:w-1/2 py-5">{answer}</Disclosure.Panel>
+            <Disclosure.Panel className="text-lg w-full md:w-1/2 py-5 text-gray-500">{answer}</Disclosure.Panel>
           </>
         )}
       </Disclosure>

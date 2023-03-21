@@ -204,7 +204,7 @@ function App() {
                   <Route path="/bonds" element={<Bond />} />
                   <Route path="/bonds/inverse" element={<Bond />} />
                   <Route path="/bridge" element={<Bridge />} />
-                  <Route path="/dashboard/*" element={<TreasuryDashboard />} />
+                  <Route path="/stats/*" element={<TreasuryDashboard />} />
                   <Route path="/range/*" element={<Range />} />
                   <Route
                     path={"/info/*"}
