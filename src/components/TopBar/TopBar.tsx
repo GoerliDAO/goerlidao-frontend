@@ -2,6 +2,7 @@
 import { AppBar, Button, SvgIcon, useMediaQuery, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as LogoIcon } from "src/assets/GDAO-ape.svg";
 import { ReactComponent as GDAOFullLogo } from "src/assets/gorlidao-full-logo.svg";
 import { ReactComponent as MenuIcon } from "src/assets/icons/hamburger.svg";
@@ -53,11 +54,10 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
   useEffect(() => {
     if (location.pathname !== "/") {
       document.body.style.backgroundColor = theme.palette.mode === "dark" ? "#121415" : "#C6D9F9";
-      // replace element with id 'navigationBar' with a new element
     }
     if (location.pathname === "/") {
       // @ts-ignore
-      document.getElementById("navigationBar").style.backgroundColor =
+      (document.getElementById("navigationBar") as HTMLElement).style.backgroundColor =
         theme.palette.mode === "dark" ? "#121415" : "#0202FF";
       (document.getElementById("navigationBar") as HTMLElement).style.color = "#fff";
       document.body.style.backgroundColor = theme.palette.mode === "dark" ? "#121415" : "#C6D9F9";
@@ -75,11 +75,11 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
         </a>
 
         <div id="navLinks" className="hidden md:grid grid-cols-5 grid-rows-1 gap-8 text-sm font-semibold">
-          <a href="/bridge">Bridge</a>
-          <a href="/swap">Swap</a>
-          <a href="/stake">Stake</a>
-          <a href="/bonds">Bond</a>
-          <a href="/stats">Stats</a>
+          <Link to="/bridge">Bridge</Link>
+          <Link to="/swap">Swap</Link>
+          <Link to="/stake">Stake</Link>
+          <Link to="/bond">Bond</Link>
+          <Link to="/stats">Stats</Link>
         </div>
 
         <div className="flex items-center justify-between">
