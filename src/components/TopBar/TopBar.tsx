@@ -78,7 +78,7 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
           <Link to="/bridge">Bridge</Link>
           <Link to="/swap">Swap</Link>
           <Link to="/stake">Stake</Link>
-          <Link to="/bond">Bond</Link>
+          <Link to="/bonds">Bond</Link>
           <Link to="/stats">Stats</Link>
         </div>
 
