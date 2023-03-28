@@ -19,20 +19,23 @@ import CROSS_CHAIN_MIGRATOR_ABI from "src/abi/CrossChainMigrator.json";
 import CURVE_GAUGE_CONTROLLER_ABI from "src/abi/CurveGaugeController.json";
 import CURVE_GAUGE_DEPOSIT_ABI from "src/abi/CurveGaugeDeposit.json";
 import CURVE_POOL_ABI from "src/abi/CurvePool.json";
-import DEV_FAUCET from "src/abi/DevFaucet.json";
 import FUSE_PROXY_ABI from "src/abi/FuseProxy.json";
-import IERC20_ABI from "src/abi/IERC20.json";
-import STAKING_ABI from "src/abi/OlympusStakingv2.json";
 import PAIR_CONTRACT_ABI from "src/abi/PairContract.json";
 import SOHM_ABI from "src/abi/sOhmv2.json";
 import { AddressMap } from "src/constants/addresses";
+import { Faucet, IERC20 } from "src/forge";
+//import DEV_FAUCET from "src/abi/DevFaucet.json";
+import FAUCET from "src/forge_out/Faucet.sol/Faucet.json";
+//import STAKING_ABI from "src/abi/OlympusStakingv2.json";
+import STAKING_ABI from "src/forge_out/GDAOStaking.sol/GDAOStaking.json";
+//import IERC20_ABI from "src/abi/IERC20.json";
+import IERC20_ABI from "src/forge_out/IERC20.sol/IERC20.json";
 import { Providers } from "src/helpers/providers/Providers/Providers";
 import { NetworkId } from "src/networkDetails";
 import {
   BondDepository,
   CrossChainMigrator,
   CurvePool,
-  DevFaucet,
   FuseProxy,
   IERC20,
   OlympusStakingv2,
@@ -125,7 +128,7 @@ export const useStaticCurveGaugeDepositContract = createStaticContract<CurveGaug
 export const useDynamicTokenContract = createDynamicContract<IERC20>(IERC20_ABI.abi);
 export const useDynamicStakingContract = createDynamicContract<OlympusStakingv2>(STAKING_ABI);
 export const useDynamicMigratorContract = createDynamicContract<CrossChainMigrator>(CROSS_CHAIN_MIGRATOR_ABI.abi);
-export const useDynamicFaucetContract = createDynamicContract<DevFaucet>(DEV_FAUCET.abi);
+export const useDynamicFaucetContract = createDynamicContract<Faucet>(FAUCET.abi);
 
 // Multiple static contracts
 export const useMultipleTokenContracts = createMultipleStaticContracts<IERC20>(IERC20_ABI.abi);

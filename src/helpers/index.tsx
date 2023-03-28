@@ -122,6 +122,7 @@ export const isTestnet = (networkId: NetworkId) => {
     NetworkId.FANTOM_TESTNET,
     NetworkId.POLYGON_TESTNET,
     NetworkId.TESTNET_GOERLI,
+    NetworkId.LOCALHOST,
   ];
 
   return testnets.includes(networkId);

@@ -11,6 +11,7 @@ import {
   V1_STAKING_HELPER_ADDRESSES,
   WSOHM_ADDRESSES,
 } from "src/constants/addresses";
+import { STAKING_ADDRESSES } from "src/constants/local/addresses";
 import { handleContractError, setAll } from "src/helpers";
 import { IBaseAddressAsyncThunk } from "src/slices/interfaces";
 import { RootState } from "src/store";

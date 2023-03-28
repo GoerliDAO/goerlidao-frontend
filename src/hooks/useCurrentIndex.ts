@@ -1,14 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { NetworkId } from "src/constants";
-import { STAKING_ADDRESSES } from "src/constants/addresses";
+// import { STAKING_ADDRESSES } from "src/constants/addresses";
+import { STAKING_ADDRESSES } from "src/constants/local/addresses";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { useStaticStakingContract } from "src/hooks/useContract";
 
 export const currentIndexQueryKey = () => ["useCurrentIndex"];
 
 export const useCurrentIndex = () => {
-  const stakingContract = useStaticStakingContract(STAKING_ADDRESSES[NetworkId.MAINNET], NetworkId.MAINNET);
-
+  // const stakingContract = useStaticStakingContract(STAKING_ADDRESSES[NetworkId.MAINNET], NetworkId.MAINNET);
+  const stakingContract = useStaticStakingContract(STAKING_ADDRESSES[NetworkId.LOCALHOST], NetworkId.LOCALHOST);
   return useQuery<DecimalBigNumber, Error>([currentIndexQueryKey()], async () => {
     const index = await stakingContract.index();
 

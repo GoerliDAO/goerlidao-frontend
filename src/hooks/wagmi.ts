@@ -52,6 +52,7 @@ const fantom: Chain = {
   },
   rpcUrls: { default: "https://rpc.fantom.network" },
 };
+
 export const { chains, provider, webSocketProvider } = configureChains(
   [
     { ...chain.mainnet, rpcUrls: { default: "https://rpc.ankr.com/eth" } },
@@ -76,6 +77,7 @@ export const { chains, provider, webSocketProvider } = configureChains(
       rpcUrls: { default: "https://rpc.ankr.com/fantom" },
     },
     { ...chain.goerli, rpcUrls: { default: "https://rpc.ankr.com/eth_goerli" } },
+    { ...chain.localhost, id: 31337, rpcUrls: { default: "http://localhost:8545" } },
   ],
   [
     jsonRpcProvider({ rpc: chain => ({ http: chain.rpcUrls.default }) }),

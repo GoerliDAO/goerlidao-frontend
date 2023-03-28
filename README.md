@@ -84,7 +84,7 @@ We use [Jest Snapshot tests](https://jestjs.io/docs/snapshot-testing) to make su
 When you make changes to the UI (intentionally), you likely will have to update the Snapshots. You can do so by running:
 `yarn snapshot`.
 
-[Here is an example](src/views/Stake/__tests__/Stake.unit.test.tsx) snapshot test and [here is the correspoding recorded snapshot](https://github.com/OlympusDAO/olympus-frontend/blob/develop/src/views/Stake/__tests__/__snapshots__/Stake.unit.test.tsx.snap). Keep in mind that for snapshot tests to be meaningful, they have to pre-populate components with variety of data sets (realistic, edge case, invalid).
+[Here is an example](src/views//__tests__/.unit.test.tsx) snapshot test and [here is the correspoding recorded snapshot](https://github.com/OlympusDAO/olympus-frontend/blob/develop/src/views//__tests__/__snapshots__/.unit.test.tsx.snap). Keep in mind that for snapshot tests to be meaningful, they have to pre-populate components with variety of data sets (realistic, edge case, invalid).
 
 [Here is a good blog post](https://dev.to/tobiastimm/property-based-testing-with-react-and-fast-check-3dce) about testing React components with generative data sets.
 
@@ -98,7 +98,7 @@ Here is a useful [cheat sheet](https://testing-library.com/docs/react-testing-li
 
 When testing components that use React Hooks to third party libraries such as React Query or Web3Provider, it is sometimes convenient to mock these hooks in order to simulate various data inputs and edge cases.
 
-[Here is an example test case](src/views/Stake/components/StakeArea/components/StakeActionArea/components/__tests__/StakeBalances.unit.test.jsx) that shows how to mock React Hooks that use Web3Provider and React Query APIs.
+[Here is an example test case](src/views//components/Area/components/ActionArea/components/__tests__/Balances.unit.test.jsx) that shows how to mock React Hooks that use Web3Provider and React Query APIs.
 
 ### Troubleshooting
 

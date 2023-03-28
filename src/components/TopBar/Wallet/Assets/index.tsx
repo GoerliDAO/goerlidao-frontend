@@ -111,6 +111,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
     gohmBalances[NetworkId.POLYGON].data,
     gohmBalances[NetworkId.FANTOM].data,
     gohmBalances[NetworkId.OPTIMISM].data,
+    //gohmBalances[NetworkId.LOCALHOST].data,
   ];
   const wsohmTokens = [
     wsohmBalances[NetworkId.MAINNET].data,
@@ -238,33 +239,36 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
               );
           }
         })()}
-        {chain.id === NetworkId.TESTNET_GOERLI && (
-          <>
-            <Typography variant="h5">Dev Faucet</Typography>
-            <Box display="flex" flexDirection="row" justifyContent="space-between" mt="18px">
-              <FormControl className={classes.faucet}>
-                <Select
-                  label="Contract"
-                  id="contract-select"
-                  value={faucetToken}
-                  onChange={event => setFaucetToken(event.target.value)}
-                >
-                  <MenuItem value="OHM V1">OHM V1</MenuItem>
-                  <MenuItem value="OHM V2">OHM V2</MenuItem>
-                  <MenuItem value="sOHM V1">sOHM V1</MenuItem>
-                  <MenuItem value="sOHM V2">sOHM V2</MenuItem>
-                  <MenuItem value="wsOHM">wsOHM</MenuItem>
-                  <MenuItem value="gOHM">gOHM</MenuItem>
-                  <MenuItem value="DAI">DAI</MenuItem>
-                  <MenuItem value="ETH">ETH</MenuItem>
-                </Select>
-              </FormControl>
-              <SecondaryButton onClick={() => faucetMutation.mutate(faucetToken)}>
-                {isFaucetLoading ? "Loading..." : "Get Tokens"}
-              </SecondaryButton>
-            </Box>
-          </>
-        )}
+        {chain.id === NetworkId.TESTNET_GOERLI ||
+          (chain.id === NetworkId.LOCALHOST && (
+            <>
+              <Typography variant="h5">Dev Faucet</Typography>
+              <Box display="flex" flexDirection="row" justifyContent="space-between" mt="18px">
+                <FormControl className={classes.faucet}>
+                  <Select
+                    label="Contract"
+                    id="contract-select"
+                    value={faucetToken}
+                    onChange={event => setFaucetToken(event.target.value)}
+                  >
+                    <MenuItem value="OHM V1">OHM V1</MenuItem>
+                    <MenuItem value="OHM V2">OHM V2</MenuItem>
+                    <MenuItem value="sOHM V1">sOHM V1</MenuItem>
+                    <MenuItem value="sOHM V2">sOHM V2</MenuItem>
+                    <MenuItem value="wsOHM">wsOHM</MenuItem>
+                    <MenuItem value="gOHM">gOHM</MenuItem>
+                    <MenuItem value="DAI">DAI</MenuItem>
+                    <MenuItem value="ETH">ETH</MenuItem>
+                    <MenuItem value="MOHM">MOHM</MenuItem>
+                    <MenuItem value="GDAO">GDAO</MenuItem>
+                  </Select>
+                </FormControl>
+                <SecondaryButton onClick={() => faucetMutation.mutate(faucetToken)}>
+                  {isFaucetLoading ? "Loading..." : "Get Tokens"}
+                </SecondaryButton>
+              </Box>
+            </>
+          ))}
       </Box>
     </StyledFade>
   );

@@ -129,6 +129,11 @@ export class Environment {
           key: `VITE_BOBA_TESTNET_NODE_URL`,
           fallback: "https://rinkeby.boba.network/",
         });
+      case NetworkId.LOCALHOST:
+        return this._get({
+          key: `VITE_LOCALHOST_NODE_URL`,
+          fallback: "http://localhost:8545",
+        });
     }
   };
 

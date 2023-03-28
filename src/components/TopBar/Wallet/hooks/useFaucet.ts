@@ -1,12 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
 import { ContractReceipt } from "ethers";
 import toast from "react-hot-toast";
-import { DEV_FAUCET } from "src/constants/addresses";
+import { FAUCET_ADDRESSES } from "src/constants/local/addresses";
 import { useDynamicFaucetContract } from "src/hooks/useContract";
 import { EthersError } from "src/lib/EthersTypes";
 
 export const useFaucet = () => {
-  const contract = useDynamicFaucetContract(DEV_FAUCET, true);
+  const contract = useDynamicFaucetContract(FAUCET_ADDRESSES, true);
 
   return useMutation<ContractReceipt, EthersError, string>(
     async token_ => {
@@ -29,7 +29,11 @@ export const useFaucet = () => {
       } else if (token_ === "DAI") {
         transaction = await contract.mintDAI();
       } else if (token_ === "ETH") {
-        transaction = await contract.mintETH("150000000000000000");
+        transaction = await contract.drip("ETH");
+      } else if (token_ === "MOHM") {
+        transaction = await contract.drip(1, { gasLimit: 1000000 });
+      } else if (token_ === "GDAO") {
+        transaction = await contract.dripTestAmounts({ gasLimit: 5000000 });
       } else {
         throw new Error(`Invalid token`);
       }

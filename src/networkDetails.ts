@@ -19,6 +19,8 @@ export enum NetworkId {
 
   BOBA = 288,
   BOBA_TESTNET = 28,
+
+  LOCALHOST = 31337,
 }
 
 export type EthereumNetwork = NetworkId.MAINNET | NetworkId.TESTNET_GOERLI;
@@ -105,5 +107,16 @@ export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
     network: true,
     bondsV2: false,
     range: false,
+  },
+  [NetworkId.LOCALHOST]: {
+    dashboard: true,
+    stake: true,
+    wrap: true,
+    zap: true,
+    threeTogether: true,
+    bonds: true,
+    network: true,
+    bondsV2: true,
+    range: true,
   },
 };
