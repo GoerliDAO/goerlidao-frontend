@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { NetworkId } from "src/constants";
-import { parseBigNumber } from "src/helpers";
 // import { DISTRIBUTOR_CONTRACT } from "src/constants/contracts";
-import { DISTRIBUTOR_CONTRACT } from "src/local/constants/contracts";
+import { DISTRIBUTOR_CONTRACT } from "src/constants/local/contracts";
+import { parseBigNumber } from "src/helpers";
 
 export const useStakingRebaseRate = () => {
   return useQuery<number, Error>(["useStakingRebaseRate"], async () => {

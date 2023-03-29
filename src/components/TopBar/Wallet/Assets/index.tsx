@@ -14,16 +14,14 @@ import { prettifySeconds, prettifySecondsInDays } from "src/helpers/timeUtil";
 import { nonNullable } from "src/helpers/types/nonNullable";
 import {
   useFuseBalance,
-  useGohmBalance,
+  useGdaoBalance,
   useGohmTokemakBalance,
-  useOhmBalance,
-  useSohmBalance,
-  useV1OhmBalance,
-  useV1SohmBalance,
-  useWsohmBalance,
+  useSgdaoBalance,
+  useXgdaoBalance,
 } from "src/hooks/useBalance";
 import { useCurrentIndex } from "src/hooks/useCurrentIndex";
-import { useOhmPrice } from "src/hooks/usePrices";
+// import { useOhmPrice } from "src/hooks/usePrices";
+import { useGdaoPrice } from "src/hooks/usePrices";
 import { useStakingRebaseRate } from "src/hooks/useStakingRebaseRate";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { NetworkId } from "src/networkDetails";
@@ -87,101 +85,135 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   const navigate = useNavigate();
   const networks = useTestableNetworks();
   const { chain = { id: 1 } } = useNetwork();
-  const { data: ohmPrice = 0 } = useOhmPrice();
+  // const { data: ohmPrice = 0 } = useOhmPrice();
+  const { data: gdaoPrice = 0 } = useGdaoPrice();
   const { data: priceFeed = { usd_24h_change: -0 } } = GetTokenPrice();
   const { data: currentIndex = new DecimalBigNumber("0", 9) } = useCurrentIndex();
   const { data: nextRebaseDate } = useNextRebaseDate();
   const { data: rebaseRate = 0 } = useStakingRebaseRate();
-  const { data: ohmBalance = new DecimalBigNumber("0", 9) } = useOhmBalance()[networks.MAINNET];
-  const { data: v1OhmBalance = new DecimalBigNumber("0", 9) } = useV1OhmBalance()[networks.MAINNET];
-  const { data: v1SohmBalance = new DecimalBigNumber("0", 9) } = useV1SohmBalance()[networks.MAINNET];
-  const { data: sOhmBalance = new DecimalBigNumber("0", 9) } = useSohmBalance()[networks.MAINNET];
-  const wsohmBalances = useWsohmBalance();
-  const gohmBalances = useGohmBalance();
+  // const { data: ohmBalance = new DecimalBigNumber("0", 9) } = useOhmBalance()[networks.MAINNET];
+  const { data: gdaoBalance = new DecimalBigNumber("0", 9) } = useGdaoBalance()[networks.MAINNET];
+  // const { data: v1OhmBalance = new DecimalBigNumber("0", 9) } = useV1OhmBalance()[networks.MAINNET];
+  // const { data: v1SohmBalance = new DecimalBigNumber("0", 9) } = useV1SohmBalance()[networks.MAINNET];
+  // const { data: sOhmBalance = new DecimalBigNumber("0", 9) } = useSohmBalance()[networks.MAINNET];
+  const { data: sgdaoBalance = new DecimalBigNumber("0", 9) } = useSgdaoBalance()[networks.MAINNET];
+  // const wsohmBalances = useWsohmBalance();
+  // const gohmBalances = useGohmBalance();
+  const xgdaoBalances = useXgdaoBalance();
   const { data: gohmFuseBalance = new DecimalBigNumber("0", 18) } = useFuseBalance()[NetworkId.MAINNET];
   const { data: gohmTokemakBalance = new DecimalBigNumber("0", 18) } = useGohmTokemakBalance()[NetworkId.MAINNET];
   const [faucetToken, setFaucetToken] = useState("OHM V2");
 
-  const gohmTokens = [
-    gohmFuseBalance,
-    gohmTokemakBalance,
-    gohmBalances[networks.MAINNET].data,
-    gohmBalances[NetworkId.ARBITRUM].data,
-    gohmBalances[NetworkId.AVALANCHE].data,
-    gohmBalances[NetworkId.POLYGON].data,
-    gohmBalances[NetworkId.FANTOM].data,
-    gohmBalances[NetworkId.OPTIMISM].data,
-    //gohmBalances[NetworkId.LOCALHOST].data,
-  ];
-  const wsohmTokens = [
-    wsohmBalances[NetworkId.MAINNET].data,
-    wsohmBalances[NetworkId.ARBITRUM].data,
-    wsohmBalances[NetworkId.AVALANCHE].data,
-  ];
+  // const gohmTokens = [
+  //   gohmFuseBalance,
+  //   gohmTokemakBalance,
+  //   gohmBalances[networks.MAINNET].data,
+  //   gohmBalances[NetworkId.ARBITRUM].data,
+  //   gohmBalances[NetworkId.AVALANCHE].data,
+  //   gohmBalances[NetworkId.POLYGON].data,
+  //   gohmBalances[NetworkId.FANTOM].data,
+  //   gohmBalances[NetworkId.OPTIMISM].data,
+  // ];
 
-  const totalGohmBalance = gohmTokens
+  const xgdaoTokens = [xgdaoBalances[NetworkId.LOCALHOST].data, xgdaoBalances[NetworkId.TESTNET_GOERLI].data];
+
+  // const wsohmTokens = [
+  //   wsohmBalances[NetworkId.MAINNET].data,
+  //   wsohmBalances[NetworkId.ARBITRUM].data,
+  //   wsohmBalances[NetworkId.AVALANCHE].data,
+  // ];
+
+  // const totalGohmBalance = gohmTokens
+  //   .filter(nonNullable)
+  //   .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
+
+  const totalXgdaoBalance = xgdaoTokens
     .filter(nonNullable)
     .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
 
-  const totalWsohmBalance = wsohmTokens
-    .filter(nonNullable)
-    .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
+  // const totalWsohmBalance = wsohmTokens
+  //   .filter(nonNullable)
+  //   .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
 
   const notes = useBondNotes().data;
-  const formattedohmBalance = ohmBalance.toString({ decimals: 4, trim: false, format: true });
-  const formattedV1OhmBalance = v1OhmBalance.toString({ decimals: 4, trim: false, format: true });
-  const formattedV1SohmBalance = v1SohmBalance.toString({ decimals: 4, trim: false, format: true });
-  const formattedWsOhmBalance = totalWsohmBalance.toString({ decimals: 4, trim: false, format: true });
-  const formattedgOhmBalance = totalGohmBalance.toString({ decimals: 4, trim: false, format: true });
-  const formattedSOhmBalance = sOhmBalance.toString({ decimals: 4, trim: false, format: true });
-  const gOhmPriceChange = priceFeed.usd_24h_change * currentIndex.toApproxNumber();
-  const gOhmPrice = ohmPrice * currentIndex.toApproxNumber();
-  const rebaseAmountPerDay = rebaseRate * Number(formattedSOhmBalance) * 3;
+  // const formattedohmBalance = ohmBalance.toString({ decimals: 4, trim: false, format: true });
+  const formattedgdaoBalance = gdaoBalance.toString({ decimals: 4, trim: false, format: true });
+  // const formattedV1OhmBalance = v1OhmBalance.toString({ decimals: 4, trim: false, format: true });
+  // const formattedV1SohmBalance = v1SohmBalance.toString({ decimals: 4, trim: false, format: true });
+  // const formattedWsOhmBalance = totalWsohmBalance.toString({ decimals: 4, trim: false, format: true });
+  // const formattedgOhmBalance = totalGohmBalance.toString({ decimals: 4, trim: false, format: true });
+  const formattedxGdaoBalance = totalXgdaoBalance.toString({ decimals: 4, trim: false, format: true });
+  // const formattedSOhmBalance = sOhmBalance.toString({ decimals: 4, trim: false, format: true });
+  const formattedSGdaoBalance = sgdaoBalance.toString({ decimals: 4, trim: false, format: true });
+  // const gOhmPriceChange = priceFeed.usd_24h_change * currentIndex.toApproxNumber();
+  const xgdaoPriceChange = priceFeed.usd_24h_change * currentIndex.toApproxNumber();
+
+  // const gOhmPrice = ohmPrice * currentIndex.toApproxNumber();
+  const xGdaoPrice = gdaoPrice * currentIndex.toApproxNumber();
+  const rebaseAmountPerDay = rebaseRate * Number(formattedSGdaoBalance) * 3;
 
   const tokenArray = [
     {
-      symbol: ["OHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedohmBalance,
-      assetValue: ohmBalance.toApproxNumber() * ohmPrice,
+      symbol: ["GDAO"] as OHMTokenStackProps["tokens"],
+      balance: formattedgdaoBalance,
+      assetValue: gdaoBalance.toApproxNumber() * gdaoPrice,
       alwaysShow: true,
     },
+    // {
+    //   symbol: ["OHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedV1OhmBalance,
+    //   label: "(v1)",
+    //   assetValue: v1OhmBalance.toApproxNumber() * ohmPrice,
+    // },
     {
-      symbol: ["OHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedV1OhmBalance,
-      label: "(v1)",
-      assetValue: v1OhmBalance.toApproxNumber() * ohmPrice,
-    },
-    {
-      symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedSOhmBalance,
+      symbol: ["sGDAO"] as OHMTokenStackProps["tokens"],
+      balance: formattedSGdaoBalance,
       timeRemaining:
         nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
-      assetValue: sOhmBalance.toApproxNumber() * ohmPrice,
+      assetValue: sgdaoBalance.toApproxNumber() * gdaoPrice,
       alwaysShow: true,
       lineThreeLabel: "Rebases per day",
-      lineThreeValue: Number(formattedSOhmBalance) > 0 ? `${trim(rebaseAmountPerDay, 3)} sOHM ` : undefined,
+      lineThreeValue: Number(formattedSGdaoBalance) > 0 ? `${trim(rebaseAmountPerDay, 3)} sOHM ` : undefined,
     },
+    // {
+    //   symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedSOhmBalance,
+    //   timeRemaining:
+    //     nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
+    //   assetValue: sOhmBalance.toApproxNumber() * ohmPrice,
+    //   alwaysShow: true,
+    //   lineThreeLabel: "Rebases per day",
+    //   lineThreeValue: Number(formattedSOhmBalance) > 0 ? `${trim(rebaseAmountPerDay, 3)} sOHM ` : undefined,
+    // },
+    // {
+    //   symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedV1SohmBalance,
+    //   label: "(v1)",
+    //   timeRemaining:
+    //     nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
+    //   assetValue: v1SohmBalance.toApproxNumber() * ohmPrice,
+    // },
+    // {
+    //   symbol: ["wsOHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedWsOhmBalance,
+    //   assetValue: gOhmPrice * totalWsohmBalance.toApproxNumber(),
+    //   geckoTicker: "governance-ohm",
+    // },
+    // {
+    //   symbol: ["gOHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedgOhmBalance,
+    //   assetValue: gOhmPrice * totalGohmBalance.toApproxNumber(),
+    //   pnl: formattedgOhmBalance ? 0 : formatCurrency(totalGohmBalance.toApproxNumber() * gOhmPriceChange, 2),
+    //   alwaysShow: true,
+    //   geckoTicker: "governance-ohm",
+    // },
     {
-      symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedV1SohmBalance,
-      label: "(v1)",
-      timeRemaining:
-        nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
-      assetValue: v1SohmBalance.toApproxNumber() * ohmPrice,
-    },
-    {
-      symbol: ["wsOHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedWsOhmBalance,
-      assetValue: gOhmPrice * totalWsohmBalance.toApproxNumber(),
-      geckoTicker: "governance-ohm",
-    },
-    {
-      symbol: ["gOHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedgOhmBalance,
-      assetValue: gOhmPrice * totalGohmBalance.toApproxNumber(),
-      pnl: formattedgOhmBalance ? 0 : formatCurrency(totalGohmBalance.toApproxNumber() * gOhmPriceChange, 2),
+      symbol: ["xGDAO"] as OHMTokenStackProps["tokens"],
+      balance: formattedxGdaoBalance,
+      assetValue: xGdaoPrice * totalXgdaoBalance.toApproxNumber(),
+      pnl: formattedxGdaoBalance ? 0 : formatCurrency(totalXgdaoBalance.toApproxNumber() * gOhmPriceChange, 2),
       alwaysShow: true,
-      geckoTicker: "governance-ohm",
+      geckoTicker: "xgdao",
     },
   ];
 
@@ -193,12 +225,12 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
       label: "(Bond)",
       timeRemaining:
         Date.now() > note.matured ? "Fully Vested" : prettifySecondsInDays((note.matured - Date.now()) / 1000),
-      assetValue: note.payout.toApproxNumber() * gOhmPrice,
+      assetValue: note.payout.toApproxNumber() * gdaoPrice,
       underlyingSymbol: "gOHM",
       pnl: Number(note.payout) === 0 ? 0 : formatCurrency(note.payout.toApproxNumber() * gOhmPriceChange, 2),
       ctaText: "Claim",
       ctaOnClick: () => navigate("/bonds"),
-      geckoTicker: "governance-ohm",
+      geckoTicker: "xgdao",
     })) || [];
 
   const assets = [...tokenArray, ...bondsArray];
@@ -214,7 +246,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
           <WalletBalance
             title="Balance"
             usdBalance={formatCurrency(walletTotalValueUSD, 2)}
-            underlyingBalance={`${formatNumber(walletTotalValueUSD / (ohmPrice !== 0 ? ohmPrice : 1), 2)} OHM`}
+            underlyingBalance={`${formatNumber(walletTotalValueUSD / (gdaoPrice !== 0 ? gdaoPrice : 1), 2)} GDAO`}
           />
         </Box>
         <Box display="flex" flexDirection="row" className={classes.selector} mb="18px" mt="18px">

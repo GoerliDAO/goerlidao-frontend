@@ -1,7 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ContractReceipt } from "ethers";
 import toast from "react-hot-toast";
-import { GOHM_ADDRESSES, OHM_ADDRESSES, SOHM_ADDRESSES, STAKING_ADDRESSES } from "src/constants/addresses";
+// import { GOHM_ADDRESSES, OHM_ADDRESSES, SOHM_ADDRESSES, STAKING_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES, SGDAO_ADDRESSES, STAKING_ADDRESSES, XGDAO_ADDRESSES } from "src/constants/local/addresses";
 import { trackGAEvent, trackGtagEvent } from "src/helpers/analytics/trackGAEvent";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { balanceQueryKey, useBalance } from "src/hooks/useBalance";
@@ -15,7 +16,7 @@ export const useStakeToken = () => {
   const client = useQueryClient();
   const { address = "" } = useAccount();
   const networks = useTestableNetworks();
-  const balance = useBalance(OHM_ADDRESSES)[networks.MAINNET].data;
+  const balance = useBalance(GDAO_ADDRESSES)[networks.TESTNET_GOERLI].data;
   const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
 
   return useMutation<ContractReceipt, EthersError, { amount: string; toToken: string }>({
@@ -34,7 +35,7 @@ export const useStakeToken = () => {
 
       if (!address) throw new Error(`Please refresh your page and try again`);
 
-      const shouldRebase = toToken === "sOHM";
+      const shouldRebase = toToken === "sGDAO";
 
       const claim = true; // was true before the mint & sync distributor change
 
@@ -46,9 +47,9 @@ export const useStakeToken = () => {
     },
     onSuccess: async (tx, data) => {
       const keysToRefetch = [
-        balanceQueryKey(address, OHM_ADDRESSES, networks.MAINNET),
-        balanceQueryKey(address, data.toToken === "sOHM" ? SOHM_ADDRESSES : GOHM_ADDRESSES, networks.MAINNET),
-        warmupQueryKey(address, networks.MAINNET),
+        balanceQueryKey(address, GDAO_ADDRESSES, networks.TESTNET_GOERLI),
+        balanceQueryKey(address, data.toToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES, networks.TESTNET_GOERLI),
+        warmupQueryKey(address, networks.TESTNET_GOERLI),
       ];
 
       const promises = keysToRefetch.map(key => client.refetchQueries([key], { type: "active" }));
@@ -72,7 +73,7 @@ export const useStakeToken = () => {
         token: data.toToken,
       });
 
-      toast(`Successfully staked OHM`);
+      toast(`Successfully staked GDAO`);
     },
   });
 };

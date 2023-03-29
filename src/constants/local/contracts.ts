@@ -21,12 +21,11 @@ import {
   SGDAO_ADDRESSES,
   STAKING_ADDRESSES,
 } from "src/constants/local/addresses";
+import { BondFixedTermTeller__factory, Faucet__factory } from "src/forge/factories";
 import { BondAggregator__factory } from "src/forge/factories/BondAggregator__factory";
-import { BondFixedTermTeller__factory } from "src/forge/factories/BondFixedTermTeller__factory";
 import { Distributor__factory } from "src/forge/factories/Distributor.sol/Distributor__factory";
 //import { BondAggregator__factory } from "src/typechain/factories/BondAggregator__factory";
 //import { OlympusDistributor__factory } from "src/typechain/factories/OlympusDistributor__factory";
-import { Faucet__factory } from "src/forge/factories/Faucet__factory";
 import { GDAOStaking__factory } from "src/forge/factories/GDAOStaking.sol/GDAOStaking__factory";
 import { SGDAO__factory } from "src/forge/factories/sGDAO.sol/SGDAO__factory";
 import { Contract } from "src/helpers/contracts/Contract";

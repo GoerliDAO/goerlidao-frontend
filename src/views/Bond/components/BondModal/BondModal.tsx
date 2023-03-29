@@ -10,7 +10,8 @@ import { formatNumber } from "src/helpers";
 import { Token } from "src/helpers/contracts/Token";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
-import { useOhmPrice } from "src/hooks/usePrices";
+// import { useOhmPrice } from "src/hooks/usePrices";
+import { useGdaoPrice } from "src/hooks/usePrices";
 import { useTokenPrice } from "src/hooks/useTokenPrice";
 import { BondDiscount } from "src/views/Bond/components/BondDiscount";
 import { BondInputArea } from "src/views/Bond/components/BondModal/components/BondInputArea/BondInputArea";
@@ -99,7 +100,7 @@ export const BondModal: React.VFC<{ bond: Bond }> = ({ bond }) => {
         <Box display="flex" flexDirection="row" justifyContent="space-between" width={["100%", "70%"]} mt="24px">
           <Metric
             label={`Bond Price`}
-            tooltip={isInverseBond ? "Amount you will receive for 1 OHM" : undefined}
+            tooltip={isInverseBond ? "Amount you will receive for 1 GDAO" : undefined}
             metric={
               bond.isSoldOut ? (
                 "--"
@@ -153,13 +154,14 @@ const TokenPrice: React.VFC<{ token: Token; isInverseBond?: boolean; baseSymbol:
   quoteSymbol,
   baseSymbol,
 }) => {
-  const { data: priceToken = new DecimalBigNumber("0") } = useTokenPrice({ token, networkId: NetworkId.MAINNET });
-  const { data: ohmPrice = 0 } = useOhmPrice();
+  // const { data: priceToken = new DecimalBigNumber("0") } = useTokenPrice({ token, networkId: NetworkId.TESTNET_GOERLI });
+  const { data: priceToken = new DecimalBigNumber("0") } = useTokenPrice({ token, networkId: NetworkId.LOCALHOST });
+  const { data: gdaoPrice = 0 } = useGdaoPrice();
   const sameToken = quoteSymbol === baseSymbol;
   const price = sameToken
     ? formatNumber(1, 2)
     : isInverseBond
-    ? formatNumber(ohmPrice, 2)
+    ? formatNumber(gdaoPrice, 2)
     : `${formatNumber(Number(priceToken.toString({ decimals: 2, format: true, trim: false })), 2)}`;
   return price ? (
     <>

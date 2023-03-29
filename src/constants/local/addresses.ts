@@ -81,14 +81,17 @@ export const GOHM_ADDRESSES = {
 };
 
 export const XGDAO_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
   [NetworkId.LOCALHOST]: "0x457cCf29090fe5A24c19c1bc95F492168C0EaFdb",
 };
 
 export const GDAO_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
   [NetworkId.LOCALHOST]: "0x1f10F3Ba7ACB61b2F50B9d6DdCf91a6f787C0E82",
 };
 
 export const SGDAO_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
   [NetworkId.LOCALHOST]: "0x525C7063E7C20997BaaE9bDa922159152D0e8417",
 };
 

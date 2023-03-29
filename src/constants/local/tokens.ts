@@ -205,14 +205,14 @@ OHM_DAI_BALANCER_LP_TOKEN.customPricingFunc = async () => {
   return daiUSDValue.div(new DecimalBigNumber(poolTokens.balances[0], 9));
 };
 
-export const UST_TOKEN = new Token({
-  icons: ["UST"],
-  name: "UST",
-  decimals: 6,
-  addresses: UST_ADDRESSES,
-  factory: IERC20__factory,
-  purchaseUrl: "",
-});
+// export const UST_TOKEN = new Token({
+//   icons: ["UST"],
+//   name: "UST",
+//   decimals: 6,
+//   addresses: UST_ADDRESSES,
+//   factory: IERC20__factory,
+//   purchaseUrl: "",
+// });
 
 export const FRAX_TOKEN = new Token({
   icons: ["FRAX"],

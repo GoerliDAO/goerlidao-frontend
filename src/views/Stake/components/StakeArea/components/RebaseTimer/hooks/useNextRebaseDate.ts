@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { BigNumber } from "ethers";
 import { NetworkId } from "src/constants";
-import { STAKING_ADDRESSES } from "src/constants/addresses";
+// import { STAKING_ADDRESSES } from "src/constants/addresses";
+import { STAKING_ADDRESSES } from "src/constants/local/addresses";
 import { parseBigNumber } from "src/helpers";
 import { useStaticStakingContract } from "src/hooks/useContract";
 

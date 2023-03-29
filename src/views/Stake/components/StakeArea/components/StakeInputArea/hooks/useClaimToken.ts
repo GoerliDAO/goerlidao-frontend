@@ -1,7 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ContractReceipt } from "ethers";
 import toast from "react-hot-toast";
-import { GOHM_ADDRESSES, OHM_ADDRESSES, SOHM_ADDRESSES, STAKING_ADDRESSES } from "src/constants/addresses";
+// import { GOHM_ADDRESSES, OHM_ADDRESSES, SOHM_ADDRESSES, STAKING_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES, SGDAO_ADDRESSES, STAKING_ADDRESSES, XGDAO_ADDRESSES } from "src/constants/local/addresses";
 import { trackGAEvent, trackGtagEvent } from "src/helpers/analytics/trackGAEvent";
 import { balanceQueryKey, useBalance } from "src/hooks/useBalance";
 import { useDynamicStakingContract } from "src/hooks/useContract";
@@ -17,7 +18,7 @@ export const useClaimToken = () => {
   const client = useQueryClient();
   const { address = "" } = useAccount();
   const networks = useTestableNetworks();
-  const balance = useBalance(OHM_ADDRESSES)[networks.MAINNET].data;
+  const balance = useBalance(GDAO_ADDRESSES)[networks.MAINNET].data;
   const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
 
   return useMutation<ContractReceipt, EthersError, { toToken: string }>({
@@ -28,7 +29,7 @@ export const useClaimToken = () => {
 
       if (!address) throw new Error(`Please refresh your page and try again`);
 
-      const shouldRebase = toToken === "sOHM";
+      const shouldRebase = toToken === "sGDAO";
 
       const transaction = await contract.claim(address, shouldRebase);
       return transaction.wait();
@@ -55,8 +56,8 @@ export const useClaimToken = () => {
       });
 
       const keysToRefetch = [
-        balanceQueryKey(address, data.toToken === "sOHM" ? SOHM_ADDRESSES : GOHM_ADDRESSES, networks.MAINNET),
-        warmupQueryKey(address, networks.MAINNET),
+        balanceQueryKey(address, data.toToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES, networks.TESTNET_GOERLI),
+        warmupQueryKey(address, networks.TESTNET_GOERLI),
       ];
 
       const promises = keysToRefetch.map(key => client.refetchQueries([key], { type: "active" }));

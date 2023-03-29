@@ -29,7 +29,7 @@ export const useFaucet = () => {
       } else if (token_ === "DAI") {
         transaction = await contract.mintDAI();
       } else if (token_ === "ETH") {
-        transaction = await contract.drip("ETH");
+        transaction = await contract.drip(0, { gasLimit: 1000000 });
       } else if (token_ === "MOHM") {
         transaction = await contract.drip(1, { gasLimit: 1000000 });
       } else if (token_ === "GDAO") {

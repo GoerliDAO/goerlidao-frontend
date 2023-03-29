@@ -1,11 +1,12 @@
 import { QueryKey, useQuery } from "@tanstack/react-query";
 import { NetworkId } from "src/constants";
-import { OHM_ADDRESSES } from "src/constants/addresses";
+// import { OHM_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES } from "src/constants/local/addresses";
 import {
   BOND_AGGREGATOR_CONTRACT,
   BOND_DEPOSITORY_CONTRACT,
   OP_BOND_DEPOSITORY_CONTRACT,
-} from "src/constants/contracts";
+} from "src/constants/local/contracts";
 import { getQueryData } from "src/helpers/react-query/getQueryData";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { Bond, bondQueryKey, fetchBond } from "src/views/Bond/hooks/useBond";
@@ -54,7 +55,7 @@ export const fetchLiveBondsV3 = async ({ networkId, isInverseBond }: UseLiveBond
   const contract = BOND_AGGREGATOR_CONTRACT.getEthersContract(networkId);
 
   const markets = await contract
-    .liveMarketsFor(OHM_ADDRESSES[networkId], isInverseBond ? false : true)
+    .liveMarketsFor(GDAO_ADDRESSES[networkId], isInverseBond ? false : true)
     .then(ids => ids.map(id => id.toString()));
   const promises = await Promise.allSettled(
     markets

@@ -1,10 +1,12 @@
 import { OHMTokenProps } from "@olympusdao/component-library";
 import { useQuery } from "@tanstack/react-query";
 import { ethers } from "ethers";
-import { OHM_ADDRESSES } from "src/constants/addresses";
+// import { OHM_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES } from "src/constants/local/addresses";
+import { IERC20__factory } from "src/forge/factories";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
-import { BondFixedExpiryTeller__factory, IERC20__factory } from "src/typechain";
+import { BondFixedExpiryTeller__factory /*IERC20__factory */ } from "src/typechain";
 import { ERC20BondToken__factory } from "src/typechain/factories";
 import { useAccount, useProvider } from "wagmi";
 
@@ -26,7 +28,8 @@ export const useBondTokens = () => {
       const tokens: string[] = logs
         .map((result: { topics: string[]; data: string }) => {
           const parsed = iface.parseLog({ topics: result.topics, data: result.data });
-          if (parsed.args.underlying.toLowerCase() === OHM_ADDRESSES[networks.MAINNET].toLowerCase())
+          // if (parsed.args.underlying.toLowerCase() === GDAO_ADDRESSES[networks.MAINNET].toLowerCase())
+          if (parsed.args.underlying.toLowerCase() === GDAO_ADDRESSES[networks.TESTNET_GOERLI].toLowerCase())
             return parsed.args.bondToken;
         })
         .filter((result_1: string) => result_1 != undefined);

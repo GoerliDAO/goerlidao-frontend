@@ -6,11 +6,17 @@ import { useLocation } from "react-router-dom";
 import { TokenAllowanceGuard } from "src/components/TokenAllowanceGuard/TokenAllowanceGuard";
 import { WalletConnectedGuard } from "src/components/WalletConnectedGuard";
 import {
-  BOND_DEPOSITORY_ADDRESSES,
+  // BOND_DEPOSITORY_ADDRESSES,
   BOND_FIXED_EXPIRY_TELLER_ADDRESSES,
-  BOND_FIXED_TERM_TELLER_ADDRESSES,
+  // BOND_FIXED_TERM_TELLER_ADDRESSES,
   OP_BOND_DEPOSITORY_ADDRESSES,
 } from "src/constants/addresses";
+import {
+  BOND_DEPOSITORY_ADDRESSES,
+  // BOND_FIXED_EXPIRY_TELLER_ADDRESSES,
+  BOND_FIXED_TERM_TELLER_ADDRESSES,
+  // OP_BOND_DEPOSITORY_ADDRESSES,
+} from "src/constants/local/addresses";
 import { shorten } from "src/helpers";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { useBalance } from "src/hooks/useBalance";
@@ -77,7 +83,7 @@ export const BondInputArea: React.VFC<{
     ? props.bond.maxPayout.inBaseToken
     : props.bond.capacity.inBaseToken
   ).toString({ decimals: 4, format: true })}${" "}
-  ${isInverseBond ? props.bond.baseToken.name : `OHM`}`;
+  ${isInverseBond ? props.bond.baseToken.name : `GDAO`}`;
 
   const quoteTokenString = `
     ${(props.bond.maxPayout.inQuoteToken.lt(props.bond.capacity.inQuoteToken)
@@ -139,7 +145,7 @@ export const BondInputArea: React.VFC<{
               approvalText={`Approve ${props.bond.quoteToken.name} to Bond`}
               message={
                 <>
-                  First time bonding <b>{props.bond.quoteToken.name}</b>? <br /> Please approve Olympus DAO to use your{" "}
+                  First time bonding <b>{props.bond.quoteToken.name}</b>? <br /> Please approve GDAO to use your{" "}
                   <b>{props.bond.quoteToken.name}</b> for bonding.
                 </>
               }
@@ -205,7 +211,7 @@ export const BondInputArea: React.VFC<{
               title={isInverseBond ? `Premium` : `Discount`}
               balance={<BondDiscount discount={props.bond.discount} textOnly />}
               tooltip={`Negative discount is bad (you pay more than the market value). The bond discount is the percentage difference between ${
-                isInverseBond ? props.bond.baseToken.name : `OHM`
+                isInverseBond ? props.bond.baseToken.name : `GDAO`
               }'s market value and the bond's price.`}
             />
 

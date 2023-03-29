@@ -18,6 +18,7 @@ class Covalent {
     NetworkId.POLYGON,
     NetworkId.ARBITRUM,
     NetworkId.AVALANCHE,
+    NetworkId.TESTNET_GOERLI,
   ];
 
   private _url = "https://api.covalenthq.com/v1";

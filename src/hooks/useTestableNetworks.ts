@@ -24,5 +24,6 @@ export const useTestableNetworks = () => {
     ARBITRUM: getTestnet(NetworkId.ARBITRUM, NetworkId.ARBITRUM_TESTNET, chain.id),
     POLYGON: getTestnet(NetworkId.POLYGON, NetworkId.POLYGON_TESTNET, chain.id),
     FANTOM: getTestnet(NetworkId.FANTOM, NetworkId.FANTOM_TESTNET, chain.id),
+    LOCALHOST: getTestnet(NetworkId.LOCALHOST, NetworkId.LOCALHOST, chain.id),
   };
 };

@@ -21,15 +21,19 @@ import CURVE_GAUGE_DEPOSIT_ABI from "src/abi/CurveGaugeDeposit.json";
 import CURVE_POOL_ABI from "src/abi/CurvePool.json";
 import FUSE_PROXY_ABI from "src/abi/FuseProxy.json";
 import PAIR_CONTRACT_ABI from "src/abi/PairContract.json";
-import SOHM_ABI from "src/abi/sOhmv2.json";
-import { AddressMap } from "src/constants/addresses";
-import { Faucet, IERC20 } from "src/forge";
+import { AddressMap } from "src/constants/local/addresses";
+// import { IERC20 } from "src/forge/IERC20";
+import { Faucet } from "src/forge/Faucet";
+import { GDAOStaking } from "src/forge/GDAOStaking";
+//types
 //import DEV_FAUCET from "src/abi/DevFaucet.json";
 import FAUCET from "src/forge_out/Faucet.sol/Faucet.json";
 //import STAKING_ABI from "src/abi/OlympusStakingv2.json";
 import STAKING_ABI from "src/forge_out/GDAOStaking.sol/GDAOStaking.json";
 //import IERC20_ABI from "src/abi/IERC20.json";
 import IERC20_ABI from "src/forge_out/IERC20.sol/IERC20.json";
+// import SOHM_ABI from "src/abi/sOhmv2.json";
+import { sGDAO } from "src/forge_out/sGDAO.sol/sGDAO.json";
 import { Providers } from "src/helpers/providers/Providers/Providers";
 import { NetworkId } from "src/networkDetails";
 import {
@@ -38,9 +42,9 @@ import {
   CurvePool,
   FuseProxy,
   IERC20,
-  OlympusStakingv2,
+  // OlympusStakingv2,
   PairContract,
-  SOhmv2,
+  // SOhmv2,
 } from "src/typechain";
 import { BalancerV2Pool } from "src/typechain/BalancerV2Pool";
 import { BalancerVault } from "src/typechain/BalancerVault";
@@ -109,11 +113,11 @@ export const createMultipleStaticContracts = <TContract extends Contract = Contr
 };
 
 // Static contracts
-export const useStaticSohmContract = createStaticContract<SOhmv2>(SOHM_ABI.abi);
+export const useStaticSohmContract = createStaticContract<sGDAO>(sGDAO.abi);
 export const useStaticTokenContract = createStaticContract<IERC20>(IERC20_ABI.abi);
 export const useStaticFuseContract = createStaticContract<FuseProxy>(FUSE_PROXY_ABI.abi);
 export const useStaticPairContract = createStaticContract<PairContract>(PAIR_CONTRACT_ABI.abi);
-export const useStaticStakingContract = createStaticContract<OlympusStakingv2>(STAKING_ABI);
+export const useStaticStakingContract = createStaticContract<GDAOStaking>(STAKING_ABI.abi);
 export const useStaticBondContract = createStaticContract<BondDepository>(BOND_ABI.abi);
 
 export const useStaticBalancerV2PoolContract = createStaticContract<BalancerV2Pool>(BALANCERV2_POOL_ABI.abi);
@@ -125,8 +129,8 @@ export const useStaticCurveGaugeControllerContract = createStaticContract<CurveG
 export const useStaticCurveGaugeDepositContract = createStaticContract<CurveGaugeDeposit>(CURVE_GAUGE_DEPOSIT_ABI.abi);
 
 // Dynamic contracts
-export const useDynamicTokenContract = createDynamicContract<IERC20>(IERC20_ABI.abi);
-export const useDynamicStakingContract = createDynamicContract<OlympusStakingv2>(STAKING_ABI);
+export const useDynamicTokenContract = createDynamicContract<IERC20>(IERC20.abi);
+export const useDynamicStakingContract = createDynamicContract<GDAOStaking>(STAKING_ABI.abi);
 export const useDynamicMigratorContract = createDynamicContract<CrossChainMigrator>(CROSS_CHAIN_MIGRATOR_ABI.abi);
 export const useDynamicFaucetContract = createDynamicContract<Faucet>(FAUCET.abi);
 
