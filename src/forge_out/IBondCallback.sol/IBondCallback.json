@@ -1,0 +1,784 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "amountsForMarket",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "in_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "out_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "teller_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "blacklist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "inputAmount_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "outputAmount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "callback",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "teller_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "whitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "amountsForMarket(uint256)": "8aeb40fd",
+    "blacklist(address,uint256)": "1074bce5",
+    "callback(uint256,uint256,uint256)": "4b9de77c",
+    "whitelist(address,uint256)": "98fc55d8"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"amountsForMarket\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"in_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"out_\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"teller_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"blacklist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"inputAmount_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"outputAmount_\",\"type\":\"uint256\"}],\"name\":\"callback\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"teller_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"whitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"amountsForMarket(uint256)\":{\"params\":{\"id_\":\"ID of the market\"},\"returns\":{\"in_\":\"    Amount of quote tokens bonded to the market\",\"out_\":\"   Amount of payout tokens paid out to the market\"}},\"blacklist(address,uint256)\":{\"details\":\"Shutdown function in case there's an issue with the teller\",\"params\":{\"id_\":\"ID of the market to remove from whitelist\",\"teller_\":\"Address of the Teller contract which serves the market\"}},\"callback(uint256,uint256,uint256)\":{\"details\":\"Must transfer the output amount of payout tokens back to the TellerShould check that the quote tokens have been transferred to the contract in the _callback function\",\"params\":{\"id_\":\"ID of the market\",\"inputAmount_\":\"Amount of quote tokens bonded to the market\",\"outputAmount_\":\"Amount of payout tokens to be paid out to the market\"}},\"whitelist(address,uint256)\":{\"params\":{\"id_\":\"ID of the market\",\"teller_\":\"Address of the Teller contract which serves the market\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"amountsForMarket(uint256)\":{\"notice\":\"Returns the number of quote tokens received and payout tokens paid out for a market\"},\"blacklist(address,uint256)\":{\"notice\":\"Remove a market ID on a teller from the whitelist\"},\"callback(uint256,uint256,uint256)\":{\"notice\":\"Send payout tokens to Teller while allowing market owners to perform custom logic on received or paid out tokensMarket ID on Teller must be whitelisted\"},\"whitelist(address,uint256)\":{\"notice\":\"Whitelist a teller and market ID combinationMust be callback owner\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/IBondCallback.sol\":\"IBondCallback\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"lib/solmate/src/tokens/ERC20.sol\":{\"keccak256\":\"0x0240f7703cff32a61ee3e9fbb339e09a944260432a9ef37debf3692b1a6c8049\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://2d8b0c0158b1952a87c327d506a645040924a94c8f9f937184659f8a8e3b0759\",\"dweb:/ipfs/QmZ9rGdkjRCk8zfr4xeH7Jh88tkWJNt9LvG1o2GcCm7Uqa\"]},\"src/interfaces/IBondCallback.sol\":{\"keccak256\":\"0x8ccf5a971b9548ed415e90b1b66e44230b6f3934984fbe35e80d1bfa58b4b0f5\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://5c5a6e92ef3e65f5dba9ee5a752f0f02cbdf956fe208640141ccfa054a388b6b\",\"dweb:/ipfs/QmUbKa6eh3TmCToTD4vusuzLMd8xkGpbfv89tLDe4VQLvC\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.15+commit.e14f2714"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "amountsForMarket",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "in_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "out_",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "teller_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "blacklist"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "inputAmount_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "outputAmount_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "callback"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "teller_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "whitelist"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "amountsForMarket(uint256)": {
+            "params": {
+              "id_": "ID of the market"
+            },
+            "returns": {
+              "in_": "    Amount of quote tokens bonded to the market",
+              "out_": "   Amount of payout tokens paid out to the market"
+            }
+          },
+          "blacklist(address,uint256)": {
+            "details": "Shutdown function in case there's an issue with the teller",
+            "params": {
+              "id_": "ID of the market to remove from whitelist",
+              "teller_": "Address of the Teller contract which serves the market"
+            }
+          },
+          "callback(uint256,uint256,uint256)": {
+            "details": "Must transfer the output amount of payout tokens back to the TellerShould check that the quote tokens have been transferred to the contract in the _callback function",
+            "params": {
+              "id_": "ID of the market",
+              "inputAmount_": "Amount of quote tokens bonded to the market",
+              "outputAmount_": "Amount of payout tokens to be paid out to the market"
+            }
+          },
+          "whitelist(address,uint256)": {
+            "params": {
+              "id_": "ID of the market",
+              "teller_": "Address of the Teller contract which serves the market"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "amountsForMarket(uint256)": {
+            "notice": "Returns the number of quote tokens received and payout tokens paid out for a market"
+          },
+          "blacklist(address,uint256)": {
+            "notice": "Remove a market ID on a teller from the whitelist"
+          },
+          "callback(uint256,uint256,uint256)": {
+            "notice": "Send payout tokens to Teller while allowing market owners to perform custom logic on received or paid out tokensMarket ID on Teller must be whitelisted"
+          },
+          "whitelist(address,uint256)": {
+            "notice": "Whitelist a teller and market ID combinationMust be callback owner"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":balancer-v2/=lib/balancer-v2/",
+        ":bonds/=lib/bonds/src/",
+        ":ds-test/=lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/",
+        ":interfaces/=src/interfaces/",
+        ":libraries/=src/libraries/",
+        ":modules/=src/modules/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+        ":policies/=src/policies/",
+        ":solmate/=lib/solmate/src/",
+        ":test/=src/test/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 10
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/interfaces/IBondCallback.sol": "IBondCallback"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "lib/solmate/src/tokens/ERC20.sol": {
+        "keccak256": "0x0240f7703cff32a61ee3e9fbb339e09a944260432a9ef37debf3692b1a6c8049",
+        "urls": [
+          "bzz-raw://2d8b0c0158b1952a87c327d506a645040924a94c8f9f937184659f8a8e3b0759",
+          "dweb:/ipfs/QmZ9rGdkjRCk8zfr4xeH7Jh88tkWJNt9LvG1o2GcCm7Uqa"
+        ],
+        "license": "AGPL-3.0-only"
+      },
+      "src/interfaces/IBondCallback.sol": {
+        "keccak256": "0x8ccf5a971b9548ed415e90b1b66e44230b6f3934984fbe35e80d1bfa58b4b0f5",
+        "urls": [
+          "bzz-raw://5c5a6e92ef3e65f5dba9ee5a752f0f02cbdf956fe208640141ccfa054a388b6b",
+          "dweb:/ipfs/QmUbKa6eh3TmCToTD4vusuzLMd8xkGpbfv89tLDe4VQLvC"
+        ],
+        "license": "AGPL-3.0"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/interfaces/IBondCallback.sol",
+    "id": 44715,
+    "exportedSymbols": {
+      "ERC20": [
+        28408
+      ],
+      "IBondCallback": [
+        44714
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "37:1876:66",
+    "nodes": [
+      {
+        "id": 44675,
+        "nodeType": "PragmaDirective",
+        "src": "37:24:66",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0"
+        ]
+      },
+      {
+        "id": 44677,
+        "nodeType": "ImportDirective",
+        "src": "63:47:66",
+        "nodes": [],
+        "absolutePath": "lib/solmate/src/tokens/ERC20.sol",
+        "file": "solmate/tokens/ERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 44715,
+        "sourceUnit": 28409,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 44676,
+              "name": "ERC20",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 28408,
+              "src": "71:5:66",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 44714,
+        "nodeType": "ContractDefinition",
+        "src": "112:1800:66",
+        "nodes": [
+          {
+            "id": 44687,
+            "nodeType": "FunctionDefinition",
+            "src": "762:115:66",
+            "nodes": [],
+            "documentation": {
+              "id": 44678,
+              "nodeType": "StructuredDocumentation",
+              "src": "142:615:66",
+              "text": "@notice                 Send payout tokens to Teller while allowing market owners to perform custom logic on received or paid out tokens\n @notice                 Market ID on Teller must be whitelisted\n @param id_              ID of the market\n @param inputAmount_     Amount of quote tokens bonded to the market\n @param outputAmount_    Amount of payout tokens to be paid out to the market\n @dev Must transfer the output amount of payout tokens back to the Teller\n @dev Should check that the quote tokens have been transferred to the contract in the _callback function"
+            },
+            "functionSelector": "4b9de77c",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "callback",
+            "nameLocation": "771:8:66",
+            "parameters": {
+              "id": 44685,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44680,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "797:3:66",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44687,
+                  "src": "789:11:66",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44679,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "789:7:66",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44682,
+                  "mutability": "mutable",
+                  "name": "inputAmount_",
+                  "nameLocation": "818:12:66",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44687,
+                  "src": "810:20:66",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44681,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "810:7:66",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44684,
+                  "mutability": "mutable",
+                  "name": "outputAmount_",
+                  "nameLocation": "848:13:66",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44687,
+                  "src": "840:21:66",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44683,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "840:7:66",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "779:88:66"
+            },
+            "returnParameters": {
+              "id": 44686,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "876:0:66"
+            },
+            "scope": 44714,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 44697,
+            "nodeType": "FunctionDefinition",
+            "src": "1171:89:66",
+            "nodes": [],
+            "documentation": {
+              "id": 44688,
+              "nodeType": "StructuredDocumentation",
+              "src": "883:283:66",
+              "text": "@notice         Returns the number of quote tokens received and payout tokens paid out for a market\n @param id_      ID of the market\n @return in_     Amount of quote tokens bonded to the market\n @return out_    Amount of payout tokens paid out to the market"
+            },
+            "functionSelector": "8aeb40fd",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "amountsForMarket",
+            "nameLocation": "1180:16:66",
+            "parameters": {
+              "id": 44691,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44690,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "1205:3:66",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44697,
+                  "src": "1197:11:66",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44689,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1197:7:66",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1196:13:66"
+            },
+            "returnParameters": {
+              "id": 44696,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44693,
+                  "mutability": "mutable",
+                  "name": "in_",
+                  "nameLocation": "1241:3:66",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44697,
+                  "src": "1233:11:66",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44692,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1233:7:66",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44695,
+                  "mutability": "mutable",
+                  "name": "out_",
+                  "nameLocation": "1254:4:66",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44697,
+                  "src": "1246:12:66",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44694,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1246:7:66",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1232:27:66"
+            },
+            "scope": 44714,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 44705,
+            "nodeType": "FunctionDefinition",
+            "src": "1502:58:66",
+            "nodes": [],
+            "documentation": {
+              "id": 44698,
+              "nodeType": "StructuredDocumentation",
+              "src": "1266:231:66",
+              "text": "@notice         Whitelist a teller and market ID combination\n @notice         Must be callback owner\n @param teller_  Address of the Teller contract which serves the market\n @param id_      ID of the market"
+            },
+            "functionSelector": "98fc55d8",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "whitelist",
+            "nameLocation": "1511:9:66",
+            "parameters": {
+              "id": 44703,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44700,
+                  "mutability": "mutable",
+                  "name": "teller_",
+                  "nameLocation": "1529:7:66",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44705,
+                  "src": "1521:15:66",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 44699,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1521:7:66",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44702,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "1546:3:66",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44705,
+                  "src": "1538:11:66",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44701,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1538:7:66",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1520:30:66"
+            },
+            "returnParameters": {
+              "id": 44704,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1559:0:66"
+            },
+            "scope": 44714,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 44713,
+            "nodeType": "FunctionDefinition",
+            "src": "1852:58:66",
+            "nodes": [],
+            "documentation": {
+              "id": 44706,
+              "nodeType": "StructuredDocumentation",
+              "src": "1566:281:66",
+              "text": "@notice Remove a market ID on a teller from the whitelist\n @dev    Shutdown function in case there's an issue with the teller\n @param  teller_ Address of the Teller contract which serves the market\n @param  id_     ID of the market to remove from whitelist"
+            },
+            "functionSelector": "1074bce5",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "blacklist",
+            "nameLocation": "1861:9:66",
+            "parameters": {
+              "id": 44711,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44708,
+                  "mutability": "mutable",
+                  "name": "teller_",
+                  "nameLocation": "1879:7:66",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44713,
+                  "src": "1871:15:66",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 44707,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1871:7:66",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44710,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "1896:3:66",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44713,
+                  "src": "1888:11:66",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44709,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1888:7:66",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1870:30:66"
+            },
+            "returnParameters": {
+              "id": 44712,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1909:0:66"
+            },
+            "scope": 44714,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IBondCallback",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          44714
+        ],
+        "name": "IBondCallback",
+        "nameLocation": "122:13:66",
+        "scope": 44715,
+        "usedErrors": []
+      }
+    ],
+    "license": "AGPL-3.0"
+  },
+  "id": 66
+}

@@ -15,24 +15,25 @@ import {
   STAKING_ADDRESSES,
   ZAP_ADDRESSES,
 } from "src/constants/addresses";
+import { BondAggregator__factory, BondFixedTermTeller__factory } from "src/forge/factories";
 import { Contract } from "src/helpers/contracts/Contract";
 import {
   BalancerVault__factory,
   BondDepository__factory,
   BondFixedExpiryTeller__factory,
-  BondFixedTermTeller__factory,
+  // BondFixedTermTeller__factory,
   CrossChainMigrator__factory,
   OlympusProV2__factory,
-  OlympusStakingv2__factory,
+  // OlympusStakingv2__factory,
   Range__factory,
   RangeOperator__factory,
   RangePrice__factory,
-  SOhmv2__factory,
+  // SOhmv2__factory,
   Zap__factory,
 } from "src/typechain";
-import { BondAggregator__factory } from "src/typechain/factories/BondAggregator__factory";
-import { DevFaucet__factory } from "src/typechain/factories/DevFaucet__factory";
-import { OlympusDistributor__factory } from "src/typechain/factories/OlympusDistributor__factory";
+// import { BondAggregator__factory } from "src/typechain/factories/BondAggregator__factory";
+// import { DevFaucet__factory } from "src/typechain/factories/DevFaucet__factory";
+// import { OlympusDistributor__factory } from "src/typechain/factories/OlympusDistributor__factory";
 
 export const BOND_DEPOSITORY_CONTRACT = new Contract({
   factory: BondDepository__factory,

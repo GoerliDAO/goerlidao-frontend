@@ -100,7 +100,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   const gohmBalances = useGohmBalance();
   const { data: gohmFuseBalance = new DecimalBigNumber("0", 18) } = useFuseBalance()[NetworkId.MAINNET];
   const { data: gohmTokemakBalance = new DecimalBigNumber("0", 18) } = useGohmTokemakBalance()[NetworkId.MAINNET];
-  const [faucetToken, setFaucetToken] = useState("OHM V2");
+  const [faucetToken, setFaucetToken] = useState("GDAO");
 
   const gohmTokens = [
     gohmFuseBalance,
@@ -139,19 +139,13 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
 
   const tokenArray = [
     {
-      symbol: ["OHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["GDAO"] as OHMTokenStackProps["tokens"],
       balance: formattedohmBalance,
       assetValue: ohmBalance.toApproxNumber() * ohmPrice,
       alwaysShow: true,
     },
     {
-      symbol: ["OHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedV1OhmBalance,
-      label: "(v1)",
-      assetValue: v1OhmBalance.toApproxNumber() * ohmPrice,
-    },
-    {
-      symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["sGDAO"] as OHMTokenStackProps["tokens"],
       balance: formattedSOhmBalance,
       timeRemaining:
         nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
@@ -161,21 +155,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
       lineThreeValue: Number(formattedSOhmBalance) > 0 ? `${trim(rebaseAmountPerDay, 3)} sOHM ` : undefined,
     },
     {
-      symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedV1SohmBalance,
-      label: "(v1)",
-      timeRemaining:
-        nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
-      assetValue: v1SohmBalance.toApproxNumber() * ohmPrice,
-    },
-    {
-      symbol: ["wsOHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedWsOhmBalance,
-      assetValue: gOhmPrice * totalWsohmBalance.toApproxNumber(),
-      geckoTicker: "governance-ohm",
-    },
-    {
-      symbol: ["gOHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["xGDAO"] as OHMTokenStackProps["tokens"],
       balance: formattedgOhmBalance,
       assetValue: gOhmPrice * totalGohmBalance.toApproxNumber(),
       pnl: formattedgOhmBalance ? 0 : formatCurrency(totalGohmBalance.toApproxNumber() * gOhmPriceChange, 2),
@@ -238,7 +218,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
               );
           }
         })()}
-        {chain.id === NetworkId.TESTNET_GOERLI && (
+        {(chain.id === NetworkId.TESTNET_GOERLI || chain.id === NetworkId.SEPOLIA) && (
           <>
             <Typography variant="h5">Dev Faucet</Typography>
             <Box display="flex" flexDirection="row" justifyContent="space-between" mt="18px">
@@ -249,14 +229,10 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
                   value={faucetToken}
                   onChange={event => setFaucetToken(event.target.value)}
                 >
-                  <MenuItem value="OHM V1">OHM V1</MenuItem>
-                  <MenuItem value="OHM V2">OHM V2</MenuItem>
-                  <MenuItem value="sOHM V1">sOHM V1</MenuItem>
-                  <MenuItem value="sOHM V2">sOHM V2</MenuItem>
-                  <MenuItem value="wsOHM">wsOHM</MenuItem>
-                  <MenuItem value="gOHM">gOHM</MenuItem>
                   <MenuItem value="DAI">DAI</MenuItem>
-                  <MenuItem value="ETH">ETH</MenuItem>
+                  <MenuItem value="GDAO">GDAO</MenuItem>
+                  <MenuItem value="GDAO">SGDAO</MenuItem>
+                  <MenuItem value="GDAO">XGDAO</MenuItem>
                 </Select>
               </FormControl>
               <SecondaryButton onClick={() => faucetMutation.mutate(faucetToken)}>

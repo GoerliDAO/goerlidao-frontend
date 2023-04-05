@@ -1,0 +1,1413 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "tokenIds_",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "amounts_",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "batchRedeem",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ERC20",
+          "name": "underlying_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint48",
+          "name": "expiry_",
+          "type": "uint48"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "create",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ERC20",
+          "name": "underlying_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint48",
+          "name": "expiry_",
+          "type": "uint48"
+        }
+      ],
+      "name": "deploy",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ERC20",
+          "name": "payoutToken_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint48",
+          "name": "expiry_",
+          "type": "uint48"
+        }
+      ],
+      "name": "getTokenId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId_",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTokenNameAndSymbol",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "redeem",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "batchRedeem(uint256[],uint256[])": "e9dc30f3",
+    "create(address,uint48,uint256)": "b7314ef9",
+    "deploy(address,uint48)": "c6e38a4b",
+    "getTokenId(address,uint48)": "92593277",
+    "getTokenNameAndSymbol(uint256)": "35312c85",
+    "redeem(uint256,uint256)": "7cbc2373"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"tokenIds_\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts_\",\"type\":\"uint256[]\"}],\"name\":\"batchRedeem\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"underlying_\",\"type\":\"address\"},{\"internalType\":\"uint48\",\"name\":\"expiry_\",\"type\":\"uint48\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"create\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"underlying_\",\"type\":\"address\"},{\"internalType\":\"uint48\",\"name\":\"expiry_\",\"type\":\"uint48\"}],\"name\":\"deploy\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"payoutToken_\",\"type\":\"address\"},{\"internalType\":\"uint48\",\"name\":\"expiry_\",\"type\":\"uint48\"}],\"name\":\"getTokenId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId_\",\"type\":\"uint256\"}],\"name\":\"getTokenNameAndSymbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"redeem\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"batchRedeem(uint256[],uint256[])\":{\"params\":{\"amounts_\":\"Array of amounts of bond tokens to redeem\",\"tokenIds_\":\"Array of bond token ids\"}},\"create(address,uint48,uint256)\":{\"params\":{\"amount_\":\"Amount of underlying tokens to deposit\",\"expiry_\":\"Timestamp at which the bond token can be redeemed for the underlying token\",\"underlying_\":\"ERC20 token redeemable when the bond token vests\"},\"returns\":{\"_0\":\"ID of the ERC1155 bond token received\",\"_1\":\"Amount of the ERC1155 bond token received\"}},\"deploy(address,uint48)\":{\"details\":\"ERC1155 used for fixed-termIf a bond token exists for the (underlying, expiry) pair, it returns that token ID\",\"params\":{\"expiry_\":\"Timestamp at which the bond token can be redeemed for the underlying token\",\"underlying_\":\"ERC20 token redeemable when the bond token vests\"},\"returns\":{\"_0\":\"ID of the ERC1155 bond token being created\"}},\"getTokenId(address,uint48)\":{\"params\":{\"expiry_\":\"Expiry of the bond\",\"payoutToken_\":\"Payout token of bond\"},\"returns\":{\"_0\":\"ID of the bond token\"}},\"getTokenNameAndSymbol(uint256)\":{\"params\":{\"tokenId_\":\"ID of the bond token\"},\"returns\":{\"_0\":\"name        Bond token name\",\"_1\":\"symbol      Bond token symbol\"}},\"redeem(uint256,uint256)\":{\"params\":{\"amount_\":\"Amount of bond token to redeem\",\"tokenId_\":\"ID of the bond token to redeem\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"batchRedeem(uint256[],uint256[])\":{\"notice\":\"Redeem multiple fixed-term bond tokens for the underlying tokens (bond tokens must have matured)\"},\"create(address,uint48,uint256)\":{\"notice\":\"Deposit an ERC20 token and mint a future-dated ERC1155 bond token\"},\"deploy(address,uint48)\":{\"notice\":\"\\\"Deploy\\\" a new ERC1155 bond token for an (underlying, expiry) pair and return its token ID\"},\"getTokenId(address,uint48)\":{\"notice\":\"Get token ID from token and expiry\"},\"getTokenNameAndSymbol(uint256)\":{\"notice\":\"Get the token name and symbol for a bond token\"},\"redeem(uint256,uint256)\":{\"notice\":\"Redeem a fixed-term bond token for the underlying token (bond token must have matured)\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/IBondFixedTermTeller.sol\":\"IBondFixedTermTeller\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"lib/solmate/src/tokens/ERC20.sol\":{\"keccak256\":\"0x0240f7703cff32a61ee3e9fbb339e09a944260432a9ef37debf3692b1a6c8049\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://2d8b0c0158b1952a87c327d506a645040924a94c8f9f937184659f8a8e3b0759\",\"dweb:/ipfs/QmZ9rGdkjRCk8zfr4xeH7Jh88tkWJNt9LvG1o2GcCm7Uqa\"]},\"src/interfaces/IBondFixedTermTeller.sol\":{\"keccak256\":\"0xf039dc09889a2c59663bd642ec7580ffbc0cfe1dda6ba6640df092770f4c34f6\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://9bb8e3dd384d9f056b87d3140b5689efa51554c85d8e981f0796356b9fe5f056\",\"dweb:/ipfs/QmR9ACQp2JzLrP5zS5Cy6RSCaVqECgGunj8FsNkzkAFQ5w\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.15+commit.e14f2714"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "uint256[]",
+              "name": "tokenIds_",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "amounts_",
+              "type": "uint256[]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "batchRedeem"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ERC20",
+              "name": "underlying_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint48",
+              "name": "expiry_",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "create",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ERC20",
+              "name": "underlying_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint48",
+              "name": "expiry_",
+              "type": "uint48"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "deploy",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ERC20",
+              "name": "payoutToken_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint48",
+              "name": "expiry_",
+              "type": "uint48"
+            }
+          ],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "getTokenId",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getTokenNameAndSymbol",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "redeem"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "batchRedeem(uint256[],uint256[])": {
+            "params": {
+              "amounts_": "Array of amounts of bond tokens to redeem",
+              "tokenIds_": "Array of bond token ids"
+            }
+          },
+          "create(address,uint48,uint256)": {
+            "params": {
+              "amount_": "Amount of underlying tokens to deposit",
+              "expiry_": "Timestamp at which the bond token can be redeemed for the underlying token",
+              "underlying_": "ERC20 token redeemable when the bond token vests"
+            },
+            "returns": {
+              "_0": "ID of the ERC1155 bond token received",
+              "_1": "Amount of the ERC1155 bond token received"
+            }
+          },
+          "deploy(address,uint48)": {
+            "details": "ERC1155 used for fixed-termIf a bond token exists for the (underlying, expiry) pair, it returns that token ID",
+            "params": {
+              "expiry_": "Timestamp at which the bond token can be redeemed for the underlying token",
+              "underlying_": "ERC20 token redeemable when the bond token vests"
+            },
+            "returns": {
+              "_0": "ID of the ERC1155 bond token being created"
+            }
+          },
+          "getTokenId(address,uint48)": {
+            "params": {
+              "expiry_": "Expiry of the bond",
+              "payoutToken_": "Payout token of bond"
+            },
+            "returns": {
+              "_0": "ID of the bond token"
+            }
+          },
+          "getTokenNameAndSymbol(uint256)": {
+            "params": {
+              "tokenId_": "ID of the bond token"
+            },
+            "returns": {
+              "_0": "name        Bond token name",
+              "_1": "symbol      Bond token symbol"
+            }
+          },
+          "redeem(uint256,uint256)": {
+            "params": {
+              "amount_": "Amount of bond token to redeem",
+              "tokenId_": "ID of the bond token to redeem"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "batchRedeem(uint256[],uint256[])": {
+            "notice": "Redeem multiple fixed-term bond tokens for the underlying tokens (bond tokens must have matured)"
+          },
+          "create(address,uint48,uint256)": {
+            "notice": "Deposit an ERC20 token and mint a future-dated ERC1155 bond token"
+          },
+          "deploy(address,uint48)": {
+            "notice": "\"Deploy\" a new ERC1155 bond token for an (underlying, expiry) pair and return its token ID"
+          },
+          "getTokenId(address,uint48)": {
+            "notice": "Get token ID from token and expiry"
+          },
+          "getTokenNameAndSymbol(uint256)": {
+            "notice": "Get the token name and symbol for a bond token"
+          },
+          "redeem(uint256,uint256)": {
+            "notice": "Redeem a fixed-term bond token for the underlying token (bond token must have matured)"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":balancer-v2/=lib/balancer-v2/",
+        ":bonds/=lib/bonds/src/",
+        ":ds-test/=lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/",
+        ":interfaces/=src/interfaces/",
+        ":libraries/=src/libraries/",
+        ":modules/=src/modules/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+        ":policies/=src/policies/",
+        ":solmate/=lib/solmate/src/",
+        ":test/=src/test/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 10
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/interfaces/IBondFixedTermTeller.sol": "IBondFixedTermTeller"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "lib/solmate/src/tokens/ERC20.sol": {
+        "keccak256": "0x0240f7703cff32a61ee3e9fbb339e09a944260432a9ef37debf3692b1a6c8049",
+        "urls": [
+          "bzz-raw://2d8b0c0158b1952a87c327d506a645040924a94c8f9f937184659f8a8e3b0759",
+          "dweb:/ipfs/QmZ9rGdkjRCk8zfr4xeH7Jh88tkWJNt9LvG1o2GcCm7Uqa"
+        ],
+        "license": "AGPL-3.0-only"
+      },
+      "src/interfaces/IBondFixedTermTeller.sol": {
+        "keccak256": "0xf039dc09889a2c59663bd642ec7580ffbc0cfe1dda6ba6640df092770f4c34f6",
+        "urls": [
+          "bzz-raw://9bb8e3dd384d9f056b87d3140b5689efa51554c85d8e981f0796356b9fe5f056",
+          "dweb:/ipfs/QmR9ACQp2JzLrP5zS5Cy6RSCaVqECgGunj8FsNkzkAFQ5w"
+        ],
+        "license": "AGPL-3.0"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/interfaces/IBondFixedTermTeller.sol",
+    "id": 44797,
+    "exportedSymbols": {
+      "ERC20": [
+        28408
+      ],
+      "IBondFixedTermTeller": [
+        44796
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "38:2856:67",
+    "nodes": [
+      {
+        "id": 44716,
+        "nodeType": "PragmaDirective",
+        "src": "38:24:67",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0"
+        ]
+      },
+      {
+        "id": 44718,
+        "nodeType": "ImportDirective",
+        "src": "66:47:67",
+        "nodes": [],
+        "absolutePath": "lib/solmate/src/tokens/ERC20.sol",
+        "file": "solmate/tokens/ERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 44797,
+        "sourceUnit": 28409,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 44717,
+              "name": "ERC20",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 28408,
+              "src": "74:5:67",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 44796,
+        "nodeType": "ContractDefinition",
+        "src": "117:2777:67",
+        "nodes": [
+          {
+            "id": 44730,
+            "nodeType": "StructDefinition",
+            "src": "183:152:67",
+            "nodes": [],
+            "canonicalName": "IBondFixedTermTeller.TokenMetadata",
+            "members": [
+              {
+                "constant": false,
+                "id": 44720,
+                "mutability": "mutable",
+                "name": "active",
+                "nameLocation": "220:6:67",
+                "nodeType": "VariableDeclaration",
+                "scope": 44730,
+                "src": "215:11:67",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 44719,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "215:4:67",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44723,
+                "mutability": "mutable",
+                "name": "underlying",
+                "nameLocation": "243:10:67",
+                "nodeType": "VariableDeclaration",
+                "scope": 44730,
+                "src": "237:16:67",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_ERC20_$28408",
+                  "typeString": "contract ERC20"
+                },
+                "typeName": {
+                  "id": 44722,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 44721,
+                    "name": "ERC20",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 28408,
+                    "src": "237:5:67"
+                  },
+                  "referencedDeclaration": 28408,
+                  "src": "237:5:67",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$28408",
+                    "typeString": "contract ERC20"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44725,
+                "mutability": "mutable",
+                "name": "decimals",
+                "nameLocation": "270:8:67",
+                "nodeType": "VariableDeclaration",
+                "scope": 44730,
+                "src": "264:14:67",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 44724,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "264:5:67",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44727,
+                "mutability": "mutable",
+                "name": "expiry",
+                "nameLocation": "296:6:67",
+                "nodeType": "VariableDeclaration",
+                "scope": 44730,
+                "src": "289:13:67",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint48",
+                  "typeString": "uint48"
+                },
+                "typeName": {
+                  "id": 44726,
+                  "name": "uint48",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "289:6:67",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44729,
+                "mutability": "mutable",
+                "name": "supply",
+                "nameLocation": "321:6:67",
+                "nodeType": "VariableDeclaration",
+                "scope": 44730,
+                "src": "313:14:67",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44728,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "313:7:67",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "TokenMetadata",
+            "nameLocation": "190:13:67",
+            "scope": 44796,
+            "visibility": "public"
+          },
+          {
+            "id": 44745,
+            "nodeType": "FunctionDefinition",
+            "src": "832:138:67",
+            "nodes": [],
+            "documentation": {
+              "id": 44731,
+              "nodeType": "StructuredDocumentation",
+              "src": "343:483:67",
+              "text": "@notice              Deposit an ERC20 token and mint a future-dated ERC1155 bond token\n @param underlying_   ERC20 token redeemable when the bond token vests\n @param expiry_       Timestamp at which the bond token can be redeemed for the underlying token\n @param amount_       Amount of underlying tokens to deposit\n @return              ID of the ERC1155 bond token received\n @return              Amount of the ERC1155 bond token received"
+            },
+            "functionSelector": "b7314ef9",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "create",
+            "nameLocation": "841:6:67",
+            "parameters": {
+              "id": 44739,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44734,
+                  "mutability": "mutable",
+                  "name": "underlying_",
+                  "nameLocation": "864:11:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44745,
+                  "src": "858:17:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$28408",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "id": 44733,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 44732,
+                      "name": "ERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 28408,
+                      "src": "858:5:67"
+                    },
+                    "referencedDeclaration": 28408,
+                    "src": "858:5:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$28408",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44736,
+                  "mutability": "mutable",
+                  "name": "expiry_",
+                  "nameLocation": "893:7:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44745,
+                  "src": "886:14:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  },
+                  "typeName": {
+                    "id": 44735,
+                    "name": "uint48",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "886:6:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint48",
+                      "typeString": "uint48"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44738,
+                  "mutability": "mutable",
+                  "name": "amount_",
+                  "nameLocation": "919:7:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44745,
+                  "src": "911:15:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44737,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "911:7:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "847:86:67"
+            },
+            "returnParameters": {
+              "id": 44744,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44741,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44745,
+                  "src": "952:7:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44740,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "952:7:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44743,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44745,
+                  "src": "961:7:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44742,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "961:7:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "951:18:67"
+            },
+            "scope": 44796,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 44756,
+            "nodeType": "FunctionDefinition",
+            "src": "1521:78:67",
+            "nodes": [],
+            "documentation": {
+              "id": 44746,
+              "nodeType": "StructuredDocumentation",
+              "src": "978:537:67",
+              "text": "@notice             \"Deploy\" a new ERC1155 bond token for an (underlying, expiry) pair and return its token ID\n @dev                ERC1155 used for fixed-term\n @dev                If a bond token exists for the (underlying, expiry) pair, it returns that token ID\n @param underlying_  ERC20 token redeemable when the bond token vests\n @param expiry_      Timestamp at which the bond token can be redeemed for the underlying token\n @return             ID of the ERC1155 bond token being created"
+            },
+            "functionSelector": "c6e38a4b",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deploy",
+            "nameLocation": "1530:6:67",
+            "parameters": {
+              "id": 44752,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44749,
+                  "mutability": "mutable",
+                  "name": "underlying_",
+                  "nameLocation": "1543:11:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44756,
+                  "src": "1537:17:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$28408",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "id": 44748,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 44747,
+                      "name": "ERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 28408,
+                      "src": "1537:5:67"
+                    },
+                    "referencedDeclaration": 28408,
+                    "src": "1537:5:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$28408",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44751,
+                  "mutability": "mutable",
+                  "name": "expiry_",
+                  "nameLocation": "1563:7:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44756,
+                  "src": "1556:14:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  },
+                  "typeName": {
+                    "id": 44750,
+                    "name": "uint48",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1556:6:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint48",
+                      "typeString": "uint48"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1536:35:67"
+            },
+            "returnParameters": {
+              "id": 44755,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44754,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44756,
+                  "src": "1590:7:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44753,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1590:7:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1589:9:67"
+            },
+            "scope": 44796,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 44764,
+            "nodeType": "FunctionDefinition",
+            "src": "1834:60:67",
+            "nodes": [],
+            "documentation": {
+              "id": 44757,
+              "nodeType": "StructuredDocumentation",
+              "src": "1607:221:67",
+              "text": "@notice          Redeem a fixed-term bond token for the underlying token (bond token must have matured)\n @param tokenId_  ID of the bond token to redeem\n @param amount_   Amount of bond token to redeem"
+            },
+            "functionSelector": "7cbc2373",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "redeem",
+            "nameLocation": "1843:6:67",
+            "parameters": {
+              "id": 44762,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44759,
+                  "mutability": "mutable",
+                  "name": "tokenId_",
+                  "nameLocation": "1858:8:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44764,
+                  "src": "1850:16:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44758,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1850:7:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44761,
+                  "mutability": "mutable",
+                  "name": "amount_",
+                  "nameLocation": "1876:7:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44764,
+                  "src": "1868:15:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44760,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1868:7:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1849:35:67"
+            },
+            "returnParameters": {
+              "id": 44763,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1893:0:67"
+            },
+            "scope": 44796,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 44774,
+            "nodeType": "FunctionDefinition",
+            "src": "2143:85:67",
+            "nodes": [],
+            "documentation": {
+              "id": 44765,
+              "nodeType": "StructuredDocumentation",
+              "src": "1902:235:67",
+              "text": "@notice          Redeem multiple fixed-term bond tokens for the underlying tokens (bond tokens must have matured)\n @param tokenIds_ Array of bond token ids\n @param amounts_  Array of amounts of bond tokens to redeem"
+            },
+            "functionSelector": "e9dc30f3",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "batchRedeem",
+            "nameLocation": "2152:11:67",
+            "parameters": {
+              "id": 44772,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44768,
+                  "mutability": "mutable",
+                  "name": "tokenIds_",
+                  "nameLocation": "2181:9:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44774,
+                  "src": "2164:26:67",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 44766,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2164:7:67",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 44767,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2164:9:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44771,
+                  "mutability": "mutable",
+                  "name": "amounts_",
+                  "nameLocation": "2209:8:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44774,
+                  "src": "2192:25:67",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 44769,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "2192:7:67",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 44770,
+                    "nodeType": "ArrayTypeName",
+                    "src": "2192:9:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2163:55:67"
+            },
+            "returnParameters": {
+              "id": 44773,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2227:0:67"
+            },
+            "scope": 44796,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 44785,
+            "nodeType": "FunctionDefinition",
+            "src": "2448:88:67",
+            "nodes": [],
+            "documentation": {
+              "id": 44775,
+              "nodeType": "StructuredDocumentation",
+              "src": "2236:206:67",
+              "text": "@notice             Get token ID from token and expiry\n @param payoutToken_ Payout token of bond\n @param expiry_      Expiry of the bond\n @return             ID of the bond token"
+            },
+            "functionSelector": "92593277",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTokenId",
+            "nameLocation": "2457:10:67",
+            "parameters": {
+              "id": 44781,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44778,
+                  "mutability": "mutable",
+                  "name": "payoutToken_",
+                  "nameLocation": "2474:12:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44785,
+                  "src": "2468:18:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$28408",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "id": 44777,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 44776,
+                      "name": "ERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 28408,
+                      "src": "2468:5:67"
+                    },
+                    "referencedDeclaration": 28408,
+                    "src": "2468:5:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$28408",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44780,
+                  "mutability": "mutable",
+                  "name": "expiry_",
+                  "nameLocation": "2495:7:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44785,
+                  "src": "2488:14:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  },
+                  "typeName": {
+                    "id": 44779,
+                    "name": "uint48",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2488:6:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint48",
+                      "typeString": "uint48"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2467:36:67"
+            },
+            "returnParameters": {
+              "id": 44784,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44783,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44785,
+                  "src": "2527:7:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44782,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2527:7:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2526:9:67"
+            },
+            "scope": 44796,
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 44795,
+            "nodeType": "FunctionDefinition",
+            "src": "2762:129:67",
+            "nodes": [],
+            "documentation": {
+              "id": 44786,
+              "nodeType": "StructuredDocumentation",
+              "src": "2544:212:67",
+              "text": "@notice             Get the token name and symbol for a bond token\n @param tokenId_     ID of the bond token\n @return name        Bond token name\n @return symbol      Bond token symbol"
+            },
+            "functionSelector": "35312c85",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTokenNameAndSymbol",
+            "nameLocation": "2771:21:67",
+            "parameters": {
+              "id": 44789,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44788,
+                  "mutability": "mutable",
+                  "name": "tokenId_",
+                  "nameLocation": "2801:8:67",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44795,
+                  "src": "2793:16:67",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44787,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2793:7:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2792:18:67"
+            },
+            "returnParameters": {
+              "id": 44794,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44791,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44795,
+                  "src": "2861:13:67",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 44790,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2861:6:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 44793,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44795,
+                  "src": "2876:13:67",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 44792,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2876:6:67",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2860:30:67"
+            },
+            "scope": 44796,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IBondFixedTermTeller",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          44796
+        ],
+        "name": "IBondFixedTermTeller",
+        "nameLocation": "127:20:67",
+        "scope": 44797,
+        "usedErrors": []
+      }
+    ],
+    "license": "AGPL-3.0"
+  },
+  "id": 67
+}

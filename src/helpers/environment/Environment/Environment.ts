@@ -67,7 +67,17 @@ export class Environment {
       case NetworkId.TESTNET_GOERLI:
         return this._get({
           key: `VITE_ETHEREUM_TESTNET_NODE_URL`,
-          fallback: "https://rpc.ankr.com/eth_goerli",
+          fallback: "",
+        });
+      case NetworkId.SEPOLIA:
+        return this._get({
+          key: `VITE_ETHEREUM_TESTNET_NODE_URL`,
+          fallback: "",
+        });
+      case NetworkId.LOCALHOST:
+        return this._get({
+          key: `VITE_ETHEREUM_TESTNET_NODE_URL`,
+          fallback: "",
         });
       case NetworkId.ARBITRUM:
         return this._get({
