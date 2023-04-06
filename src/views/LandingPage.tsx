@@ -72,14 +72,15 @@ const Features = ({ title, description, icon, actionLink, actionTitle }: Feature
 
 const LandingPage = () => {
   const theme = useTheme();
+
   return (
     <>
       <main className="">
         <div
           style={{
-            background: theme.palette.mode === "dark" ? "#121415" : "#0202FF",
+            backgroundColor: theme.palette.mode === "dark" ? "#181818" : "#0202FF",
           }}
-          className="h-screen flex items-center justify-center"
+          className="h-full flex items-center justify-center"
         >
           <div className="flex flex-col items-center justify-between">
             <h1 className="text-white w-full text-4xl md:w-1/2 md:text-4xl xl:text-7xl text-center font-light">

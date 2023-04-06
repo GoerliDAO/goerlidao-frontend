@@ -43,6 +43,7 @@ const TreasuryDashboard = lazy(() => import("./views/TreasuryDashboard/TreasuryD
 const NotFound = lazy(() => import("./views/404/NotFound"));
 const V1Stake = lazy(() => import("./views/V1-Stake/V1-Stake"));
 const Range = lazy(() => import("./views/Range"));
+const Swap = lazy(() => import("./views/Swap"));
 
 const PREFIX = "App";
 
@@ -161,6 +162,16 @@ function App() {
     if (isSidebarExpanded) handleSidebarClose();
   }, [location]);
 
+  useEffect(() => {
+    if (theme === "dark") {
+      document.body.style.backgroundColor = "#121415";
+    } else {
+      document.body.style.backgroundColor = "#C6D9F9";
+      document.body.style.backgroundColor =
+        "linear-gradient(to right, rgba(232, 232, 252, 1), rgba(232, 232, 252, 0.72))";
+    }
+  }, [theme]);
+
   return (
     <>
       <RainbowKitProvider
@@ -201,6 +212,7 @@ function App() {
                   <Route path="/bonds/v3/inverse/:id" element={<BondModalContainerV3 />} />
                   <Route path="/bonds/:id" element={<BondModalContainer />} />
                   <Route path="/bonds/inverse/:id" element={<BondModalContainer />} />
+                  <Route path="/swap" element={<Swap />} />
                   <Route path="/bonds" element={<Bond />} />
                   <Route path="/bonds/inverse" element={<Bond />} />
                   <Route path="/bridge" element={<Bridge />} />
