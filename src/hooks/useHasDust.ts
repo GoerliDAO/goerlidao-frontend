@@ -8,6 +8,7 @@ export const useHasDust = () => {
     const wrappedBalance = Number(state.account.balances.wsohm) * Number(state.app.currentIndex!);
     const ohmBalance = Number(state.account.balances.ohmV1);
     const sOhmbalance = Number(state.account.balances.sohmV1);
+
     if (ohmBalance > 0 && ohmBalance * state.app.marketPrice < 10) {
       return true;
     }
