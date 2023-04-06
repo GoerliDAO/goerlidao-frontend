@@ -15,7 +15,7 @@ import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber"
 import { isValidAddress } from "src/helpers/misc/isValidAddress";
 import { Providers } from "src/helpers/providers/Providers/Providers";
 import { queryAssertion } from "src/helpers/react-query/queryAssertion";
-import { useOhmPrice } from "src/hooks/usePrices";
+import { useGdaoPrice } from "src/hooks/usePrices";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { BondFixedTermSDA__factory, BondTeller__factory, IERC20__factory } from "src/typechain";
 import { RANGEv1 as OlympusRange } from "src/typechain/Range";
@@ -287,7 +287,7 @@ export const DetermineRangePrice = (bidOrAsk: "bid" | "ask") => {
 };
 
 export const DetermineRangeDiscount = (bidOrAsk: "bid" | "ask") => {
-  const { data: currentOhmPrice } = useOhmPrice();
+  const { data: currentOhmPrice } = useGdaoPrice();
   const { data: reserveSymbol } = OperatorReserveSymbol();
   const { data: rangeData } = RangeData();
   const { data: bidOrAskPrice } = DetermineRangePrice(bidOrAsk);
