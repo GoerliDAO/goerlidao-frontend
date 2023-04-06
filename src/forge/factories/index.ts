@@ -86,7 +86,6 @@ export * as draftIerc20PermitSol from "./draft-IERC20Permit.sol";
 export * as interfaces from "./interfaces";
 export * as lib from "./lib";
 export * as sGdaoSol from "./sGDAO.sol";
-export * as testSol from "./test.sol";
 export * as testDaiSol from "./testDAI.sol";
 export * as tokens from "./tokens";
 export * as xGdaoerc20Sol from "./xGDAOERC20.sol";

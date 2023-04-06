@@ -171,7 +171,6 @@ import type * as lib from "./lib";
 export type { lib };
 import type * as sGdaoSol from "./sGDAO.sol";
 export type { sGdaoSol };
-import type * as testSol from "./test.sol";
 import type * as testDaiSol from "./testDAI.sol";
 export type { testDaiSol };
 import type * as tokens from "./tokens";

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { NetworkId } from "src/constants";
-import { OHM_TOKEN } from "src/constants/tokens";
+import { GDAO_TOKEN } from "src/constants/tokens";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { queryAssertion } from "src/helpers/react-query/queryAssertion";
 import { nonNullable } from "src/helpers/types/nonNullable";
@@ -14,7 +14,7 @@ export const ohmPriceQueryKey = () => ["useOhmPrice"];
 export const useOhmPrice = () => {
   const key = ohmPriceQueryKey();
   return useQuery<number, Error>([key], async () => {
-    const price = await OHM_TOKEN.getPrice(NetworkId.MAINNET);
+    const price = await GDAO_TOKEN.getPrice(NetworkId.LOCALHOST | NetworkId.TESTNET_GOERLI);
     return parseFloat(price.toString());
   });
 };
