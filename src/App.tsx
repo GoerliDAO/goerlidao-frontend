@@ -2,7 +2,7 @@ import "src/style.scss";
 
 import { useMediaQuery } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import { styled, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import {
   darkTheme as rainbowDarkTheme,
   lightTheme as rainbowLightTheme,
@@ -11,7 +11,7 @@ import {
 import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Messages from "src/components/Messages/Messages";
 import { MigrationCallToAction } from "src/components/MigrationCallToAction";
 import { MigrationNotification } from "src/components/MigrationNotification";
@@ -33,6 +33,7 @@ import { girth as gTheme } from "src/themes/girth.js";
 import { light as lightTheme } from "src/themes/light.js";
 import { BondModalContainer } from "src/views/Bond/components/BondModal/BondModal";
 import { BondModalContainerV3 } from "src/views/Bond/components/BondModal/BondModalContainerV3";
+import LandingPage from "src/views/LandingPage";
 import { useAccount, useConnect, useNetwork, useProvider } from "wagmi";
 
 // Dynamic Imports for code splitting
@@ -40,7 +41,7 @@ const Bond = lazy(() => import("./views/Bond"));
 const Bridge = lazy(() => import("./views/Bridge"));
 const TreasuryDashboard = lazy(() => import("./views/TreasuryDashboard/TreasuryDashboard"));
 const NotFound = lazy(() => import("./views/404/NotFound"));
-const V1Stake = lazy(() => import("./views/V1-Stake/V1-Stake"));
+// const V1Stake = lazy(() => import("./views/V1-Stake/V1-Stake"));
 const Range = lazy(() => import("./views/Range"));
 
 const PREFIX = "App";
@@ -53,45 +54,6 @@ const classes = {
   drawerPaper: `${PREFIX}-drawerPaper`,
   notification: `${PREFIX}-notification`,
 };
-
-const StyledDiv = styled("div")(({ theme }) => ({
-  [`& .${classes.drawer}`]: {
-    [theme.breakpoints.up("md")]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-  },
-
-  [`& .${classes.content}`]: {
-    flexGrow: 1,
-    padding: "15px",
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: transitionDuration,
-    }),
-    marginLeft: drawerWidth,
-    marginTop: "-48.5px",
-  },
-
-  [`& .${classes.contentShift}`]: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: transitionDuration,
-    }),
-    marginLeft: 0,
-  },
-
-  // necessary for content to be below app bar
-  [`& .${classes.toolbar}`]: theme.mixins.toolbar,
-
-  [`& .${classes.drawerPaper}`]: {
-    width: drawerWidth,
-  },
-
-  [`& .${classes.notification}`]: {
-    marginLeft: "264px",
-  },
-}));
 
 // 😬 Sorry for all the console logging
 const DEBUG = false;
@@ -168,7 +130,7 @@ function App() {
   // ... been reloaded within App.
   useEffect(() => {
     if (shouldTriggerSafetyCheck()) {
-      toast("Safety Check: Always verify you're on app.olympusdao.finance!");
+      toast("Safety Check: Always verify you're on https://goerli.com");
     }
     loadDetails("app");
   }, []);
@@ -200,7 +162,7 @@ function App() {
   }, [location]);
 
   return (
-    <StyledDiv>
+    <>
       <RainbowKitProvider
         chains={chains}
         theme={
@@ -215,7 +177,9 @@ function App() {
             <Toaster>{t => <Messages toast={t} />}</Toaster>
             <StagingNotification />
             <TopBar theme={theme} toggleTheme={toggleTheme} handleDrawerToggle={handleDrawerToggle} />
-            <nav className={classes.drawer}>
+
+            {/* HIDDEN UNTIL FINAL LANDING PAGE IS DONE, THEN DELETED */}
+            <nav className="hidden">
               {isSmallerScreen ? (
                 <NavDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
               ) : (
@@ -227,12 +191,12 @@ function App() {
               <MigrationCallToAction setMigrationModalOpen={setMigrationModalOpen} />
               <Suspense fallback={<div></div>}>
                 <Routes>
-                  <Route path="/" element={<Navigate to="/stake" />} />
+                  <Route path="/" element={<LandingPage />} />
                   <Route
                     path="/stake"
                     element={<StakeVersionContainer setMigrationModalOpen={setMigrationModalOpen} />}
                   />
-                  <Route path="/v1-stake" element={<V1Stake setMigrationModalOpen={setMigrationModalOpen} />} />
+                  {/* <Route path="/v1-stake" element={<V1Stake setMigrationModalOpen={setMigrationModalOpen} />} /> */}
                   <Route path="/bonds/v3/:id" element={<BondModalContainerV3 />} />
                   <Route path="/bonds/v3/inverse/:id" element={<BondModalContainerV3 />} />
                   <Route path="/bonds/:id" element={<BondModalContainer />} />
@@ -240,7 +204,7 @@ function App() {
                   <Route path="/bonds" element={<Bond />} />
                   <Route path="/bonds/inverse" element={<Bond />} />
                   <Route path="/bridge" element={<Bridge />} />
-                  <Route path="/dashboard/*" element={<TreasuryDashboard />} />
+                  <Route path="/stats/*" element={<TreasuryDashboard />} />
                   <Route path="/range/*" element={<Range />} />
                   <Route
                     path={"/info/*"}
@@ -267,7 +231,7 @@ function App() {
           <MigrationNotification isModalOpen={migrationModalOpen} onClose={migModalClose} />
         </ThemeProvider>
       </RainbowKitProvider>
-    </StyledDiv>
+    </>
   );
 }
 

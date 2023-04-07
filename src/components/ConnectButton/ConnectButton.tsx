@@ -91,8 +91,6 @@ export const ConnectButton = () => {
                         borderRadius: "6px",
                         padding: "9px 18px",
                         cursor: "pointer",
-                        background: theme.colors.paper.card,
-                        "&:hover": { background: theme.colors.paper.cardHover },
                       }}
                       onClick={() => {
                         fireAnalyticsEvent();
@@ -113,10 +111,15 @@ export const ConnectButton = () => {
                       sx={{ zIndex: 18 }}
                     >
                       {!mobile ? (
-                        <PrimaryButton>
-                          <SvgIcon component={WalletIcon} style={{ marginRight: "9px" }} />
-                          {`Connect Wallet`}
-                        </PrimaryButton>
+                        <button
+                          className="p-2 text-black text-sm font-semibold px-5 py-1.5 border border-black"
+                          style={{
+                            background: "#fff",
+                            border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
+                          }}
+                        >
+                          {`CONNECT WALLET`}
+                        </button>
                       ) : (
                         <Button
                           sx={{
@@ -232,7 +235,6 @@ export const ConnectButton = () => {
                       ) : (
                         <Button
                           sx={{
-                            borderRadius: "6px",
                             padding: "9px 18px",
                             marginLeft: "9px",
                             fontSize: "0.875rem",

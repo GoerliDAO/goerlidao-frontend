@@ -1,7 +1,8 @@
 import { Metric } from "@olympusdao/component-library";
 import { formatCurrency, formatNumber } from "src/helpers";
 import { SUBGRAPH_URLS } from "src/helpers/SubgraphUrlHelper";
-import { useGohmPrice, useOhmPrice } from "src/hooks/usePrices";
+// import { useGohmPrice, useOhmPrice } from "src/hooks/usePrices";
+import { useGdaoPrice } from "src/hooks/usePrices";
 import {
   useCurrentIndex,
   useGOhmPrice as useGOhmPriceFromSubgraph,
@@ -44,7 +45,7 @@ export const MarketCap: React.FC<AbstractedMetricProps & MetricSubgraphProps> = 
  * same as OHMPriceFromSubgraph but uses OHM-DAI on-chain price
  */
 export const OHMPrice: React.FC<AbstractedMetricProps> = props => {
-  const { data: ohmPrice } = useOhmPrice();
+  const { data: ohmPrice } = useGdaoPrice();
   const _props: MetricProps = {
     ...props,
     label: "OHM " + `Price`,
@@ -76,15 +77,15 @@ export const OHMPriceFromSubgraph: React.FC<AbstractedMetricProps & MetricSubgra
 /**
  * uses on-chain price
  */
-export const SOHMPrice: React.FC<AbstractedMetricProps> = props => {
-  const { data: ohmPrice } = useOhmPrice();
+export const SGDAOPrice: React.FC<AbstractedMetricProps> = props => {
+  const { data: gdaoPrice } = useGdaoPrice();
 
   const _props: MetricProps = {
     ...props,
-    label: "sOHM " + `Price`,
+    label: "sGDAO " + `Price`,
   };
 
-  if (ohmPrice) _props.metric = formatCurrency(ohmPrice, 2);
+  if (gdaoPrice) _props.metric = formatCurrency(gdaoPrice, 2);
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -95,7 +96,7 @@ export const OhmCirculatingSupply: React.FC<AbstractedMetricProps & MetricSubgra
   const { data: circSupply } = useOhmCirculatingSupply(props.subgraphUrl);
   const _props: MetricProps = {
     ...props,
-    label: `OHM Circulating Supply / Total`,
+    label: `GDAO Supply / Total`,
     tooltip: `Circulating supply is the quantity of outstanding OHM not held by the protocol in the treasury. OHM deployed in Protocol-Owned Liquidity is therefore included in circulating supply.`,
   };
 

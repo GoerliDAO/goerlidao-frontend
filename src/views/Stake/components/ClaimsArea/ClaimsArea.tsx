@@ -45,7 +45,7 @@ export const ClaimsArea = () => {
   const { data: claim } = useWarmupClaim();
   const { data: warmupDate, isClaimable } = useWarmupDate();
 
-  if (!isConnected || !claim || claim?.gohm.eq("0")) return <></>;
+  if (!isConnected || !claim || claim?.xgdao.eq("0")) return <></>;
   const warmupTooltip = `Your claim earns rebases during warmup. You can emergency withdraw, but this forfeits the rebases`;
 
   return (
@@ -54,7 +54,7 @@ export const ClaimsArea = () => {
         <Table>
           <Box display="flex" justifyContent="start" mt="42px">
             <Typography fontSize="24px" textAlign="left" fontWeight={600}>
-              Your active gOHM claim{" "}
+              Your active xGDAO claim{" "}
             </Typography>
             <Box>
               <InfoTooltip message={warmupTooltip} />
@@ -63,7 +63,7 @@ export const ClaimsArea = () => {
           <ActiveClaims isSmallScreen={isSmallScreen} claim={claim} warmupDate={warmupDate} isClaimable={isClaimable} />
         </Table>
       ) : (
-        <Paper headerText={`Your active gOHM claim`} tooltip={warmupTooltip}>
+        <Paper headerText={`Your active xGDAO claim`} tooltip={warmupTooltip}>
           <Table>
             <StyledTableHeader className={classes.stakePoolHeaderText}>
               <TableRow>
@@ -121,16 +121,16 @@ const ClaimInfo = ({
     <TableRow>
       <TableCell style={{ padding: "8px 8px 8px 0" }}>
         <Box display="flex" flexDirection="row" alignItems="center" style={{ whiteSpace: "nowrap" }}>
-          <Token key={"gOHM"} name={"gOHM"} />
+          <Token key={"xGDAO"} name={"xGDAO"} />
           <Box marginLeft="14px" marginRight="10px">
-            <Typography>{`gOHM`}</Typography>
+            <Typography>{`xGDAO`}</Typography>
           </Box>
           {/* <Token name={NetworkId[props.pool.networkID] as OHMTokenProps["name"]} style={{ fontSize: "15px" }} /> */}
         </Box>
       </TableCell>
       <TableCell style={{ padding: "8px 8px 8px 0" }}>
         <Typography gutterBottom={false} style={{ lineHeight: 1.4 }}>
-          {!claim?.gohm ? <Skeleton width={60} /> : `${formatBalance(claim?.gohm)} gOHM`}
+          {!claim?.xgdao ? <Skeleton width={60} /> : `${formatBalance(claim?.xgdao)} xGDAO`}
         </Typography>
       </TableCell>
       <TableCell style={{ padding: "8px 8px 8px 0" }}>
@@ -168,17 +168,17 @@ const MobileClaimInfo = ({
     <Box mt="42px">
       {/* StyledPoolInfo */}
       <Box display="flex" flexDirection="row" alignItems="center" style={{ whiteSpace: "nowrap" }}>
-        <Token key={"gOHM"} name={"gOHM"} />
+        <Token key={"xGDAO"} name={"xGDAO"} />
         <Box marginLeft="14px" marginRight="10px">
-          <Typography>{`gOHM`}</Typography>
+          <Typography>{`xGDAO`}</Typography>
         </Box>
         {/* <Token name={NetworkId[props.pool.networkID] as OHMTokenProps["name"]} style={{ fontSize: "15px" }} /> */}
       </Box>
 
       <DataRow
         title={`Amount`}
-        isLoading={!claim?.gohm}
-        balance={claim?.gohm ? formatBalance(claim?.gohm) : undefined}
+        isLoading={!claim?.xgdao}
+        balance={claim?.xgdao ? formatBalance(claim?.xgdao) : undefined}
       />
       <DataRow
         title={`Claimable In`}
@@ -215,7 +215,7 @@ const ActionButtons = ({ isClaimable = false }: { isClaimable?: boolean }) => {
       <PrimaryButton
         loading={claimMutation.isLoading}
         sx={{ flexGrow: 1 }}
-        onClick={() => claimMutation.mutate({ toToken: "gOHM" })}
+        onClick={() => claimMutation.mutate({ toToken: "xGDAO" })}
         disabled={claimMutation.isLoading || !isClaimable}
       >
         {claimMutation.isLoading ? `Claiming` : `Claim`}

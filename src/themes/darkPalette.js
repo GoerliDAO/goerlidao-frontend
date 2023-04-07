@@ -13,7 +13,7 @@ export const darkPalette = {
   radial-gradient(circle at 10% 0%, rgba(187, 211, 204, 0.33), rgba(187,211,204,0) 35%),
   radial-gradient(circle at 11% 100%, rgba(131, 165, 203, 0.3), rgba(131, 165, 203, 0) 30%)
   `,
-  backgroundColor: "rgba(8, 15, 53, 1)",
+  backgroundColor: "#121415",
   feedback: {
     success: "#94B9A1",
     userFeedback: "#49A1F2",

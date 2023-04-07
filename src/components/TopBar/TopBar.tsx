@@ -1,9 +1,12 @@
 // import "src/components/TopBar/TopBar.scss";
-
-import { AppBar, Box, Button, SvgIcon, useMediaQuery, useTheme } from "@mui/material";
+import { AppBar, Button, SvgIcon, useMediaQuery, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import React, { useEffect } from "react";
+import { ReactComponent as LogoIcon } from "src/assets/GDAO-ape.svg";
+import { ReactComponent as GDAOFullLogo } from "src/assets/gorlidao-full-logo.svg";
 import { ReactComponent as MenuIcon } from "src/assets/icons/hamburger.svg";
 import ConnectButton from "src/components/ConnectButton/ConnectButton";
+import ThemeSwitcher from "src/components/TopBar/ThemeSwitch";
 
 const PREFIX = "TopBar";
 
@@ -43,36 +46,64 @@ interface TopBarProps {
   handleDrawerToggle: () => void;
 }
 
-function TopBar({ handleDrawerToggle }: TopBarProps) {
+function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up(1048));
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      document.body.style.backgroundColor = theme.palette.mode === "dark" ? "#121415" : "#C6D9F9";
+      // replace element with id 'navigationBar' with a new element
+    }
+    if (location.pathname === "/") {
+      // @ts-ignore
+      document.getElementById("navigationBar").style.backgroundColor =
+        theme.palette.mode === "dark" ? "#121415" : "#0202FF";
+      (document.getElementById("navigationBar") as HTMLElement).style.color = "#fff";
+      document.body.style.backgroundColor = theme.palette.mode === "dark" ? "#121415" : "#C6D9F9";
+    } else {
+      document.body.style.backgroundColor = theme.palette.mode === "dark" ? "#121415" : "#C6D9F9";
+    }
+  }, [location, theme]);
+
   return (
-    <Box
-      display="flex"
-      flexDirection="row"
-      justifyContent="flex-end"
-      paddingTop="21px"
-      marginRight={desktop ? "33px" : "0px"}
-    >
-      <Box display="flex" alignItems="center">
-        <Box display="flex" alignItems="center">
-          <ConnectButton />
-        </Box>
-        {!desktop && (
-          <Button
-            id="hamburger"
-            aria-label="open drawer"
-            size="large"
-            variant="text"
-            color="secondary"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
-            <SvgIcon component={MenuIcon} />
-          </Button>
-        )}
-      </Box>
-    </Box>
+    <div id="navigationBar">
+      <div className="py-3 container mx-auto flex items-center justify-between">
+        <a className="flex items-center justify-center" href="/">
+          <LogoIcon className="w-5 md:w-10" />
+          <GDAOFullLogo className="w-20 md:w-24 ml-2" />
+        </a>
+
+        <div id="navLinks" className="hidden md:grid grid-cols-5 grid-rows-1 gap-8 text-sm font-semibold">
+          <a href="/bridge">Bridge</a>
+          <a href="/swap">Swap</a>
+          <a href="/stake">Stake</a>
+          <a href="/bonds">Bond</a>
+          <a href="/stats">Stats</a>
+        </div>
+
+        <div className="flex items-center justify-between">
+          <div className="flex items-center jusitfy-between">
+            {/* @ts-ignore */}
+            <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
+            <ConnectButton />
+          </div>
+
+          {!desktop && (
+            <Button
+              id="hamburger"
+              aria-label="open drawer"
+              size="large"
+              variant="text"
+              color="secondary"
+              onClick={handleDrawerToggle}
+            >
+              <SvgIcon component={MenuIcon} />
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 

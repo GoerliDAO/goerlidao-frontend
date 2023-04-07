@@ -1,0 +1,2820 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "closeMarket",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "params_",
+          "type": "bytes"
+        }
+      ],
+      "name": "createMarket",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "currentCapacity",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "currentControlVariable",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "currentDebt",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAggregator",
+      "outputs": [
+        {
+          "internalType": "contract IBondAggregator",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "getMarketInfoForPurchase",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "callbackAddr",
+          "type": "address"
+        },
+        {
+          "internalType": "contract ERC20",
+          "name": "payoutToken",
+          "type": "address"
+        },
+        {
+          "internalType": "contract ERC20",
+          "name": "quoteToken",
+          "type": "address"
+        },
+        {
+          "internalType": "uint48",
+          "name": "vesting",
+          "type": "uint48"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxPayout",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTeller",
+      "outputs": [
+        {
+          "internalType": "contract IBondTeller",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "isInstantSwap",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "isLive",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "marketPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "marketScale",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "referrer_",
+          "type": "address"
+        }
+      ],
+      "name": "maxAmountAccepted",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "ownerOf",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "referrer_",
+          "type": "address"
+        }
+      ],
+      "name": "payoutFor",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "pullOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minAmountOut_",
+          "type": "uint256"
+        }
+      ],
+      "name": "purchaseBond",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "payout",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "newOwner_",
+          "type": "address"
+        }
+      ],
+      "name": "pushOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "status_",
+          "type": "bool"
+        }
+      ],
+      "name": "setAllowNewMarkets",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "creator_",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "status_",
+          "type": "bool"
+        }
+      ],
+      "name": "setCallbackAuthStatus",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32[6]",
+          "name": "defaults_",
+          "type": "uint32[6]"
+        }
+      ],
+      "name": "setDefaults",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint32[3]",
+          "name": "intervals_",
+          "type": "uint32[3]"
+        }
+      ],
+      "name": "setIntervals",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "closeMarket(uint256)": "ae418095",
+    "createMarket(bytes)": "53c7f8e0",
+    "currentCapacity(uint256)": "1c063a6c",
+    "currentControlVariable(uint256)": "0a9d85eb",
+    "currentDebt(uint256)": "bcb29667",
+    "getAggregator()": "3ad59dbc",
+    "getMarketInfoForPurchase(uint256)": "acc5570c",
+    "getTeller()": "9787d107",
+    "isInstantSwap(uint256)": "8b098db3",
+    "isLive(uint256)": "27507458",
+    "marketPrice(uint256)": "3adec5a7",
+    "marketScale(uint256)": "946824cd",
+    "maxAmountAccepted(uint256,address)": "c7bf8ca0",
+    "ownerOf(uint256)": "6352211e",
+    "payoutFor(uint256,uint256,address)": "bf48582b",
+    "pullOwnership(uint256)": "10b05317",
+    "purchaseBond(uint256,uint256,uint256)": "e007fa97",
+    "pushOwnership(uint256,address)": "bcf6cde8",
+    "setAllowNewMarkets(bool)": "5f77274e",
+    "setCallbackAuthStatus(address,bool)": "bbbdd95a",
+    "setDefaults(uint32[6])": "bd1f3a5e",
+    "setIntervals(uint256,uint32[3])": "699e17d9"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"closeMarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"params_\",\"type\":\"bytes\"}],\"name\":\"createMarket\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"currentCapacity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"currentControlVariable\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"currentDebt\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAggregator\",\"outputs\":[{\"internalType\":\"contract IBondAggregator\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"getMarketInfoForPurchase\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callbackAddr\",\"type\":\"address\"},{\"internalType\":\"contract ERC20\",\"name\":\"payoutToken\",\"type\":\"address\"},{\"internalType\":\"contract ERC20\",\"name\":\"quoteToken\",\"type\":\"address\"},{\"internalType\":\"uint48\",\"name\":\"vesting\",\"type\":\"uint48\"},{\"internalType\":\"uint256\",\"name\":\"maxPayout\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTeller\",\"outputs\":[{\"internalType\":\"contract IBondTeller\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"isInstantSwap\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"isLive\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"marketPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"marketScale\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"referrer_\",\"type\":\"address\"}],\"name\":\"maxAmountAccepted\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"referrer_\",\"type\":\"address\"}],\"name\":\"payoutFor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"pullOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minAmountOut_\",\"type\":\"uint256\"}],\"name\":\"purchaseBond\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"payout\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"newOwner_\",\"type\":\"address\"}],\"name\":\"pushOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"status_\",\"type\":\"bool\"}],\"name\":\"setAllowNewMarkets\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"creator_\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"status_\",\"type\":\"bool\"}],\"name\":\"setCallbackAuthStatus\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32[6]\",\"name\":\"defaults_\",\"type\":\"uint32[6]\"}],\"name\":\"setDefaults\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"},{\"internalType\":\"uint32[3]\",\"name\":\"intervals_\",\"type\":\"uint32[3]\"}],\"name\":\"setIntervals\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"closeMarket(uint256)\":{\"params\":{\"id_\":\"ID of market to close\"}},\"createMarket(bytes)\":{\"details\":\"See specific auctioneer implementations for details on encoding the parameters.\",\"params\":{\"params_\":\"Configuration data needed for market creation, encoded in a bytes array\"},\"returns\":{\"_0\":\"id              ID of new bond market\"}},\"currentControlVariable(uint256)\":{\"details\":\"Accounts for control variable adjustment\",\"params\":{\"id_\":\"ID of market\"},\"returns\":{\"_0\":\"Control variable for market in payout token decimals\"}},\"currentDebt(uint256)\":{\"details\":\"Accounts for debt decay since last deposit\",\"params\":{\"id_\":\"ID of market\"},\"returns\":{\"_0\":\"Current debt for market in payout token decimals\"}},\"getMarketInfoForPurchase(uint256)\":{\"params\":{\"id_\":\"Market ID\"},\"returns\":{\"callbackAddr\":\"   Address of the callback contract to get tokens for payouts\",\"maxPayout\":\"      Maximum amount of payout tokens you can purchase in one transaction\",\"owner\":\"          Address of the market owner (tokens transferred from this address if no callback)\",\"payoutToken\":\"    Payout Token (token paid out) for the Market\",\"quoteToken\":\"     Quote Token (token received) for the Market\",\"vesting\":\"        Timestamp or duration for vesting, implementation-dependent\"}},\"isInstantSwap(uint256)\":{\"params\":{\"id_\":\"Market ID to search for\"}},\"isLive(uint256)\":{\"params\":{\"id_\":\"ID of market\"}},\"marketPrice(uint256)\":{\"details\":\"Accounts for debt and control variable decay since last deposit (vs _marketPrice())\",\"params\":{\"id_\":\"ID of market\"},\"returns\":{\"_0\":\"Price for market in configured decimals (see MarketParams)\"}},\"marketScale(uint256)\":{\"params\":{\"id_\":\"ID of market\"},\"returns\":{\"_0\":\"Scaling factor for market in configured decimals\"}},\"maxAmountAccepted(uint256,address)\":{\"params\":{\"id_\":\"ID of market\",\"referrer_\":\"Address of referrer, used to get fees to calculate accurate payout amount.                     Inputting the zero address will take into account just the protocol fee.\"}},\"ownerOf(uint256)\":{\"params\":{\"id_\":\"ID of market\"}},\"payoutFor(uint256,uint256,address)\":{\"details\":\"Accounts for debt and control variable decay so it is up to date\",\"params\":{\"amount_\":\"Amount of quote tokens to spend\",\"id_\":\"ID of market\",\"referrer_\":\"Address of referrer, used to get fees to calculate accurate payout amount.                     Inputting the zero address will take into account just the protocol fee.\"},\"returns\":{\"_0\":\"amount of payout tokens to be paid\"}},\"pullOwnership(uint256)\":{\"details\":\"The existing owner must call pushOwnership prior to the newOwner calling this function\",\"params\":{\"id_\":\"Market ID\"}},\"purchaseBond(uint256,uint256,uint256)\":{\"params\":{\"amount_\":\"Amount to deposit in exchange for bond (after fee has been deducted)\",\"id_\":\"ID of the Market the bond is being purchased from\",\"minAmountOut_\":\"Minimum acceptable amount of bond to receive. Prevents frontrunning\"},\"returns\":{\"payout\":\"         Amount of payout token to be received from the bond\"}},\"pushOwnership(uint256,address)\":{\"details\":\"Doesn't change permissions until newOwner calls pullOwnership\",\"params\":{\"id_\":\"Market ID\",\"newOwner_\":\"New address to give ownership to\"}},\"setAllowNewMarkets(bool)\":{\"details\":\"Setting to false and allowing active markets to end will sunset the auctioneer\",\"params\":{\"status_\":\"Allow market creation (true) : Disallow market creation (false)\"}},\"setCallbackAuthStatus(address,bool)\":{\"details\":\"Callback is believed to be safe, but a whitelist is implemented to prevent abuse\",\"params\":{\"creator_\":\"Address of market creator\",\"status_\":\"Allow callback (true) : Disallow callback (false)\"}},\"setDefaults(uint32[6])\":{\"details\":\"The defaults set here are important to avoid edge cases in market behavior, e.g. a very short market reacts doesn't tune wellOnly applies to new markets that are created after the change\",\"params\":{\"defaults_\":\"Array of default values                     1. Tune interval - amount of time between tuning adjustments                     2. Tune adjustment delay - amount of time to apply downward tuning adjustments                     3. Minimum debt decay interval - minimum amount of time to let debt decay to zero                     4. Minimum deposit interval - minimum amount of time to wait between deposits                     5. Minimum market duration - minimum amount of time a market can be created for                     6. Minimum debt buffer - the minimum amount of debt over the initial debt to trigger a market shutdown\"}},\"setIntervals(uint256,uint32[3])\":{\"details\":\"Changing the intervals could cause markets to behave in unexpected way                                 tuneInterval should be greater than tuneAdjustmentDelay\",\"params\":{\"id_\":\"Market ID\",\"intervals_\":\"Array of intervals (3)                                 1. Tune interval - Frequency of tuning                                 2. Tune adjustment delay - Time to implement downward tuning adjustments                                 3. Debt decay interval - Interval over which debt should decay completely\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"closeMarket(uint256)\":{\"notice\":\"Disable existing bond marketMust be market owner\"},\"createMarket(bytes)\":{\"notice\":\"Creates a new bond market\"},\"currentCapacity(uint256)\":{\"notice\":\"Returns current capacity of a market\"},\"currentControlVariable(uint256)\":{\"notice\":\"Up to date control variable\"},\"currentDebt(uint256)\":{\"notice\":\"Calculate debt factoring in decay\"},\"getAggregator()\":{\"notice\":\"Returns the Aggregator that services the Auctioneer\"},\"getMarketInfoForPurchase(uint256)\":{\"notice\":\"Provides information for the Teller to execute purchases on a Market\"},\"getTeller()\":{\"notice\":\"Returns the Teller that services the Auctioneer\"},\"isInstantSwap(uint256)\":{\"notice\":\"Does market send payout immediately\"},\"isLive(uint256)\":{\"notice\":\"Is a given market accepting deposits\"},\"marketPrice(uint256)\":{\"notice\":\"Calculate current market price of payout token in quote tokens\"},\"marketScale(uint256)\":{\"notice\":\"Scale value to use when converting between quote token and payout token amounts with marketPrice()\"},\"maxAmountAccepted(uint256,address)\":{\"notice\":\"Returns maximum amount of quote token accepted by the market\"},\"ownerOf(uint256)\":{\"notice\":\"Returns the address of the market owner\"},\"payoutFor(uint256,uint256,address)\":{\"notice\":\"Payout due for amount of quote tokens\"},\"pullOwnership(uint256)\":{\"notice\":\"Accept ownership of a marketMust be market newOwner\"},\"purchaseBond(uint256,uint256,uint256)\":{\"notice\":\"Exchange quote tokens for a bond in a specified marketMust be teller\"},\"pushOwnership(uint256,address)\":{\"notice\":\"Designate a new owner of a marketMust be market owner\"},\"setAllowNewMarkets(bool)\":{\"notice\":\"Change the status of the auctioneer to allow creation of new markets\"},\"setCallbackAuthStatus(address,bool)\":{\"notice\":\"Change whether a market creator is allowed to use a callback address in their markets or notMust be guardian\"},\"setDefaults(uint32[6])\":{\"notice\":\"Set the auctioneer defaultsMust be policy\"},\"setIntervals(uint256,uint32[3])\":{\"notice\":\"Set market intervals to different values than the defaultsMust be market owner\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/IBondSDA.sol\":\"IBondSDA\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"lib/solmate/src/tokens/ERC20.sol\":{\"keccak256\":\"0x0240f7703cff32a61ee3e9fbb339e09a944260432a9ef37debf3692b1a6c8049\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://2d8b0c0158b1952a87c327d506a645040924a94c8f9f937184659f8a8e3b0759\",\"dweb:/ipfs/QmZ9rGdkjRCk8zfr4xeH7Jh88tkWJNt9LvG1o2GcCm7Uqa\"]},\"src/interfaces/IBondAggregator.sol\":{\"keccak256\":\"0xcbed51d7460ff8cf4d21f7ede6214af17b18dc4267c97b33989d657c84b732db\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://983965755356b317371609b20859cd2ca4c6493fa607d9dffaabb1d0cfd9dffb\",\"dweb:/ipfs/QmZJGhmKLLgi8wvBN6RrZF8y7sT6MgCYXx6NAM1bLqu5SU\"]},\"src/interfaces/IBondAuctioneer.sol\":{\"keccak256\":\"0x72842370a860a167633d01b6806db55d6db1011985d8186bd7947ed35d397c38\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://36c3eb05cd77617ce675871eb7b288ee6e9d75b60b82dbcf62667b08c37c2a8f\",\"dweb:/ipfs/QmcSddgbfTyfSZywcMDnWPsxs5nYgkBYBqzrEJWeEPzfT7\"]},\"src/interfaces/IBondSDA.sol\":{\"keccak256\":\"0xb0a61e34a41e7fc745d1380af61513f6766de4270a3577f14ddac61fd233c4cf\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://7cbceb0696bfd499216ac5d75fbc3a50b0912a044b6f1915ddbd5ccd5ddf0a97\",\"dweb:/ipfs/QmTdjYhhCbF8G1JFMjgGBR6Vj5T2x5NKZh5xu7Z3kNxoFW\"]},\"src/interfaces/IBondTeller.sol\":{\"keccak256\":\"0xb14fc9301858ec61abc52462699ced9f32478f1944b64c9398d811794d8769a1\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://9a6fb18f623109e285ce99f8be07969d3e50a235543ceb28b5dc620d606ea150\",\"dweb:/ipfs/QmXAz2yXoZQ6XzkS9mwPc7Dkj7kD3RyhW9rix7daVvxkMf\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.15+commit.e14f2714"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "closeMarket"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes",
+              "name": "params_",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createMarket",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "currentCapacity",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "currentControlVariable",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "currentDebt",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getAggregator",
+          "outputs": [
+            {
+              "internalType": "contract IBondAggregator",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getMarketInfoForPurchase",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "callbackAddr",
+              "type": "address"
+            },
+            {
+              "internalType": "contract ERC20",
+              "name": "payoutToken",
+              "type": "address"
+            },
+            {
+              "internalType": "contract ERC20",
+              "name": "quoteToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint48",
+              "name": "vesting",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxPayout",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getTeller",
+          "outputs": [
+            {
+              "internalType": "contract IBondTeller",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "isInstantSwap",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "isLive",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "marketPrice",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "marketScale",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "maxAmountAccepted",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "ownerOf",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "payoutFor",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "pullOwnership"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "minAmountOut_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "purchaseBond",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "payout",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "newOwner_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "pushOwnership"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bool",
+              "name": "status_",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setAllowNewMarkets"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "creator_",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "status_",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setCallbackAuthStatus"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32[6]",
+              "name": "defaults_",
+              "type": "uint32[6]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setDefaults"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint32[3]",
+              "name": "intervals_",
+              "type": "uint32[3]"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setIntervals"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "closeMarket(uint256)": {
+            "params": {
+              "id_": "ID of market to close"
+            }
+          },
+          "createMarket(bytes)": {
+            "details": "See specific auctioneer implementations for details on encoding the parameters.",
+            "params": {
+              "params_": "Configuration data needed for market creation, encoded in a bytes array"
+            },
+            "returns": {
+              "_0": "id              ID of new bond market"
+            }
+          },
+          "currentControlVariable(uint256)": {
+            "details": "Accounts for control variable adjustment",
+            "params": {
+              "id_": "ID of market"
+            },
+            "returns": {
+              "_0": "Control variable for market in payout token decimals"
+            }
+          },
+          "currentDebt(uint256)": {
+            "details": "Accounts for debt decay since last deposit",
+            "params": {
+              "id_": "ID of market"
+            },
+            "returns": {
+              "_0": "Current debt for market in payout token decimals"
+            }
+          },
+          "getMarketInfoForPurchase(uint256)": {
+            "params": {
+              "id_": "Market ID"
+            },
+            "returns": {
+              "callbackAddr": "   Address of the callback contract to get tokens for payouts",
+              "maxPayout": "      Maximum amount of payout tokens you can purchase in one transaction",
+              "owner": "          Address of the market owner (tokens transferred from this address if no callback)",
+              "payoutToken": "    Payout Token (token paid out) for the Market",
+              "quoteToken": "     Quote Token (token received) for the Market",
+              "vesting": "        Timestamp or duration for vesting, implementation-dependent"
+            }
+          },
+          "isInstantSwap(uint256)": {
+            "params": {
+              "id_": "Market ID to search for"
+            }
+          },
+          "isLive(uint256)": {
+            "params": {
+              "id_": "ID of market"
+            }
+          },
+          "marketPrice(uint256)": {
+            "details": "Accounts for debt and control variable decay since last deposit (vs _marketPrice())",
+            "params": {
+              "id_": "ID of market"
+            },
+            "returns": {
+              "_0": "Price for market in configured decimals (see MarketParams)"
+            }
+          },
+          "marketScale(uint256)": {
+            "params": {
+              "id_": "ID of market"
+            },
+            "returns": {
+              "_0": "Scaling factor for market in configured decimals"
+            }
+          },
+          "maxAmountAccepted(uint256,address)": {
+            "params": {
+              "id_": "ID of market",
+              "referrer_": "Address of referrer, used to get fees to calculate accurate payout amount.                     Inputting the zero address will take into account just the protocol fee."
+            }
+          },
+          "ownerOf(uint256)": {
+            "params": {
+              "id_": "ID of market"
+            }
+          },
+          "payoutFor(uint256,uint256,address)": {
+            "details": "Accounts for debt and control variable decay so it is up to date",
+            "params": {
+              "amount_": "Amount of quote tokens to spend",
+              "id_": "ID of market",
+              "referrer_": "Address of referrer, used to get fees to calculate accurate payout amount.                     Inputting the zero address will take into account just the protocol fee."
+            },
+            "returns": {
+              "_0": "amount of payout tokens to be paid"
+            }
+          },
+          "pullOwnership(uint256)": {
+            "details": "The existing owner must call pushOwnership prior to the newOwner calling this function",
+            "params": {
+              "id_": "Market ID"
+            }
+          },
+          "purchaseBond(uint256,uint256,uint256)": {
+            "params": {
+              "amount_": "Amount to deposit in exchange for bond (after fee has been deducted)",
+              "id_": "ID of the Market the bond is being purchased from",
+              "minAmountOut_": "Minimum acceptable amount of bond to receive. Prevents frontrunning"
+            },
+            "returns": {
+              "payout": "         Amount of payout token to be received from the bond"
+            }
+          },
+          "pushOwnership(uint256,address)": {
+            "details": "Doesn't change permissions until newOwner calls pullOwnership",
+            "params": {
+              "id_": "Market ID",
+              "newOwner_": "New address to give ownership to"
+            }
+          },
+          "setAllowNewMarkets(bool)": {
+            "details": "Setting to false and allowing active markets to end will sunset the auctioneer",
+            "params": {
+              "status_": "Allow market creation (true) : Disallow market creation (false)"
+            }
+          },
+          "setCallbackAuthStatus(address,bool)": {
+            "details": "Callback is believed to be safe, but a whitelist is implemented to prevent abuse",
+            "params": {
+              "creator_": "Address of market creator",
+              "status_": "Allow callback (true) : Disallow callback (false)"
+            }
+          },
+          "setDefaults(uint32[6])": {
+            "details": "The defaults set here are important to avoid edge cases in market behavior, e.g. a very short market reacts doesn't tune wellOnly applies to new markets that are created after the change",
+            "params": {
+              "defaults_": "Array of default values                     1. Tune interval - amount of time between tuning adjustments                     2. Tune adjustment delay - amount of time to apply downward tuning adjustments                     3. Minimum debt decay interval - minimum amount of time to let debt decay to zero                     4. Minimum deposit interval - minimum amount of time to wait between deposits                     5. Minimum market duration - minimum amount of time a market can be created for                     6. Minimum debt buffer - the minimum amount of debt over the initial debt to trigger a market shutdown"
+            }
+          },
+          "setIntervals(uint256,uint32[3])": {
+            "details": "Changing the intervals could cause markets to behave in unexpected way                                 tuneInterval should be greater than tuneAdjustmentDelay",
+            "params": {
+              "id_": "Market ID",
+              "intervals_": "Array of intervals (3)                                 1. Tune interval - Frequency of tuning                                 2. Tune adjustment delay - Time to implement downward tuning adjustments                                 3. Debt decay interval - Interval over which debt should decay completely"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "closeMarket(uint256)": {
+            "notice": "Disable existing bond marketMust be market owner"
+          },
+          "createMarket(bytes)": {
+            "notice": "Creates a new bond market"
+          },
+          "currentCapacity(uint256)": {
+            "notice": "Returns current capacity of a market"
+          },
+          "currentControlVariable(uint256)": {
+            "notice": "Up to date control variable"
+          },
+          "currentDebt(uint256)": {
+            "notice": "Calculate debt factoring in decay"
+          },
+          "getAggregator()": {
+            "notice": "Returns the Aggregator that services the Auctioneer"
+          },
+          "getMarketInfoForPurchase(uint256)": {
+            "notice": "Provides information for the Teller to execute purchases on a Market"
+          },
+          "getTeller()": {
+            "notice": "Returns the Teller that services the Auctioneer"
+          },
+          "isInstantSwap(uint256)": {
+            "notice": "Does market send payout immediately"
+          },
+          "isLive(uint256)": {
+            "notice": "Is a given market accepting deposits"
+          },
+          "marketPrice(uint256)": {
+            "notice": "Calculate current market price of payout token in quote tokens"
+          },
+          "marketScale(uint256)": {
+            "notice": "Scale value to use when converting between quote token and payout token amounts with marketPrice()"
+          },
+          "maxAmountAccepted(uint256,address)": {
+            "notice": "Returns maximum amount of quote token accepted by the market"
+          },
+          "ownerOf(uint256)": {
+            "notice": "Returns the address of the market owner"
+          },
+          "payoutFor(uint256,uint256,address)": {
+            "notice": "Payout due for amount of quote tokens"
+          },
+          "pullOwnership(uint256)": {
+            "notice": "Accept ownership of a marketMust be market newOwner"
+          },
+          "purchaseBond(uint256,uint256,uint256)": {
+            "notice": "Exchange quote tokens for a bond in a specified marketMust be teller"
+          },
+          "pushOwnership(uint256,address)": {
+            "notice": "Designate a new owner of a marketMust be market owner"
+          },
+          "setAllowNewMarkets(bool)": {
+            "notice": "Change the status of the auctioneer to allow creation of new markets"
+          },
+          "setCallbackAuthStatus(address,bool)": {
+            "notice": "Change whether a market creator is allowed to use a callback address in their markets or notMust be guardian"
+          },
+          "setDefaults(uint32[6])": {
+            "notice": "Set the auctioneer defaultsMust be policy"
+          },
+          "setIntervals(uint256,uint32[3])": {
+            "notice": "Set market intervals to different values than the defaultsMust be market owner"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":balancer-v2/=lib/balancer-v2/",
+        ":bonds/=lib/bonds/src/",
+        ":ds-test/=lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/",
+        ":interfaces/=src/interfaces/",
+        ":libraries/=src/libraries/",
+        ":modules/=src/modules/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+        ":policies/=src/policies/",
+        ":solmate/=lib/solmate/src/",
+        ":test/=src/test/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 10
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/interfaces/IBondSDA.sol": "IBondSDA"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "lib/solmate/src/tokens/ERC20.sol": {
+        "keccak256": "0x0240f7703cff32a61ee3e9fbb339e09a944260432a9ef37debf3692b1a6c8049",
+        "urls": [
+          "bzz-raw://2d8b0c0158b1952a87c327d506a645040924a94c8f9f937184659f8a8e3b0759",
+          "dweb:/ipfs/QmZ9rGdkjRCk8zfr4xeH7Jh88tkWJNt9LvG1o2GcCm7Uqa"
+        ],
+        "license": "AGPL-3.0-only"
+      },
+      "src/interfaces/IBondAggregator.sol": {
+        "keccak256": "0xcbed51d7460ff8cf4d21f7ede6214af17b18dc4267c97b33989d657c84b732db",
+        "urls": [
+          "bzz-raw://983965755356b317371609b20859cd2ca4c6493fa607d9dffaabb1d0cfd9dffb",
+          "dweb:/ipfs/QmZJGhmKLLgi8wvBN6RrZF8y7sT6MgCYXx6NAM1bLqu5SU"
+        ],
+        "license": "AGPL-3.0"
+      },
+      "src/interfaces/IBondAuctioneer.sol": {
+        "keccak256": "0x72842370a860a167633d01b6806db55d6db1011985d8186bd7947ed35d397c38",
+        "urls": [
+          "bzz-raw://36c3eb05cd77617ce675871eb7b288ee6e9d75b60b82dbcf62667b08c37c2a8f",
+          "dweb:/ipfs/QmcSddgbfTyfSZywcMDnWPsxs5nYgkBYBqzrEJWeEPzfT7"
+        ],
+        "license": "AGPL-3.0"
+      },
+      "src/interfaces/IBondSDA.sol": {
+        "keccak256": "0xb0a61e34a41e7fc745d1380af61513f6766de4270a3577f14ddac61fd233c4cf",
+        "urls": [
+          "bzz-raw://7cbceb0696bfd499216ac5d75fbc3a50b0912a044b6f1915ddbd5ccd5ddf0a97",
+          "dweb:/ipfs/QmTdjYhhCbF8G1JFMjgGBR6Vj5T2x5NKZh5xu7Z3kNxoFW"
+        ],
+        "license": "AGPL-3.0"
+      },
+      "src/interfaces/IBondTeller.sol": {
+        "keccak256": "0xb14fc9301858ec61abc52462699ced9f32478f1944b64c9398d811794d8769a1",
+        "urls": [
+          "bzz-raw://9a6fb18f623109e285ce99f8be07969d3e50a235543ceb28b5dc620d606ea150",
+          "dweb:/ipfs/QmXAz2yXoZQ6XzkS9mwPc7Dkj7kD3RyhW9rix7daVvxkMf"
+        ],
+        "license": "AGPL-3.0"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/interfaces/IBondSDA.sol",
+    "id": 44924,
+    "exportedSymbols": {
+      "ERC20": [
+        28408
+      ],
+      "IBondAuctioneer": [
+        44673
+      ],
+      "IBondSDA": [
+        44923
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "37:8956:68",
+    "nodes": [
+      {
+        "id": 44798,
+        "nodeType": "PragmaDirective",
+        "src": "37:24:68",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0"
+        ]
+      },
+      {
+        "id": 44800,
+        "nodeType": "ImportDirective",
+        "src": "63:47:68",
+        "nodes": [],
+        "absolutePath": "lib/solmate/src/tokens/ERC20.sol",
+        "file": "solmate/tokens/ERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 44924,
+        "sourceUnit": 28409,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 44799,
+              "name": "ERC20",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 28408,
+              "src": "71:5:68",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 44802,
+        "nodeType": "ImportDirective",
+        "src": "111:66:68",
+        "nodes": [],
+        "absolutePath": "src/interfaces/IBondAuctioneer.sol",
+        "file": "../interfaces/IBondAuctioneer.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 44924,
+        "sourceUnit": 44674,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 44801,
+              "name": "IBondAuctioneer",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 44673,
+              "src": "119:15:68",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 44923,
+        "nodeType": "ContractDefinition",
+        "src": "179:8813:68",
+        "nodes": [
+          {
+            "id": 44831,
+            "nodeType": "StructDefinition",
+            "src": "282:888:68",
+            "nodes": [],
+            "canonicalName": "IBondSDA.BondMarket",
+            "members": [
+              {
+                "constant": false,
+                "id": 44806,
+                "mutability": "mutable",
+                "name": "owner",
+                "nameLocation": "318:5:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "310:13:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 44805,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "310:7:68",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44809,
+                "mutability": "mutable",
+                "name": "payoutToken",
+                "nameLocation": "421:11:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "415:17:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_ERC20_$28408",
+                  "typeString": "contract ERC20"
+                },
+                "typeName": {
+                  "id": 44808,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 44807,
+                    "name": "ERC20",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 28408,
+                    "src": "415:5:68"
+                  },
+                  "referencedDeclaration": 28408,
+                  "src": "415:5:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$28408",
+                    "typeString": "contract ERC20"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44812,
+                "mutability": "mutable",
+                "name": "quoteToken",
+                "nameLocation": "480:10:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "474:16:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_ERC20_$28408",
+                  "typeString": "contract ERC20"
+                },
+                "typeName": {
+                  "id": 44811,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 44810,
+                    "name": "ERC20",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 28408,
+                    "src": "474:5:68"
+                  },
+                  "referencedDeclaration": 28408,
+                  "src": "474:5:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$28408",
+                    "typeString": "contract ERC20"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44814,
+                "mutability": "mutable",
+                "name": "callbackAddr",
+                "nameLocation": "538:12:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "530:20:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 44813,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "530:7:68",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44816,
+                "mutability": "mutable",
+                "name": "capacityInQuote",
+                "nameLocation": "652:15:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "647:20:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 44815,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "647:4:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44818,
+                "mutability": "mutable",
+                "name": "capacity",
+                "nameLocation": "760:8:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "752:16:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44817,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "752:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44820,
+                "mutability": "mutable",
+                "name": "totalDebt",
+                "nameLocation": "808:9:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "800:17:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44819,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "800:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44822,
+                "mutability": "mutable",
+                "name": "minPrice",
+                "nameLocation": "874:8:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "866:16:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44821,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "866:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44824,
+                "mutability": "mutable",
+                "name": "maxPayout",
+                "nameLocation": "945:9:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "937:17:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44823,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "937:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44826,
+                "mutability": "mutable",
+                "name": "sold",
+                "nameLocation": "1010:4:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "1002:12:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44825,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1002:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44828,
+                "mutability": "mutable",
+                "name": "purchased",
+                "nameLocation": "1053:9:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "1045:17:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44827,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1045:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44830,
+                "mutability": "mutable",
+                "name": "scale",
+                "nameLocation": "1099:5:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44831,
+                "src": "1091:13:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44829,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1091:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "BondMarket",
+            "nameLocation": "289:10:68",
+            "scope": 44923,
+            "visibility": "public"
+          },
+          {
+            "id": 44840,
+            "nodeType": "StructDefinition",
+            "src": "1246:329:68",
+            "nodes": [],
+            "canonicalName": "IBondSDA.BondTerms",
+            "members": [
+              {
+                "constant": false,
+                "id": 44833,
+                "mutability": "mutable",
+                "name": "controlVariable",
+                "nameLocation": "1281:15:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44840,
+                "src": "1273:23:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44832,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1273:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44835,
+                "mutability": "mutable",
+                "name": "maxDebt",
+                "nameLocation": "1344:7:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44840,
+                "src": "1336:15:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44834,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1336:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44837,
+                "mutability": "mutable",
+                "name": "vesting",
+                "nameLocation": "1401:7:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44840,
+                "src": "1394:14:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint48",
+                  "typeString": "uint48"
+                },
+                "typeName": {
+                  "id": 44836,
+                  "name": "uint48",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1394:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44839,
+                "mutability": "mutable",
+                "name": "conclusion",
+                "nameLocation": "1515:10:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44840,
+                "src": "1508:17:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint48",
+                  "typeString": "uint48"
+                },
+                "typeName": {
+                  "id": 44838,
+                  "name": "uint48",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1508:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "BondTerms",
+            "nameLocation": "1253:9:68",
+            "scope": 44923,
+            "visibility": "public"
+          },
+          {
+            "id": 44861,
+            "nodeType": "StructDefinition",
+            "src": "1761:786:68",
+            "nodes": [],
+            "canonicalName": "IBondSDA.BondMetadata",
+            "members": [
+              {
+                "constant": false,
+                "id": 44842,
+                "mutability": "mutable",
+                "name": "lastTune",
+                "nameLocation": "1798:8:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44861,
+                "src": "1791:15:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint48",
+                  "typeString": "uint48"
+                },
+                "typeName": {
+                  "id": 44841,
+                  "name": "uint48",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1791:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44844,
+                "mutability": "mutable",
+                "name": "lastDecay",
+                "nameLocation": "1873:9:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44861,
+                "src": "1866:16:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint48",
+                  "typeString": "uint48"
+                },
+                "typeName": {
+                  "id": 44843,
+                  "name": "uint48",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1866:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44846,
+                "mutability": "mutable",
+                "name": "length",
+                "nameLocation": "1962:6:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44861,
+                "src": "1955:13:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 44845,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1955:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44848,
+                "mutability": "mutable",
+                "name": "depositInterval",
+                "nameLocation": "2022:15:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44861,
+                "src": "2015:22:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 44847,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2015:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44850,
+                "mutability": "mutable",
+                "name": "tuneInterval",
+                "nameLocation": "2086:12:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44861,
+                "src": "2079:19:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 44849,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2079:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44852,
+                "mutability": "mutable",
+                "name": "tuneAdjustmentDelay",
+                "nameLocation": "2138:19:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44861,
+                "src": "2131:26:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 44851,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2131:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44854,
+                "mutability": "mutable",
+                "name": "debtDecayInterval",
+                "nameLocation": "2223:17:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44861,
+                "src": "2216:24:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 44853,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2216:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44856,
+                "mutability": "mutable",
+                "name": "tuneIntervalCapacity",
+                "nameLocation": "2310:20:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44861,
+                "src": "2302:28:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44855,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2302:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44858,
+                "mutability": "mutable",
+                "name": "tuneBelowCapacity",
+                "nameLocation": "2405:17:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44861,
+                "src": "2397:25:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44857,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2397:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44860,
+                "mutability": "mutable",
+                "name": "lastTuneDebt",
+                "nameLocation": "2487:12:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44861,
+                "src": "2479:20:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44859,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2479:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "BondMetadata",
+            "nameLocation": "1768:12:68",
+            "scope": 44923,
+            "visibility": "public"
+          },
+          {
+            "id": 44870,
+            "nodeType": "StructDefinition",
+            "src": "2602:169:68",
+            "nodes": [],
+            "canonicalName": "IBondSDA.Adjustment",
+            "members": [
+              {
+                "constant": false,
+                "id": 44863,
+                "mutability": "mutable",
+                "name": "change",
+                "nameLocation": "2638:6:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44870,
+                "src": "2630:14:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44862,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2630:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44865,
+                "mutability": "mutable",
+                "name": "lastAdjustment",
+                "nameLocation": "2661:14:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44870,
+                "src": "2654:21:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint48",
+                  "typeString": "uint48"
+                },
+                "typeName": {
+                  "id": 44864,
+                  "name": "uint48",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2654:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44867,
+                "mutability": "mutable",
+                "name": "timeToAdjusted",
+                "nameLocation": "2692:14:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44870,
+                "src": "2685:21:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint48",
+                  "typeString": "uint48"
+                },
+                "typeName": {
+                  "id": 44866,
+                  "name": "uint48",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2685:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44869,
+                "mutability": "mutable",
+                "name": "active",
+                "nameLocation": "2758:6:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44870,
+                "src": "2753:11:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 44868,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2753:4:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Adjustment",
+            "nameLocation": "2609:10:68",
+            "scope": 44923,
+            "visibility": "public"
+          },
+          {
+            "id": 44897,
+            "nodeType": "StructDefinition",
+            "src": "7076:384:68",
+            "nodes": [],
+            "canonicalName": "IBondSDA.MarketParams",
+            "members": [
+              {
+                "constant": false,
+                "id": 44873,
+                "mutability": "mutable",
+                "name": "payoutToken",
+                "nameLocation": "7112:11:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7106:17:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_ERC20_$28408",
+                  "typeString": "contract ERC20"
+                },
+                "typeName": {
+                  "id": 44872,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 44871,
+                    "name": "ERC20",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 28408,
+                    "src": "7106:5:68"
+                  },
+                  "referencedDeclaration": 28408,
+                  "src": "7106:5:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$28408",
+                    "typeString": "contract ERC20"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44876,
+                "mutability": "mutable",
+                "name": "quoteToken",
+                "nameLocation": "7139:10:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7133:16:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_ERC20_$28408",
+                  "typeString": "contract ERC20"
+                },
+                "typeName": {
+                  "id": 44875,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 44874,
+                    "name": "ERC20",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 28408,
+                    "src": "7133:5:68"
+                  },
+                  "referencedDeclaration": 28408,
+                  "src": "7133:5:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$28408",
+                    "typeString": "contract ERC20"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44878,
+                "mutability": "mutable",
+                "name": "callbackAddr",
+                "nameLocation": "7167:12:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7159:20:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 44877,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "7159:7:68",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44880,
+                "mutability": "mutable",
+                "name": "capacityInQuote",
+                "nameLocation": "7194:15:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7189:20:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 44879,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "7189:4:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44882,
+                "mutability": "mutable",
+                "name": "capacity",
+                "nameLocation": "7227:8:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7219:16:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44881,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "7219:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44884,
+                "mutability": "mutable",
+                "name": "formattedInitialPrice",
+                "nameLocation": "7253:21:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7245:29:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44883,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "7245:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44886,
+                "mutability": "mutable",
+                "name": "formattedMinimumPrice",
+                "nameLocation": "7292:21:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7284:29:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 44885,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "7284:7:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44888,
+                "mutability": "mutable",
+                "name": "debtBuffer",
+                "nameLocation": "7330:10:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7323:17:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 44887,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "7323:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44890,
+                "mutability": "mutable",
+                "name": "vesting",
+                "nameLocation": "7357:7:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7350:14:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint48",
+                  "typeString": "uint48"
+                },
+                "typeName": {
+                  "id": 44889,
+                  "name": "uint48",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "7350:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44892,
+                "mutability": "mutable",
+                "name": "conclusion",
+                "nameLocation": "7381:10:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7374:17:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint48",
+                  "typeString": "uint48"
+                },
+                "typeName": {
+                  "id": 44891,
+                  "name": "uint48",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "7374:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44894,
+                "mutability": "mutable",
+                "name": "depositInterval",
+                "nameLocation": "7408:15:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7401:22:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 44893,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "7401:6:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 44896,
+                "mutability": "mutable",
+                "name": "scaleAdjustment",
+                "nameLocation": "7438:15:68",
+                "nodeType": "VariableDeclaration",
+                "scope": 44897,
+                "src": "7433:20:68",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int8",
+                  "typeString": "int8"
+                },
+                "typeName": {
+                  "id": 44895,
+                  "name": "int8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "7433:4:68",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int8",
+                    "typeString": "int8"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "MarketParams",
+            "nameLocation": "7083:12:68",
+            "scope": 44923,
+            "visibility": "public"
+          },
+          {
+            "id": 44906,
+            "nodeType": "FunctionDefinition",
+            "src": "8262:75:68",
+            "nodes": [],
+            "baseFunctions": [
+              44596
+            ],
+            "documentation": {
+              "id": 44898,
+              "nodeType": "StructuredDocumentation",
+              "src": "7514:326:68",
+              "text": "@notice             Calculate current market price of payout token in quote tokens\n @dev                Accounts for debt and control variable decay since last deposit (vs _marketPrice())\n @param id_          ID of market\n @return             Price for market in configured decimals (see MarketParams)"
+            },
+            "functionSelector": "3adec5a7",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "marketPrice",
+            "nameLocation": "8271:11:68",
+            "overrides": {
+              "id": 44902,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "8310:8:68"
+            },
+            "parameters": {
+              "id": 44901,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44900,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "8291:3:68",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44906,
+                  "src": "8283:11:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44899,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8283:7:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8282:13:68"
+            },
+            "returnParameters": {
+              "id": 44905,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44904,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44906,
+                  "src": "8328:7:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44903,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8328:7:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8327:9:68"
+            },
+            "scope": 44923,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 44914,
+            "nodeType": "FunctionDefinition",
+            "src": "8594:66:68",
+            "nodes": [],
+            "documentation": {
+              "id": 44907,
+              "nodeType": "StructuredDocumentation",
+              "src": "8343:246:68",
+              "text": "@notice             Calculate debt factoring in decay\n @dev                Accounts for debt decay since last deposit\n @param id_          ID of market\n @return             Current debt for market in payout token decimals"
+            },
+            "functionSelector": "bcb29667",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "currentDebt",
+            "nameLocation": "8603:11:68",
+            "parameters": {
+              "id": 44910,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44909,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "8623:3:68",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44914,
+                  "src": "8615:11:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44908,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8615:7:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8614:13:68"
+            },
+            "returnParameters": {
+              "id": 44913,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44912,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44914,
+                  "src": "8651:7:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44911,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8651:7:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8650:9:68"
+            },
+            "scope": 44923,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 44922,
+            "nodeType": "FunctionDefinition",
+            "src": "8913:77:68",
+            "nodes": [],
+            "documentation": {
+              "id": 44915,
+              "nodeType": "StructuredDocumentation",
+              "src": "8666:242:68",
+              "text": "@notice             Up to date control variable\n @dev                Accounts for control variable adjustment\n @param id_          ID of market\n @return             Control variable for market in payout token decimals"
+            },
+            "functionSelector": "0a9d85eb",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "currentControlVariable",
+            "nameLocation": "8922:22:68",
+            "parameters": {
+              "id": 44918,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44917,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "8953:3:68",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44922,
+                  "src": "8945:11:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44916,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8945:7:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8944:13:68"
+            },
+            "returnParameters": {
+              "id": 44921,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44920,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44922,
+                  "src": "8981:7:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44919,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8981:7:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8980:9:68"
+            },
+            "scope": 44923,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 44803,
+              "name": "IBondAuctioneer",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 44673,
+              "src": "201:15:68"
+            },
+            "id": 44804,
+            "nodeType": "InheritanceSpecifier",
+            "src": "201:15:68"
+          }
+        ],
+        "canonicalName": "IBondSDA",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          44923,
+          44673
+        ],
+        "name": "IBondSDA",
+        "nameLocation": "189:8:68",
+        "scope": 44924,
+        "usedErrors": []
+      }
+    ],
+    "license": "AGPL-3.0"
+  },
+  "id": 68
+}

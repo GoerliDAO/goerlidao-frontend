@@ -11,7 +11,7 @@ import {
   STAKING_ADDRESSES,
   ZAP_ADDRESSES,
 } from "src/constants/addresses";
-import { OHM_TOKEN } from "src/constants/tokens";
+import { GDAO_TOKEN } from "src/constants/tokens";
 import { Token } from "src/helpers/contracts/Token";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { assert } from "src/helpers/types/assert";
@@ -41,7 +41,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
     if (isContract(BOND_DEPOSITORY_ADDRESSES, transaction.to_address)) {
       if (first.decoded.params[1].value.toLowerCase() === address.toLowerCase())
         results.push({
-          token: OHM_TOKEN,
+          token: GDAO_TOKEN,
           transaction,
           type: "bond",
           details: "Bond Claimed",
@@ -49,7 +49,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
         });
       else
         results.push({
-          token: OHM_TOKEN,
+          token: GDAO_TOKEN,
           transaction,
           type: "bond",
           details: "Bond Purchased",
@@ -60,7 +60,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
     if (isContract(STAKING_ADDRESSES, transaction.to_address)) {
       if (isContract(STAKING_ADDRESSES, first.decoded.params[0].value) && isContract(OHM_TOKEN, first.sender_address))
         results.push({
-          token: OHM_TOKEN,
+          token: GDAO_TOKEN,
           transaction,
           type: "staking",
           details: "Unstake",
@@ -68,7 +68,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
         });
       else
         results.push({
-          token: OHM_TOKEN,
+          token: GDAO_TOKEN,
           transaction,
           type: "staking",
           details: "Stake",
@@ -78,7 +78,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
 
     if (isContract(ZAP_ADDRESSES, transaction.to_address))
       results.push({
-        token: OHM_TOKEN,
+        token: GDAO_TOKEN,
         transaction,
         type: "zap",
         details: `Zap to ${second?.sender_contract_ticker_symbol}`,
@@ -87,7 +87,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
 
     if (isContract(MIGRATOR_ADDRESSES, transaction.to_address))
       results.push({
-        token: OHM_TOKEN,
+        token: GDAO_TOKEN,
         transaction,
         type: "migration",
         details: "Migration",
@@ -96,7 +96,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
 
     if (isContract(PT_PRIZE_POOL_ADDRESSES, transaction.to_address))
       results.push({
-        token: OHM_TOKEN,
+        token: GDAO_TOKEN,
         transaction,
         type: "33together",
         details: "33Together Claim",
@@ -114,7 +114,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
       });
 
       results.push({
-        token: OHM_TOKEN,
+        token: GDAO_TOKEN,
         transaction,
         type: "borrow",
         details: "Supply to Fuse",
@@ -128,7 +128,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
     if (isContract(FIATDAO_WSOHM_ADDRESSES, transaction.to_address)) {
       if (isContract(FIATDAO_WSOHM_ADDRESSES, first.sender_address))
         results.push({
-          token: OHM_TOKEN,
+          token: GDAO_TOKEN,
           transaction,
           type: "staking",
           details: "FiatDAO Withdraw",
@@ -136,7 +136,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
         });
       else
         results.push({
-          token: OHM_TOKEN,
+          token: GDAO_TOKEN,
           transaction,
           type: "staking",
           details: "FiatDAO Deposit",

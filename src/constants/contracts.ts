@@ -11,28 +11,32 @@ import {
   RANGE_ADDRESSES,
   RANGE_OPERATOR_ADDRESSES,
   RANGE_PRICE_ADDRESSES,
-  SOHM_ADDRESSES,
+  // SOHM_ADDRESSES,
+  SGDAO_ADDRESSES,
   STAKING_ADDRESSES,
   ZAP_ADDRESSES,
 } from "src/constants/addresses";
+import { Distributor__factory, GDAOStaking__factory, SGDAO__factory } from "src/forge";
+import { BondAggregator__factory, BondFixedTermTeller__factory, Faucet__factory } from "src/forge/factories";
 import { Contract } from "src/helpers/contracts/Contract";
 import {
   BalancerVault__factory,
   BondDepository__factory,
   BondFixedExpiryTeller__factory,
-  BondFixedTermTeller__factory,
+  // BondFixedTermTeller__factory,
   CrossChainMigrator__factory,
   OlympusProV2__factory,
-  OlympusStakingv2__factory,
+  // OlympusStakingv2__factory,
   Range__factory,
   RangeOperator__factory,
   RangePrice__factory,
-  SOhmv2__factory,
+  // SOhmv2__factory,
   Zap__factory,
 } from "src/typechain";
-import { BondAggregator__factory } from "src/typechain/factories/BondAggregator__factory";
-import { DevFaucet__factory } from "src/typechain/factories/DevFaucet__factory";
-import { OlympusDistributor__factory } from "src/typechain/factories/OlympusDistributor__factory";
+
+// import { BondAggregator__factory } from "src/typechain/factories/BondAggregator__factory";
+// import { DevFaucet__factory } from "src/typechain/factories/DevFaucet__factory";
+// import { OlympusDistributor__factory } from "src/typechain/factories/OlympusDistributor__factory";
 
 export const BOND_DEPOSITORY_CONTRACT = new Contract({
   factory: BondDepository__factory,
@@ -47,16 +51,28 @@ export const OP_BOND_DEPOSITORY_CONTRACT = new Contract({
 });
 
 export const STAKING_CONTRACT = new Contract({
-  factory: OlympusStakingv2__factory,
+  factory: GDAOStaking__factory,
   name: "Staking Contract",
   addresses: STAKING_ADDRESSES,
 });
 
-export const SOHM_CONTRACT = new Contract({
-  factory: SOhmv2__factory,
-  name: "sOHM Contract",
-  addresses: SOHM_ADDRESSES,
+// export const STAKING_CONTRACT = new Contract({
+//   factory: OlympusStakingv2__factory,
+//   name: "Staking Contract",
+//   addresses: STAKING_ADDRESSES,
+// });
+
+export const SGDAO_CONTRACT = new Contract({
+  factory: SGDAO__factory,
+  name: "sGDAO Contract",
+  addresses: SGDAO_ADDRESSES,
 });
+
+// export const SOHM_CONTRACT = new Contract({
+//   factory: SOhmv2__factory,
+//   name: "sOHM Contract",
+//   addresses: SOHM_ADDRESSES,
+// });
 
 export const ZAP_CONTRACT = new Contract({
   factory: Zap__factory,
@@ -95,7 +111,7 @@ export const RANGE_CONTRACT = new Contract({
 });
 
 export const FAUCET = new Contract({
-  factory: DevFaucet__factory,
+  factory: Faucet__factory,
   name: "Goerli Faucet Contract",
   addresses: DEV_FAUCET,
 });
@@ -119,7 +135,7 @@ export const BOND_FIXED_TERM_TELLER = new Contract({
 });
 
 export const DISTRIBUTOR_CONTRACT = new Contract({
-  factory: OlympusDistributor__factory,
+  factory: Distributor__factory,
   name: "Distributor Contract",
   addresses: DISTRIBUTOR_ADDRESSES,
 });

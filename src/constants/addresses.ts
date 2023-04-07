@@ -2,11 +2,6 @@ import { NetworkId } from "src/constants";
 
 export type AddressMap = Partial<Record<NetworkId, string>>;
 
-export const STAKING_ADDRESSES = {
-  [NetworkId.TESTNET_GOERLI]: "0x7263372b9ff6E619d8774aEB046cE313677E2Ec7",
-  [NetworkId.MAINNET]: "0xB63cac384247597756545b500253ff8E607a8020",
-};
-
 export const BOND_DEPOSITORY_ADDRESSES = {
   [NetworkId.TESTNET_GOERLI]: "0xAda3336fcD233Ff0Eb39BeA0b1a7784E43aD4B00",
   [NetworkId.MAINNET]: "0x9025046c6fb25Fb39e720d97a8FD881ED69a1Ef6",
@@ -15,11 +10,6 @@ export const BOND_DEPOSITORY_ADDRESSES = {
 export const OP_BOND_DEPOSITORY_ADDRESSES = {
   [NetworkId.TESTNET_GOERLI]: "0x0C9D01FbD07cC2fD3e09bD953bb65698351AF05D",
   [NetworkId.MAINNET]: "0x22AE99D07584A2AE1af748De573c83f1B9Cdb4c0",
-};
-
-export const DAO_TREASURY_ADDRESSES = {
-  [NetworkId.TESTNET_GOERLI]: "0x6e36b2f9f2BcC273f090ff049952Fa4B5Cc67567",
-  [NetworkId.MAINNET]: "0x245cc372C84B3645Bf0Ffe6538620B04a217988B",
 };
 
 export const OHM_DAI_LP_ADDRESSES = {
@@ -45,11 +35,6 @@ export const FRAX_ADDRESSES = {
 
 export const LUSD_ADDRESSES = {
   [NetworkId.MAINNET]: "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
-};
-
-export const DAI_ADDRESSES = {
-  [NetworkId.TESTNET_GOERLI]: "0x41e38e70a36150D08A8c97aEC194321b5eB545A5",
-  [NetworkId.MAINNET]: "0x6b175474e89094c44da98b954eedeac495271d0f",
 };
 
 export const WETH_ADDRESSES = {
@@ -141,42 +126,20 @@ export const BALANCER_VAULT_ADDRESSSES = {
 };
 
 export const RANGE_OPERATOR_ADDRESSES = {
-  [NetworkId.MAINNET]: "0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65",
+  // [NetworkId.MAINNET]: "0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65",
   [NetworkId.TESTNET_GOERLI]: "0x61B79d10ebC48166F7495Fce5E0c352B61777460",
-};
-
-export const RANGE_ADDRESSES = {
-  [NetworkId.MAINNET]: "0xb212D9584cfc56EFf1117F412Fe0bBdc53673954",
-  [NetworkId.TESTNET_GOERLI]: "0x446f06f8Df7d5f627B073c6349b948B95c1f9185",
+  [NetworkId.LOCALHOST]: "",
 };
 
 export const RANGE_PRICE_ADDRESSES = {
-  [NetworkId.MAINNET]: "0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f",
+  // [NetworkId.MAINNET]: "0xd6C4D723fdadCf0D171eF9A2a3Bfa870675b282f",
   [NetworkId.TESTNET_GOERLI]: "0xD9ace3Be2d80006EF4D90A2D35D861a5C9F98252",
-};
-
-export const DEV_FAUCET = {
-  [NetworkId.TESTNET_GOERLI]: "0x405940141AeE885347ef4C47d933eF4cA6A674D8",
-};
-
-export const BOND_AGGREGATOR_ADDRESSES = {
-  [NetworkId.MAINNET]: "0x007A66A2a13415DB3613C1a4dd1C942A285902d1",
-  [NetworkId.TESTNET_GOERLI]: "0x007A66A2a13415DB3613C1a4dd1C942A285902d1",
+  [NetworkId.LOCALHOST]: "",
 };
 
 export const BOND_FIXED_EXPIRY_TELLER_ADDRESSES = {
   [NetworkId.MAINNET]: "0x007FE7c498A2Cf30971ad8f2cbC36bd14Ac51156",
   [NetworkId.TESTNET_GOERLI]: "0x007FE7c498A2Cf30971ad8f2cbC36bd14Ac51156",
-};
-
-export const BOND_FIXED_TERM_TELLER_ADDRESSES = {
-  [NetworkId.MAINNET]: "0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6",
-  [NetworkId.TESTNET_GOERLI]: "0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6",
-};
-
-export const DISTRIBUTOR_ADDRESSES = {
-  [NetworkId.MAINNET]: "0x27e606fdb5C922F8213dC588A434BF7583697866",
-  [NetworkId.TESTNET_GOERLI]: "0x2716a1451BDE2B011f0D10ad6599e411d54Ec491",
 };
 
 export const V1_STAKING_HELPER_ADDRESSES = {
@@ -187,4 +150,167 @@ export const V1_STAKING_HELPER_ADDRESSES = {
 export const V1_STAKING_ADDRESSES = {
   [NetworkId.MAINNET]: "0xfd31c7d00ca47653c6ce64af53c1571f9c36566a",
   [NetworkId.TESTNET_GOERLI]: "0x2868546dB0850fE969de651395887F18e66A2d26",
+};
+
+// GDAO
+
+export const DEV_FAUCET = {
+  [NetworkId.TESTNET_GOERLI]: "0x405940141AeE885347ef4C47d933eF4cA6A674D8",
+  [NetworkId.LOCALHOST]: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+};
+
+export const KERNEL_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+};
+
+export const GDAO_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+};
+
+export const XGDAO_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const SGDAO_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const DAI_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "0x41e38e70a36150D08A8c97aEC194321b5eB545A5",
+  [NetworkId.MAINNET]: "0x6b175474e89094c44da98b954eedeac495271d0f",
+  [NetworkId.LOCALHOST]: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+};
+
+export const GDAO_METH_UNISWAP_LP_ADDRESSES = {
+  [NetworkId.MAINNET]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const GDAO_GETH_UNISWAP_LP_ADDRESSES = {
+  [NetworkId.MAINNET]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const STAKING_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "0x7263372b9ff6E619d8774aEB046cE313677E2Ec7",
+  [NetworkId.MAINNET]: "0xB63cac384247597756545b500253ff8E607a8020",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const INSTRUCTION_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.MAINNET]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const MINTER_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.MAINNET]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+// MODULES
+
+export const PRICE_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.MAINNET]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const RANGE_ADDRESSES = {
+  [NetworkId.MAINNET]: "0xb212D9584cfc56EFf1117F412Fe0bBdc53673954",
+  [NetworkId.TESTNET_GOERLI]: "0x446f06f8Df7d5f627B073c6349b948B95c1f9185",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const ROLES_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.MAINNET]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const DAO_TREASURY_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "0x6e36b2f9f2BcC273f090ff049952Fa4B5Cc67567",
+  [NetworkId.MAINNET]: "0x245cc372C84B3645Bf0Ffe6538620B04a217988B",
+  [NetworkId.LOCALHOST]: "",
+};
+
+// export const VOTES_ADDRESSES = {
+//   [NetworkId.TESTNET_GOERLI]: "",
+//   [NetworkId.MAINNET]: "",
+//   [NetworkId.LOCALHOST]: "",
+// };
+
+// Policies
+
+export const BOND_AGGREGATOR_ADDRESSES = {
+  [NetworkId.MAINNET]: "0x007A66A2a13415DB3613C1a4dd1C942A285902d1",
+  [NetworkId.TESTNET_GOERLI]: "0x007A66A2a13415DB3613C1a4dd1C942A285902d1",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const BOND_CALLBACK_ADDRESSES = {
+  [NetworkId.MAINNET]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const BOND_FIXED_TERM_TELLER_ADDRESSES = {
+  [NetworkId.MAINNET]: "0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6",
+  [NetworkId.TESTNET_GOERLI]: "0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const OPERATOR_ADDRESSES = {
+  [NetworkId.MAINNET]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const HEART_ADDRESSES = {
+  [NetworkId.MAINNET]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const PRICE_CONFIG_ADDRESSES = {
+  [NetworkId.MAINNET]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const ROLES_ADMIN_ADDRESSES = {
+  [NetworkId.MAINNET]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const TREASURY_CUSTODIAN_ADDRESSES = {
+  [NetworkId.MAINNET]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const DISTRIBUTOR_ADDRESSES = {
+  [NetworkId.MAINNET]: "0x27e606fdb5C922F8213dC588A434BF7583697866",
+  [NetworkId.TESTNET_GOERLI]: "0x2716a1451BDE2B011f0D10ad6599e411d54Ec491",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const EMERGENCY_ADDRESSES = {
+  [NetworkId.MAINNET]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
+};
+
+export const PARTHENON_ADDRESSES = {
+  [NetworkId.MAINNET]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.LOCALHOST]: "",
 };
