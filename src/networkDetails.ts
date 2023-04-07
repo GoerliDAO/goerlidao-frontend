@@ -24,7 +24,7 @@ export enum NetworkId {
   LOCALHOST = 31337,
 }
 
-export type EthereumNetwork = NetworkId.MAINNET | NetworkId.TESTNET_GOERLI | NetworkId.SEPOLIA;
+export type EthereumNetwork = NetworkId.MAINNET | NetworkId.TESTNET_GOERLI | NetworkId.LOCALHOST;
 
 // VIEWS FOR NETWORK is used to denote which paths should be viewable on each network
 // ... attempting to prevent contract calls that can't complete & prevent user's from getting
@@ -109,17 +109,17 @@ export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
     bondsV2: false,
     range: false,
   },
-  [NetworkId.SEPOLIA]: {
-    dashboard: true,
-    stake: true,
-    wrap: false,
-    zap: false,
-    threeTogether: true,
-    bonds: true,
-    network: true,
-    bondsV2: true,
-    range: false,
-  },
+  // [NetworkId.SEPOLIA]: {
+  //   dashboard: true,
+  //   stake: true,
+  //   wrap: false,
+  //   zap: false,
+  //   threeTogether: true,
+  //   bonds: true,
+  //   network: true,
+  //   bondsV2: true,
+  //   range: false,
+  // },
   [NetworkId.LOCALHOST]: {
     dashboard: true,
     stake: true,

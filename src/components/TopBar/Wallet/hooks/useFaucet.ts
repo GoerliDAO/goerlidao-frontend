@@ -2,13 +2,14 @@ import { useMutation } from "@tanstack/react-query";
 import { ContractReceipt } from "ethers";
 import toast from "react-hot-toast";
 import { DEV_FAUCET } from "src/constants/addresses";
+import { FAUCET } from "src/constants/contracts";
 import { useDynamicFaucetContract } from "src/hooks/useContract";
 import { EthersError } from "src/lib/EthersTypes";
 import { NetworkId } from "src/networkDetails";
 
 export const useFaucet = () => {
   const contract = useDynamicFaucetContract(DEV_FAUCET, true);
-  const newContract = DEV_FAUCET.getEthersContract(NetworkId.LOCALHOST);
+  const newContract = FAUCET.getEthersContract(NetworkId.LOCALHOST);
 
   return useMutation<ContractReceipt, EthersError, string>(
     async token_ => {

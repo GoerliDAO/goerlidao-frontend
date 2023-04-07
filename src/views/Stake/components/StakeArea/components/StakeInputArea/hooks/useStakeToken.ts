@@ -1,11 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ContractReceipt } from "ethers";
 import toast from "react-hot-toast";
-import { GOHM_ADDRESSES, OHM_ADDRESSES, SOHM_ADDRESSES, STAKING_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES, SGDAO_ADDRESSES, XGDAO_ADDRESSES } from "src/constants/addresses";
+import { STAKING_CONTRACT } from "src/constants/contracts";
 import { trackGAEvent, trackGtagEvent } from "src/helpers/analytics/trackGAEvent";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { balanceQueryKey, useBalance } from "src/hooks/useBalance";
-import { useDynamicStakingContract } from "src/hooks/useContract";
+// import { useDynamicStakingContract } from "src/hooks/useContract";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { warmupQueryKey } from "src/hooks/useWarmupInfo";
 import { EthersError } from "src/lib/EthersTypes";
@@ -15,8 +16,9 @@ export const useStakeToken = () => {
   const client = useQueryClient();
   const { address = "" } = useAccount();
   const networks = useTestableNetworks();
-  const balance = useBalance(OHM_ADDRESSES)[networks.MAINNET].data;
-  const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
+  const balance = useBalance(GDAO_ADDRESSES)[networks.MAINNET].data;
+  // const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
+  const contract = STAKING_CONTRACT.getEthersContract(networks.MAINNET);
 
   return useMutation<ContractReceipt, EthersError, { amount: string; toToken: string }>({
     mutationFn: async ({ amount, toToken }) => {
@@ -28,13 +30,13 @@ export const useStakeToken = () => {
 
       if (!balance) throw new Error(`Please refresh your page and try again`);
 
-      if (_amount.gt(balance)) throw new Error(`You cannot stake more than your OHM balance`);
+      if (_amount.gt(balance)) throw new Error(`You cannot stake more than your GDAO balance`);
 
-      if (!contract) throw new Error(`Please switch to the Ethereum network to stake your OHM`);
+      if (!contract) throw new Error(`Please switch to the Ethereum network to stake your GDAO`);
 
       if (!address) throw new Error(`Please refresh your page and try again`);
 
-      const shouldRebase = toToken === "sOHM";
+      const shouldRebase = toToken === "sGDAO";
 
       const claim = true; // was true before the mint & sync distributor change
 
@@ -46,8 +48,8 @@ export const useStakeToken = () => {
     },
     onSuccess: async (tx, data) => {
       const keysToRefetch = [
-        balanceQueryKey(address, OHM_ADDRESSES, networks.MAINNET),
-        balanceQueryKey(address, data.toToken === "sOHM" ? SOHM_ADDRESSES : GOHM_ADDRESSES, networks.MAINNET),
+        balanceQueryKey(address, GDAO_ADDRESSES, networks.MAINNET),
+        balanceQueryKey(address, data.toToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES, networks.MAINNET),
         warmupQueryKey(address, networks.MAINNET),
       ];
 
@@ -72,7 +74,7 @@ export const useStakeToken = () => {
         token: data.toToken,
       });
 
-      toast(`Successfully staked OHM`);
+      toast(`Successfully staked GDAO`);
     },
   });
 };

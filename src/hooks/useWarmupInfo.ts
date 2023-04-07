@@ -17,8 +17,8 @@ export interface IWarmupBalances {
   deposit: BigNumber; // if forfeiting, ohm quantity
   expiry: BigNumber; // end of warmup period (epoch #)
   lock: boolean; // prevents malicious delays for claim
-  sohm: DecimalBigNumber; // staked balance
-  gohm: DecimalBigNumber; // staked balance
+  sgdao: DecimalBigNumber; // staked balance
+  xgdao: DecimalBigNumber; // staked balance
 }
 
 /** claim info for the connected wallet */
@@ -40,8 +40,8 @@ export const useWarmupClaim = () => {
         deposit: warmupClaim.deposit,
         expiry: warmupClaim.expiry,
         lock: warmupClaim.lock,
-        sohm: new DecimalBigNumber(sGDAOBalance, 9),
-        gohm: new DecimalBigNumber(gGDAOBalance, 18),
+        sgdao: new DecimalBigNumber(sGDAOBalance, 9),
+        xgdao: new DecimalBigNumber(gGDAOBalance, 18),
       };
 
       // return new DecimalBigNumber(warmupClaim, 9);

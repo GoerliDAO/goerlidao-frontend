@@ -94,7 +94,7 @@ export const StakeBalances = () => {
 
         <DataRow
           indented
-          title={`gOHM`}
+          title={`xGDAO`}
           isLoading={!xgdaoBalances[networks.MAINNET].data}
           balance={`${formatBalance(xgdaoBalances[networks.MAINNET].data)} xGDAO`}
         />
