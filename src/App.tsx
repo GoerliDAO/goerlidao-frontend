@@ -109,6 +109,7 @@ function App() {
   }
 
   const loadApp = useCallback(
+    //@ts-ignore
     loadProvider => {
       dispatch(loadAppDetails({ networkID: chain.id, provider: loadProvider }));
     },
@@ -116,6 +117,7 @@ function App() {
   );
 
   const loadAccount = useCallback(
+    //@ts-ignore
     loadProvider => {
       dispatch(loadAccountDetails({ networkID: chain.id, provider, address }));
       dispatch(getMigrationAllowances({ address, provider, networkID: chain.id }));

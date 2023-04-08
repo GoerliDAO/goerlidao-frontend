@@ -1,6 +1,6 @@
 // import "src/components/TopBar/TopBar.scss";
 import { Button, SvgIcon, useMediaQuery, useTheme } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ReactComponent as MenuIcon } from "src/assets/icons/hamburger.svg";
 import { ReactComponent as GDAOBlackApe } from "src/assets/logos/GDAOBlackApe.svg";
@@ -19,12 +19,7 @@ interface TopBarProps {
 function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
   const location = useLocation();
   const theme = useTheme();
-  console.log("This is the theme : ", theme);
   const desktop = useMediaQuery(theme.breakpoints.up(1048));
-
-  useEffect(() => {
-    renderedLogo();
-  }, [location.pathname]);
 
   const renderedLogo = () => {
     const isBondsPath = (path: string): boolean => {
