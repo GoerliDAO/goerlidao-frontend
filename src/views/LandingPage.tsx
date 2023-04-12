@@ -72,116 +72,124 @@ const Features = ({ title, description, icon, actionLink, actionTitle }: Feature
 
 const LandingPage = () => {
   const theme = useTheme();
+
   return (
     <>
       <main className="">
         <div
           style={{
-            background: theme.palette.mode === "dark" ? "#121415" : "#0202FF",
+            backgroundColor: theme.palette.mode === "dark" ? "#181818" : "#0202FF",
           }}
-          className="h-screen flex flex-col items-center justify-center"
+          className="h-full flex items-center justify-center"
         >
-          <h1 className="text-white w-full text-5xl md:w-1/2 md:text-4xl lg:text-6xl xl:text-7xl text-center font-light">
-            Empowering the Goerli ecosystem
-          </h1>
-          <CeramicApe style={{ width: "300px" }} className="w-full" />
-          <p className="w-full md:w-1/2 text-base text-center text-white">
-            With LayerZero’s bridge, real money exists on Goerli. This means that Goerli is no longer a testnet. It is
-            now a canary network for Ethereum. GoerliDAO is the first production project built on Goerli mainnet.
-          </p>
-          <a className="my-5 px-6 py-2 tracking-wider border border-white text-white font-semibold" href="">
-            Discover How
-          </a>
-        </div>
-
-        <div
-          style={{
-            border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
-            background: theme.palette.mode === "dark" ? "#181818" : "#E8E8FC",
-          }}
-          className="font-base my-10 border border-black"
-        >
-          <div className="p-4 flex items-end">
-            <p style={{ color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF" }} className="text-5xl">
-              Protocol Statistics
+          <div className="flex flex-col items-center justify-between">
+            <h1 className="text-white w-full text-4xl md:w-1/2 md:text-4xl xl:text-7xl text-center font-light">
+              Empowering the Goerli ecosystem
+            </h1>
+            <CeramicApe style={{ width: "300px" }} className="w-full" />
+            <p className="p-2 w-full md:w-1/2 text-xs md:text-sm text-center text-white">
+              With LayerZero’s bridge, real money exists on Goerli. This means that Goerli is no longer a testnet. It is
+              now a canary network for Ethereum. GoerliDAO is the first production project built on Goerli mainnet.
             </p>
-            <span>
-              <FiCornerRightDown
-                style={{
-                  color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
-                }}
-                className="w-10 h-10 ml-8"
-              />
-            </span>
-          </div>
-
-          <hr
-            style={{ width: "35%", borderColor: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF" }}
-            className="my-2.5"
-          />
-
-          <div className="p-4 my-10 md:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
-            <div>
-              <p className="my-2.5 text-lg">Treasury Balance</p>
-              <span
-                style={{
-                  color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
-                }}
-                className="font-base md:text-6xl"
-              >
-                $0
-              </span>
-            </div>
-
-            <div>
-              <p className="my-2.5 text-lg">Number of Holders</p>
-              <div className="flex items-center justify-between">
-                <span
-                  style={{
-                    color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
-                  }}
-                  className="font-base md:text-6xl"
-                >
-                  $0
-                </span>
-                <img src="../src/assets/GDAO-golden-ape.svg" />
-                <img src="../src/assets/GDAO-golden-ape.svg" />
-                <img src="../src/assets/GDAO-golden-ape.svg" />
-              </div>
-            </div>
-
-            <div>
-              <p className="my-2.5 text-lg">Protocol-Owned Liquidity</p>
-              <span
-                style={{
-                  color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
-                }}
-                className="font-base md:text-6xl"
-              >
-                $0
-              </span>
-            </div>
-
-            <div>
-              <p className="my-2.5 text-lg">Unique Tokens in Treasury</p>
-              <span
-                style={{
-                  color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
-                }}
-                className="font-base md:text-6xl"
-              >
-                2
-              </span>
-            </div>
+            <a
+              className="text-sm my-5 px-6 py-2 tracking-wider border border-white text-white font-semibold"
+              href="/stake"
+            >
+              Discover How
+            </a>
           </div>
         </div>
 
         <div className="container mx-auto">
-          <div className="my-20 flex items-center justify-center">
-            <span className="md:w-1/2 text-center font-light text-7xl">Discover the Power of GDAO</span>
+          <div
+            style={{
+              border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
+              background: theme.palette.mode === "dark" ? "#181818" : "#E8E8FC",
+            }}
+            className="font-base my-10 border border-black"
+          >
+            <div className="p-4 flex items-end">
+              <p style={{ color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF" }} className="text-5xl">
+                Protocol Statistics
+              </p>
+              <span>
+                <FiCornerRightDown
+                  style={{
+                    color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
+                  }}
+                  className="w-10 h-10 ml-8"
+                />
+              </span>
+            </div>
+
+            <hr
+              style={{ width: "35%", borderColor: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF" }}
+              className="my-2.5"
+            />
+
+            <div className="p-4 my-10 md:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
+              <div>
+                <p className="my-2.5 text-lg">Treasury Balance</p>
+                <span
+                  style={{
+                    color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
+                  }}
+                  className="text-3xl md:text-5xl"
+                >
+                  $0
+                </span>
+              </div>
+
+              <div>
+                <p className="my-2.5 text-lg">Number of Holders</p>
+                <div className="flex items-center justify-between">
+                  <span
+                    style={{
+                      color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
+                    }}
+                    className="text-3xl md:text-5xl"
+                  >
+                    20
+                  </span>
+
+                  <div className="hidden md:flex items-center justify-between">
+                    <img src="../src/assets/GDAO-golden-ape.svg" />
+                    <img src="../src/assets/GDAO-golden-ape.svg" />
+                    <img src="../src/assets/GDAO-golden-ape.svg" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="my-2.5 text-lg">Protocol-Owned Liquidity</p>
+                <span
+                  style={{
+                    color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
+                  }}
+                  className="text-3xl md:text-5xl"
+                >
+                  $0
+                </span>
+              </div>
+
+              <div>
+                <p className="my-2.5 text-lg">Unique Tokens in Treasury</p>
+                <span
+                  style={{
+                    color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
+                  }}
+                  className="text-3xl md:text-5xl"
+                >
+                  2
+                </span>
+              </div>
+            </div>
           </div>
 
-          {/* GDAO Features */}
+          <div className="container mx-auto my-20 flex items-center justify-center">
+            <span className="md:w-1/2 text-center font-light text-4xl md:text-6xl">Discover the Power of GDAO</span>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 auto-rows-auto gap-4">
             <Features
               title="Bridging"

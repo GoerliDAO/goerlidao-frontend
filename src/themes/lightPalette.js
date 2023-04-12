@@ -4,7 +4,8 @@ export const lightPalette = {
     card: "#EFEAE0",
     cardHover: "#FFFBF5",
   },
-  background: "linear-gradient(180.37deg, #B3BFC5 0.49%, #D1D5D4 26.3%, #EEEAE3 99.85%)",
+  fontColor: "#000000",
+  background: "#C6D9F9",
   feedback: {
     success: "#94B9A1",
     userFeedback: "#49A1F2",
