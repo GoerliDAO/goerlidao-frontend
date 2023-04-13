@@ -10,12 +10,16 @@ import {
 import { parseUnits } from "ethers/lib/utils";
 import React, { useEffect, useState } from "react";
 import { WalletConnectedGuard } from "src/components/WalletConnectedGuard";
+// import {
+//   GOHM_ADDRESSES,
+//   OHM_ADDRESSES,
+//   SOHM_ADDRESSES,
+//   STAKING_ADDRESSES,
+//   ZAP_ADDRESSES,
+// } from "src/constants/addresses";
 import {
-  GOHM_ADDRESSES,
-  OHM_ADDRESSES,
-  SOHM_ADDRESSES,
   STAKING_ADDRESSES,
-  ZAP_ADDRESSES,
+  // ZAP_ADDRESSES,
 } from "src/constants/addresses";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { useBalance } from "src/hooks/useBalance";
@@ -29,7 +33,7 @@ import TokenModal, {
 } from "src/views/Stake/components/StakeArea/components/StakeInputArea/components/TokenModal";
 import { useStakeToken } from "src/views/Stake/components/StakeArea/components/StakeInputArea/hooks/useStakeToken";
 import { useUnstakeToken } from "src/views/Stake/components/StakeArea/components/StakeInputArea/hooks/useUnstakeToken";
-import { useWrapSohm } from "src/views/Wrap/components/WrapInputArea/hooks/useWrapSohm";
+// import { useWrapSohm } from "src/views/Wrap/components/WrapInputArea/hooks/useWrapSohm";
 import ZapTransactionDetails from "src/views/Zap/ZapTransactionDetails";
 import { useNetwork } from "wagmi";
 

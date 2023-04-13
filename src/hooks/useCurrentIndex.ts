@@ -7,7 +7,10 @@ import { useStaticStakingContract } from "src/hooks/useContract";
 export const currentIndexQueryKey = () => ["useCurrentIndex"];
 
 export const useCurrentIndex = () => {
-  const stakingContract = useStaticStakingContract(STAKING_ADDRESSES[NetworkId.MAINNET], NetworkId.MAINNET);
+  const stakingContract = useStaticStakingContract(
+    STAKING_ADDRESSES[NetworkId.TESTNET_SEPOLIA],
+    NetworkId.TESTNET_SEPOLIA,
+  );
 
   return useQuery<DecimalBigNumber, Error>([currentIndexQueryKey()], async () => {
     const index = await stakingContract.index();
