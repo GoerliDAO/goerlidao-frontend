@@ -9,6 +9,13 @@ import {
 } from "@olympusdao/component-library";
 import React, { useEffect, useState } from "react";
 import { WalletConnectedGuard } from "src/components/WalletConnectedGuard";
+// import {
+//   GOHM_ADDRESSES,
+//   OHM_ADDRESSES,
+//   SOHM_ADDRESSES,
+//   STAKING_ADDRESSES,
+//   ZAP_ADDRESSES,
+// } from "src/constants/addresses";
 import {
   // OHM_ADDRESSES,
   GDAO_ADDRESSES,
@@ -32,6 +39,7 @@ import { useStakeToken } from "src/views/Stake/components/StakeArea/components/S
 import { useUnstakeToken } from "src/views/Stake/components/StakeArea/components/StakeInputArea/hooks/useUnstakeToken";
 // import { useWrapSohm } from "src/views/Wrap/components/WrapInputArea/hooks/useWrapSohm";
 // import ZapTransactionDetails from "src/views/Zap/ZapTransactionDetails";
+import ZapTransactionDetails from "src/views/Zap/ZapTransactionDetails";
 import { useNetwork } from "wagmi";
 
 const PREFIX = "StakeInputArea";

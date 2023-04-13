@@ -7,8 +7,12 @@ import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber"
 export const currentIndexQueryKey = () => ["useCurrentIndex"];
 
 export const useCurrentIndex = () => {
-  const stakingContract = STAKING_CONTRACT.getEthersContract(NetworkId.LOCALHOST | NetworkId.TESTNET_GOERLI);
+  const stakingContract = STAKING_CONTRACT.getEthersContract(NetworkId.TESTNET_SEPOLIA | NetworkId.TESTNET_GOERLI);
   // const stakingContract = useStaticStakingContract(STAKING_ADDRESSES[NetworkId.MAINNET], NetworkId.MAINNET);
+  // const stakingContract = useStaticStakingContract(
+  //   STAKING_ADDRESSES[NetworkId.TESTNET_SEPOLIA],
+  //   NetworkId.TESTNET_SEPOLIA,
+  // );
 
   return useQuery<DecimalBigNumber, Error>([currentIndexQueryKey()], async () => {
     const index = await stakingContract.index();

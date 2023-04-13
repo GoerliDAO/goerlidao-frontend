@@ -20,9 +20,14 @@ export const useTestableNetworks = () => {
 
   return {
     MAINNET: getTestnet(NetworkId.LOCALHOST, NetworkId.TESTNET_GOERLI, chain.id),
-    AVALANCHE: getTestnet(NetworkId.AVALANCHE, NetworkId.AVALANCHE_TESTNET, chain.id),
-    ARBITRUM: getTestnet(NetworkId.ARBITRUM, NetworkId.ARBITRUM_TESTNET, chain.id),
-    POLYGON: getTestnet(NetworkId.POLYGON, NetworkId.POLYGON_TESTNET, chain.id),
-    FANTOM: getTestnet(NetworkId.FANTOM, NetworkId.FANTOM_TESTNET, chain.id),
+    // AVALANCHE: getTestnet(NetworkId.AVALANCHE, NetworkId.AVALANCHE_TESTNET, chain.id),
+    // ARBITRUM: getTestnet(NetworkId.ARBITRUM, NetworkId.ARBITRUM_TESTNET, chain.id),
+    // POLYGON: getTestnet(NetworkId.POLYGON, NetworkId.POLYGON_TESTNET, chain.id),
+    // FANTOM: getTestnet(NetworkId.FANTOM, NetworkId.FANTOM_TESTNET, chain.id),
+    // MAINNET: getTestnet(NetworkId.TESTNET_SEPOLIA, NetworkId.TESTNET_GOERLI, chain.id),
+    // AVALANCHE: getTestnet(NetworkId.AVALANCHE, NetworkId.AVALANCHE_TESTNET, chain.id),
+    // ARBITRUM: getTestnet(NetworkId.ARBITRUM, NetworkId.ARBITRUM_TESTNET, chain.id),
+    // POLYGON: getTestnet(NetworkId.POLYGON, NetworkId.POLYGON_TESTNET, chain.id),
+    // FANTOM: getTestnet(NetworkId.FANTOM, NetworkId.FANTOM_TESTNET, chain.id),
   };
 };

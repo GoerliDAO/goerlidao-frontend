@@ -37,23 +37,21 @@ export const StakeBalances = () => {
   // const gohmFuseBalance = useFuseBalance()[NetworkId.MAINNET].data;
   // const gohmTokemakBalance = useGohmTokemakBalance()[NetworkId.MAINNET].data;
 
+  // const sohmTokens = [sohmBalance, v1sohmBalance];
   const sgdaoTokens = [sgdaoBalance];
-
-  // const gohmTokens = [
-  //   gohmFuseBalance,
-  //   gohmTokemakBalance,
-  //   gohmBalances[networks.MAINNET].data,
-  //   gohmBalances[networks.ARBITRUM].data,
-  //   gohmBalances[networks.AVALANCHE].data,
-  //   gohmBalances[NetworkId.POLYGON].data,
-  //   gohmBalances[NetworkId.FANTOM].data,
-  //   wsohmBalances[networks.MAINNET].data,
-  //   wsohmBalances[networks.ARBITRUM].data,
-  //   wsohmBalances[networks.AVALANCHE].data,
-  //   gohmBalances[NetworkId.OPTIMISM].data,
-  // ];
-
-  const xgdaoTokens = [xgdaoBalances[networks.MAINNET].data];
+  const xgdaoTokens = [
+    // gohmFuseBalance,
+    // gohmTokemakBalance,
+    xgdaoBalances[networks.MAINNET].data,
+    // gohmBalances[networks.ARBITRUM].data,
+    // gohmBalances[networks.AVALANCHE].data,
+    // gohmBalances[NetworkId.POLYGON].data,
+    // gohmBalances[NetworkId.FANTOM].data,
+    // wsohmBalances[networks.MAINNET].data,
+    // wsohmBalances[networks.ARBITRUM].data,
+    // wsohmBalances[networks.AVALANCHE].data,
+    // gohmBalances[NetworkId.OPTIMISM].data,
+  ];
 
   const totalSgdaoBalance = sgdaoTokens
     .filter(nonNullable)
@@ -98,6 +96,33 @@ export const StakeBalances = () => {
           isLoading={!xgdaoBalances[networks.MAINNET].data}
           balance={`${formatBalance(xgdaoBalances[networks.MAINNET].data)} xGDAO`}
         />
+
+        {/* {hasVisibleBalance(gohmBalances[NetworkId.ARBITRUM].data) && (
+          <DataRow
+            indented
+            title={`xGDAO (Arbitrum)`}
+            isLoading={!gohmBalances[NetworkId.ARBITRUM].data}
+            balance={`${formatBalance(gohmBalances[NetworkId.ARBITRUM].data)} gOHM`}
+          />
+        )} */}
+
+        {/* {hasVisibleBalance(gohmTokemakBalance) && (
+          <DataRow
+            indented
+            title={`gOHM (Tokemak)`}
+            isLoading={!gohmTokemakBalance}
+            balance={`${formatBalance(gohmTokemakBalance)} gOHM`}
+          />
+        )}
+
+        {hasVisibleBalance(gohmFuseBalance) && (
+          <DataRow
+            indented
+            title={`gOHM (Fuse)`}
+            isLoading={!gohmFuseBalance}
+            balance={`${formatBalance(gohmFuseBalance)} gOHM`}
+          />
+        )} */}
       </DataRow>
     </>
   );

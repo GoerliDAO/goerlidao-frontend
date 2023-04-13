@@ -76,8 +76,8 @@ export const { chains, provider, webSocketProvider } = configureChains(
       rpcUrls: { default: "https://rpc.ankr.com/fantom" },
     },
     { ...chain.goerli, rpcUrls: { default: "https://rpc.ankr.com/eth_goerli" } },
-    { ...chain.localhost, rpcUrls: { default: "https://127.0.0.1:8545" } },
-    { ...chain.foundry, rpcUrls: { default: "https://localhost:8545" } },
+    { ...chain.sepolia, rpcUrls: { default: "https://rpc.ankr.com/eth_sepolia" } },
+    { ...chain.foundry, rpcUrls: { default: "https://127.0.0.1:8545" } },
   ],
   [
     jsonRpcProvider({ rpc: chain => ({ http: chain.rpcUrls.default }) }),

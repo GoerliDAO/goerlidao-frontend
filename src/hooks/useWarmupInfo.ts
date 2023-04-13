@@ -14,7 +14,7 @@ export const warmupQueryKey = (address: string | `0x${string}`, chainId?: number
 ];
 
 export interface IWarmupBalances {
-  deposit: BigNumber; // if forfeiting, ohm quantity
+  deposit: BigNumber; // if forfeiting, gdao quantity
   expiry: BigNumber; // end of warmup period (epoch #)
   lock: boolean; // prevents malicious delays for claim
   sgdao: DecimalBigNumber; // staked balance
@@ -29,19 +29,19 @@ export const useWarmupClaim = () => {
   return useQuery<IWarmupBalances, Error>(
     [warmupQueryKey(address, chain?.id)],
     async () => {
-      if (![NetworkId.LOCALHOST, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
+      if (![NetworkId.TESTNET_SEPOLIA, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
       const stakingContract = STAKING_CONTRACT.getEthersContract(chain.id);
       const sgdaoContract = SGDAO_CONTRACT.getEthersContract(chain.id);
       const warmupClaim = await stakingContract.warmupInfo(address);
       const sGDAOBalance = await sgdaoContract.balanceForGons(warmupClaim.gons);
-      const gGDAOBalance = await sgdaoContract.toG(sGDAOBalance);
+      const xGDAOBalance = await sgdaoContract.toG(sGDAOBalance);
 
       const warmupBalances: IWarmupBalances = {
         deposit: warmupClaim.deposit,
         expiry: warmupClaim.expiry,
         lock: warmupClaim.lock,
         sgdao: new DecimalBigNumber(sGDAOBalance, 9),
-        xgdao: new DecimalBigNumber(gGDAOBalance, 18),
+        xgdao: new DecimalBigNumber(xGDAOBalance, 18),
       };
 
       // return new DecimalBigNumber(warmupClaim, 9);
@@ -86,7 +86,7 @@ export const useWarmupPeriod = () => {
   const { chain = { id: 1 } } = useNetwork();
 
   return useQuery<DecimalBigNumber, Error>(["warmupPeriodLength", chain?.id], async () => {
-    if (![NetworkId.LOCALHOST, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
+    if (![NetworkId.TESTNET_SEPOLIA, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
     const stakingContract = STAKING_CONTRACT.getEthersContract(chain.id);
 
     const length = await stakingContract.warmupPeriod();
@@ -108,7 +108,7 @@ export const useEpoch = () => {
   const { chain = { id: 1 } } = useNetwork();
 
   return useQuery<IEpoch, Error>(["epoch"], async () => {
-    if (![NetworkId.LOCALHOST, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
+    if (![NetworkId.TESTNET_SEPOLIA, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
     const stakingContract = STAKING_CONTRACT.getEthersContract(chain.id);
 
     const epoch = await stakingContract.epoch();
@@ -122,14 +122,14 @@ export const useEpoch = () => {
 
 /**
  *
- * @param balance an sOHM balance
+ * @param balance an sGDAO balance
  * @returns gons
  */
 export const useGonsForBalance = ({ balance }: { balance: string }) => {
   const { chain = { id: 1 } } = useNetwork();
 
   return useQuery<DecimalBigNumber, Error>(["gonsForBalance", balance], async () => {
-    if (![NetworkId.LOCALHOST, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
+    if (![NetworkId.TESTNET_SEPOLIA, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
     const sgdaoContract = SGDAO_CONTRACT.getEthersContract(chain.id);
 
     const _balance = new DecimalBigNumber(balance, 9);
@@ -142,13 +142,13 @@ export const useGonsForBalance = ({ balance }: { balance: string }) => {
 /**
  *
  * @param gons a quantity of gons
- * @returns sOHM balance
+ * @returns sGDAO balance
  */
 export const useBalanceForGons = ({ gons }: { gons: string }) => {
   const { chain = { id: 1 } } = useNetwork();
 
   return useQuery<DecimalBigNumber, Error>(["balanceForGons", gons], async () => {
-    if (![NetworkId.LOCALHOST, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
+    if (![NetworkId.TESTNET_SEPOLIA, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
     const sgdaoContract = SGDAO_CONTRACT.getEthersContract(chain.id);
 
     const _gons = new DecimalBigNumber(gons, 9);

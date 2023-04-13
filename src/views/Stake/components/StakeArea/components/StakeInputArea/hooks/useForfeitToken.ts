@@ -19,7 +19,7 @@ export const useForfeitToken = () => {
   const { address = "" } = useAccount();
   const networks = useTestableNetworks();
   const { data: claim } = useWarmupClaim();
-  const claimBalance = claim?.sohm;
+  const claimBalance = claim?.sgdao;
   // const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
   const contract = STAKING_CONTRACT.getEthersContract(networks.MAINNET);
 

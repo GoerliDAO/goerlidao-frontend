@@ -1,30 +1,29 @@
 export enum NetworkId {
-  MAINNET = 1,
+  // MAINNET = 1,
   TESTNET_GOERLI = 5,
-
-  ARBITRUM = 42161,
-  ARBITRUM_TESTNET = 421611,
-
-  AVALANCHE = 43114,
-  AVALANCHE_TESTNET = 43113,
-
-  POLYGON = 137,
-  POLYGON_TESTNET = 80001,
-
-  FANTOM = 250,
-  FANTOM_TESTNET = 4002,
-
-  OPTIMISM = 10,
-  OPTIMISM_TESTNET = 69,
-
-  BOBA = 288,
-  BOBA_TESTNET = 28,
-
-  SEPOLIA = 11155111,
+  TESTNET_SEPOLIA = 11155111,
   LOCALHOST = 31337,
+
+  // ARBITRUM = 42161,
+  // ARBITRUM_TESTNET = 421611,
+
+  // AVALANCHE = 43114,
+  // AVALANCHE_TESTNET = 43113,
+
+  // POLYGON = 137,
+  // POLYGON_TESTNET = 80001,
+
+  // FANTOM = 250,
+  // FANTOM_TESTNET = 4002,
+
+  // OPTIMISM = 10,
+  // OPTIMISM_TESTNET = 69,
+
+  // BOBA = 288,
+  // BOBA_TESTNET = 28,
 }
 
-export type EthereumNetwork = NetworkId.MAINNET | NetworkId.TESTNET_GOERLI | NetworkId.LOCALHOST;
+export type EthereumNetwork = NetworkId.TESTNET_SEPOLIA | NetworkId.TESTNET_GOERLI | NetworkId.LOCALHOST;
 
 // VIEWS FOR NETWORK is used to denote which paths should be viewable on each network
 // ... attempting to prevent contract calls that can't complete & prevent user's from getting
@@ -43,16 +42,27 @@ interface IViewsForNetwork {
 }
 
 export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
-  [NetworkId.MAINNET]: {
+  // [NetworkId.MAINNET]: {
+  //   dashboard: true,
+  //   stake: true,
+  //   wrap: true,
+  //   zap: true,
+  //   threeTogether: true,
+  //   bonds: true,
+  //   network: true,
+  //   bondsV2: true,
+  //   range: true,
+  // },
+  [NetworkId.TESTNET_SEPOLIA]: {
     dashboard: true,
     stake: true,
-    wrap: true,
-    zap: true,
-    threeTogether: true,
+    wrap: false,
+    zap: false,
+    threeTogether: false,
     bonds: true,
     network: true,
     bondsV2: true,
-    range: true,
+    range: false,
   },
   [NetworkId.TESTNET_GOERLI]: {
     dashboard: true,
@@ -65,70 +75,59 @@ export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
     bondsV2: true,
     range: true,
   },
-  [NetworkId.ARBITRUM]: {
-    dashboard: true,
-    stake: false,
-    wrap: true,
-    zap: false,
-    threeTogether: false,
-    bonds: false,
-    network: true,
-    bondsV2: false,
-    range: false,
-  },
-  [NetworkId.ARBITRUM_TESTNET]: {
-    dashboard: true,
-    stake: false,
-    wrap: true,
-    zap: false,
-    threeTogether: false,
-    bonds: false,
-    network: true,
-    bondsV2: false,
-    range: false,
-  },
-  [NetworkId.AVALANCHE]: {
-    dashboard: true,
-    stake: false,
-    wrap: true,
-    zap: false,
-    threeTogether: false,
-    bonds: false,
-    network: true,
-    bondsV2: false,
-    range: false,
-  },
-  [NetworkId.AVALANCHE_TESTNET]: {
-    dashboard: true,
-    stake: false,
-    wrap: true,
-    zap: false,
-    threeTogether: false,
-    bonds: false,
-    network: true,
-    bondsV2: false,
-    range: false,
-  },
-  // [NetworkId.SEPOLIA]: {
-  //   dashboard: true,
-  //   stake: true,
-  //   wrap: false,
-  //   zap: false,
-  //   threeTogether: true,
-  //   bonds: true,
-  //   network: true,
-  //   bondsV2: true,
-  //   range: false,
-  // },
   [NetworkId.LOCALHOST]: {
     dashboard: true,
     stake: true,
     wrap: false,
     zap: false,
-    threeTogether: true,
+    threeTogether: false,
     bonds: true,
     network: true,
     bondsV2: true,
     range: false,
   },
+  // [NetworkId.ARBITRUM]: {
+  //   dashboard: true,
+  //   stake: false,
+  //   wrap: true,
+  //   zap: false,
+  //   threeTogether: false,
+  //   bonds: false,
+  //   network: true,
+  //   bondsV2: false,
+  //   range: false,
+  // },
+  // [NetworkId.ARBITRUM_TESTNET]: {
+  //   dashboard: true,
+  //   stake: false,
+  //   wrap: true,
+  //   zap: false,
+  //   threeTogether: false,
+  //   bonds: false,
+  //   network: true,
+  //   bondsV2: false,
+  //   range: false,
+  // },
+  // [NetworkId.AVALANCHE]: {
+  //   dashboard: true,
+  //   stake: false,
+  //   wrap: true,
+  //   zap: false,
+  //   threeTogether: false,
+  //   bonds: false,
+  //   network: true,
+  //   bondsV2: false,
+  //   range: false,
+  // },
+  // [NetworkId.AVALANCHE_TESTNET]: {
+  //   dashboard: true,
+  //   stake: false,
+  //   wrap: true,
+  //   zap: false,
+  //   threeTogether: false,
+  //   bonds: false,
+  //   network: true,
+  //   bondsV2: false,
+  //   range: false,
+  // },
 };
