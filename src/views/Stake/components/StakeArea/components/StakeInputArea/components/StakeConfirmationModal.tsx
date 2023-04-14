@@ -1,6 +1,6 @@
 import { CheckBoxOutlineBlank, CheckBoxOutlined } from "@mui/icons-material";
 import { Box, Checkbox, FormControlLabel, Typography } from "@mui/material";
-import { Icon, InfoNotification, Metric, Modal, PrimaryButton, SecondaryButton } from "@olympusdao/component-library";
+import { Icon, Metric, Modal, PrimaryButton, SecondaryButton } from "@olympusdao/component-library";
 import { useEffect, useState } from "react";
 import { TokenAllowanceGuard } from "src/components/TokenAllowanceGuard/TokenAllowanceGuard";
 import { WalletConnectedGuard } from "src/components/WalletConnectedGuard";
@@ -31,9 +31,9 @@ const StakeConfirmationModal = (props: {
   stakeMutation: any;
   unstakeMutation: any;
   isMutating: boolean;
-  onZap: any;
-  wrapMutation: any;
-  zapExecuteIsLoading: boolean;
+  // onZap: any;
+  // wrapMutation: any;
+  // zapExecuteIsLoading: boolean;
   humanReadableRouting: "Stake" | "Wrap" | "Zap" | "Unstake" | "Unwrap" | "Zap out";
 }) => {
   const { data: warmupLength } = useWarmupPeriod();
@@ -108,12 +108,12 @@ const StakeConfirmationModal = (props: {
       minHeight={"100px"}
     >
       <Box display="flex" flexDirection="column">
-        {props.isMutating ||
+        {/* {props.isMutating ||
           (props.zapExecuteIsLoading && (
             <InfoNotification>
               Please don't close this modal until all wallet transactions are confirmed.
             </InfoNotification>
-          ))}
+          ))} */}
 
         <Box display="flex" flexDirection="row" justifyContent="space-between" alignItems="center">
           <Box display="flex" flexDirection="column">
@@ -195,7 +195,7 @@ const StakeConfirmationModal = (props: {
                 </>
               )}
 
-              {props.contractRouting === "Wrap" && (
+              {/* {props.contractRouting === "Wrap" && (
                 <PrimaryButton
                   data-testid="submit-modal-button"
                   loading={props.isMutating}
@@ -217,8 +217,8 @@ const StakeConfirmationModal = (props: {
                     ? "Confirming Unstaking in your wallet "
                     : "Unstake"}
                 </PrimaryButton>
-              )}
-              {props.contractRouting === "Zap" && (
+              )} */}
+              {/* {props.contractRouting === "Zap" && (
                 <>
                   <NeedsWarmupDetails />
                   <PrimaryButton
@@ -243,7 +243,7 @@ const StakeConfirmationModal = (props: {
                     </Box>
                   </PrimaryButton>
                 </>
-              )}
+              )} */}
             </TokenAllowanceGuard>
           </WalletConnectedGuard>
         </Box>

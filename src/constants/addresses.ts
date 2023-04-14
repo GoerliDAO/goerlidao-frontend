@@ -95,10 +95,10 @@ export const SGDAO_ADDRESSES = {
 //   [NetworkId.TESTNET_SEPOLIA]: "0x252d447c54F33e033AD04048baEAdE7628cB1274",
 // };
 
-// export const ZAP_ADDRESSES = {
-//   [NetworkId.TESTNET_SEPOLIA]: "0x6F5CC3EDEa92AB52b75bad50Bcf4C6daa781B87e",
-//   [NetworkId.TESTNET_GOERLI]: "",
-// };
+export const ZAP_ADDRESSES = {
+  [NetworkId.TESTNET_SEPOLIA]: "",
+  [NetworkId.TESTNET_GOERLI]: "",
+};
 
 // export const PT_PRIZE_POOL_ADDRESSES = {
 //   [NetworkId.TESTNET_SEPOLIA]: "0xEaB695A8F5a44f583003A8bC97d677880D528248",
