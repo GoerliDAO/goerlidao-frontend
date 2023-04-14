@@ -14,7 +14,7 @@ export const gdaoPriceQueryKey = () => ["useGdaoPrice"];
 export const useGdaoPrice = () => {
   const key = gdaoPriceQueryKey();
   return useQuery<number, Error>([key], async () => {
-    const price = await GDAO_TOKEN.getPrice(NetworkId.LOCALHOST | NetworkId.TESTNET_GOERLI);
+    const price = await GDAO_TOKEN.getPrice(NetworkId.TESTNET_SEPOLIA | NetworkId.TESTNET_GOERLI);
     return parseFloat(price.toString());
   });
 };

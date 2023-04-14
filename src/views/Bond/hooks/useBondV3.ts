@@ -24,7 +24,7 @@ export const useBondV3 = ({ id, isInverseBond = false }: Omit<UseBondOptions, "n
 };
 
 export const fetchBondV3 = async ({ id, isInverseBond, networkId }: UseBondOptions) => {
-  const aggregatorContract = BOND_AGGREGATOR_CONTRACT.getEthersContract(NetworkId.LOCALHOST);
+  const aggregatorContract = BOND_AGGREGATOR_CONTRACT.getEthersContract(NetworkId.TESTNET_SEPOLIA);
   // const aggregatorContract = BOND_AGGREGATOR_CONTRACT.getEthersContract(NetworkId.TESTNET_GOERLI);
   const auctioneerAddress = await aggregatorContract.getAuctioneer(id);
   const tellerAddress = await aggregatorContract.getTeller(id);

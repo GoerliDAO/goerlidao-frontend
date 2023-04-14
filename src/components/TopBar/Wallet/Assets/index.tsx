@@ -221,7 +221,9 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
               );
           }
         })()}
-        {(chain.id === NetworkId.TESTNET_GOERLI || chain.id === NetworkId.LOCALHOST) && (
+        {(chain.id === NetworkId.TESTNET_GOERLI ||
+          chain.id === NetworkId.LOCALHOST ||
+          chain.id === NetworkId.TESTNET_SEPOLIA) && (
           <>
             <Typography variant="h5">Dev Faucet</Typography>
             <Box display="flex" flexDirection="row" justifyContent="space-between" mt="18px">

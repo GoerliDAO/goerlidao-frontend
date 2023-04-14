@@ -117,12 +117,12 @@ export const formatNumber = (number: number, precision = 0) => {
 
 export const isTestnet = (networkId: NetworkId) => {
   const testnets = [
-    NetworkId.ARBITRUM_TESTNET,
-    NetworkId.AVALANCHE_TESTNET,
-    NetworkId.FANTOM_TESTNET,
-    NetworkId.POLYGON_TESTNET,
-    // NetworkId.TESTNET_GOERLI,
-    NetworkId.SEPOLIA,
+    // NetworkId.ARBITRUM_TESTNET,
+    // NetworkId.AVALANCHE_TESTNET,
+    // NetworkId.FANTOM_TESTNET,
+    // NetworkId.POLYGON_TESTNET,
+    NetworkId.TESTNET_GOERLI,
+    NetworkId.TESTNET_SEPOLIA,
     NetworkId.LOCALHOST,
   ];
 
@@ -136,7 +136,7 @@ export const isChainEthereum = ({
   chainId: number;
   includeTestnets: boolean;
 }): boolean => {
-  if (!includeTestnets) return chainId === NetworkId.MAINNET;
+  if (!includeTestnets) return chainId === NetworkId.TESTNET_GOERLI;
 
-  return chainId === NetworkId.MAINNET || chainId === NetworkId.TESTNET_GOERLI || chainId === NetworkId.SEPOLIA;
+  return chainId === NetworkId.LOCALHOST || chainId === NetworkId.TESTNET_SEPOLIA;
 };

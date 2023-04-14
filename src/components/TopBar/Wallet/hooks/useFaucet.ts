@@ -9,7 +9,7 @@ import { NetworkId } from "src/networkDetails";
 
 export const useFaucet = () => {
   const contract = useDynamicFaucetContract(DEV_FAUCET, true);
-  const newContract = FAUCET.getEthersContract(NetworkId.LOCALHOST);
+  const newContract = FAUCET.getEthersContract(NetworkId.TESTNET_SEPOLIA);
 
   return useMutation<ContractReceipt, EthersError, string>(
     async token_ => {

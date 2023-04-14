@@ -25,10 +25,9 @@ import FUSE_PROXY_ABI from "src/abi/FuseProxy.json";
 // import IERC20_ABI from "src/abi/IERC20.json";
 // import STAKING_ABI from "src/abi/OlympusStakingv2.json";
 import PAIR_CONTRACT_ABI from "src/abi/PairContract.json";
+import IERC20_ABI from "src/abi_goerli/IERC20.sol/IERC20.json";
 // import SOHM_ABI from "src/abi/sOhmv2.json";
 import { AddressMap } from "src/constants/addresses";
-import { IERC20 } from "src/forge";
-import IERC20_ABI from "src/forge_out/IERC20.sol/IERC20.json";
 import { Providers } from "src/helpers/providers/Providers/Providers";
 import { NetworkId } from "src/networkDetails";
 //types
@@ -47,6 +46,7 @@ import { BalancerV2Pool } from "src/typechain/BalancerV2Pool";
 import { BalancerVault } from "src/typechain/BalancerVault";
 import { CurveGaugeController } from "src/typechain/CurveGaugeController";
 import { CurveGaugeDeposit } from "src/typechain/CurveGaugeDeposit";
+import { IERC20 } from "src/typechain_goerli";
 import { useNetwork, useProvider, useSigner } from "wagmi";
 
 /**
