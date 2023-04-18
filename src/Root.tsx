@@ -2,7 +2,7 @@
 import { StyledEngineProvider } from "@mui/material/styles";
 import { FC } from "react";
 import { Provider } from "react-redux";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import App from "src/App";
 import { wagmiClient } from "src/hooks/wagmi";
 import { ReactQueryProvider } from "src/lib/react-query";
@@ -14,11 +14,11 @@ const Root: FC = () => {
     <WagmiConfig client={wagmiClient}>
       <ReactQueryProvider>
         <Provider store={store}>
-          <HashRouter>
+          <BrowserRouter>
             <StyledEngineProvider injectFirst>
               <App />
             </StyledEngineProvider>
-          </HashRouter>
+          </BrowserRouter>
         </Provider>
       </ReactQueryProvider>
     </WagmiConfig>

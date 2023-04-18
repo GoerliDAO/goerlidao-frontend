@@ -1,5 +1,5 @@
-import ToggleButton from "@mui/material/ToggleButton";
-import { Icon } from "@olympusdao/component-library";
+import { ReactComponent as Moon } from "src/assets/icons/DarkModeThemeSwitcher.svg";
+import { ReactComponent as Sun } from "src/assets/icons/LightModeThemeSwitcher.svg";
 
 interface IThemeSwitcherProps {
   theme: string;
@@ -8,20 +8,9 @@ interface IThemeSwitcherProps {
 
 function ThemeSwitcher({ theme, toggleTheme }: IThemeSwitcherProps) {
   return (
-    <ToggleButton
-      sx={{ marginTop: "0px", height: "39px" }}
-      className="toggle-button"
-      type="button"
-      title={`Change Theme`}
-      value="check"
-      onClick={toggleTheme}
-    >
-      {theme === "dark" ? (
-        <Icon name={"moon"} color={"primary"} style={{ fontSize: "17.5px" }} />
-      ) : (
-        <Icon name={"sun"} color={"primary"} style={{ fontSize: "17.5px" }} />
-      )}
-    </ToggleButton>
+    <button className="toggle-button mr-2 p-1" type="button" title={`Change Theme`} value="check" onClick={toggleTheme}>
+      {theme === "dark" ? <Moon /> : <Sun />}
+    </button>
   );
 }
 

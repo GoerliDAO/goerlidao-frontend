@@ -10,7 +10,7 @@ export const WalletConnectedGuard: React.FC<{ message?: string; fullWidth?: bool
         <InPageConnectButton fullWidth={props.fullWidth} />
 
         {props.message && (
-          <Box mt="12px">
+          <Box mt="14px">
             <Typography variant="h6">{props.message}</Typography>
           </Box>
         )}

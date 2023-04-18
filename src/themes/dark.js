@@ -13,15 +13,15 @@ export const dark = createTheme(
         mode: "dark",
         contrastText: colors.gray[10],
         primary: {
-          main: colors.gray[10],
+          main: "#FFF",
         },
         neutral: {
           main: colors.gray[10],
           secondary: colors.gray[40],
         },
         text: {
-          primary: colors.gray[10],
-          secondary: colors.gray[40],
+          primary: "#FFF",
+          secondary: "#FFF",
         },
         graphStrokeColor: "rgba(255, 255, 255, .1)",
         error: {
@@ -40,13 +40,16 @@ export const dark = createTheme(
           main: colors.feedback.warning,
           dark: colors.feedback.warning,
         },
+        border: {
+          main: "#FFF",
+        },
       },
       components: {
         MuiCssBaseline: {
           styleOverrides: `
             ${fonts}
             body {
-              background-color:${colors.gray[600]};
+              background-color: #121415;
             }
             `,
         },
@@ -99,6 +102,17 @@ export const dark = createTheme(
           styleOverrides: {
             select: {
               color: "#F8CC82",
+            },
+          },
+        },
+        // MuiBox : {
+        styleOverrides: {
+          root: {
+            "&.MuiBox-root&.MuiBox-root": {
+              background: "transparent",
+            },
+            border: {
+              border: "1px solid #fff",
             },
           },
         },
