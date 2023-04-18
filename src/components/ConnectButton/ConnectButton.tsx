@@ -127,14 +127,9 @@ export const ConnectButton = () => {
                             height: "39px",
                             minWidth: "39px",
                             borderRadius: "6px",
-                            background:
-                              theme.palette.mode === "dark" ? theme.colors.gray[500] : theme.colors.paper.card,
-                            color: theme.colors.gray[10],
-                            "&:hover": {
-                              background:
-                                theme.palette.mode === "dark" ? theme.colors.gray[90] : theme.colors.paper.cardHover,
-                              color: theme.colors.gray[10],
-                            },
+                            background: "#fff",
+                            color: theme.palette.mode === "dark" ? theme.colors.gray[10] : theme.colors.gray[500],
+                            border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
                           }}
                         >
                           <SvgIcon component={WalletIcon} />

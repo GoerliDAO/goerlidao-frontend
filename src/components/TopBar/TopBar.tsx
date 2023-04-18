@@ -1,6 +1,6 @@
 // import "src/components/TopBar/TopBar.scss";
 import { Button, SvgIcon, useMediaQuery, useTheme } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ReactComponent as MenuIcon } from "src/assets/icons/hamburger.svg";
 import { ReactComponent as GDAOBlackApe } from "src/assets/logos/GDAOBlackApe.svg";
@@ -22,10 +22,6 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
   console.log("This is the theme : ", theme);
   const desktop = useMediaQuery(theme.breakpoints.up(1048));
 
-  useEffect(() => {
-    renderedLogo();
-  }, [location.pathname]);
-
   const renderedLogo = () => {
     const isBondsPath = (path: string): boolean => {
       const bondsPattern = /^\/bonds(\/.*)?$/;
@@ -38,17 +34,19 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
       case location.pathname === "/bridge" ||
         location.pathname === "/swap" ||
         location.pathname === "/stake" ||
-        (location.pathname === "/stats" && theme.palette.mode === "light"):
-        return (
+        location.pathname === "/stats":
+        return theme.palette.mode === "light" ? (
           <Link className="flex items-center justify-center" to="/">
             <GDAOBlackApe className="w-5 md:w-10" />
             <GDAOFullBlackLogo className="w-20 md:w-24 ml-2" />
           </Link>
+        ) : (
+          <Link className="flex items-center justify-center" to="/">
+            <GDAOWhiteApe className="w-5 md:w-10" />
+            <GDAOFullWhiteLogo className="w-20 md:w-24 ml-2" />
+          </Link>
         );
-      case location.pathname === "/bridge" ||
-        location.pathname === "/swap" ||
-        location.pathname === "/stake" ||
-        (location.pathname === "/stats" && theme.palette.mode === "dark"):
+      case location.pathname === "/":
         return (
           <Link className="flex items-center justify-center" to="/">
             <GDAOWhiteApe className="w-5 md:w-10" />
@@ -56,19 +54,52 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
           </Link>
         );
       case isBonds:
-        return (
+        return theme.palette.mode === "light" ? (
           <Link className="flex items-center justify-center" to="/">
             <GDAOBlackApe className="w-5 md:w-10" />
             <GDAOFullBlackLogo className="w-20 md:w-24 ml-2" />
           </Link>
-        );
-      default:
-        return (
+        ) : (
           <Link className="flex items-center justify-center" to="/">
             <GDAOWhiteApe className="w-5 md:w-10" />
             <GDAOFullWhiteLogo className="w-20 md:w-24 ml-2" />
           </Link>
         );
+      default:
+        return theme.palette.mode === "light" ? (
+          <Link className="flex items-center justify-center" to="/">
+            <GDAOBlackApe className="w-5 md:w-10" />
+            <GDAOFullBlackLogo className="w-20 md:w-24 ml-2" />
+          </Link>
+        ) : (
+          <Link className="flex items-center justify-center" to="/">
+            <GDAOWhiteApe className="w-5 md:w-10" />
+            <GDAOFullWhiteLogo className="w-20 md:w-24 ml-2" />
+          </Link>
+        );
+    }
+  };
+
+  const renderedColor = () => {
+    const isBondsPath = (path: string): boolean => {
+      const bondsPattern = /^\/bonds(\/.*)?$/;
+      return bondsPattern.test(path);
+    };
+
+    const isBonds = isBondsPath(location.pathname);
+
+    switch (true) {
+      case location.pathname === "/":
+        return "#FFF";
+      case location.pathname === "/bridge" ||
+        location.pathname === "/swap" ||
+        location.pathname === "/stake" ||
+        location.pathname === "/stats":
+        return theme.palette.mode === "light" ? "#000" : "#FFF";
+      case isBonds:
+        return theme.palette.mode === "light" ? "#000" : "#FFF";
+      default:
+        return theme.palette.mode === "light" ? "#FFF" : "#000";
     }
   };
 
@@ -87,7 +118,13 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
       <div className="py-3 container mx-auto flex items-center justify-between">
         <div>{renderedLogo()}</div>
 
-        <div id="navLinks" className="hidden md:grid grid-cols-5 grid-rows-1 gap-8 text-sm font-base">
+        <div
+          style={{
+            color: renderedColor(),
+          }}
+          id="navLinks"
+          className="hidden md:grid grid-cols-5 grid-rows-1 gap-8 text-sm font-base"
+        >
           <Link to="/bridge">Bridge</Link>
           <Link to="/swap">Swap</Link>
           <Link to="/stake">Stake</Link>
