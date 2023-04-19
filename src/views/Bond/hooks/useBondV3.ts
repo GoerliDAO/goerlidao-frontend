@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { BigNumber, ethers } from "ethers";
 import { NetworkId } from "src/constants";
 import { BOND_AGGREGATOR_CONTRACT, BOND_FIXED_EXPIRY_TELLER } from "src/constants/contracts";
-import { OHM_TOKEN } from "src/constants/tokens";
 import { getTokenByAddress } from "src/helpers/contracts/getTokenByAddress";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { assert } from "src/helpers/types/assert";
@@ -25,7 +24,8 @@ export const useBondV3 = ({ id, isInverseBond = false }: Omit<UseBondOptions, "n
 };
 
 export const fetchBondV3 = async ({ id, isInverseBond, networkId }: UseBondOptions) => {
-  const aggregatorContract = BOND_AGGREGATOR_CONTRACT.getEthersContract(networkId);
+  const aggregatorContract = BOND_AGGREGATOR_CONTRACT.getEthersContract(NetworkId.TESTNET_SEPOLIA);
+  // const aggregatorContract = BOND_AGGREGATOR_CONTRACT.getEthersContract(NetworkId.TESTNET_GOERLI);
   const auctioneerAddress = await aggregatorContract.getAuctioneer(id);
   const tellerAddress = await aggregatorContract.getTeller(id);
   const tellerContract = BondFixedExpiryTeller__factory.connect(tellerAddress, aggregatorContract.provider);

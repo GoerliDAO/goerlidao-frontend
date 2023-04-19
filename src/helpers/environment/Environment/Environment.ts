@@ -59,76 +59,86 @@ export class Environment {
 
   public static getNodeUrls = (networkId: NetworkId) => {
     switch (networkId) {
-      case NetworkId.MAINNET:
-        return this._get({
-          key: `VITE_ETHEREUM_NODE_URL`,
-          fallback: "https://rpc.ankr.com/eth",
-        });
+      // case NetworkId.MAINNET:
+      //   return this._get({
+      //     key: `VITE_ETHEREUM_NODE_URL`,
+      //     fallback: "https://rpc.ankr.com/eth",
+      //   });
       case NetworkId.TESTNET_GOERLI:
         return this._get({
           key: `VITE_ETHEREUM_TESTNET_NODE_URL`,
-          fallback: "https://rpc.ankr.com/eth_goerli",
+          fallback: "",
         });
-      case NetworkId.ARBITRUM:
+      case NetworkId.TESTNET_SEPOLIA:
         return this._get({
-          key: `VITE_ARBITRUM_NODE_URL`,
-          fallback: "https://rpc.ankr.com/arbitrum",
+          key: `VITE_ETHEREUM_TESTNET_NODE_URL`,
+          fallback: "",
         });
-      case NetworkId.ARBITRUM_TESTNET:
+      case NetworkId.LOCALHOST:
         return this._get({
-          key: `VITE_ARBITRUM_TESTNET_NODE_URL`,
-          fallback: "https://arb-rinkeby.g.alchemy.com/v2/_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC",
+          key: `VITE_ETHEREUM_TESTNET_NODE_URL`,
+          fallback: "",
         });
-      case NetworkId.AVALANCHE:
-        return this._get({
-          key: `VITE_AVALANCHE_NODE_URL`,
-          fallback: "https://rpc.ankr.com/avalanche",
-        });
-      case NetworkId.AVALANCHE_TESTNET:
-        return this._get({
-          key: `VITE_AVALANCHE_TESTNET_NODE_URL`,
-          fallback: "https://rpc.ankr.com/avalanche_fuji",
-        });
-      case NetworkId.POLYGON:
-        return this._get({
-          key: `VITE_POLYGON_NODE_URL`,
-          fallback: "https://rpc.ankr.com/polygon",
-        });
-      case NetworkId.POLYGON_TESTNET:
-        return this._get({
-          key: `VITE_POLYGON_TESTNET_NODE_URL`,
-          fallback: "https://rpc.ankr.com/polygon_mumbai",
-        });
-      case NetworkId.FANTOM:
-        return this._get({
-          key: `VITE_FANTOM_NODE_URL`,
-          fallback: "https://rpc.ankr.com/fantom/",
-        });
-      case NetworkId.FANTOM_TESTNET:
-        return this._get({
-          key: `VITE_FANTOM_TESTNET_NODE_URL`,
-          fallback: "https://rpc.ankr.com/fantom_testnet",
-        });
-      case NetworkId.OPTIMISM:
-        return this._get({
-          key: `VITE_OPTIMISM_NODE_URL`,
-          fallback: "https://rpc.ankr.com/optimism",
-        });
-      case NetworkId.OPTIMISM_TESTNET:
-        return this._get({
-          key: `VITE_OPTIMISM_TESTNET_NODE_URL`,
-          fallback: "https://rpc.ankr.com/optimism_testnet",
-        });
-      case NetworkId.BOBA:
-        return this._get({
-          key: `VITE_BOBA_NODE_URL`,
-          fallback: "https://mainnet.boba.network	",
-        });
-      case NetworkId.BOBA_TESTNET:
-        return this._get({
-          key: `VITE_BOBA_TESTNET_NODE_URL`,
-          fallback: "https://rinkeby.boba.network/",
-        });
+      // case NetworkId.ARBITRUM:
+      //   return this._get({
+      //     key: `VITE_ARBITRUM_NODE_URL`,
+      //     fallback: "https://rpc.ankr.com/arbitrum",
+      //   });
+      // case NetworkId.ARBITRUM_TESTNET:
+      //   return this._get({
+      //     key: `VITE_ARBITRUM_TESTNET_NODE_URL`,
+      //     fallback: "https://arb-rinkeby.g.alchemy.com/v2/_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC",
+      //   });
+      // case NetworkId.AVALANCHE:
+      //   return this._get({
+      //     key: `VITE_AVALANCHE_NODE_URL`,
+      //     fallback: "https://rpc.ankr.com/avalanche",
+      //   });
+      // case NetworkId.AVALANCHE_TESTNET:
+      //   return this._get({
+      //     key: `VITE_AVALANCHE_TESTNET_NODE_URL`,
+      //     fallback: "https://rpc.ankr.com/avalanche_fuji",
+      //   });
+      // case NetworkId.POLYGON:
+      //   return this._get({
+      //     key: `VITE_POLYGON_NODE_URL`,
+      //     fallback: "https://rpc.ankr.com/polygon",
+      //   });
+      // case NetworkId.POLYGON_TESTNET:
+      //   return this._get({
+      //     key: `VITE_POLYGON_TESTNET_NODE_URL`,
+      //     fallback: "https://rpc.ankr.com/polygon_mumbai",
+      //   });
+      // case NetworkId.FANTOM:
+      //   return this._get({
+      //     key: `VITE_FANTOM_NODE_URL`,
+      //     fallback: "https://rpc.ankr.com/fantom/",
+      //   });
+      // case NetworkId.FANTOM_TESTNET:
+      //   return this._get({
+      //     key: `VITE_FANTOM_TESTNET_NODE_URL`,
+      //     fallback: "https://rpc.ankr.com/fantom_testnet",
+      //   });
+      // case NetworkId.OPTIMISM:
+      //   return this._get({
+      //     key: `VITE_OPTIMISM_NODE_URL`,
+      //     fallback: "https://rpc.ankr.com/optimism",
+      //   });
+      // case NetworkId.OPTIMISM_TESTNET:
+      //   return this._get({
+      //     key: `VITE_OPTIMISM_TESTNET_NODE_URL`,
+      //     fallback: "https://rpc.ankr.com/optimism_testnet",
+      //   });
+      // case NetworkId.BOBA:
+      //   return this._get({
+      //     key: `VITE_BOBA_NODE_URL`,
+      //     fallback: "https://mainnet.boba.network	",
+      //   });
+      // case NetworkId.BOBA_TESTNET:
+      //   return this._get({
+      //     key: `VITE_BOBA_TESTNET_NODE_URL`,
+      //     fallback: "https://rinkeby.boba.network/",
+      //   });
     }
   };
 

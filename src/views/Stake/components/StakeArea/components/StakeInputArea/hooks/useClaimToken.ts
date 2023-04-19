@@ -1,10 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ContractReceipt } from "ethers";
 import toast from "react-hot-toast";
-import { GOHM_ADDRESSES, OHM_ADDRESSES, SOHM_ADDRESSES, STAKING_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES, SGDAO_ADDRESSES, XGDAO_ADDRESSES } from "src/constants/addresses";
+import { STAKING_CONTRACT } from "src/constants/contracts";
 import { trackGAEvent, trackGtagEvent } from "src/helpers/analytics/trackGAEvent";
 import { balanceQueryKey, useBalance } from "src/hooks/useBalance";
-import { useDynamicStakingContract } from "src/hooks/useContract";
+// import { useDynamicStakingContract } from "src/hooks/useContract";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { warmupQueryKey } from "src/hooks/useWarmupInfo";
 import { EthersError } from "src/lib/EthersTypes";
@@ -17,8 +18,8 @@ export const useClaimToken = () => {
   const client = useQueryClient();
   const { address = "" } = useAccount();
   const networks = useTestableNetworks();
-  const balance = useBalance(OHM_ADDRESSES)[networks.MAINNET].data;
-  const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
+  const balance = useBalance(GDAO_ADDRESSES)[networks.MAINNET].data;
+  const contract = STAKING_CONTRACT.getEthersContract(networks.MAINNET);
 
   return useMutation<ContractReceipt, EthersError, { toToken: string }>({
     onMutate: async ({ toToken }) => {
@@ -28,7 +29,7 @@ export const useClaimToken = () => {
 
       if (!address) throw new Error(`Please refresh your page and try again`);
 
-      const shouldRebase = toToken === "sOHM";
+      const shouldRebase = toToken === "sGDAO";
 
       const transaction = await contract.claim(address, shouldRebase);
       return transaction.wait();
@@ -55,7 +56,7 @@ export const useClaimToken = () => {
       });
 
       const keysToRefetch = [
-        balanceQueryKey(address, data.toToken === "sOHM" ? SOHM_ADDRESSES : GOHM_ADDRESSES, networks.MAINNET),
+        balanceQueryKey(address, data.toToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES, networks.MAINNET),
         warmupQueryKey(address, networks.MAINNET),
       ];
 

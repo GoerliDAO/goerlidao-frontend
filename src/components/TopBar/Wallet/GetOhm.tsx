@@ -6,7 +6,8 @@ import { ReactComponent as balancerIcon } from "src/assets/balancer.svg";
 import sushiswapImg from "src/assets/sushiswap.png";
 import uniswapImg from "src/assets/uniswap.png";
 import { SupplyRatePerBlock } from "src/components/TopBar/Wallet/queries";
-import { OHM_ADDRESSES } from "src/constants/addresses";
+// import { OHM_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES } from "src/constants/addresses";
 import { formatCurrency, formatNumber, parseBigNumber, trim } from "src/helpers";
 import { balancerPools, convexPools, curvePools, fraxPools } from "src/helpers/AllExternalPools";
 import { sortByDiscount } from "src/helpers/bonds/sortByDiscount";
@@ -73,14 +74,14 @@ const GetOhm: FC = () => {
           </Grid>
           <Grid item xs={6}>
             <GetOnButton
-              href={`https://app.sushi.com/swap/?outputCurrency=${OHM_ADDRESSES[NetworkId.MAINNET]}`}
+              href={`https://app.sushi.com/swap/?outputCurrency=${GDAO_ADDRESSES[NetworkId.TESTNET_GOERLI]}`}
               logo={<img src={sushiswapImg}></img>}
               exchangeName="Sushiswap"
             />
           </Grid>
           <Grid item xs={6}>
             <GetOnButton
-              href={`https://app.uniswap.org/#/swap?outputCurrency=${OHM_ADDRESSES[NetworkId.MAINNET]}`}
+              href={`https://app.uniswap.org/#/swap?outputCurrency=${GDAO_ADDRESSES[NetworkId.TESTNET_GOERLI]}`}
               logo={<img src={uniswapImg}></img>}
               exchangeName="Uniswap"
             />
@@ -116,7 +117,7 @@ const GetOhm: FC = () => {
               Stake
             </Typography>
             <ItemCard
-              tokens={["sOHM", "wsOHM"]}
+              tokens={["sGDAO"]}
               title={`Stake Now`}
               roi={`${trim(Number(fiveDayRate) * 100, 2)}%`}
               days={`5 Days`}

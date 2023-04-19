@@ -41,7 +41,7 @@ const Bond = lazy(() => import("./views/Bond"));
 const Bridge = lazy(() => import("./views/Bridge"));
 const TreasuryDashboard = lazy(() => import("./views/TreasuryDashboard/TreasuryDashboard"));
 const NotFound = lazy(() => import("./views/404/NotFound"));
-const V1Stake = lazy(() => import("./views/V1-Stake/V1-Stake"));
+// const V1Stake = lazy(() => import("./views/V1-Stake/V1-Stake"));
 const Range = lazy(() => import("./views/Range"));
 const Swap = lazy(() => import("./views/Swap"));
 
@@ -211,7 +211,7 @@ function App() {
                     path="/stake"
                     element={<StakeVersionContainer setMigrationModalOpen={setMigrationModalOpen} />}
                   />
-                  <Route path="/v1-stake" element={<V1Stake setMigrationModalOpen={setMigrationModalOpen} />} />
+                  {/* <Route path="/v1-stake" element={<V1Stake setMigrationModalOpen={setMigrationModalOpen} />} /> */}
                   <Route path="/bonds/v3/:id" element={<BondModalContainerV3 />} />
                   <Route path="/bonds/v3/inverse/:id" element={<BondModalContainerV3 />} />
                   <Route path="/bonds/:id" element={<BondModalContainer />} />

@@ -1,0 +1,1071 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "INSTR_InstructionsCannotBeEmpty",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "INSTR_InvalidAction",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "caller_",
+          "type": "address"
+        }
+      ],
+      "name": "KernelAdapter_OnlyKernel",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "policy_",
+          "type": "address"
+        }
+      ],
+      "name": "Module_PolicyNotPermitted",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "instructionsId",
+          "type": "uint256"
+        }
+      ],
+      "name": "InstructionsStored",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "INIT",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "KEYCODE",
+      "outputs": [
+        {
+          "internalType": "Keycode",
+          "name": "",
+          "type": "bytes5"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "VERSION",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "major",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "minor",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract Kernel",
+          "name": "newKernel_",
+          "type": "address"
+        }
+      ],
+      "name": "changeKernel",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "instructionsId_",
+          "type": "uint256"
+        }
+      ],
+      "name": "getInstructions",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "enum Actions",
+              "name": "action",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "target",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct Instruction[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "kernel",
+      "outputs": [
+        {
+          "internalType": "contract Kernel",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "enum Actions",
+              "name": "action",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "target",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct Instruction[]",
+          "name": "instructions_",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "store",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "storedInstructions",
+      "outputs": [
+        {
+          "internalType": "enum Actions",
+          "name": "action",
+          "type": "uint8"
+        },
+        {
+          "internalType": "address",
+          "name": "target",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalInstructions",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "INIT()": "ea643914",
+    "KEYCODE()": "1ae7ec2e",
+    "VERSION()": "ffa1ad74",
+    "changeKernel(address)": "4657b36c",
+    "getInstructions(uint256)": "f19928c0",
+    "kernel()": "d4aae0c4",
+    "store((uint8,address)[])": "b1d85eec",
+    "storedInstructions(uint256,uint256)": "8ba639a4",
+    "totalInstructions()": "6eaadfc7"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"INSTR_InstructionsCannotBeEmpty\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"INSTR_InvalidAction\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"KernelAdapter_OnlyKernel\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"}],\"name\":\"Module_PolicyNotPermitted\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"instructionsId\",\"type\":\"uint256\"}],\"name\":\"InstructionsStored\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"INIT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"KEYCODE\",\"outputs\":[{\"internalType\":\"Keycode\",\"name\":\"\",\"type\":\"bytes5\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"major\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"minor\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"newKernel_\",\"type\":\"address\"}],\"name\":\"changeKernel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"instructionsId_\",\"type\":\"uint256\"}],\"name\":\"getInstructions\",\"outputs\":[{\"components\":[{\"internalType\":\"enum Actions\",\"name\":\"action\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"internalType\":\"struct Instruction[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"enum Actions\",\"name\":\"action\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"internalType\":\"struct Instruction[]\",\"name\":\"instructions_\",\"type\":\"tuple[]\"}],\"name\":\"store\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"storedInstructions\",\"outputs\":[{\"internalType\":\"enum Actions\",\"name\":\"action\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalInstructions\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"INIT()\":{\"details\":\"This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.\"},\"VERSION()\":{\"returns\":{\"major\":\"- Major version upgrade indicates breaking change to the interface.\",\"minor\":\"- Minor version change retains backward-compatible interface.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"INIT()\":{\"notice\":\"Initialization function for the module\"},\"KEYCODE()\":{\"notice\":\"5 byte identifier for a module.\"},\"VERSION()\":{\"notice\":\"Returns which semantic version of a module is being implemented.\"},\"changeKernel(address)\":{\"notice\":\"Function used by kernel when migrating to a new kernel.\"},\"getInstructions(uint256)\":{\"notice\":\"View function for retrieving a list of Instructions in an outside contract.\"},\"store((uint8,address)[])\":{\"notice\":\"Store a list of Instructions to be executed in the future.\"},\"storedInstructions(uint256,uint256)\":{\"notice\":\"All stored instructions per count in totalInstructions\"},\"totalInstructions()\":{\"notice\":\"Counter of total instructions\"}},\"notice\":\"Caches and executes batched instructions for protocol upgrades in the Kernel.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/modules/INSTR/INSTR.v1.sol\":\"INSTRv1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"src/Kernel.sol\":{\"keccak256\":\"0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5\",\"dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab\"]},\"src/modules/INSTR/INSTR.v1.sol\":{\"keccak256\":\"0xc929ce0db190ec074c64890d4e16b055c2a388599eee521f3ca0233dea5666d3\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://56e080c61b2bd742cf64354c35149fdc4eed9286e072175e2290d77a9a2021ec\",\"dweb:/ipfs/QmbJ15oSJczHvciyPazaVFtYCjACWtGsDdRMf2v8YUcSiT\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.15+commit.e14f2714"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "INSTR_InstructionsCannotBeEmpty"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "INSTR_InvalidAction"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "caller_",
+              "type": "address"
+            }
+          ],
+          "type": "error",
+          "name": "KernelAdapter_OnlyKernel"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "policy_",
+              "type": "address"
+            }
+          ],
+          "type": "error",
+          "name": "Module_PolicyNotPermitted"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "instructionsId",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "InstructionsStored",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "INIT"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "KEYCODE",
+          "outputs": [
+            {
+              "internalType": "Keycode",
+              "name": "",
+              "type": "bytes5"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "VERSION",
+          "outputs": [
+            {
+              "internalType": "uint8",
+              "name": "major",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "minor",
+              "type": "uint8"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract Kernel",
+              "name": "newKernel_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "changeKernel"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "instructionsId_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "getInstructions",
+          "outputs": [
+            {
+              "internalType": "struct Instruction[]",
+              "name": "",
+              "type": "tuple[]",
+              "components": [
+                {
+                  "internalType": "enum Actions",
+                  "name": "action",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "address",
+                  "name": "target",
+                  "type": "address"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "kernel",
+          "outputs": [
+            {
+              "internalType": "contract Kernel",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct Instruction[]",
+              "name": "instructions_",
+              "type": "tuple[]",
+              "components": [
+                {
+                  "internalType": "enum Actions",
+                  "name": "action",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "address",
+                  "name": "target",
+                  "type": "address"
+                }
+              ]
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "store",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "storedInstructions",
+          "outputs": [
+            {
+              "internalType": "enum Actions",
+              "name": "action",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "target",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "totalInstructions",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "INIT()": {
+            "details": "This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic."
+          },
+          "VERSION()": {
+            "returns": {
+              "major": "- Major version upgrade indicates breaking change to the interface.",
+              "minor": "- Minor version change retains backward-compatible interface."
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "INIT()": {
+            "notice": "Initialization function for the module"
+          },
+          "KEYCODE()": {
+            "notice": "5 byte identifier for a module."
+          },
+          "VERSION()": {
+            "notice": "Returns which semantic version of a module is being implemented."
+          },
+          "changeKernel(address)": {
+            "notice": "Function used by kernel when migrating to a new kernel."
+          },
+          "getInstructions(uint256)": {
+            "notice": "View function for retrieving a list of Instructions in an outside contract."
+          },
+          "store((uint8,address)[])": {
+            "notice": "Store a list of Instructions to be executed in the future."
+          },
+          "storedInstructions(uint256,uint256)": {
+            "notice": "All stored instructions per count in totalInstructions"
+          },
+          "totalInstructions()": {
+            "notice": "Counter of total instructions"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":balancer-v2/=lib/balancer-v2/",
+        ":bonds/=lib/bonds/src/",
+        ":ds-test/=lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/",
+        ":interfaces/=src/interfaces/",
+        ":libraries/=src/libraries/",
+        ":modules/=src/modules/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+        ":policies/=src/policies/",
+        ":solmate/=lib/solmate/src/",
+        ":test/=src/test/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 10
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/modules/INSTR/INSTR.v1.sol": "INSTRv1"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/Kernel.sol": {
+        "keccak256": "0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0",
+        "urls": [
+          "bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5",
+          "dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab"
+        ],
+        "license": "AGPL-3.0-only"
+      },
+      "src/modules/INSTR/INSTR.v1.sol": {
+        "keccak256": "0xc929ce0db190ec074c64890d4e16b055c2a388599eee521f3ca0233dea5666d3",
+        "urls": [
+          "bzz-raw://56e080c61b2bd742cf64354c35149fdc4eed9286e072175e2290d77a9a2021ec",
+          "dweb:/ipfs/QmbJ15oSJczHvciyPazaVFtYCjACWtGsDdRMf2v8YUcSiT"
+        ],
+        "license": "AGPL-3.0-only"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/modules/INSTR/INSTR.v1.sol",
+    "id": 44044,
+    "exportedSymbols": {
+      "Actions": [
+        29387
+      ],
+      "INSTRv1": [
+        44043
+      ],
+      "Instruction": [
+        29393
+      ],
+      "InvalidKeycode": [
+        29410
+      ],
+      "Kernel": [
+        30536
+      ],
+      "KernelAdapter": [
+        29551
+      ],
+      "Keycode": [
+        29401
+      ],
+      "Module": [
+        29616
+      ],
+      "Permissions": [
+        29399
+      ],
+      "Policy": [
+        29698
+      ],
+      "TargetNotAContract": [
+        29405
+      ],
+      "ensureContract": [
+        29454
+      ],
+      "ensureValidKeycode": [
+        29499
+      ],
+      "fromKeycode": [
+        29438
+      ],
+      "toKeycode": [
+        29424
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "42:1083:69",
+    "nodes": [
+      {
+        "id": 44000,
+        "nodeType": "PragmaDirective",
+        "src": "42:23:69",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".15"
+        ]
+      },
+      {
+        "id": 44001,
+        "nodeType": "ImportDirective",
+        "src": "67:24:69",
+        "nodes": [],
+        "absolutePath": "src/Kernel.sol",
+        "file": "src/Kernel.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 44044,
+        "sourceUnit": 30537,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 44043,
+        "nodeType": "ContractDefinition",
+        "src": "183:941:69",
+        "nodes": [
+          {
+            "id": 44008,
+            "nodeType": "EventDefinition",
+            "src": "264:49:69",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "786456549a8048fc360b44d675c164244436ef1e5048c3aecea4d160400fd001",
+            "name": "InstructionsStored",
+            "nameLocation": "270:18:69",
+            "parameters": {
+              "id": 44007,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44006,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "instructionsId",
+                  "nameLocation": "297:14:69",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44008,
+                  "src": "289:22:69",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44005,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "289:7:69",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "288:24:69"
+            }
+          },
+          {
+            "id": 44010,
+            "nodeType": "ErrorDefinition",
+            "src": "358:40:69",
+            "nodes": [],
+            "errorSelector": "3f6c6e99",
+            "name": "INSTR_InstructionsCannotBeEmpty",
+            "nameLocation": "364:31:69",
+            "parameters": {
+              "id": 44009,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "395:2:69"
+            }
+          },
+          {
+            "id": 44012,
+            "nodeType": "ErrorDefinition",
+            "src": "403:28:69",
+            "nodes": [],
+            "errorSelector": "515b07cd",
+            "name": "INSTR_InvalidAction",
+            "nameLocation": "409:19:69",
+            "parameters": {
+              "id": 44011,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "428:2:69"
+            }
+          },
+          {
+            "id": 44015,
+            "nodeType": "VariableDeclaration",
+            "src": "521:32:69",
+            "nodes": [],
+            "constant": false,
+            "documentation": {
+              "id": 44013,
+              "nodeType": "StructuredDocumentation",
+              "src": "475:41:69",
+              "text": "@notice Counter of total instructions"
+            },
+            "functionSelector": "6eaadfc7",
+            "mutability": "mutable",
+            "name": "totalInstructions",
+            "nameLocation": "536:17:69",
+            "scope": 44043,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 44014,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "521:7:69",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 44022,
+            "nodeType": "VariableDeclaration",
+            "src": "631:59:69",
+            "nodes": [],
+            "constant": false,
+            "documentation": {
+              "id": 44016,
+              "nodeType": "StructuredDocumentation",
+              "src": "560:66:69",
+              "text": "@notice All stored instructions per count in totalInstructions"
+            },
+            "functionSelector": "8ba639a4",
+            "mutability": "mutable",
+            "name": "storedInstructions",
+            "nameLocation": "672:18:69",
+            "scope": 44043,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Instruction_$29393_storage_$dyn_storage_$",
+              "typeString": "mapping(uint256 => struct Instruction[])"
+            },
+            "typeName": {
+              "id": 44021,
+              "keyType": {
+                "id": 44017,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "639:7:69",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "631:33:69",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Instruction_$29393_storage_$dyn_storage_$",
+                "typeString": "mapping(uint256 => struct Instruction[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 44019,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 44018,
+                    "name": "Instruction",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 29393,
+                    "src": "650:11:69"
+                  },
+                  "referencedDeclaration": 29393,
+                  "src": "650:11:69",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Instruction_$29393_storage_ptr",
+                    "typeString": "struct Instruction"
+                  }
+                },
+                "id": 44020,
+                "nodeType": "ArrayTypeName",
+                "src": "650:13:69",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_Instruction_$29393_storage_$dyn_storage_ptr",
+                  "typeString": "struct Instruction[]"
+                }
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 44032,
+            "nodeType": "FunctionDefinition",
+            "src": "831:122:69",
+            "nodes": [],
+            "documentation": {
+              "id": 44023,
+              "nodeType": "StructuredDocumentation",
+              "src": "739:87:69",
+              "text": "@notice View function for retrieving a list of Instructions in an outside contract."
+            },
+            "functionSelector": "f19928c0",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getInstructions",
+            "nameLocation": "840:15:69",
+            "parameters": {
+              "id": 44026,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44025,
+                  "mutability": "mutable",
+                  "name": "instructionsId_",
+                  "nameLocation": "864:15:69",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44032,
+                  "src": "856:23:69",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44024,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "856:7:69",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "855:25:69"
+            },
+            "returnParameters": {
+              "id": 44031,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44030,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44032,
+                  "src": "931:20:69",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Instruction_$29393_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct Instruction[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 44028,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 44027,
+                        "name": "Instruction",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 29393,
+                        "src": "931:11:69"
+                      },
+                      "referencedDeclaration": 29393,
+                      "src": "931:11:69",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Instruction_$29393_storage_ptr",
+                        "typeString": "struct Instruction"
+                      }
+                    },
+                    "id": 44029,
+                    "nodeType": "ArrayTypeName",
+                    "src": "931:13:69",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Instruction_$29393_storage_$dyn_storage_ptr",
+                      "typeString": "struct Instruction[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "930:22:69"
+            },
+            "scope": 44043,
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "external"
+          },
+          {
+            "id": 44042,
+            "nodeType": "FunctionDefinition",
+            "src": "1034:88:69",
+            "nodes": [],
+            "documentation": {
+              "id": 44033,
+              "nodeType": "StructuredDocumentation",
+              "src": "959:70:69",
+              "text": "@notice Store a list of Instructions to be executed in the future."
+            },
+            "functionSelector": "b1d85eec",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "store",
+            "nameLocation": "1043:5:69",
+            "parameters": {
+              "id": 44038,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44037,
+                  "mutability": "mutable",
+                  "name": "instructions_",
+                  "nameLocation": "1072:13:69",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44042,
+                  "src": "1049:36:69",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Instruction_$29393_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "struct Instruction[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 44035,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 44034,
+                        "name": "Instruction",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 29393,
+                        "src": "1049:11:69"
+                      },
+                      "referencedDeclaration": 29393,
+                      "src": "1049:11:69",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Instruction_$29393_storage_ptr",
+                        "typeString": "struct Instruction"
+                      }
+                    },
+                    "id": 44036,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1049:13:69",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Instruction_$29393_storage_$dyn_storage_ptr",
+                      "typeString": "struct Instruction[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1048:38:69"
+            },
+            "returnParameters": {
+              "id": 44041,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 44040,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44042,
+                  "src": "1113:7:69",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 44039,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1113:7:69",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1112:9:69"
+            },
+            "scope": 44043,
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "external"
+          }
+        ],
+        "abstract": true,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 44003,
+              "name": "Module",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 29616,
+              "src": "212:6:69"
+            },
+            "id": 44004,
+            "nodeType": "InheritanceSpecifier",
+            "src": "212:6:69"
+          }
+        ],
+        "canonicalName": "INSTRv1",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 44002,
+          "nodeType": "StructuredDocumentation",
+          "src": "93:90:69",
+          "text": "@notice Caches and executes batched instructions for protocol upgrades in the Kernel."
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          44043,
+          29616,
+          29551
+        ],
+        "name": "INSTRv1",
+        "nameLocation": "201:7:69",
+        "scope": 44044,
+        "usedErrors": [
+          29504,
+          29558,
+          44010,
+          44012
+        ]
+      }
+    ],
+    "license": "AGPL-3.0-only"
+  },
+  "id": 69
+}

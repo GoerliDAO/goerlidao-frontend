@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { BigNumber, ContractReceipt, ethers } from "ethers";
 import { gql, request } from "graphql-request";
 import toast from "react-hot-toast";
-import { DAO_TREASURY_ADDRESSES, OHM_ADDRESSES } from "src/constants/addresses";
+import { DAO_TREASURY_ADDRESSES, GDAO_ADDRESSES } from "src/constants/addresses";
 import {
   BOND_AGGREGATOR_CONTRACT,
   RANGE_CONTRACT,
@@ -15,9 +15,10 @@ import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber"
 import { isValidAddress } from "src/helpers/misc/isValidAddress";
 import { Providers } from "src/helpers/providers/Providers/Providers";
 import { queryAssertion } from "src/helpers/react-query/queryAssertion";
-import { useOhmPrice } from "src/hooks/usePrices";
+import { useGdaoPrice } from "src/hooks/usePrices";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { BondFixedTermSDA__factory, BondTeller__factory, IERC20__factory } from "src/typechain";
+// import { IERC20__factory } from "src/forge/factories/IERC20__factory";
 import { RANGEv1 as OlympusRange } from "src/typechain/Range";
 import { useBondV3 } from "src/views/Bond/hooks/useBondV3";
 import { useSigner } from "wagmi";
@@ -287,7 +288,7 @@ export const DetermineRangePrice = (bidOrAsk: "bid" | "ask") => {
 };
 
 export const DetermineRangeDiscount = (bidOrAsk: "bid" | "ask") => {
-  const { data: currentOhmPrice } = useOhmPrice();
+  const { data: currentOhmPrice } = useGdaoPrice();
   const { data: reserveSymbol } = OperatorReserveSymbol();
   const { data: rangeData } = RangeData();
   const { data: bidOrAskPrice } = DetermineRangePrice(bidOrAsk);
@@ -350,8 +351,8 @@ export const RangeSwap = () => {
     }
   >(
     async ({ market, tokenAddress, swapType, amount, receiveAmount, sellActive, slippage, recipientAddress }) => {
-      const decimals = tokenAddress === OHM_ADDRESSES[networks.MAINNET as keyof typeof OHM_ADDRESSES] ? 9 : 18;
-      const receiveDecimals = tokenAddress === OHM_ADDRESSES[networks.MAINNET as keyof typeof OHM_ADDRESSES] ? 18 : 9; //opposite of send
+      const decimals = tokenAddress === GDAO_ADDRESSES[networks.MAINNET as keyof typeof GDAO_ADDRESSES] ? 9 : 18;
+      const receiveDecimals = tokenAddress === GDAO_ADDRESSES[networks.MAINNET as keyof typeof GDAO_ADDRESSES] ? 18 : 9; //opposite of send
       if (!signer) throw new Error(`Please connect a wallet to Range Swap`);
 
       if (!isValidAddress(recipientAddress) || recipientAddress === "") throw new Error(`Invalid address`);

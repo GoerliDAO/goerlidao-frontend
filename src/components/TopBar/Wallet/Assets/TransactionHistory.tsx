@@ -4,7 +4,7 @@ import { TransactionRow } from "@olympusdao/component-library";
 import { FC, useMemo, useRef, useState } from "react";
 import useIntersectionObserver from "src/components/TopBar/Wallet/helpers";
 import { useTransactionHistory, useTransferHistory } from "src/components/TopBar/Wallet/queries";
-import { GOHM_TOKEN, OHM_TOKEN, SOHM_TOKEN, V1_OHM_TOKEN, V1_SOHM_TOKEN, WSOHM_TOKEN } from "src/constants/tokens";
+// import { GOHM_TOKEN, OHM_TOKEN, SOHM_TOKEN, V1_OHM_TOKEN, V1_SOHM_TOKEN, WSOHM_TOKEN } from "src/constants/tokens";
 import { Transaction } from "src/helpers/covalent/interpretTransaction";
 import { nonNullable } from "src/helpers/types/nonNullable";
 
