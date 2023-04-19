@@ -16,8 +16,15 @@ interface TopBarProps {
   handleDrawerToggle: () => void;
 }
 
+interface NavLinkProps {
+  to: string;
+  style?: (props: { isActive: boolean; isPending: boolean }) => React.CSSProperties;
+  children: React.ReactNode;
+}
+
 function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
   const location = useLocation();
+  // const
   const theme = useTheme();
   console.log("This is the theme : ", theme);
   const desktop = useMediaQuery(theme.breakpoints.up(1048));
