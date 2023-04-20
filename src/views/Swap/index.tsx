@@ -4,6 +4,7 @@ import { computePoolAddress, FeeAmount } from "@uniswap/v3-sdk";
 import { SwapWidget } from "@uniswap/widgets";
 import { ethers } from "ethers";
 import React, { useEffect, useState } from "react";
+import Footer from "src/components/Footer";
 import { POOL_FACTORY_CONTRACT_ADDRESS, QUOTER_CONTRACT_ADDRESS, USDC_TOKEN, WETH_TOKEN } from "src/lib/constants";
 import { fromReadableAmount } from "src/lib/conversion";
 
@@ -76,28 +77,33 @@ const Swap = () => {
   }, []);
 
   return (
-    <div className="Uniswap flex items-center justify-center">
-      <form className="hidden flex flex-col">
-        <fieldset className="flex flex-row">
-          <input
-            className="border border-purple-400 rounded mb-2 px-4 py-2 bg-slate-50 text-xl rounded-tr-none rounded-br-none border-r-0 w-full"
-            type="text"
-            placeholder="0.0"
-          />
-          <TokensList selected="USDC" tokens={tokens} />
-        </fieldset>
-        <fieldset className="flex flex-row">
-          <input
-            className="border border-purple-400 rounded mb-2 px-4 py-2 bg-slate-50 text-xl rounded-tr-none rounded-br-none border-r-0 w-full"
-            type="text"
-            placeholder="0.0"
-            readOnly
-          />
-          <TokensList selected="WETH" tokens={tokens} />
-        </fieldset>
-      </form>
-      <SwapWidget />
-    </div>
+    <>
+      <div className="Uniswap flex items-center justify-center">
+        <form className="hidden flex flex-col">
+          <fieldset className="flex flex-row">
+            <input
+              className="border border-purple-400 rounded mb-2 px-4 py-2 bg-slate-50 text-xl rounded-tr-none rounded-br-none border-r-0 w-full"
+              type="text"
+              placeholder="0.0"
+            />
+            <TokensList selected="USDC" tokens={tokens} />
+          </fieldset>
+          <fieldset className="flex flex-row">
+            <input
+              className="border border-purple-400 rounded mb-2 px-4 py-2 bg-slate-50 text-xl rounded-tr-none rounded-br-none border-r-0 w-full"
+              type="text"
+              placeholder="0.0"
+              readOnly
+            />
+            <TokensList selected="WETH" tokens={tokens} />
+          </fieldset>
+        </form>
+        <div className="Uniswap my-10">
+          <SwapWidget />
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 
