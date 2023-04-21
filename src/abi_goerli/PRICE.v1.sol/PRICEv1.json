@@ -559,7 +559,7 @@
     "reserveEthUpdateThreshold()": "d532ade4",
     "updateMovingAverage()": "86db7df0"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"KernelAdapter_OnlyKernel\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"}],\"name\":\"Module_PolicyNotPermitted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Price_AlreadyInitialized\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"priceFeed\",\"type\":\"address\"}],\"name\":\"Price_BadFeed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Price_InvalidParams\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Price_NotInitialized\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"minimumTargetPrice_\",\"type\":\"uint256\"}],\"name\":\"MinimumTargetPriceChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint48\",\"name\":\"movingAverageDuration_\",\"type\":\"uint48\"}],\"name\":\"MovingAverageDurationChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"movingAverage_\",\"type\":\"uint256\"}],\"name\":\"NewObservation\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint48\",\"name\":\"observationFrequency_\",\"type\":\"uint48\"}],\"name\":\"ObservationFrequencyChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint48\",\"name\":\"gdaoEthUpdateThreshold_\",\"type\":\"uint48\"},{\"indexed\":false,\"internalType\":\"uint48\",\"name\":\"reserveEthUpdateThreshold_\",\"type\":\"uint48\"}],\"name\":\"UpdateThresholdsChanged\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"INIT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"KEYCODE\",\"outputs\":[{\"internalType\":\"Keycode\",\"name\":\"\",\"type\":\"bytes5\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"major\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"minor\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"newKernel_\",\"type\":\"address\"}],\"name\":\"changeKernel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"minimumTargetPrice_\",\"type\":\"uint256\"}],\"name\":\"changeMinimumTargetPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48\",\"name\":\"movingAverageDuration_\",\"type\":\"uint48\"}],\"name\":\"changeMovingAverageDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48\",\"name\":\"observationFrequency_\",\"type\":\"uint48\"}],\"name\":\"changeObservationFrequency\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48\",\"name\":\"gdaoEthUpdateThreshold_\",\"type\":\"uint48\"},{\"internalType\":\"uint48\",\"name\":\"reserveEthUpdateThreshold_\",\"type\":\"uint48\"}],\"name\":\"changeUpdateThresholds\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cumulativeObs\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gdaoEthPriceFeed\",\"outputs\":[{\"internalType\":\"contract AggregatorV2V3Interface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gdaoEthUpdateThreshold\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLastPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMovingAverage\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTargetPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"startObservations_\",\"type\":\"uint256[]\"},{\"internalType\":\"uint48\",\"name\":\"lastObservationTime_\",\"type\":\"uint48\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastObservationTime\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minimumTargetPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"movingAverageDuration\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nextObsIndex\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"numObservations\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"observationFrequency\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"observations\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reserveEthPriceFeed\",\"outputs\":[{\"internalType\":\"contract AggregatorV2V3Interface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reserveEthUpdateThreshold\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"updateMovingAverage\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"The Olympus Price Oracle contract provides a standard interface for GDAO price data against a reserve asset.         It also implements a moving average price calculation (same as a TWAP) on the price feed data over a configured         duration and observation frequency. The data provided by this contract is used by the Olympus Range Operator to         perform market operations. The Olympus Price Oracle is updated each epoch by the Olympus Heart contract.\",\"kind\":\"dev\",\"methods\":{\"INIT()\":{\"details\":\"This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.\"},\"VERSION()\":{\"returns\":{\"major\":\"- Major version upgrade indicates breaking change to the interface.\",\"minor\":\"- Minor version change retains backward-compatible interface.\"}},\"changeMinimumTargetPrice(uint256)\":{\"details\":\"The minimum target price should be set based on the liquid backing of GDAO.\",\"params\":{\"minimumTargetPrice_\":\"- Minimum target price for RBS system with 18 decimals, expressed as number of Reserve per GDAO\"}},\"changeMovingAverageDuration(uint48)\":{\"details\":\"Changing the moving average duration will erase the current observations array         and require the initialize function to be called again. Ensure that you have saved         the existing data and can re-populate before calling this function.\",\"params\":{\"movingAverageDuration_\":\"- Moving average duration in seconds, must be a multiple of observation frequency\"}},\"changeObservationFrequency(uint48)\":{\"details\":\"Changing the observation frequency clears existing observation data since it will not be taken at the right time intervals.           Ensure that you have saved the existing data and/or can re-populate before calling this function.\",\"params\":{\"observationFrequency_\":\"- Observation frequency in seconds, must be a divisor of the moving average duration\"}},\"changeUpdateThresholds(uint48,uint48)\":{\"details\":\"The update thresholds should be set based on the update threshold of the chainlink oracles.\",\"params\":{\"gdaoEthUpdateThreshold_\":\"- Maximum allowed time between GDAO/ETH price feed updates\",\"reserveEthUpdateThreshold_\":\"- Maximum allowed time between Reserve/ETH price feed updates\"}},\"getTargetPrice()\":{\"details\":\"Returns the maximum of the moving average and the minimum target price\"},\"initialize(uint256[],uint48)\":{\"details\":\"This function must be called after the Price module is deployed to activate it and after updating the observationFrequency         or movingAverageDuration (in certain cases) in order for the Price module to function properly.\",\"params\":{\"lastObservationTime_\":\"- Unix timestamp of last observation being provided (in seconds).\",\"startObservations_\":\"- Array of observations to initialize the moving average with. Must be of length numObservations.\"}},\"updateMovingAverage()\":{\"details\":\"This function does not have a time-gating on the observationFrequency on this contract. It is set on the Heart policy contract.         The Heart beat frequency should be set to the same value as the observationFrequency.\"}},\"stateVariables\":{\"cumulativeObs\":{\"details\":\"See getMovingAverage()\"},\"observations\":{\"details\":\"Observations are stored in a ring buffer where the moving average is the sum of all observations divided by the number of observations.         Observations can be cleared by changing the movingAverageDuration or observationFrequency and must be re-initialized.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"INIT()\":{\"notice\":\"Initialization function for the module\"},\"KEYCODE()\":{\"notice\":\"5 byte identifier for a module.\"},\"VERSION()\":{\"notice\":\"Returns which semantic version of a module is being implemented.\"},\"changeKernel(address)\":{\"notice\":\"Function used by kernel when migrating to a new kernel.\"},\"changeMinimumTargetPrice(uint256)\":{\"notice\":\"Change the minimum target price\"},\"changeMovingAverageDuration(uint48)\":{\"notice\":\"Change the moving average window (duration)\"},\"changeObservationFrequency(uint48)\":{\"notice\":\"Change the observation frequency of the moving average (i.e. how often a new observation is taken)\"},\"changeUpdateThresholds(uint48,uint48)\":{\"notice\":\"Change the update thresholds for the price feeds\"},\"cumulativeObs()\":{\"notice\":\"Running sum of observations to calculate the moving average price from\"},\"decimals()\":{\"notice\":\"Number of decimals in the price values provided by the contract.\"},\"gdaoEthPriceFeed()\":{\"notice\":\"GDAO/ETH price feed\"},\"gdaoEthUpdateThreshold()\":{\"notice\":\"Maximum expected time between GDAO/ETH price feed updates\"},\"getCurrentPrice()\":{\"notice\":\"Get the current price of GDAO in the Reserve asset from the price feeds\"},\"getLastPrice()\":{\"notice\":\"Get the last stored price observation of GDAO in the Reserve asset\"},\"getMovingAverage()\":{\"notice\":\"Get the moving average of GDAO in the Reserve asset over the defined window (see movingAverageDuration and observationFrequency).\"},\"getTargetPrice()\":{\"notice\":\"Get target price of GDAO in the Reserve asset for the RBS system\"},\"initialize(uint256[],uint48)\":{\"notice\":\"Initialize the price moduleAccess restricted to activated policies\"},\"initialized()\":{\"notice\":\"Whether the price module is initialized (and therefore active).\"},\"lastObservationTime()\":{\"notice\":\"Unix timestamp of last observation (in seconds).\"},\"minimumTargetPrice()\":{\"notice\":\"Minimum target price for RBS system. Set manually to correspond to the liquid backing of GDAO.\"},\"movingAverageDuration()\":{\"notice\":\"Duration (in seconds) over which the moving average is calculated.\"},\"nextObsIndex()\":{\"notice\":\"Index of the next observation to make. The current value at this index is the oldest observation.\"},\"numObservations()\":{\"notice\":\"Number of observations used in the moving average calculation. Computed from movingAverageDuration / observationFrequency.\"},\"observationFrequency()\":{\"notice\":\"Frequency (in seconds) that observations should be stored.\"},\"observations(uint256)\":{\"notice\":\"Array of price observations. Check nextObsIndex to determine latest data point.\"},\"reserveEthPriceFeed()\":{\"notice\":\"Reserve/ETH price feed\"},\"reserveEthUpdateThreshold()\":{\"notice\":\"Maximum expected time between GDAO/ETH price feed updates\"},\"updateMovingAverage()\":{\"notice\":\"Trigger an update of the moving average. Permissioned.\"}},\"notice\":\"Price oracle data storage\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/modules/PRICE/PRICE.v1.sol\":\"PRICEv1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"src/Kernel.sol\":{\"keccak256\":\"0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5\",\"dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab\"]},\"src/interfaces/AggregatorV2V3Interface.sol\":{\"keccak256\":\"0x31853fa0dd35d4c425b3aa71253433f69698d5218affd69df335b7356ddd1e7d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2e8aa259db1cf13cb717c0446b2df93f656c0b33abf1d02d55cef797610a1977\",\"dweb:/ipfs/QmNYGAnhmses4vGFCG81YPxoHpgrByjn1sySk7LENBV1DR\"]},\"src/modules/PRICE/PRICE.v1.sol\":{\"keccak256\":\"0x607b53d2a8f8bbd8045ae0ba465ac401a1a598b29bcea726f54ad6277eb26b9f\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://47ad9631fe7477df87a72137cf961fc114646483401170b1fec9f3c69af5b50e\",\"dweb:/ipfs/QmNMrPf27eQ1GT12m6HRfN1hj8LckADQ3ezV4cLDwTiTyP\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"KernelAdapter_OnlyKernel\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"}],\"name\":\"Module_PolicyNotPermitted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Price_AlreadyInitialized\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"priceFeed\",\"type\":\"address\"}],\"name\":\"Price_BadFeed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Price_InvalidParams\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Price_NotInitialized\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"minimumTargetPrice_\",\"type\":\"uint256\"}],\"name\":\"MinimumTargetPriceChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint48\",\"name\":\"movingAverageDuration_\",\"type\":\"uint48\"}],\"name\":\"MovingAverageDurationChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"movingAverage_\",\"type\":\"uint256\"}],\"name\":\"NewObservation\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint48\",\"name\":\"observationFrequency_\",\"type\":\"uint48\"}],\"name\":\"ObservationFrequencyChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint48\",\"name\":\"gdaoEthUpdateThreshold_\",\"type\":\"uint48\"},{\"indexed\":false,\"internalType\":\"uint48\",\"name\":\"reserveEthUpdateThreshold_\",\"type\":\"uint48\"}],\"name\":\"UpdateThresholdsChanged\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"INIT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"KEYCODE\",\"outputs\":[{\"internalType\":\"Keycode\",\"name\":\"\",\"type\":\"bytes5\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"major\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"minor\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"newKernel_\",\"type\":\"address\"}],\"name\":\"changeKernel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"minimumTargetPrice_\",\"type\":\"uint256\"}],\"name\":\"changeMinimumTargetPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48\",\"name\":\"movingAverageDuration_\",\"type\":\"uint48\"}],\"name\":\"changeMovingAverageDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48\",\"name\":\"observationFrequency_\",\"type\":\"uint48\"}],\"name\":\"changeObservationFrequency\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48\",\"name\":\"gdaoEthUpdateThreshold_\",\"type\":\"uint48\"},{\"internalType\":\"uint48\",\"name\":\"reserveEthUpdateThreshold_\",\"type\":\"uint48\"}],\"name\":\"changeUpdateThresholds\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cumulativeObs\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gdaoEthPriceFeed\",\"outputs\":[{\"internalType\":\"contract AggregatorV2V3Interface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gdaoEthUpdateThreshold\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLastPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMovingAverage\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTargetPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"startObservations_\",\"type\":\"uint256[]\"},{\"internalType\":\"uint48\",\"name\":\"lastObservationTime_\",\"type\":\"uint48\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lastObservationTime\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minimumTargetPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"movingAverageDuration\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nextObsIndex\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"numObservations\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"observationFrequency\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"observations\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reserveEthPriceFeed\",\"outputs\":[{\"internalType\":\"contract AggregatorV2V3Interface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reserveEthUpdateThreshold\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"updateMovingAverage\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"The Olympus Price Oracle contract provides a standard interface for GDAO price data against a reserve asset.         It also implements a moving average price calculation (same as a TWAP) on the price feed data over a configured         duration and observation frequency. The data provided by this contract is used by the Olympus Range Operator to         perform market operations. The Olympus Price Oracle is updated each epoch by the Olympus Heart contract.\",\"kind\":\"dev\",\"methods\":{\"INIT()\":{\"details\":\"This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.\"},\"VERSION()\":{\"returns\":{\"major\":\"- Major version upgrade indicates breaking change to the interface.\",\"minor\":\"- Minor version change retains backward-compatible interface.\"}},\"changeMinimumTargetPrice(uint256)\":{\"details\":\"The minimum target price should be set based on the liquid backing of GDAO.\",\"params\":{\"minimumTargetPrice_\":\"- Minimum target price for RBS system with 18 decimals, expressed as number of Reserve per GDAO\"}},\"changeMovingAverageDuration(uint48)\":{\"details\":\"Changing the moving average duration will erase the current observations array         and require the initialize function to be called again. Ensure that you have saved         the existing data and can re-populate before calling this function.\",\"params\":{\"movingAverageDuration_\":\"- Moving average duration in seconds, must be a multiple of observation frequency\"}},\"changeObservationFrequency(uint48)\":{\"details\":\"Changing the observation frequency clears existing observation data since it will not be taken at the right time intervals.           Ensure that you have saved the existing data and/or can re-populate before calling this function.\",\"params\":{\"observationFrequency_\":\"- Observation frequency in seconds, must be a divisor of the moving average duration\"}},\"changeUpdateThresholds(uint48,uint48)\":{\"details\":\"The update thresholds should be set based on the update threshold of the chainlink oracles.\",\"params\":{\"gdaoEthUpdateThreshold_\":\"- Maximum allowed time between GDAO/ETH price feed updates\",\"reserveEthUpdateThreshold_\":\"- Maximum allowed time between Reserve/ETH price feed updates\"}},\"getTargetPrice()\":{\"details\":\"Returns the maximum of the moving average and the minimum target price\"},\"initialize(uint256[],uint48)\":{\"details\":\"This function must be called after the Price module is deployed to activate it and after updating the observationFrequency         or movingAverageDuration (in certain cases) in order for the Price module to function properly.\",\"params\":{\"lastObservationTime_\":\"- Unix timestamp of last observation being provided (in seconds).\",\"startObservations_\":\"- Array of observations to initialize the moving average with. Must be of length numObservations.\"}},\"updateMovingAverage()\":{\"details\":\"This function does not have a time-gating on the observationFrequency on this contract. It is set on the Heart policy contract.         The Heart beat frequency should be set to the same value as the observationFrequency.\"}},\"stateVariables\":{\"cumulativeObs\":{\"details\":\"See getMovingAverage()\"},\"observations\":{\"details\":\"Observations are stored in a ring buffer where the moving average is the sum of all observations divided by the number of observations.         Observations can be cleared by changing the movingAverageDuration or observationFrequency and must be re-initialized.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"INIT()\":{\"notice\":\"Initialization function for the module\"},\"KEYCODE()\":{\"notice\":\"5 byte identifier for a module.\"},\"VERSION()\":{\"notice\":\"Returns which semantic version of a module is being implemented.\"},\"changeKernel(address)\":{\"notice\":\"Function used by kernel when migrating to a new kernel.\"},\"changeMinimumTargetPrice(uint256)\":{\"notice\":\"Change the minimum target price\"},\"changeMovingAverageDuration(uint48)\":{\"notice\":\"Change the moving average window (duration)\"},\"changeObservationFrequency(uint48)\":{\"notice\":\"Change the observation frequency of the moving average (i.e. how often a new observation is taken)\"},\"changeUpdateThresholds(uint48,uint48)\":{\"notice\":\"Change the update thresholds for the price feeds\"},\"cumulativeObs()\":{\"notice\":\"Running sum of observations to calculate the moving average price from\"},\"decimals()\":{\"notice\":\"Number of decimals in the price values provided by the contract.\"},\"gdaoEthPriceFeed()\":{\"notice\":\"GDAO/ETH price feed\"},\"gdaoEthUpdateThreshold()\":{\"notice\":\"Maximum expected time between GDAO/ETH price feed updates\"},\"getCurrentPrice()\":{\"notice\":\"Get the current price of GDAO in the Reserve asset from the price feeds\"},\"getLastPrice()\":{\"notice\":\"Get the last stored price observation of GDAO in the Reserve asset\"},\"getMovingAverage()\":{\"notice\":\"Get the moving average of GDAO in the Reserve asset over the defined window (see movingAverageDuration and observationFrequency).\"},\"getTargetPrice()\":{\"notice\":\"Get target price of GDAO in the Reserve asset for the RBS system\"},\"initialize(uint256[],uint48)\":{\"notice\":\"Initialize the price moduleAccess restricted to activated policies\"},\"initialized()\":{\"notice\":\"Whether the price module is initialized (and therefore active).\"},\"lastObservationTime()\":{\"notice\":\"Unix timestamp of last observation (in seconds).\"},\"minimumTargetPrice()\":{\"notice\":\"Minimum target price for RBS system. Set manually to correspond to the liquid backing of GDAO.\"},\"movingAverageDuration()\":{\"notice\":\"Duration (in seconds) over which the moving average is calculated.\"},\"nextObsIndex()\":{\"notice\":\"Index of the next observation to make. The current value at this index is the oldest observation.\"},\"numObservations()\":{\"notice\":\"Number of observations used in the moving average calculation. Computed from movingAverageDuration / observationFrequency.\"},\"observationFrequency()\":{\"notice\":\"Frequency (in seconds) that observations should be stored.\"},\"observations(uint256)\":{\"notice\":\"Array of price observations. Check nextObsIndex to determine latest data point.\"},\"reserveEthPriceFeed()\":{\"notice\":\"Reserve/ETH price feed\"},\"reserveEthUpdateThreshold()\":{\"notice\":\"Maximum expected time between GDAO/ETH price feed updates\"},\"updateMovingAverage()\":{\"notice\":\"Trigger an update of the moving average. Permissioned.\"}},\"notice\":\"Price oracle data storage\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/modules/PRICE/PRICE.v1.sol\":\"PRICEv1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":20000},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"src/Kernel.sol\":{\"keccak256\":\"0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5\",\"dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab\"]},\"src/interfaces/AggregatorV2V3Interface.sol\":{\"keccak256\":\"0x31853fa0dd35d4c425b3aa71253433f69698d5218affd69df335b7356ddd1e7d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2e8aa259db1cf13cb717c0446b2df93f656c0b33abf1d02d55cef797610a1977\",\"dweb:/ipfs/QmNYGAnhmses4vGFCG81YPxoHpgrByjn1sySk7LENBV1DR\"]},\"src/modules/PRICE/PRICE.v1.sol\":{\"keccak256\":\"0x607b53d2a8f8bbd8045ae0ba465ac401a1a598b29bcea726f54ad6277eb26b9f\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://47ad9631fe7477df87a72137cf961fc114646483401170b1fec9f3c69af5b50e\",\"dweb:/ipfs/QmNMrPf27eQ1GT12m6HRfN1hj8LckADQ3ezV4cLDwTiTyP\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.15+commit.e14f2714"
@@ -1232,14 +1232,13 @@
         ":interfaces/=src/interfaces/",
         ":libraries/=src/libraries/",
         ":modules/=src/modules/",
-        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
         ":policies/=src/policies/",
         ":solmate/=lib/solmate/src/",
         ":test/=src/test/"
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 10
+        "runs": 20000
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -1279,64 +1278,64 @@
   },
   "ast": {
     "absolutePath": "src/modules/PRICE/PRICE.v1.sol",
-    "id": 45280,
+    "id": 39577,
     "exportedSymbols": {
       "Actions": [
-        29387
+        28348
       ],
       "AggregatorV2V3Interface": [
-        42058
+        35642
       ],
       "Instruction": [
-        29393
+        28354
       ],
       "InvalidKeycode": [
-        29410
+        28371
       ],
       "Kernel": [
-        30536
+        29497
       ],
       "KernelAdapter": [
-        29551
+        28512
       ],
       "Keycode": [
-        29401
+        28362
       ],
       "Module": [
-        29616
+        28577
       ],
       "PRICEv1": [
-        45279
+        39576
       ],
       "Permissions": [
-        29399
+        28360
       ],
       "Policy": [
-        29698
+        28659
       ],
       "TargetNotAContract": [
-        29405
+        28366
       ],
       "ensureContract": [
-        29454
+        28415
       ],
       "ensureValidKeycode": [
-        29499
+        28460
       ],
       "fromKeycode": [
-        29438
+        28399
       ],
       "toKeycode": [
-        29424
+        28385
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "37:7805:73",
+    "src": "37:7805:95",
     "nodes": [
       {
-        "id": 45127,
+        "id": 39424,
         "nodeType": "PragmaDirective",
-        "src": "37:23:73",
+        "src": "37:23:95",
         "nodes": [],
         "literals": [
           "solidity",
@@ -1345,24 +1344,24 @@
         ]
       },
       {
-        "id": 45129,
+        "id": 39426,
         "nodeType": "ImportDirective",
-        "src": "62:79:73",
+        "src": "62:79:95",
         "nodes": [],
         "absolutePath": "src/interfaces/AggregatorV2V3Interface.sol",
         "file": "interfaces/AggregatorV2V3Interface.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 45280,
-        "sourceUnit": 42059,
+        "scope": 39577,
+        "sourceUnit": 35643,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 45128,
+              "id": 39425,
               "name": "AggregatorV2V3Interface",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 42058,
-              "src": "70:23:73",
+              "referencedDeclaration": 35642,
+              "src": "70:23:95",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -1371,46 +1370,46 @@
         "unitAlias": ""
       },
       {
-        "id": 45130,
+        "id": 39427,
         "nodeType": "ImportDirective",
-        "src": "142:24:73",
+        "src": "142:24:95",
         "nodes": [],
         "absolutePath": "src/Kernel.sol",
         "file": "src/Kernel.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 45280,
-        "sourceUnit": 30537,
+        "scope": 39577,
+        "sourceUnit": 29498,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 45279,
+        "id": 39576,
         "nodeType": "ContractDefinition",
-        "src": "692:7149:73",
+        "src": "692:7149:95",
         "nodes": [
           {
-            "id": 45141,
+            "id": 39438,
             "nodeType": "EventDefinition",
-            "src": "773:81:73",
+            "src": "773:81:95",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "a62f55aa6e9680aff071df0c621257f66bc5ba0dce63725989b3e5e42f24c629",
             "name": "NewObservation",
-            "nameLocation": "779:14:73",
+            "nameLocation": "779:14:95",
             "parameters": {
-              "id": 45140,
+              "id": 39437,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45135,
+                  "id": 39432,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "timestamp_",
-                  "nameLocation": "802:10:73",
+                  "nameLocation": "802:10:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45141,
-                  "src": "794:18:73",
+                  "scope": 39438,
+                  "src": "794:18:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1418,10 +1417,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 45134,
+                    "id": 39431,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "794:7:73",
+                    "src": "794:7:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1431,14 +1430,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 45137,
+                  "id": 39434,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "price_",
-                  "nameLocation": "822:6:73",
+                  "nameLocation": "822:6:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45141,
-                  "src": "814:14:73",
+                  "scope": 39438,
+                  "src": "814:14:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1446,10 +1445,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 45136,
+                    "id": 39433,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "814:7:73",
+                    "src": "814:7:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1459,14 +1458,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 45139,
+                  "id": 39436,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "movingAverage_",
-                  "nameLocation": "838:14:73",
+                  "nameLocation": "838:14:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45141,
-                  "src": "830:22:73",
+                  "scope": 39438,
+                  "src": "830:22:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1474,10 +1473,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 45138,
+                    "id": 39435,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "830:7:73",
+                    "src": "830:7:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1486,32 +1485,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "793:60:73"
+              "src": "793:60:95"
             }
           },
           {
-            "id": 45145,
+            "id": 39442,
             "nodeType": "EventDefinition",
-            "src": "859:66:73",
+            "src": "859:66:95",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "bf17d91c3fb2f4166d1548087583c97a6cb790502bbcdce123d872c290f58202",
             "name": "MovingAverageDurationChanged",
-            "nameLocation": "865:28:73",
+            "nameLocation": "865:28:95",
             "parameters": {
-              "id": 45144,
+              "id": 39441,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45143,
+                  "id": 39440,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "movingAverageDuration_",
-                  "nameLocation": "901:22:73",
+                  "nameLocation": "901:22:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45145,
-                  "src": "894:29:73",
+                  "scope": 39442,
+                  "src": "894:29:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1519,10 +1518,10 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 45142,
+                    "id": 39439,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
-                    "src": "894:6:73",
+                    "src": "894:6:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint48",
                       "typeString": "uint48"
@@ -1531,32 +1530,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "893:31:73"
+              "src": "893:31:95"
             }
           },
           {
-            "id": 45149,
+            "id": 39446,
             "nodeType": "EventDefinition",
-            "src": "930:64:73",
+            "src": "930:64:95",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "ccdeec192bc388cfc3e642b4a812d9cab15e3728046b2cb7b359702510a918c5",
             "name": "ObservationFrequencyChanged",
-            "nameLocation": "936:27:73",
+            "nameLocation": "936:27:95",
             "parameters": {
-              "id": 45148,
+              "id": 39445,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45147,
+                  "id": 39444,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "observationFrequency_",
-                  "nameLocation": "971:21:73",
+                  "nameLocation": "971:21:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45149,
-                  "src": "964:28:73",
+                  "scope": 39446,
+                  "src": "964:28:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1564,10 +1563,10 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 45146,
+                    "id": 39443,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
-                    "src": "964:6:73",
+                    "src": "964:6:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint48",
                       "typeString": "uint48"
@@ -1576,32 +1575,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "963:30:73"
+              "src": "963:30:95"
             }
           },
           {
-            "id": 45155,
+            "id": 39452,
             "nodeType": "EventDefinition",
-            "src": "999:97:73",
+            "src": "999:97:95",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "7afa9e43491ad08e1044e0aef56f3033b1e4043e9ee7795632c5877ba35a7928",
             "name": "UpdateThresholdsChanged",
-            "nameLocation": "1005:23:73",
+            "nameLocation": "1005:23:95",
             "parameters": {
-              "id": 45154,
+              "id": 39451,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45151,
+                  "id": 39448,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "gdaoEthUpdateThreshold_",
-                  "nameLocation": "1036:23:73",
+                  "nameLocation": "1036:23:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45155,
-                  "src": "1029:30:73",
+                  "scope": 39452,
+                  "src": "1029:30:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1609,10 +1608,10 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 45150,
+                    "id": 39447,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1029:6:73",
+                    "src": "1029:6:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint48",
                       "typeString": "uint48"
@@ -1622,14 +1621,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 45153,
+                  "id": 39450,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "reserveEthUpdateThreshold_",
-                  "nameLocation": "1068:26:73",
+                  "nameLocation": "1068:26:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45155,
-                  "src": "1061:33:73",
+                  "scope": 39452,
+                  "src": "1061:33:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1637,10 +1636,10 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 45152,
+                    "id": 39449,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1061:6:73",
+                    "src": "1061:6:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint48",
                       "typeString": "uint48"
@@ -1649,32 +1648,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1028:67:73"
+              "src": "1028:67:95"
             }
           },
           {
-            "id": 45159,
+            "id": 39456,
             "nodeType": "EventDefinition",
-            "src": "1101:61:73",
+            "src": "1101:61:95",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "429369433de996bd22c83edbc227a7480e136a8ac3bbf0138a908bc98f7b4b63",
             "name": "MinimumTargetPriceChanged",
-            "nameLocation": "1107:25:73",
+            "nameLocation": "1107:25:95",
             "parameters": {
-              "id": 45158,
+              "id": 39455,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45157,
+                  "id": 39454,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "minimumTargetPrice_",
-                  "nameLocation": "1141:19:73",
+                  "nameLocation": "1141:19:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45159,
-                  "src": "1133:27:73",
+                  "scope": 39456,
+                  "src": "1133:27:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1682,10 +1681,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 45156,
+                    "id": 39453,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1133:7:73",
+                    "src": "1133:7:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1694,75 +1693,75 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1132:29:73"
+              "src": "1132:29:95"
             }
           },
           {
-            "id": 45161,
+            "id": 39458,
             "nodeType": "ErrorDefinition",
-            "src": "1207:28:73",
+            "src": "1207:28:95",
             "nodes": [],
             "errorSelector": "bd19ab3f",
             "name": "Price_InvalidParams",
-            "nameLocation": "1213:19:73",
+            "nameLocation": "1213:19:95",
             "parameters": {
-              "id": 45160,
+              "id": 39457,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1232:2:73"
+              "src": "1232:2:95"
             }
           },
           {
-            "id": 45163,
+            "id": 39460,
             "nodeType": "ErrorDefinition",
-            "src": "1240:29:73",
+            "src": "1240:29:95",
             "nodes": [],
             "errorSelector": "a985d3f5",
             "name": "Price_NotInitialized",
-            "nameLocation": "1246:20:73",
+            "nameLocation": "1246:20:95",
             "parameters": {
-              "id": 45162,
+              "id": 39459,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1266:2:73"
+              "src": "1266:2:95"
             }
           },
           {
-            "id": 45165,
+            "id": 39462,
             "nodeType": "ErrorDefinition",
-            "src": "1274:33:73",
+            "src": "1274:33:95",
             "nodes": [],
             "errorSelector": "d5a5ed89",
             "name": "Price_AlreadyInitialized",
-            "nameLocation": "1280:24:73",
+            "nameLocation": "1280:24:95",
             "parameters": {
-              "id": 45164,
+              "id": 39461,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1304:2:73"
+              "src": "1304:2:95"
             }
           },
           {
-            "id": 45169,
+            "id": 39466,
             "nodeType": "ErrorDefinition",
-            "src": "1312:39:73",
+            "src": "1312:39:95",
             "nodes": [],
             "errorSelector": "5ee314b6",
             "name": "Price_BadFeed",
-            "nameLocation": "1318:13:73",
+            "nameLocation": "1318:13:95",
             "parameters": {
-              "id": 45168,
+              "id": 39465,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45167,
+                  "id": 39464,
                   "mutability": "mutable",
                   "name": "priceFeed",
-                  "nameLocation": "1340:9:73",
+                  "nameLocation": "1340:9:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45169,
-                  "src": "1332:17:73",
+                  "scope": 39466,
+                  "src": "1332:17:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1770,10 +1769,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 45166,
+                    "id": 39463,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1332:7:73",
+                    "src": "1332:7:95",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1783,68 +1782,68 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1331:19:73"
+              "src": "1331:19:95"
             }
           },
           {
-            "id": 45173,
+            "id": 39470,
             "nodeType": "VariableDeclaration",
-            "src": "1890:47:73",
+            "src": "1890:47:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45170,
+              "id": 39467,
               "nodeType": "StructuredDocumentation",
-              "src": "1854:31:73",
+              "src": "1854:31:95",
               "text": "@notice GDAO/ETH price feed"
             },
             "functionSelector": "6707853d",
             "mutability": "mutable",
             "name": "gdaoEthPriceFeed",
-            "nameLocation": "1921:16:73",
-            "scope": 45279,
+            "nameLocation": "1921:16:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_AggregatorV2V3Interface_$42058",
+              "typeIdentifier": "t_contract$_AggregatorV2V3Interface_$35642",
               "typeString": "contract AggregatorV2V3Interface"
             },
             "typeName": {
-              "id": 45172,
+              "id": 39469,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 45171,
+                "id": 39468,
                 "name": "AggregatorV2V3Interface",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 42058,
-                "src": "1890:23:73"
+                "referencedDeclaration": 35642,
+                "src": "1890:23:95"
               },
-              "referencedDeclaration": 42058,
-              "src": "1890:23:73",
+              "referencedDeclaration": 35642,
+              "src": "1890:23:95",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_AggregatorV2V3Interface_$42058",
+                "typeIdentifier": "t_contract$_AggregatorV2V3Interface_$35642",
                 "typeString": "contract AggregatorV2V3Interface"
               }
             },
             "visibility": "public"
           },
           {
-            "id": 45176,
+            "id": 39473,
             "nodeType": "VariableDeclaration",
-            "src": "2018:36:73",
+            "src": "2018:36:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45174,
+              "id": 39471,
               "nodeType": "StructuredDocumentation",
-              "src": "1944:69:73",
+              "src": "1944:69:95",
               "text": "@notice Maximum expected time between GDAO/ETH price feed updates"
             },
             "functionSelector": "d09f7245",
             "mutability": "mutable",
             "name": "gdaoEthUpdateThreshold",
-            "nameLocation": "2032:22:73",
-            "scope": 45279,
+            "nameLocation": "2032:22:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1852,10 +1851,10 @@
               "typeString": "uint48"
             },
             "typeName": {
-              "id": 45175,
+              "id": 39472,
               "name": "uint48",
               "nodeType": "ElementaryTypeName",
-              "src": "2018:6:73",
+              "src": "2018:6:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint48",
                 "typeString": "uint48"
@@ -1864,64 +1863,64 @@
             "visibility": "public"
           },
           {
-            "id": 45180,
+            "id": 39477,
             "nodeType": "VariableDeclaration",
-            "src": "2100:50:73",
+            "src": "2100:50:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45177,
+              "id": 39474,
               "nodeType": "StructuredDocumentation",
-              "src": "2061:34:73",
+              "src": "2061:34:95",
               "text": "@notice Reserve/ETH price feed"
             },
             "functionSelector": "be8ef3d3",
             "mutability": "mutable",
             "name": "reserveEthPriceFeed",
-            "nameLocation": "2131:19:73",
-            "scope": 45279,
+            "nameLocation": "2131:19:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_AggregatorV2V3Interface_$42058",
+              "typeIdentifier": "t_contract$_AggregatorV2V3Interface_$35642",
               "typeString": "contract AggregatorV2V3Interface"
             },
             "typeName": {
-              "id": 45179,
+              "id": 39476,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 45178,
+                "id": 39475,
                 "name": "AggregatorV2V3Interface",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 42058,
-                "src": "2100:23:73"
+                "referencedDeclaration": 35642,
+                "src": "2100:23:95"
               },
-              "referencedDeclaration": 42058,
-              "src": "2100:23:73",
+              "referencedDeclaration": 35642,
+              "src": "2100:23:95",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_AggregatorV2V3Interface_$42058",
+                "typeIdentifier": "t_contract$_AggregatorV2V3Interface_$35642",
                 "typeString": "contract AggregatorV2V3Interface"
               }
             },
             "visibility": "public"
           },
           {
-            "id": 45183,
+            "id": 39480,
             "nodeType": "VariableDeclaration",
-            "src": "2231:39:73",
+            "src": "2231:39:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45181,
+              "id": 39478,
               "nodeType": "StructuredDocumentation",
-              "src": "2157:69:73",
+              "src": "2157:69:95",
               "text": "@notice Maximum expected time between GDAO/ETH price feed updates"
             },
             "functionSelector": "d532ade4",
             "mutability": "mutable",
             "name": "reserveEthUpdateThreshold",
-            "nameLocation": "2245:25:73",
-            "scope": 45279,
+            "nameLocation": "2245:25:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1929,10 +1928,10 @@
               "typeString": "uint48"
             },
             "typeName": {
-              "id": 45182,
+              "id": 39479,
               "name": "uint48",
               "nodeType": "ElementaryTypeName",
-              "src": "2231:6:73",
+              "src": "2231:6:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint48",
                 "typeString": "uint48"
@@ -1941,22 +1940,22 @@
             "visibility": "public"
           },
           {
-            "id": 45186,
+            "id": 39483,
             "nodeType": "VariableDeclaration",
-            "src": "2409:28:73",
+            "src": "2409:28:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45184,
+              "id": 39481,
               "nodeType": "StructuredDocumentation",
-              "src": "2277:127:73",
+              "src": "2277:127:95",
               "text": "@notice    Running sum of observations to calculate the moving average price from\n @dev       See getMovingAverage()"
             },
             "functionSelector": "c05b695c",
             "mutability": "mutable",
             "name": "cumulativeObs",
-            "nameLocation": "2424:13:73",
-            "scope": 45279,
+            "nameLocation": "2424:13:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1964,10 +1963,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 45185,
+              "id": 39482,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "2409:7:73",
+              "src": "2409:7:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -1976,22 +1975,22 @@
             "visibility": "public"
           },
           {
-            "id": 45190,
+            "id": 39487,
             "nodeType": "VariableDeclaration",
-            "src": "2826:29:73",
+            "src": "2826:29:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45187,
+              "id": 39484,
               "nodeType": "StructuredDocumentation",
-              "src": "2444:377:73",
+              "src": "2444:377:95",
               "text": "@notice Array of price observations. Check nextObsIndex to determine latest data point.\n @dev    Observations are stored in a ring buffer where the moving average is the sum of all observations divided by the number of observations.\n         Observations can be cleared by changing the movingAverageDuration or observationFrequency and must be re-initialized."
             },
             "functionSelector": "252c09d7",
             "mutability": "mutable",
             "name": "observations",
-            "nameLocation": "2843:12:73",
-            "scope": 45279,
+            "nameLocation": "2843:12:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2000,18 +1999,18 @@
             },
             "typeName": {
               "baseType": {
-                "id": 45188,
+                "id": 39485,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "2826:7:73",
+                "src": "2826:7:95",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
-              "id": 45189,
+              "id": 39486,
               "nodeType": "ArrayTypeName",
-              "src": "2826:9:73",
+              "src": "2826:9:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                 "typeString": "uint256[]"
@@ -2020,22 +2019,22 @@
             "visibility": "public"
           },
           {
-            "id": 45193,
+            "id": 39490,
             "nodeType": "VariableDeclaration",
-            "src": "2976:26:73",
+            "src": "2976:26:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45191,
+              "id": 39488,
               "nodeType": "StructuredDocumentation",
-              "src": "2862:109:73",
+              "src": "2862:109:95",
               "text": "@notice Index of the next observation to make. The current value at this index is the oldest observation."
             },
             "functionSelector": "2e23fc3f",
             "mutability": "mutable",
             "name": "nextObsIndex",
-            "nameLocation": "2990:12:73",
-            "scope": 45279,
+            "nameLocation": "2990:12:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2043,10 +2042,10 @@
               "typeString": "uint32"
             },
             "typeName": {
-              "id": 45192,
+              "id": 39489,
               "name": "uint32",
               "nodeType": "ElementaryTypeName",
-              "src": "2976:6:73",
+              "src": "2976:6:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint32",
                 "typeString": "uint32"
@@ -2055,22 +2054,22 @@
             "visibility": "public"
           },
           {
-            "id": 45196,
+            "id": 39493,
             "nodeType": "VariableDeclaration",
-            "src": "3148:29:73",
+            "src": "3148:29:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45194,
+              "id": 39491,
               "nodeType": "StructuredDocumentation",
-              "src": "3009:134:73",
+              "src": "3009:134:95",
               "text": "@notice Number of observations used in the moving average calculation. Computed from movingAverageDuration / observationFrequency."
             },
             "functionSelector": "67eab044",
             "mutability": "mutable",
             "name": "numObservations",
-            "nameLocation": "3162:15:73",
-            "scope": 45279,
+            "nameLocation": "3162:15:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2078,10 +2077,10 @@
               "typeString": "uint32"
             },
             "typeName": {
-              "id": 45195,
+              "id": 39492,
               "name": "uint32",
               "nodeType": "ElementaryTypeName",
-              "src": "3148:6:73",
+              "src": "3148:6:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint32",
                 "typeString": "uint32"
@@ -2090,22 +2089,22 @@
             "visibility": "public"
           },
           {
-            "id": 45199,
+            "id": 39496,
             "nodeType": "VariableDeclaration",
-            "src": "3259:34:73",
+            "src": "3259:34:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45197,
+              "id": 39494,
               "nodeType": "StructuredDocumentation",
-              "src": "3184:70:73",
+              "src": "3184:70:95",
               "text": "@notice Frequency (in seconds) that observations should be stored."
             },
             "functionSelector": "7321f100",
             "mutability": "mutable",
             "name": "observationFrequency",
-            "nameLocation": "3273:20:73",
-            "scope": 45279,
+            "nameLocation": "3273:20:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2113,10 +2112,10 @@
               "typeString": "uint48"
             },
             "typeName": {
-              "id": 45198,
+              "id": 39495,
               "name": "uint48",
               "nodeType": "ElementaryTypeName",
-              "src": "3259:6:73",
+              "src": "3259:6:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint48",
                 "typeString": "uint48"
@@ -2125,22 +2124,22 @@
             "visibility": "public"
           },
           {
-            "id": 45202,
+            "id": 39499,
             "nodeType": "VariableDeclaration",
-            "src": "3383:35:73",
+            "src": "3383:35:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45200,
+              "id": 39497,
               "nodeType": "StructuredDocumentation",
-              "src": "3300:78:73",
+              "src": "3300:78:95",
               "text": "@notice Duration (in seconds) over which the moving average is calculated."
             },
             "functionSelector": "aa321fe2",
             "mutability": "mutable",
             "name": "movingAverageDuration",
-            "nameLocation": "3397:21:73",
-            "scope": 45279,
+            "nameLocation": "3397:21:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2148,10 +2147,10 @@
               "typeString": "uint48"
             },
             "typeName": {
-              "id": 45201,
+              "id": 39498,
               "name": "uint48",
               "nodeType": "ElementaryTypeName",
-              "src": "3383:6:73",
+              "src": "3383:6:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint48",
                 "typeString": "uint48"
@@ -2160,22 +2159,22 @@
             "visibility": "public"
           },
           {
-            "id": 45205,
+            "id": 39502,
             "nodeType": "VariableDeclaration",
-            "src": "3490:33:73",
+            "src": "3490:33:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45203,
+              "id": 39500,
               "nodeType": "StructuredDocumentation",
-              "src": "3425:60:73",
+              "src": "3425:60:95",
               "text": "@notice Unix timestamp of last observation (in seconds)."
             },
             "functionSelector": "d266f5d0",
             "mutability": "mutable",
             "name": "lastObservationTime",
-            "nameLocation": "3504:19:73",
-            "scope": 45279,
+            "nameLocation": "3504:19:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2183,10 +2182,10 @@
               "typeString": "uint48"
             },
             "typeName": {
-              "id": 45204,
+              "id": 39501,
               "name": "uint48",
               "nodeType": "ElementaryTypeName",
-              "src": "3490:6:73",
+              "src": "3490:6:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint48",
                 "typeString": "uint48"
@@ -2195,22 +2194,22 @@
             "visibility": "public"
           },
           {
-            "id": 45208,
+            "id": 39505,
             "nodeType": "VariableDeclaration",
-            "src": "3610:23:73",
+            "src": "3610:23:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45206,
+              "id": 39503,
               "nodeType": "StructuredDocumentation",
-              "src": "3530:75:73",
+              "src": "3530:75:95",
               "text": "@notice Whether the price module is initialized (and therefore active)."
             },
             "functionSelector": "158ef93e",
             "mutability": "mutable",
             "name": "initialized",
-            "nameLocation": "3622:11:73",
-            "scope": 45279,
+            "nameLocation": "3622:11:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2218,10 +2217,10 @@
               "typeString": "bool"
             },
             "typeName": {
-              "id": 45207,
+              "id": 39504,
               "name": "bool",
               "nodeType": "ElementaryTypeName",
-              "src": "3610:4:73",
+              "src": "3610:4:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_bool",
                 "typeString": "bool"
@@ -2230,22 +2229,22 @@
             "visibility": "public"
           },
           {
-            "id": 45212,
+            "id": 39509,
             "nodeType": "VariableDeclaration",
-            "src": "3721:35:73",
+            "src": "3721:35:95",
             "nodes": [],
             "constant": true,
             "documentation": {
-              "id": 45209,
+              "id": 39506,
               "nodeType": "StructuredDocumentation",
-              "src": "3640:76:73",
+              "src": "3640:76:95",
               "text": "@notice Number of decimals in the price values provided by the contract."
             },
             "functionSelector": "313ce567",
             "mutability": "constant",
             "name": "decimals",
-            "nameLocation": "3743:8:73",
-            "scope": 45279,
+            "nameLocation": "3743:8:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2253,10 +2252,10 @@
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 45210,
+              "id": 39507,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
-              "src": "3721:5:73",
+              "src": "3721:5:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint8",
                 "typeString": "uint8"
@@ -2264,14 +2263,14 @@
             },
             "value": {
               "hexValue": "3138",
-              "id": 45211,
+              "id": 39508,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "3754:2:73",
+              "src": "3754:2:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_18_by_1",
                 "typeString": "int_const 18"
@@ -2281,22 +2280,22 @@
             "visibility": "public"
           },
           {
-            "id": 45215,
+            "id": 39512,
             "nodeType": "VariableDeclaration",
-            "src": "3874:33:73",
+            "src": "3874:33:95",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 45213,
+              "id": 39510,
               "nodeType": "StructuredDocumentation",
-              "src": "3763:106:73",
+              "src": "3763:106:95",
               "text": "@notice Minimum target price for RBS system. Set manually to correspond to the liquid backing of GDAO."
             },
             "functionSelector": "6d2c2808",
             "mutability": "mutable",
             "name": "minimumTargetPrice",
-            "nameLocation": "3889:18:73",
-            "scope": 45279,
+            "nameLocation": "3889:18:95",
+            "scope": 39576,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2304,10 +2303,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 45214,
+              "id": 39511,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "3874:7:73",
+              "src": "3874:7:95",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -2316,14 +2315,14 @@
             "visibility": "public"
           },
           {
-            "id": 45219,
+            "id": 39516,
             "nodeType": "FunctionDefinition",
-            "src": "4273:48:73",
+            "src": "4273:48:95",
             "nodes": [],
             "documentation": {
-              "id": 45216,
+              "id": 39513,
               "nodeType": "StructuredDocumentation",
-              "src": "3956:312:73",
+              "src": "3956:312:95",
               "text": "@notice Trigger an update of the moving average. Permissioned.\n @dev    This function does not have a time-gating on the observationFrequency on this contract. It is set on the Heart policy contract.\n         The Heart beat frequency should be set to the same value as the observationFrequency."
             },
             "functionSelector": "86db7df0",
@@ -2331,33 +2330,33 @@
             "kind": "function",
             "modifiers": [],
             "name": "updateMovingAverage",
-            "nameLocation": "4282:19:73",
+            "nameLocation": "4282:19:95",
             "parameters": {
-              "id": 45217,
+              "id": 39514,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4301:2:73"
+              "src": "4301:2:95"
             },
             "returnParameters": {
-              "id": 45218,
+              "id": 39515,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4320:0:73"
+              "src": "4320:0:95"
             },
-            "scope": 45279,
+            "scope": 39576,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 45228,
+            "id": 39525,
             "nodeType": "FunctionDefinition",
-            "src": "4914:119:73",
+            "src": "4914:119:95",
             "nodes": [],
             "documentation": {
-              "id": 45220,
+              "id": 39517,
               "nodeType": "StructuredDocumentation",
-              "src": "4327:582:73",
+              "src": "4327:582:95",
               "text": "@notice Initialize the price module\n @notice Access restricted to activated policies\n @param  startObservations_ - Array of observations to initialize the moving average with. Must be of length numObservations.\n @param  lastObservationTime_ - Unix timestamp of last observation being provided (in seconds).\n @dev    This function must be called after the Price module is deployed to activate it and after updating the observationFrequency\n         or movingAverageDuration (in certain cases) in order for the Price module to function properly."
             },
             "functionSelector": "902a35b9",
@@ -2365,20 +2364,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "initialize",
-            "nameLocation": "4923:10:73",
+            "nameLocation": "4923:10:95",
             "parameters": {
-              "id": 45226,
+              "id": 39523,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45223,
+                  "id": 39520,
                   "mutability": "mutable",
                   "name": "startObservations_",
-                  "nameLocation": "4951:18:73",
+                  "nameLocation": "4951:18:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45228,
-                  "src": "4934:35:73",
+                  "scope": 39525,
+                  "src": "4934:35:95",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2387,18 +2386,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 45221,
+                      "id": 39518,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "4934:7:73",
+                      "src": "4934:7:95",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 45222,
+                    "id": 39519,
                     "nodeType": "ArrayTypeName",
-                    "src": "4934:9:73",
+                    "src": "4934:9:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -2408,13 +2407,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 45225,
+                  "id": 39522,
                   "mutability": "mutable",
                   "name": "lastObservationTime_",
-                  "nameLocation": "4978:20:73",
+                  "nameLocation": "4978:20:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45228,
-                  "src": "4971:27:73",
+                  "scope": 39525,
+                  "src": "4971:27:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2422,10 +2421,10 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 45224,
+                    "id": 39521,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4971:6:73",
+                    "src": "4971:6:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint48",
                       "typeString": "uint48"
@@ -2434,28 +2433,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4933:66:73"
+              "src": "4933:66:95"
             },
             "returnParameters": {
-              "id": 45227,
+              "id": 39524,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5032:0:73"
+              "src": "5032:0:95"
             },
-            "scope": 45279,
+            "scope": 39576,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 45234,
+            "id": 39531,
             "nodeType": "FunctionDefinition",
-            "src": "5498:85:73",
+            "src": "5498:85:95",
             "nodes": [],
             "documentation": {
-              "id": 45229,
+              "id": 39526,
               "nodeType": "StructuredDocumentation",
-              "src": "5039:454:73",
+              "src": "5039:454:95",
               "text": "@notice Change the moving average window (duration)\n @param  movingAverageDuration_ - Moving average duration in seconds, must be a multiple of observation frequency\n @dev    Changing the moving average duration will erase the current observations array\n         and require the initialize function to be called again. Ensure that you have saved\n         the existing data and can re-populate before calling this function."
             },
             "functionSelector": "8a157337",
@@ -2463,20 +2462,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "changeMovingAverageDuration",
-            "nameLocation": "5507:27:73",
+            "nameLocation": "5507:27:95",
             "parameters": {
-              "id": 45232,
+              "id": 39529,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45231,
+                  "id": 39528,
                   "mutability": "mutable",
                   "name": "movingAverageDuration_",
-                  "nameLocation": "5542:22:73",
+                  "nameLocation": "5542:22:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45234,
-                  "src": "5535:29:73",
+                  "scope": 39531,
+                  "src": "5535:29:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2484,10 +2483,10 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 45230,
+                    "id": 39527,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5535:6:73",
+                    "src": "5535:6:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint48",
                       "typeString": "uint48"
@@ -2496,28 +2495,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5534:31:73"
+              "src": "5534:31:95"
             },
             "returnParameters": {
-              "id": 45233,
+              "id": 39530,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5582:0:73"
+              "src": "5582:0:95"
             },
-            "scope": 45279,
+            "scope": 39576,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 45240,
+            "id": 39537,
             "nodeType": "FunctionDefinition",
-            "src": "6089:83:73",
+            "src": "6089:83:95",
             "nodes": [],
             "documentation": {
-              "id": 45235,
+              "id": 39532,
               "nodeType": "StructuredDocumentation",
-              "src": "5589:495:73",
+              "src": "5589:495:95",
               "text": "@notice   Change the observation frequency of the moving average (i.e. how often a new observation is taken)\n @param    observationFrequency_ - Observation frequency in seconds, must be a divisor of the moving average duration\n @dev      Changing the observation frequency clears existing observation data since it will not be taken at the right time intervals.\n           Ensure that you have saved the existing data and/or can re-populate before calling this function."
             },
             "functionSelector": "7d4dce76",
@@ -2525,20 +2524,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "changeObservationFrequency",
-            "nameLocation": "6098:26:73",
+            "nameLocation": "6098:26:95",
             "parameters": {
-              "id": 45238,
+              "id": 39535,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45237,
+                  "id": 39534,
                   "mutability": "mutable",
                   "name": "observationFrequency_",
-                  "nameLocation": "6132:21:73",
+                  "nameLocation": "6132:21:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45240,
-                  "src": "6125:28:73",
+                  "scope": 39537,
+                  "src": "6125:28:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2546,10 +2545,10 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 45236,
+                    "id": 39533,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6125:6:73",
+                    "src": "6125:6:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint48",
                       "typeString": "uint48"
@@ -2558,28 +2557,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6124:30:73"
+              "src": "6124:30:95"
             },
             "returnParameters": {
-              "id": 45239,
+              "id": 39536,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "6171:0:73"
+              "src": "6171:0:95"
             },
-            "scope": 45279,
+            "scope": 39576,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 45248,
+            "id": 39545,
             "nodeType": "FunctionDefinition",
-            "src": "6563:138:73",
+            "src": "6563:138:95",
             "nodes": [],
             "documentation": {
-              "id": 45241,
+              "id": 39538,
               "nodeType": "StructuredDocumentation",
-              "src": "6178:380:73",
+              "src": "6178:380:95",
               "text": "@notice   Change the update thresholds for the price feeds\n @param    gdaoEthUpdateThreshold_ - Maximum allowed time between GDAO/ETH price feed updates\n @param    reserveEthUpdateThreshold_ - Maximum allowed time between Reserve/ETH price feed updates\n @dev      The update thresholds should be set based on the update threshold of the chainlink oracles."
             },
             "functionSelector": "0fbe3476",
@@ -2587,20 +2586,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "changeUpdateThresholds",
-            "nameLocation": "6572:22:73",
+            "nameLocation": "6572:22:95",
             "parameters": {
-              "id": 45246,
+              "id": 39543,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45243,
+                  "id": 39540,
                   "mutability": "mutable",
                   "name": "gdaoEthUpdateThreshold_",
-                  "nameLocation": "6611:23:73",
+                  "nameLocation": "6611:23:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45248,
-                  "src": "6604:30:73",
+                  "scope": 39545,
+                  "src": "6604:30:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2608,10 +2607,10 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 45242,
+                    "id": 39539,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6604:6:73",
+                    "src": "6604:6:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint48",
                       "typeString": "uint48"
@@ -2621,13 +2620,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 45245,
+                  "id": 39542,
                   "mutability": "mutable",
                   "name": "reserveEthUpdateThreshold_",
-                  "nameLocation": "6651:26:73",
+                  "nameLocation": "6651:26:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45248,
-                  "src": "6644:33:73",
+                  "scope": 39545,
+                  "src": "6644:33:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2635,10 +2634,10 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 45244,
+                    "id": 39541,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6644:6:73",
+                    "src": "6644:6:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint48",
                       "typeString": "uint48"
@@ -2647,28 +2646,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6594:89:73"
+              "src": "6594:89:95"
             },
             "returnParameters": {
-              "id": 45247,
+              "id": 39544,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "6700:0:73"
+              "src": "6700:0:95"
             },
-            "scope": 45279,
+            "scope": 39576,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 45254,
+            "id": 39551,
             "nodeType": "FunctionDefinition",
-            "src": "6985:80:73",
+            "src": "6985:80:95",
             "nodes": [],
             "documentation": {
-              "id": 45249,
+              "id": 39546,
               "nodeType": "StructuredDocumentation",
-              "src": "6707:273:73",
+              "src": "6707:273:95",
               "text": "@notice   Change the minimum target price\n @param    minimumTargetPrice_ - Minimum target price for RBS system with 18 decimals, expressed as number of Reserve per GDAO\n @dev      The minimum target price should be set based on the liquid backing of GDAO."
             },
             "functionSelector": "57ee9383",
@@ -2676,20 +2675,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "changeMinimumTargetPrice",
-            "nameLocation": "6994:24:73",
+            "nameLocation": "6994:24:95",
             "parameters": {
-              "id": 45252,
+              "id": 39549,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45251,
+                  "id": 39548,
                   "mutability": "mutable",
                   "name": "minimumTargetPrice_",
-                  "nameLocation": "7027:19:73",
+                  "nameLocation": "7027:19:95",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45254,
-                  "src": "7019:27:73",
+                  "scope": 39551,
+                  "src": "7019:27:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2697,10 +2696,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 45250,
+                    "id": 39547,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7019:7:73",
+                    "src": "7019:7:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2709,28 +2708,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7018:29:73"
+              "src": "7018:29:95"
             },
             "returnParameters": {
-              "id": 45253,
+              "id": 39550,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "7064:0:73"
+              "src": "7064:0:95"
             },
-            "scope": 45279,
+            "scope": 39576,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 45260,
+            "id": 39557,
             "nodeType": "FunctionDefinition",
-            "src": "7159:67:73",
+            "src": "7159:67:95",
             "nodes": [],
             "documentation": {
-              "id": 45255,
+              "id": 39552,
               "nodeType": "StructuredDocumentation",
-              "src": "7071:83:73",
+              "src": "7071:83:95",
               "text": "@notice Get the current price of GDAO in the Reserve asset from the price feeds"
             },
             "functionSelector": "eb91d37e",
@@ -2738,26 +2737,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getCurrentPrice",
-            "nameLocation": "7168:15:73",
+            "nameLocation": "7168:15:95",
             "parameters": {
-              "id": 45256,
+              "id": 39553,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "7183:2:73"
+              "src": "7183:2:95"
             },
             "returnParameters": {
-              "id": 45259,
+              "id": 39556,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45258,
+                  "id": 39555,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45260,
-                  "src": "7217:7:73",
+                  "scope": 39557,
+                  "src": "7217:7:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2765,10 +2764,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 45257,
+                    "id": 39554,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7217:7:73",
+                    "src": "7217:7:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2777,22 +2776,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7216:9:73"
+              "src": "7216:9:95"
             },
-            "scope": 45279,
+            "scope": 39576,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 45266,
+            "id": 39563,
             "nodeType": "FunctionDefinition",
-            "src": "7315:64:73",
+            "src": "7315:64:95",
             "nodes": [],
             "documentation": {
-              "id": 45261,
+              "id": 39558,
               "nodeType": "StructuredDocumentation",
-              "src": "7232:78:73",
+              "src": "7232:78:95",
               "text": "@notice Get the last stored price observation of GDAO in the Reserve asset"
             },
             "functionSelector": "d8cf24fd",
@@ -2800,26 +2799,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getLastPrice",
-            "nameLocation": "7324:12:73",
+            "nameLocation": "7324:12:95",
             "parameters": {
-              "id": 45262,
+              "id": 39559,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "7336:2:73"
+              "src": "7336:2:95"
             },
             "returnParameters": {
-              "id": 45265,
+              "id": 39562,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45264,
+                  "id": 39561,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45266,
-                  "src": "7370:7:73",
+                  "scope": 39563,
+                  "src": "7370:7:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2827,10 +2826,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 45263,
+                    "id": 39560,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7370:7:73",
+                    "src": "7370:7:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2839,22 +2838,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7369:9:73"
+              "src": "7369:9:95"
             },
-            "scope": 45279,
+            "scope": 39576,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 45272,
+            "id": 39569,
             "nodeType": "FunctionDefinition",
-            "src": "7531:68:73",
+            "src": "7531:68:95",
             "nodes": [],
             "documentation": {
-              "id": 45267,
+              "id": 39564,
               "nodeType": "StructuredDocumentation",
-              "src": "7385:141:73",
+              "src": "7385:141:95",
               "text": "@notice Get the moving average of GDAO in the Reserve asset over the defined window (see movingAverageDuration and observationFrequency)."
             },
             "functionSelector": "b5e71305",
@@ -2862,26 +2861,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getMovingAverage",
-            "nameLocation": "7540:16:73",
+            "nameLocation": "7540:16:95",
             "parameters": {
-              "id": 45268,
+              "id": 39565,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "7556:2:73"
+              "src": "7556:2:95"
             },
             "returnParameters": {
-              "id": 45271,
+              "id": 39568,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45270,
+                  "id": 39567,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45272,
-                  "src": "7590:7:73",
+                  "scope": 39569,
+                  "src": "7590:7:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2889,10 +2888,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 45269,
+                    "id": 39566,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7590:7:73",
+                    "src": "7590:7:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2901,22 +2900,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7589:9:73"
+              "src": "7589:9:95"
             },
-            "scope": 45279,
+            "scope": 39576,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 45278,
+            "id": 39575,
             "nodeType": "FunctionDefinition",
-            "src": "7773:66:73",
+            "src": "7773:66:95",
             "nodes": [],
             "documentation": {
-              "id": 45273,
+              "id": 39570,
               "nodeType": "StructuredDocumentation",
-              "src": "7605:163:73",
+              "src": "7605:163:95",
               "text": "@notice Get target price of GDAO in the Reserve asset for the RBS system\n @dev    Returns the maximum of the moving average and the minimum target price"
             },
             "functionSelector": "bd01bb32",
@@ -2924,26 +2923,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getTargetPrice",
-            "nameLocation": "7782:14:73",
+            "nameLocation": "7782:14:95",
             "parameters": {
-              "id": 45274,
+              "id": 39571,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "7796:2:73"
+              "src": "7796:2:95"
             },
             "returnParameters": {
-              "id": 45277,
+              "id": 39574,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 45276,
+                  "id": 39573,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 45278,
-                  "src": "7830:7:73",
+                  "scope": 39575,
+                  "src": "7830:7:95",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2951,10 +2950,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 45275,
+                    "id": 39572,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7830:7:73",
+                    "src": "7830:7:95",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2963,9 +2962,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7829:9:73"
+              "src": "7829:9:95"
             },
-            "scope": 45279,
+            "scope": 39576,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
@@ -2975,46 +2974,46 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 45132,
+              "id": 39429,
               "name": "Module",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 29616,
-              "src": "721:6:73"
+              "referencedDeclaration": 28577,
+              "src": "721:6:95"
             },
-            "id": 45133,
+            "id": 39430,
             "nodeType": "InheritanceSpecifier",
-            "src": "721:6:73"
+            "src": "721:6:95"
           }
         ],
         "canonicalName": "PRICEv1",
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 45131,
+          "id": 39428,
           "nodeType": "StructuredDocumentation",
-          "src": "168:524:73",
+          "src": "168:524:95",
           "text": "@notice Price oracle data storage\n @dev    The Olympus Price Oracle contract provides a standard interface for GDAO price data against a reserve asset.\n         It also implements a moving average price calculation (same as a TWAP) on the price feed data over a configured\n         duration and observation frequency. The data provided by this contract is used by the Olympus Range Operator to\n         perform market operations. The Olympus Price Oracle is updated each epoch by the Olympus Heart contract."
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          45279,
-          29616,
-          29551
+          39576,
+          28577,
+          28512
         ],
         "name": "PRICEv1",
-        "nameLocation": "710:7:73",
-        "scope": 45280,
+        "nameLocation": "710:7:95",
+        "scope": 39577,
         "usedErrors": [
-          29504,
-          29558,
-          45161,
-          45163,
-          45165,
-          45169
+          28465,
+          28519,
+          39458,
+          39460,
+          39462,
+          39466
         ]
       }
     ],
     "license": "AGPL-3.0"
   },
-  "id": 73
+  "id": 95
 }

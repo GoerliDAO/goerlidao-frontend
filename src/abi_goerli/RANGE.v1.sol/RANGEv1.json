@@ -694,7 +694,7 @@
     "updateMarket(bool,uint256,uint256)": "3e56993a",
     "updatePrices(uint256)": "ae7e8d81"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"KernelAdapter_OnlyKernel\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"}],\"name\":\"Module_PolicyNotPermitted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RANGE_InvalidParams\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"}],\"name\":\"CushionDown\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"capacity_\",\"type\":\"uint256\"}],\"name\":\"CushionUp\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"wallLowPrice_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"cushionLowPrice_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"cushionHighPrice_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"wallHighPrice_\",\"type\":\"uint256\"}],\"name\":\"PricesChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"cushionSpread_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"wallSpread_\",\"type\":\"uint256\"}],\"name\":\"SpreadsChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"thresholdFactor_\",\"type\":\"uint256\"}],\"name\":\"ThresholdFactorChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"capacity_\",\"type\":\"uint256\"}],\"name\":\"WallDown\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"capacity_\",\"type\":\"uint256\"}],\"name\":\"WallUp\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"INIT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"KEYCODE\",\"outputs\":[{\"internalType\":\"Keycode\",\"name\":\"\",\"type\":\"bytes5\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"major\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"minor\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"active\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"capacity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"newKernel_\",\"type\":\"address\"}],\"name\":\"changeKernel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gdao\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"lastActive\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"market\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"wall_\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"price\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"range\",\"outputs\":[{\"components\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint48\",\"name\":\"lastActive\",\"type\":\"uint48\"},{\"internalType\":\"uint256\",\"name\":\"capacity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"threshold\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"market\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Side\",\"name\":\"low\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint48\",\"name\":\"lastActive\",\"type\":\"uint48\"},{\"internalType\":\"uint256\",\"name\":\"capacity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"threshold\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"market\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Side\",\"name\":\"high\",\"type\":\"tuple\"},{\"components\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Line\",\"name\":\"high\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Line\",\"name\":\"low\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"spread\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Band\",\"name\":\"cushion\",\"type\":\"tuple\"},{\"components\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Line\",\"name\":\"high\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Line\",\"name\":\"low\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"spread\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Band\",\"name\":\"wall\",\"type\":\"tuple\"}],\"internalType\":\"struct RANGEv1.Range\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"capacity_\",\"type\":\"uint256\"}],\"name\":\"regenerate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reserve\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"cushionSpread_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"wallSpread_\",\"type\":\"uint256\"}],\"name\":\"setSpreads\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"thresholdFactor_\",\"type\":\"uint256\"}],\"name\":\"setThresholdFactor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"wall_\",\"type\":\"bool\"}],\"name\":\"spread\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"thresholdFactor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"capacity_\",\"type\":\"uint256\"}],\"name\":\"updateCapacity\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"market_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"marketCapacity_\",\"type\":\"uint256\"}],\"name\":\"updateMarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"movingAverage_\",\"type\":\"uint256\"}],\"name\":\"updatePrices\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"INIT()\":{\"details\":\"This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.\"},\"VERSION()\":{\"returns\":{\"major\":\"- Major version upgrade indicates breaking change to the interface.\",\"minor\":\"- Minor version change retains backward-compatible interface.\"}},\"active(bool)\":{\"params\":{\"high_\":\"- Specifies the side of the range to get status for (true = high side, false = low side).\"}},\"capacity(bool)\":{\"params\":{\"high_\":\"- Specifies the side of the range to get capacity for (true = high side, false = low side).\"}},\"lastActive(bool)\":{\"params\":{\"high_\":\"- Specifies the side of the range to get timestamp for (true = high side, false = low side).\"}},\"market(bool)\":{\"params\":{\"high_\":\"- Specifies the side of the range to get market for (true = high side, false = low side).\"}},\"price(bool,bool)\":{\"params\":{\"high_\":\"- Specifies the side of the range to get the price for (true = high side, false = low side).\",\"wall_\":\"- Specifies the band to get the price for (true = wall, false = cushion).\"}},\"regenerate(bool,uint256)\":{\"params\":{\"capacity_\":\"- Amount to set the capacity to (GDAO tokens for high side, Reserve tokens for low side).\",\"high_\":\"- Specifies the side of the range to regenerate (true = high side, false = low side).\"}},\"setSpreads(uint256,uint256)\":{\"details\":\"The new spreads will not go into effect until the next time updatePrices() is called.\",\"params\":{\"cushionSpread_\":\"- Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).\",\"wallSpread_\":\"- Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).\"}},\"setThresholdFactor(uint256)\":{\"details\":\"The new threshold factor will not go into effect until the next time regenerate() is called for each side of the wall.\",\"params\":{\"thresholdFactor_\":\"- Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%).\"}},\"spread(bool)\":{\"params\":{\"wall_\":\"- Specifies the band to get the spread for (true = wall, false = cushion).\"}},\"updateCapacity(bool,uint256)\":{\"params\":{\"capacity_\":\"- Amount to set the capacity to (GDAO tokens for high side, Reserve tokens for low side).\",\"high_\":\"- Specifies the side of the range to update capacity for (true = high side, false = low side).\"}},\"updateMarket(bool,uint256,uint256)\":{\"params\":{\"high_\":\"- Specifies the side of the range to update market for (true = high side, false = low side).\",\"marketCapacity_\":\"- Amount to set the last market capacity to (GDAO tokens for high side, Reserve tokens for low side).\",\"market_\":\"- Market ID to set for the side.\"}},\"updatePrices(uint256)\":{\"params\":{\"movingAverage_\":\"- Current moving average price to set range prices from.\"}}},\"stateVariables\":{\"thresholdFactor\":{\"details\":\"A threshold is required so that a wall is not \\\"active\\\" with a capacity near zero, but unable to be depleted practically (dust).\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"INIT()\":{\"notice\":\"Initialization function for the module\"},\"KEYCODE()\":{\"notice\":\"5 byte identifier for a module.\"},\"VERSION()\":{\"notice\":\"Returns which semantic version of a module is being implemented.\"},\"active(bool)\":{\"notice\":\"Get the status of a side of the range (whether it is active or not).\"},\"capacity(bool)\":{\"notice\":\"Get the capacity for a side of the range.\"},\"changeKernel(address)\":{\"notice\":\"Function used by kernel when migrating to a new kernel.\"},\"gdao()\":{\"notice\":\"GDAO token contract address\"},\"lastActive(bool)\":{\"notice\":\"Get the timestamp when the range was last active.\"},\"market(bool)\":{\"notice\":\"Get the market ID for a side of the range.\"},\"price(bool,bool)\":{\"notice\":\"Get the price for the wall or cushion for a side of the range.\"},\"range()\":{\"notice\":\"Get the full Range data in a struct.\"},\"regenerate(bool,uint256)\":{\"notice\":\"Regenerate a side of the range to a specific capacity.Access restricted to activated policies.\"},\"reserve()\":{\"notice\":\"Reserve token contract address\"},\"setSpreads(uint256,uint256)\":{\"notice\":\"Set the wall and cushion spreads.Access restricted to activated policies.\"},\"setThresholdFactor(uint256)\":{\"notice\":\"Set the threshold factor for when a wall is considered \\\"down\\\".Access restricted to activated policies.\"},\"spread(bool)\":{\"notice\":\"Get the spread for the wall or cushion band.\"},\"thresholdFactor()\":{\"notice\":\"Threshold factor for the change, a percent in 2 decimals (i.e. 1000 = 10%). Determines how much of the capacity must be spent before the side is taken down.\"},\"updateCapacity(bool,uint256)\":{\"notice\":\"Update the capacity for a side of the range.Access restricted to activated policies.\"},\"updateMarket(bool,uint256,uint256)\":{\"notice\":\"Update the market ID (cushion) for a side of the range.Access restricted to activated policies.\"},\"updatePrices(uint256)\":{\"notice\":\"Update the prices for the low and high sides.Access restricted to activated policies.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/modules/RANGE/RANGE.v1.sol\":\"RANGEv1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"lib/solmate/src/tokens/ERC20.sol\":{\"keccak256\":\"0xb14869b3d931ceb1b8f8fcd00dc59e0901198ae271a6cb3e8d0c7b8ac1999d18\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://3c533078cfb24dc68c0138437f1a2a946f74ab70d01a9fbe24f3e35905a25aed\",\"dweb:/ipfs/QmRDGa933AjqmDpJSL2CRNDJmJu6U9bKpU5RuiGTgxRFsC\"]},\"src/Kernel.sol\":{\"keccak256\":\"0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5\",\"dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab\"]},\"src/modules/RANGE/RANGE.v1.sol\":{\"keccak256\":\"0xc803ce25dc001a854d78740cb30a6f288ff3e9ba247e8b41809ed6433c600bfb\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://437361d90ef5e2c4e3defdc8a41dc4c56dd126d68d0445ac94c7f85f68a47b85\",\"dweb:/ipfs/QmTiF1HGzqfzJ42JezGTGNWBC1y7XinJJ7NKwcg91pFWah\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"KernelAdapter_OnlyKernel\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"}],\"name\":\"Module_PolicyNotPermitted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RANGE_InvalidParams\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"}],\"name\":\"CushionDown\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"capacity_\",\"type\":\"uint256\"}],\"name\":\"CushionUp\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"wallLowPrice_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"cushionLowPrice_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"cushionHighPrice_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"wallHighPrice_\",\"type\":\"uint256\"}],\"name\":\"PricesChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"cushionSpread_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"wallSpread_\",\"type\":\"uint256\"}],\"name\":\"SpreadsChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"thresholdFactor_\",\"type\":\"uint256\"}],\"name\":\"ThresholdFactorChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"capacity_\",\"type\":\"uint256\"}],\"name\":\"WallDown\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"capacity_\",\"type\":\"uint256\"}],\"name\":\"WallUp\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"INIT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"KEYCODE\",\"outputs\":[{\"internalType\":\"Keycode\",\"name\":\"\",\"type\":\"bytes5\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"major\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"minor\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"active\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"capacity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"newKernel_\",\"type\":\"address\"}],\"name\":\"changeKernel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gdao\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"lastActive\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"market\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"wall_\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"price\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"range\",\"outputs\":[{\"components\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint48\",\"name\":\"lastActive\",\"type\":\"uint48\"},{\"internalType\":\"uint256\",\"name\":\"capacity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"threshold\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"market\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Side\",\"name\":\"low\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint48\",\"name\":\"lastActive\",\"type\":\"uint48\"},{\"internalType\":\"uint256\",\"name\":\"capacity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"threshold\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"market\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Side\",\"name\":\"high\",\"type\":\"tuple\"},{\"components\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Line\",\"name\":\"high\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Line\",\"name\":\"low\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"spread\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Band\",\"name\":\"cushion\",\"type\":\"tuple\"},{\"components\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Line\",\"name\":\"high\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Line\",\"name\":\"low\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"spread\",\"type\":\"uint256\"}],\"internalType\":\"struct RANGEv1.Band\",\"name\":\"wall\",\"type\":\"tuple\"}],\"internalType\":\"struct RANGEv1.Range\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"capacity_\",\"type\":\"uint256\"}],\"name\":\"regenerate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reserve\",\"outputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"cushionSpread_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"wallSpread_\",\"type\":\"uint256\"}],\"name\":\"setSpreads\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"thresholdFactor_\",\"type\":\"uint256\"}],\"name\":\"setThresholdFactor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"wall_\",\"type\":\"bool\"}],\"name\":\"spread\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"thresholdFactor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"capacity_\",\"type\":\"uint256\"}],\"name\":\"updateCapacity\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"market_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"marketCapacity_\",\"type\":\"uint256\"}],\"name\":\"updateMarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"movingAverage_\",\"type\":\"uint256\"}],\"name\":\"updatePrices\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"INIT()\":{\"details\":\"This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.\"},\"VERSION()\":{\"returns\":{\"major\":\"- Major version upgrade indicates breaking change to the interface.\",\"minor\":\"- Minor version change retains backward-compatible interface.\"}},\"active(bool)\":{\"params\":{\"high_\":\"- Specifies the side of the range to get status for (true = high side, false = low side).\"}},\"capacity(bool)\":{\"params\":{\"high_\":\"- Specifies the side of the range to get capacity for (true = high side, false = low side).\"}},\"lastActive(bool)\":{\"params\":{\"high_\":\"- Specifies the side of the range to get timestamp for (true = high side, false = low side).\"}},\"market(bool)\":{\"params\":{\"high_\":\"- Specifies the side of the range to get market for (true = high side, false = low side).\"}},\"price(bool,bool)\":{\"params\":{\"high_\":\"- Specifies the side of the range to get the price for (true = high side, false = low side).\",\"wall_\":\"- Specifies the band to get the price for (true = wall, false = cushion).\"}},\"regenerate(bool,uint256)\":{\"params\":{\"capacity_\":\"- Amount to set the capacity to (GDAO tokens for high side, Reserve tokens for low side).\",\"high_\":\"- Specifies the side of the range to regenerate (true = high side, false = low side).\"}},\"setSpreads(uint256,uint256)\":{\"details\":\"The new spreads will not go into effect until the next time updatePrices() is called.\",\"params\":{\"cushionSpread_\":\"- Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).\",\"wallSpread_\":\"- Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).\"}},\"setThresholdFactor(uint256)\":{\"details\":\"The new threshold factor will not go into effect until the next time regenerate() is called for each side of the wall.\",\"params\":{\"thresholdFactor_\":\"- Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%).\"}},\"spread(bool)\":{\"params\":{\"wall_\":\"- Specifies the band to get the spread for (true = wall, false = cushion).\"}},\"updateCapacity(bool,uint256)\":{\"params\":{\"capacity_\":\"- Amount to set the capacity to (GDAO tokens for high side, Reserve tokens for low side).\",\"high_\":\"- Specifies the side of the range to update capacity for (true = high side, false = low side).\"}},\"updateMarket(bool,uint256,uint256)\":{\"params\":{\"high_\":\"- Specifies the side of the range to update market for (true = high side, false = low side).\",\"marketCapacity_\":\"- Amount to set the last market capacity to (GDAO tokens for high side, Reserve tokens for low side).\",\"market_\":\"- Market ID to set for the side.\"}},\"updatePrices(uint256)\":{\"params\":{\"movingAverage_\":\"- Current moving average price to set range prices from.\"}}},\"stateVariables\":{\"thresholdFactor\":{\"details\":\"A threshold is required so that a wall is not \\\"active\\\" with a capacity near zero, but unable to be depleted practically (dust).\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"INIT()\":{\"notice\":\"Initialization function for the module\"},\"KEYCODE()\":{\"notice\":\"5 byte identifier for a module.\"},\"VERSION()\":{\"notice\":\"Returns which semantic version of a module is being implemented.\"},\"active(bool)\":{\"notice\":\"Get the status of a side of the range (whether it is active or not).\"},\"capacity(bool)\":{\"notice\":\"Get the capacity for a side of the range.\"},\"changeKernel(address)\":{\"notice\":\"Function used by kernel when migrating to a new kernel.\"},\"gdao()\":{\"notice\":\"GDAO token contract address\"},\"lastActive(bool)\":{\"notice\":\"Get the timestamp when the range was last active.\"},\"market(bool)\":{\"notice\":\"Get the market ID for a side of the range.\"},\"price(bool,bool)\":{\"notice\":\"Get the price for the wall or cushion for a side of the range.\"},\"range()\":{\"notice\":\"Get the full Range data in a struct.\"},\"regenerate(bool,uint256)\":{\"notice\":\"Regenerate a side of the range to a specific capacity.Access restricted to activated policies.\"},\"reserve()\":{\"notice\":\"Reserve token contract address\"},\"setSpreads(uint256,uint256)\":{\"notice\":\"Set the wall and cushion spreads.Access restricted to activated policies.\"},\"setThresholdFactor(uint256)\":{\"notice\":\"Set the threshold factor for when a wall is considered \\\"down\\\".Access restricted to activated policies.\"},\"spread(bool)\":{\"notice\":\"Get the spread for the wall or cushion band.\"},\"thresholdFactor()\":{\"notice\":\"Threshold factor for the change, a percent in 2 decimals (i.e. 1000 = 10%). Determines how much of the capacity must be spent before the side is taken down.\"},\"updateCapacity(bool,uint256)\":{\"notice\":\"Update the capacity for a side of the range.Access restricted to activated policies.\"},\"updateMarket(bool,uint256,uint256)\":{\"notice\":\"Update the market ID (cushion) for a side of the range.Access restricted to activated policies.\"},\"updatePrices(uint256)\":{\"notice\":\"Update the prices for the low and high sides.Access restricted to activated policies.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/modules/RANGE/RANGE.v1.sol\":\"RANGEv1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":20000},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"lib/solmate/src/tokens/ERC20.sol\":{\"keccak256\":\"0xb14869b3d931ceb1b8f8fcd00dc59e0901198ae271a6cb3e8d0c7b8ac1999d18\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://3c533078cfb24dc68c0138437f1a2a946f74ab70d01a9fbe24f3e35905a25aed\",\"dweb:/ipfs/QmRDGa933AjqmDpJSL2CRNDJmJu6U9bKpU5RuiGTgxRFsC\"]},\"src/Kernel.sol\":{\"keccak256\":\"0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5\",\"dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab\"]},\"src/modules/RANGE/RANGE.v1.sol\":{\"keccak256\":\"0xc803ce25dc001a854d78740cb30a6f288ff3e9ba247e8b41809ed6433c600bfb\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://437361d90ef5e2c4e3defdc8a41dc4c56dd126d68d0445ac94c7f85f68a47b85\",\"dweb:/ipfs/QmTiF1HGzqfzJ42JezGTGNWBC1y7XinJJ7NKwcg91pFWah\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.15+commit.e14f2714"
@@ -1516,14 +1516,13 @@
         ":interfaces/=src/interfaces/",
         ":libraries/=src/libraries/",
         ":modules/=src/modules/",
-        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
         ":policies/=src/policies/",
         ":solmate/=lib/solmate/src/",
         ":test/=src/test/"
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 10
+        "runs": 20000
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -1563,64 +1562,64 @@
   },
   "ast": {
     "absolutePath": "src/modules/RANGE/RANGE.v1.sol",
-    "id": 46279,
+    "id": 40576,
     "exportedSymbols": {
       "Actions": [
-        29387
+        28348
       ],
       "ERC20": [
-        29147
+        25731
       ],
       "Instruction": [
-        29393
+        28354
       ],
       "InvalidKeycode": [
-        29410
+        28371
       ],
       "Kernel": [
-        30536
+        29497
       ],
       "KernelAdapter": [
-        29551
+        28512
       ],
       "Keycode": [
-        29401
+        28362
       ],
       "Module": [
-        29616
+        28577
       ],
       "Permissions": [
-        29399
+        28360
       ],
       "Policy": [
-        29698
+        28659
       ],
       "RANGEv1": [
-        46278
+        40575
       ],
       "TargetNotAContract": [
-        29405
+        28366
       ],
       "ensureContract": [
-        29454
+        28415
       ],
       "ensureValidKeycode": [
-        29499
+        28460
       ],
       "fromKeycode": [
-        29438
+        28399
       ],
       "toKeycode": [
-        29424
+        28385
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "37:7412:75",
+    "src": "37:7412:97",
     "nodes": [
       {
-        "id": 46067,
+        "id": 40364,
         "nodeType": "PragmaDirective",
-        "src": "37:23:75",
+        "src": "37:23:97",
         "nodes": [],
         "literals": [
           "solidity",
@@ -1629,24 +1628,24 @@
         ]
       },
       {
-        "id": 46069,
+        "id": 40366,
         "nodeType": "ImportDirective",
-        "src": "62:47:75",
+        "src": "62:47:97",
         "nodes": [],
         "absolutePath": "lib/solmate/src/tokens/ERC20.sol",
         "file": "solmate/tokens/ERC20.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 46279,
-        "sourceUnit": 29148,
+        "scope": 40576,
+        "sourceUnit": 25732,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 46068,
+              "id": 40365,
               "name": "ERC20",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 29147,
-              "src": "70:5:75",
+              "referencedDeclaration": 25731,
+              "src": "70:5:97",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -1655,46 +1654,46 @@
         "unitAlias": ""
       },
       {
-        "id": 46070,
+        "id": 40367,
         "nodeType": "ImportDirective",
-        "src": "110:24:75",
+        "src": "110:24:97",
         "nodes": [],
         "absolutePath": "src/Kernel.sol",
         "file": "src/Kernel.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 46279,
-        "sourceUnit": 30537,
+        "scope": 40576,
+        "sourceUnit": 29498,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 46278,
+        "id": 40575,
         "nodeType": "ContractDefinition",
-        "src": "136:7312:75",
+        "src": "136:7312:97",
         "nodes": [
           {
-            "id": 46080,
+            "id": 40377,
             "nodeType": "EventDefinition",
-            "src": "217:64:75",
+            "src": "217:64:97",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "518b1eea6c42d5d25b8983db58076556c4eb12d0f58f403100e037bbdf629cc3",
             "name": "WallUp",
-            "nameLocation": "223:6:75",
+            "nameLocation": "223:6:97",
             "parameters": {
-              "id": 46079,
+              "id": 40376,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46074,
+                  "id": 40371,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "235:5:75",
+                  "nameLocation": "235:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46080,
-                  "src": "230:10:75",
+                  "scope": 40377,
+                  "src": "230:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1702,10 +1701,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46073,
+                    "id": 40370,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "230:4:75",
+                    "src": "230:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1715,14 +1714,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46076,
+                  "id": 40373,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "timestamp_",
-                  "nameLocation": "250:10:75",
+                  "nameLocation": "250:10:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46080,
-                  "src": "242:18:75",
+                  "scope": 40377,
+                  "src": "242:18:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1730,10 +1729,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46075,
+                    "id": 40372,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "242:7:75",
+                    "src": "242:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1743,14 +1742,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46078,
+                  "id": 40375,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "capacity_",
-                  "nameLocation": "270:9:75",
+                  "nameLocation": "270:9:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46080,
-                  "src": "262:17:75",
+                  "scope": 40377,
+                  "src": "262:17:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1758,10 +1757,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46077,
+                    "id": 40374,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "262:7:75",
+                    "src": "262:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1770,32 +1769,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "229:51:75"
+              "src": "229:51:97"
             }
           },
           {
-            "id": 46088,
+            "id": 40385,
             "nodeType": "EventDefinition",
-            "src": "286:66:75",
+            "src": "286:66:97",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "c897c3dfa8334f335974948095373e499dbc757ce1133f2980bcfca098c736bf",
             "name": "WallDown",
-            "nameLocation": "292:8:75",
+            "nameLocation": "292:8:97",
             "parameters": {
-              "id": 46087,
+              "id": 40384,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46082,
+                  "id": 40379,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "306:5:75",
+                  "nameLocation": "306:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46088,
-                  "src": "301:10:75",
+                  "scope": 40385,
+                  "src": "301:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1803,10 +1802,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46081,
+                    "id": 40378,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "301:4:75",
+                    "src": "301:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1816,14 +1815,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46084,
+                  "id": 40381,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "timestamp_",
-                  "nameLocation": "321:10:75",
+                  "nameLocation": "321:10:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46088,
-                  "src": "313:18:75",
+                  "scope": 40385,
+                  "src": "313:18:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1831,10 +1830,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46083,
+                    "id": 40380,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "313:7:75",
+                    "src": "313:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1844,14 +1843,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46086,
+                  "id": 40383,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "capacity_",
-                  "nameLocation": "341:9:75",
+                  "nameLocation": "341:9:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46088,
-                  "src": "333:17:75",
+                  "scope": 40385,
+                  "src": "333:17:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1859,10 +1858,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46085,
+                    "id": 40382,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "333:7:75",
+                    "src": "333:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1871,32 +1870,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "300:51:75"
+              "src": "300:51:97"
             }
           },
           {
-            "id": 46096,
+            "id": 40393,
             "nodeType": "EventDefinition",
-            "src": "357:67:75",
+            "src": "357:67:97",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "6addeb12ca5495dd878280b56a2ebcc0c18eda83a3d30ea01f9c661b03209001",
             "name": "CushionUp",
-            "nameLocation": "363:9:75",
+            "nameLocation": "363:9:97",
             "parameters": {
-              "id": 46095,
+              "id": 40392,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46090,
+                  "id": 40387,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "378:5:75",
+                  "nameLocation": "378:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46096,
-                  "src": "373:10:75",
+                  "scope": 40393,
+                  "src": "373:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1904,10 +1903,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46089,
+                    "id": 40386,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "373:4:75",
+                    "src": "373:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1917,14 +1916,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46092,
+                  "id": 40389,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "timestamp_",
-                  "nameLocation": "393:10:75",
+                  "nameLocation": "393:10:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46096,
-                  "src": "385:18:75",
+                  "scope": 40393,
+                  "src": "385:18:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1932,10 +1931,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46091,
+                    "id": 40388,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "385:7:75",
+                    "src": "385:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1945,14 +1944,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46094,
+                  "id": 40391,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "capacity_",
-                  "nameLocation": "413:9:75",
+                  "nameLocation": "413:9:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46096,
-                  "src": "405:17:75",
+                  "scope": 40393,
+                  "src": "405:17:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1960,10 +1959,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46093,
+                    "id": 40390,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "405:7:75",
+                    "src": "405:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1972,32 +1971,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "372:51:75"
+              "src": "372:51:97"
             }
           },
           {
-            "id": 46102,
+            "id": 40399,
             "nodeType": "EventDefinition",
-            "src": "429:50:75",
+            "src": "429:50:97",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "c0be2d89ec6f4d478c644e7dcb37ec5372fb158563c955066b91b5650e37e327",
             "name": "CushionDown",
-            "nameLocation": "435:11:75",
+            "nameLocation": "435:11:97",
             "parameters": {
-              "id": 46101,
+              "id": 40398,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46098,
+                  "id": 40395,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "452:5:75",
+                  "nameLocation": "452:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46102,
-                  "src": "447:10:75",
+                  "scope": 40399,
+                  "src": "447:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2005,10 +2004,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46097,
+                    "id": 40394,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "447:4:75",
+                    "src": "447:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -2018,14 +2017,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46100,
+                  "id": 40397,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "timestamp_",
-                  "nameLocation": "467:10:75",
+                  "nameLocation": "467:10:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46102,
-                  "src": "459:18:75",
+                  "scope": 40399,
+                  "src": "459:18:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2033,10 +2032,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46099,
+                    "id": 40396,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "459:7:75",
+                    "src": "459:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2045,32 +2044,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "446:32:75"
+              "src": "446:32:97"
             }
           },
           {
-            "id": 46112,
+            "id": 40409,
             "nodeType": "EventDefinition",
-            "src": "484:158:75",
+            "src": "484:158:97",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "7f3eb23042093bdf239802495c60dece3a6249a51e7d0830afa71dc7bb184da9",
             "name": "PricesChanged",
-            "nameLocation": "490:13:75",
+            "nameLocation": "490:13:97",
             "parameters": {
-              "id": 46111,
+              "id": 40408,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46104,
+                  "id": 40401,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "wallLowPrice_",
-                  "nameLocation": "521:13:75",
+                  "nameLocation": "521:13:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46112,
-                  "src": "513:21:75",
+                  "scope": 40409,
+                  "src": "513:21:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2078,10 +2077,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46103,
+                    "id": 40400,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "513:7:75",
+                    "src": "513:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2091,14 +2090,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46106,
+                  "id": 40403,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "cushionLowPrice_",
-                  "nameLocation": "552:16:75",
+                  "nameLocation": "552:16:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46112,
-                  "src": "544:24:75",
+                  "scope": 40409,
+                  "src": "544:24:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2106,10 +2105,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46105,
+                    "id": 40402,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "544:7:75",
+                    "src": "544:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2119,14 +2118,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46108,
+                  "id": 40405,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "cushionHighPrice_",
-                  "nameLocation": "586:17:75",
+                  "nameLocation": "586:17:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46112,
-                  "src": "578:25:75",
+                  "scope": 40409,
+                  "src": "578:25:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2134,10 +2133,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46107,
+                    "id": 40404,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "578:7:75",
+                    "src": "578:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2147,14 +2146,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46110,
+                  "id": 40407,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "wallHighPrice_",
-                  "nameLocation": "621:14:75",
+                  "nameLocation": "621:14:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46112,
-                  "src": "613:22:75",
+                  "scope": 40409,
+                  "src": "613:22:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2162,10 +2161,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46109,
+                    "id": 40406,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "613:7:75",
+                    "src": "613:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2174,32 +2173,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "503:138:75"
+              "src": "503:138:97"
             }
           },
           {
-            "id": 46118,
+            "id": 40415,
             "nodeType": "EventDefinition",
-            "src": "647:66:75",
+            "src": "647:66:97",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "f9f6bac7789241c1f8bc37f72defbdc6b5482ec2c96cb91f7ebf917c7ef7ff98",
             "name": "SpreadsChanged",
-            "nameLocation": "653:14:75",
+            "nameLocation": "653:14:97",
             "parameters": {
-              "id": 46117,
+              "id": 40414,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46114,
+                  "id": 40411,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "cushionSpread_",
-                  "nameLocation": "676:14:75",
+                  "nameLocation": "676:14:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46118,
-                  "src": "668:22:75",
+                  "scope": 40415,
+                  "src": "668:22:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2207,10 +2206,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46113,
+                    "id": 40410,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "668:7:75",
+                    "src": "668:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2220,14 +2219,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46116,
+                  "id": 40413,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "wallSpread_",
-                  "nameLocation": "700:11:75",
+                  "nameLocation": "700:11:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46118,
-                  "src": "692:19:75",
+                  "scope": 40415,
+                  "src": "692:19:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2235,10 +2234,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46115,
+                    "id": 40412,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "692:7:75",
+                    "src": "692:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2247,32 +2246,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "667:45:75"
+              "src": "667:45:97"
             }
           },
           {
-            "id": 46122,
+            "id": 40419,
             "nodeType": "EventDefinition",
-            "src": "718:55:75",
+            "src": "718:55:97",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "66df6e0040d88b0d9e6e482ec0ef8983562d1186b0b94f9747f64f3c7e386335",
             "name": "ThresholdFactorChanged",
-            "nameLocation": "724:22:75",
+            "nameLocation": "724:22:97",
             "parameters": {
-              "id": 46121,
+              "id": 40418,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46120,
+                  "id": 40417,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "thresholdFactor_",
-                  "nameLocation": "755:16:75",
+                  "nameLocation": "755:16:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46122,
-                  "src": "747:24:75",
+                  "scope": 40419,
+                  "src": "747:24:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2280,10 +2279,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46119,
+                    "id": 40416,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "747:7:75",
+                    "src": "747:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2292,40 +2291,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "746:26:75"
+              "src": "746:26:97"
             }
           },
           {
-            "id": 46124,
+            "id": 40421,
             "nodeType": "ErrorDefinition",
-            "src": "818:28:75",
+            "src": "818:28:97",
             "nodes": [],
             "errorSelector": "c51f44ab",
             "name": "RANGE_InvalidParams",
-            "nameLocation": "824:19:75",
+            "nameLocation": "824:19:97",
             "parameters": {
-              "id": 46123,
+              "id": 40420,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "843:2:75"
+              "src": "843:2:97"
             }
           },
           {
-            "id": 46127,
+            "id": 40424,
             "nodeType": "StructDefinition",
-            "src": "890:75:75",
+            "src": "890:75:97",
             "nodes": [],
             "canonicalName": "RANGEv1.Line",
             "members": [
               {
                 "constant": false,
-                "id": 46126,
+                "id": 40423,
                 "mutability": "mutable",
                 "name": "price",
-                "nameLocation": "920:5:75",
+                "nameLocation": "920:5:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46127,
-                "src": "912:13:75",
+                "scope": 40424,
+                "src": "912:13:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2333,10 +2332,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 46125,
+                  "id": 40422,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "912:7:75",
+                  "src": "912:7:97",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2346,46 +2345,46 @@
               }
             ],
             "name": "Line",
-            "nameLocation": "897:4:75",
-            "scope": 46278,
+            "nameLocation": "897:4:97",
+            "scope": 40575,
             "visibility": "public"
           },
           {
-            "id": 46136,
+            "id": 40433,
             "nodeType": "StructDefinition",
-            "src": "971:300:75",
+            "src": "971:300:97",
             "nodes": [],
             "canonicalName": "RANGEv1.Band",
             "members": [
               {
                 "constant": false,
-                "id": 46130,
+                "id": 40427,
                 "mutability": "mutable",
                 "name": "high",
-                "nameLocation": "998:4:75",
+                "nameLocation": "998:4:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46136,
-                "src": "993:9:75",
+                "scope": 40433,
+                "src": "993:9:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Line_$46127_storage_ptr",
+                  "typeIdentifier": "t_struct$_Line_$40424_storage_ptr",
                   "typeString": "struct RANGEv1.Line"
                 },
                 "typeName": {
-                  "id": 46129,
+                  "id": 40426,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 46128,
+                    "id": 40425,
                     "name": "Line",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 46127,
-                    "src": "993:4:75"
+                    "referencedDeclaration": 40424,
+                    "src": "993:4:97"
                   },
-                  "referencedDeclaration": 46127,
-                  "src": "993:4:75",
+                  "referencedDeclaration": 40424,
+                  "src": "993:4:97",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Line_$46127_storage_ptr",
+                    "typeIdentifier": "t_struct$_Line_$40424_storage_ptr",
                     "typeString": "struct RANGEv1.Line"
                   }
                 },
@@ -2393,33 +2392,33 @@
               },
               {
                 "constant": false,
-                "id": 46133,
+                "id": 40430,
                 "mutability": "mutable",
                 "name": "low",
-                "nameLocation": "1055:3:75",
+                "nameLocation": "1055:3:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46136,
-                "src": "1050:8:75",
+                "scope": 40433,
+                "src": "1050:8:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Line_$46127_storage_ptr",
+                  "typeIdentifier": "t_struct$_Line_$40424_storage_ptr",
                   "typeString": "struct RANGEv1.Line"
                 },
                 "typeName": {
-                  "id": 46132,
+                  "id": 40429,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 46131,
+                    "id": 40428,
                     "name": "Line",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 46127,
-                    "src": "1050:4:75"
+                    "referencedDeclaration": 40424,
+                    "src": "1050:4:97"
                   },
-                  "referencedDeclaration": 46127,
-                  "src": "1050:4:75",
+                  "referencedDeclaration": 40424,
+                  "src": "1050:4:97",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Line_$46127_storage_ptr",
+                    "typeIdentifier": "t_struct$_Line_$40424_storage_ptr",
                     "typeString": "struct RANGEv1.Line"
                   }
                 },
@@ -2427,13 +2426,13 @@
               },
               {
                 "constant": false,
-                "id": 46135,
+                "id": 40432,
                 "mutability": "mutable",
                 "name": "spread",
-                "nameLocation": "1113:6:75",
+                "nameLocation": "1113:6:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46136,
-                "src": "1105:14:75",
+                "scope": 40433,
+                "src": "1105:14:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2441,10 +2440,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 46134,
+                  "id": 40431,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1105:7:75",
+                  "src": "1105:7:97",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2454,26 +2453,26 @@
               }
             ],
             "name": "Band",
-            "nameLocation": "978:4:75",
-            "scope": 46278,
+            "nameLocation": "978:4:97",
+            "scope": 40575,
             "visibility": "public"
           },
           {
-            "id": 46147,
+            "id": 40444,
             "nodeType": "StructDefinition",
-            "src": "1277:764:75",
+            "src": "1277:764:97",
             "nodes": [],
             "canonicalName": "RANGEv1.Side",
             "members": [
               {
                 "constant": false,
-                "id": 46138,
+                "id": 40435,
                 "mutability": "mutable",
                 "name": "active",
-                "nameLocation": "1304:6:75",
+                "nameLocation": "1304:6:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46147,
-                "src": "1299:11:75",
+                "scope": 40444,
+                "src": "1299:11:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2481,10 +2480,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 46137,
+                  "id": 40434,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1299:4:75",
+                  "src": "1299:4:97",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -2494,13 +2493,13 @@
               },
               {
                 "constant": false,
-                "id": 46140,
+                "id": 40437,
                 "mutability": "mutable",
                 "name": "lastActive",
-                "nameLocation": "1462:10:75",
+                "nameLocation": "1462:10:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46147,
-                "src": "1455:17:75",
+                "scope": 40444,
+                "src": "1455:17:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2508,10 +2507,10 @@
                   "typeString": "uint48"
                 },
                 "typeName": {
-                  "id": 46139,
+                  "id": 40436,
                   "name": "uint48",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1455:6:75",
+                  "src": "1455:6:97",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint48",
                     "typeString": "uint48"
@@ -2521,13 +2520,13 @@
               },
               {
                 "constant": false,
-                "id": 46142,
+                "id": 40439,
                 "mutability": "mutable",
                 "name": "capacity",
-                "nameLocation": "1551:8:75",
+                "nameLocation": "1551:8:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46147,
-                "src": "1543:16:75",
+                "scope": 40444,
+                "src": "1543:16:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2535,10 +2534,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 46141,
+                  "id": 40438,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1543:7:75",
+                  "src": "1543:7:97",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2548,13 +2547,13 @@
               },
               {
                 "constant": false,
-                "id": 46144,
+                "id": 40441,
                 "mutability": "mutable",
                 "name": "threshold",
-                "nameLocation": "1725:9:75",
+                "nameLocation": "1725:9:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46147,
-                "src": "1717:17:75",
+                "scope": 40444,
+                "src": "1717:17:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2562,10 +2561,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 46143,
+                  "id": 40440,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1717:7:75",
+                  "src": "1717:7:97",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2575,13 +2574,13 @@
               },
               {
                 "constant": false,
-                "id": 46146,
+                "id": 40443,
                 "mutability": "mutable",
                 "name": "market",
-                "nameLocation": "1907:6:75",
+                "nameLocation": "1907:6:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46147,
-                "src": "1899:14:75",
+                "scope": 40444,
+                "src": "1899:14:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2589,10 +2588,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 46145,
+                  "id": 40442,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1899:7:75",
+                  "src": "1899:7:97",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2602,46 +2601,46 @@
               }
             ],
             "name": "Side",
-            "nameLocation": "1284:4:75",
-            "scope": 46278,
+            "nameLocation": "1284:4:97",
+            "scope": 40575,
             "visibility": "public"
           },
           {
-            "id": 46160,
+            "id": 40457,
             "nodeType": "StructDefinition",
-            "src": "2047:300:75",
+            "src": "2047:300:97",
             "nodes": [],
             "canonicalName": "RANGEv1.Range",
             "members": [
               {
                 "constant": false,
-                "id": 46150,
+                "id": 40447,
                 "mutability": "mutable",
                 "name": "low",
-                "nameLocation": "2075:3:75",
+                "nameLocation": "2075:3:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46160,
-                "src": "2070:8:75",
+                "scope": 40457,
+                "src": "2070:8:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Side_$46147_storage_ptr",
+                  "typeIdentifier": "t_struct$_Side_$40444_storage_ptr",
                   "typeString": "struct RANGEv1.Side"
                 },
                 "typeName": {
-                  "id": 46149,
+                  "id": 40446,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 46148,
+                    "id": 40445,
                     "name": "Side",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 46147,
-                    "src": "2070:4:75"
+                    "referencedDeclaration": 40444,
+                    "src": "2070:4:97"
                   },
-                  "referencedDeclaration": 46147,
-                  "src": "2070:4:75",
+                  "referencedDeclaration": 40444,
+                  "src": "2070:4:97",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Side_$46147_storage_ptr",
+                    "typeIdentifier": "t_struct$_Side_$40444_storage_ptr",
                     "typeString": "struct RANGEv1.Side"
                   }
                 },
@@ -2649,33 +2648,33 @@
               },
               {
                 "constant": false,
-                "id": 46153,
+                "id": 40450,
                 "mutability": "mutable",
                 "name": "high",
-                "nameLocation": "2139:4:75",
+                "nameLocation": "2139:4:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46160,
-                "src": "2134:9:75",
+                "scope": 40457,
+                "src": "2134:9:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Side_$46147_storage_ptr",
+                  "typeIdentifier": "t_struct$_Side_$40444_storage_ptr",
                   "typeString": "struct RANGEv1.Side"
                 },
                 "typeName": {
-                  "id": 46152,
+                  "id": 40449,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 46151,
+                    "id": 40448,
                     "name": "Side",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 46147,
-                    "src": "2134:4:75"
+                    "referencedDeclaration": 40444,
+                    "src": "2134:4:97"
                   },
-                  "referencedDeclaration": 46147,
-                  "src": "2134:4:75",
+                  "referencedDeclaration": 40444,
+                  "src": "2134:4:97",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Side_$46147_storage_ptr",
+                    "typeIdentifier": "t_struct$_Side_$40444_storage_ptr",
                     "typeString": "struct RANGEv1.Side"
                   }
                 },
@@ -2683,33 +2682,33 @@
               },
               {
                 "constant": false,
-                "id": 46156,
+                "id": 40453,
                 "mutability": "mutable",
                 "name": "cushion",
-                "nameLocation": "2205:7:75",
+                "nameLocation": "2205:7:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46160,
-                "src": "2200:12:75",
+                "scope": 40457,
+                "src": "2200:12:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Band_$46136_storage_ptr",
+                  "typeIdentifier": "t_struct$_Band_$40433_storage_ptr",
                   "typeString": "struct RANGEv1.Band"
                 },
                 "typeName": {
-                  "id": 46155,
+                  "id": 40452,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 46154,
+                    "id": 40451,
                     "name": "Band",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 46136,
-                    "src": "2200:4:75"
+                    "referencedDeclaration": 40433,
+                    "src": "2200:4:97"
                   },
-                  "referencedDeclaration": 46136,
-                  "src": "2200:4:75",
+                  "referencedDeclaration": 40433,
+                  "src": "2200:4:97",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Band_$46136_storage_ptr",
+                    "typeIdentifier": "t_struct$_Band_$40433_storage_ptr",
                     "typeString": "struct RANGEv1.Band"
                   }
                 },
@@ -2717,33 +2716,33 @@
               },
               {
                 "constant": false,
-                "id": 46159,
+                "id": 40456,
                 "mutability": "mutable",
                 "name": "wall",
-                "nameLocation": "2283:4:75",
+                "nameLocation": "2283:4:97",
                 "nodeType": "VariableDeclaration",
-                "scope": 46160,
-                "src": "2278:9:75",
+                "scope": 40457,
+                "src": "2278:9:97",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Band_$46136_storage_ptr",
+                  "typeIdentifier": "t_struct$_Band_$40433_storage_ptr",
                   "typeString": "struct RANGEv1.Band"
                 },
                 "typeName": {
-                  "id": 46158,
+                  "id": 40455,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 46157,
+                    "id": 40454,
                     "name": "Band",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 46136,
-                    "src": "2278:4:75"
+                    "referencedDeclaration": 40433,
+                    "src": "2278:4:97"
                   },
-                  "referencedDeclaration": 46136,
-                  "src": "2278:4:75",
+                  "referencedDeclaration": 40433,
+                  "src": "2278:4:97",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Band_$46136_storage_ptr",
+                    "typeIdentifier": "t_struct$_Band_$40433_storage_ptr",
                     "typeString": "struct RANGEv1.Band"
                   }
                 },
@@ -2751,62 +2750,62 @@
               }
             ],
             "name": "Range",
-            "nameLocation": "2054:5:75",
-            "scope": 46278,
+            "nameLocation": "2054:5:97",
+            "scope": 40575,
             "visibility": "public"
           },
           {
-            "id": 46163,
+            "id": 40460,
             "nodeType": "VariableDeclaration",
-            "src": "2395:21:75",
+            "src": "2395:21:97",
             "nodes": [],
             "constant": false,
             "mutability": "mutable",
             "name": "_range",
-            "nameLocation": "2410:6:75",
-            "scope": 46278,
+            "nameLocation": "2410:6:97",
+            "scope": 40575,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_Range_$46160_storage",
+              "typeIdentifier": "t_struct$_Range_$40457_storage",
               "typeString": "struct RANGEv1.Range"
             },
             "typeName": {
-              "id": 46162,
+              "id": 40459,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 46161,
+                "id": 40458,
                 "name": "Range",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 46160,
-                "src": "2395:5:75"
+                "referencedDeclaration": 40457,
+                "src": "2395:5:97"
               },
-              "referencedDeclaration": 46160,
-              "src": "2395:5:75",
+              "referencedDeclaration": 40457,
+              "src": "2395:5:97",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Range_$46160_storage_ptr",
+                "typeIdentifier": "t_struct$_Range_$40457_storage_ptr",
                 "typeString": "struct RANGEv1.Range"
               }
             },
             "visibility": "internal"
           },
           {
-            "id": 46166,
+            "id": 40463,
             "nodeType": "VariableDeclaration",
-            "src": "2740:30:75",
+            "src": "2740:30:97",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 46164,
+              "id": 40461,
               "nodeType": "StructuredDocumentation",
-              "src": "2423:312:75",
+              "src": "2423:312:97",
               "text": "@notice Threshold factor for the change, a percent in 2 decimals (i.e. 1000 = 10%). Determines how much of the capacity must be spent before the side is taken down.\n @dev    A threshold is required so that a wall is not \"active\" with a capacity near zero, but unable to be depleted practically (dust)."
             },
             "functionSelector": "c21e6652",
             "mutability": "mutable",
             "name": "thresholdFactor",
-            "nameLocation": "2755:15:75",
-            "scope": 46278,
+            "nameLocation": "2755:15:97",
+            "scope": 40575,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -2814,10 +2813,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 46165,
+              "id": 40462,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "2740:7:75",
+              "src": "2740:7:97",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -2826,98 +2825,98 @@
             "visibility": "public"
           },
           {
-            "id": 46170,
+            "id": 40467,
             "nodeType": "VariableDeclaration",
-            "src": "2821:17:75",
+            "src": "2821:17:97",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 46167,
+              "id": 40464,
               "nodeType": "StructuredDocumentation",
-              "src": "2777:39:75",
+              "src": "2777:39:97",
               "text": "@notice GDAO token contract address"
             },
             "functionSelector": "a29a0d90",
             "mutability": "mutable",
             "name": "gdao",
-            "nameLocation": "2834:4:75",
-            "scope": 46278,
+            "nameLocation": "2834:4:97",
+            "scope": 40575,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ERC20_$29147",
+              "typeIdentifier": "t_contract$_ERC20_$25731",
               "typeString": "contract ERC20"
             },
             "typeName": {
-              "id": 46169,
+              "id": 40466,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 46168,
+                "id": 40465,
                 "name": "ERC20",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 29147,
-                "src": "2821:5:75"
+                "referencedDeclaration": 25731,
+                "src": "2821:5:97"
               },
-              "referencedDeclaration": 29147,
-              "src": "2821:5:75",
+              "referencedDeclaration": 25731,
+              "src": "2821:5:97",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$29147",
+                "typeIdentifier": "t_contract$_ERC20_$25731",
                 "typeString": "contract ERC20"
               }
             },
             "visibility": "public"
           },
           {
-            "id": 46174,
+            "id": 40471,
             "nodeType": "VariableDeclaration",
-            "src": "2892:20:75",
+            "src": "2892:20:97",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 46171,
+              "id": 40468,
               "nodeType": "StructuredDocumentation",
-              "src": "2845:42:75",
+              "src": "2845:42:97",
               "text": "@notice Reserve token contract address"
             },
             "functionSelector": "cd3293de",
             "mutability": "mutable",
             "name": "reserve",
-            "nameLocation": "2905:7:75",
-            "scope": 46278,
+            "nameLocation": "2905:7:97",
+            "scope": 40575,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ERC20_$29147",
+              "typeIdentifier": "t_contract$_ERC20_$25731",
               "typeString": "contract ERC20"
             },
             "typeName": {
-              "id": 46173,
+              "id": 40470,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 46172,
+                "id": 40469,
                 "name": "ERC20",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 29147,
-                "src": "2892:5:75"
+                "referencedDeclaration": 25731,
+                "src": "2892:5:97"
               },
-              "referencedDeclaration": 29147,
-              "src": "2892:5:75",
+              "referencedDeclaration": 25731,
+              "src": "2892:5:97",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$29147",
+                "typeIdentifier": "t_contract$_ERC20_$25731",
                 "typeString": "contract ERC20"
               }
             },
             "visibility": "public"
           },
           {
-            "id": 46182,
+            "id": 40479,
             "nodeType": "FunctionDefinition",
-            "src": "3312:72:75",
+            "src": "3312:72:97",
             "nodes": [],
             "documentation": {
-              "id": 46175,
+              "id": 40472,
               "nodeType": "StructuredDocumentation",
-              "src": "2961:346:75",
+              "src": "2961:346:97",
               "text": "@notice Update the capacity for a side of the range.\n @notice Access restricted to activated policies.\n @param  high_ - Specifies the side of the range to update capacity for (true = high side, false = low side).\n @param  capacity_ - Amount to set the capacity to (GDAO tokens for high side, Reserve tokens for low side)."
             },
             "functionSelector": "6d9a9a62",
@@ -2925,20 +2924,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "updateCapacity",
-            "nameLocation": "3321:14:75",
+            "nameLocation": "3321:14:97",
             "parameters": {
-              "id": 46180,
+              "id": 40477,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46177,
+                  "id": 40474,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "3341:5:75",
+                  "nameLocation": "3341:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46182,
-                  "src": "3336:10:75",
+                  "scope": 40479,
+                  "src": "3336:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2946,10 +2945,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46176,
+                    "id": 40473,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3336:4:75",
+                    "src": "3336:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -2959,13 +2958,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46179,
+                  "id": 40476,
                   "mutability": "mutable",
                   "name": "capacity_",
-                  "nameLocation": "3356:9:75",
+                  "nameLocation": "3356:9:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46182,
-                  "src": "3348:17:75",
+                  "scope": 40479,
+                  "src": "3348:17:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2973,10 +2972,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46178,
+                    "id": 40475,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3348:7:75",
+                    "src": "3348:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2985,28 +2984,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3335:31:75"
+              "src": "3335:31:97"
             },
             "returnParameters": {
-              "id": 46181,
+              "id": 40478,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3383:0:75"
+              "src": "3383:0:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46188,
+            "id": 40485,
             "nodeType": "FunctionDefinition",
-            "src": "3597:63:75",
+            "src": "3597:63:97",
             "nodes": [],
             "documentation": {
-              "id": 46183,
+              "id": 40480,
               "nodeType": "StructuredDocumentation",
-              "src": "3390:202:75",
+              "src": "3390:202:97",
               "text": "@notice Update the prices for the low and high sides.\n @notice Access restricted to activated policies.\n @param  movingAverage_ - Current moving average price to set range prices from."
             },
             "functionSelector": "ae7e8d81",
@@ -3014,20 +3013,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "updatePrices",
-            "nameLocation": "3606:12:75",
+            "nameLocation": "3606:12:97",
             "parameters": {
-              "id": 46186,
+              "id": 40483,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46185,
+                  "id": 40482,
                   "mutability": "mutable",
                   "name": "movingAverage_",
-                  "nameLocation": "3627:14:75",
+                  "nameLocation": "3627:14:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46188,
-                  "src": "3619:22:75",
+                  "scope": 40485,
+                  "src": "3619:22:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3035,10 +3034,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46184,
+                    "id": 40481,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3619:7:75",
+                    "src": "3619:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3047,28 +3046,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3618:24:75"
+              "src": "3618:24:97"
             },
             "returnParameters": {
-              "id": 46187,
+              "id": 40484,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3659:0:75"
+              "src": "3659:0:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46196,
+            "id": 40493,
             "nodeType": "FunctionDefinition",
-            "src": "4018:68:75",
+            "src": "4018:68:97",
             "nodes": [],
             "documentation": {
-              "id": 46189,
+              "id": 40486,
               "nodeType": "StructuredDocumentation",
-              "src": "3666:347:75",
+              "src": "3666:347:97",
               "text": "@notice Regenerate a side of the range to a specific capacity.\n @notice Access restricted to activated policies.\n @param  high_ - Specifies the side of the range to regenerate (true = high side, false = low side).\n @param  capacity_ - Amount to set the capacity to (GDAO tokens for high side, Reserve tokens for low side)."
             },
             "functionSelector": "00d16739",
@@ -3076,20 +3075,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "regenerate",
-            "nameLocation": "4027:10:75",
+            "nameLocation": "4027:10:97",
             "parameters": {
-              "id": 46194,
+              "id": 40491,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46191,
+                  "id": 40488,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "4043:5:75",
+                  "nameLocation": "4043:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46196,
-                  "src": "4038:10:75",
+                  "scope": 40493,
+                  "src": "4038:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3097,10 +3096,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46190,
+                    "id": 40487,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4038:4:75",
+                    "src": "4038:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -3110,13 +3109,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46193,
+                  "id": 40490,
                   "mutability": "mutable",
                   "name": "capacity_",
-                  "nameLocation": "4058:9:75",
+                  "nameLocation": "4058:9:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46196,
-                  "src": "4050:17:75",
+                  "scope": 40493,
+                  "src": "4050:17:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3124,10 +3123,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46192,
+                    "id": 40489,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4050:7:75",
+                    "src": "4050:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3136,28 +3135,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4037:31:75"
+              "src": "4037:31:97"
             },
             "returnParameters": {
-              "id": 46195,
+              "id": 40492,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4085:0:75"
+              "src": "4085:0:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46206,
+            "id": 40503,
             "nodeType": "FunctionDefinition",
-            "src": "4527:123:75",
+            "src": "4527:123:97",
             "nodes": [],
             "documentation": {
-              "id": 46197,
+              "id": 40494,
               "nodeType": "StructuredDocumentation",
-              "src": "4092:430:75",
+              "src": "4092:430:97",
               "text": "@notice Update the market ID (cushion) for a side of the range.\n @notice Access restricted to activated policies.\n @param  high_ - Specifies the side of the range to update market for (true = high side, false = low side).\n @param  market_ - Market ID to set for the side.\n @param  marketCapacity_ - Amount to set the last market capacity to (GDAO tokens for high side, Reserve tokens for low side)."
             },
             "functionSelector": "3e56993a",
@@ -3165,20 +3164,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "updateMarket",
-            "nameLocation": "4536:12:75",
+            "nameLocation": "4536:12:97",
             "parameters": {
-              "id": 46204,
+              "id": 40501,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46199,
+                  "id": 40496,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "4563:5:75",
+                  "nameLocation": "4563:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46206,
-                  "src": "4558:10:75",
+                  "scope": 40503,
+                  "src": "4558:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3186,10 +3185,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46198,
+                    "id": 40495,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4558:4:75",
+                    "src": "4558:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -3199,13 +3198,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46201,
+                  "id": 40498,
                   "mutability": "mutable",
                   "name": "market_",
-                  "nameLocation": "4586:7:75",
+                  "nameLocation": "4586:7:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46206,
-                  "src": "4578:15:75",
+                  "scope": 40503,
+                  "src": "4578:15:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3213,10 +3212,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46200,
+                    "id": 40497,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4578:7:75",
+                    "src": "4578:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3226,13 +3225,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46203,
+                  "id": 40500,
                   "mutability": "mutable",
                   "name": "marketCapacity_",
-                  "nameLocation": "4611:15:75",
+                  "nameLocation": "4611:15:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46206,
-                  "src": "4603:23:75",
+                  "scope": 40503,
+                  "src": "4603:23:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3240,10 +3239,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46202,
+                    "id": 40499,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4603:7:75",
+                    "src": "4603:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3252,28 +3251,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4548:84:75"
+              "src": "4548:84:97"
             },
             "returnParameters": {
-              "id": 46205,
+              "id": 40502,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4649:0:75"
+              "src": "4649:0:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46214,
+            "id": 40511,
             "nodeType": "FunctionDefinition",
-            "src": "5141:82:75",
+            "src": "5141:82:97",
             "nodes": [],
             "documentation": {
-              "id": 46207,
+              "id": 40504,
               "nodeType": "StructuredDocumentation",
-              "src": "4656:480:75",
+              "src": "4656:480:97",
               "text": "@notice Set the wall and cushion spreads.\n @notice Access restricted to activated policies.\n @param  cushionSpread_ - Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).\n @param  wallSpread_ - Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%).\n @dev    The new spreads will not go into effect until the next time updatePrices() is called."
             },
             "functionSelector": "41f19a46",
@@ -3281,20 +3280,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "setSpreads",
-            "nameLocation": "5150:10:75",
+            "nameLocation": "5150:10:97",
             "parameters": {
-              "id": 46212,
+              "id": 40509,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46209,
+                  "id": 40506,
                   "mutability": "mutable",
                   "name": "cushionSpread_",
-                  "nameLocation": "5169:14:75",
+                  "nameLocation": "5169:14:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46214,
-                  "src": "5161:22:75",
+                  "scope": 40511,
+                  "src": "5161:22:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3302,10 +3301,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46208,
+                    "id": 40505,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5161:7:75",
+                    "src": "5161:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3315,13 +3314,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46211,
+                  "id": 40508,
                   "mutability": "mutable",
                   "name": "wallSpread_",
-                  "nameLocation": "5193:11:75",
+                  "nameLocation": "5193:11:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46214,
-                  "src": "5185:19:75",
+                  "scope": 40511,
+                  "src": "5185:19:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3329,10 +3328,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46210,
+                    "id": 40507,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5185:7:75",
+                    "src": "5185:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3341,28 +3340,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5160:45:75"
+              "src": "5160:45:97"
             },
             "returnParameters": {
-              "id": 46213,
+              "id": 40510,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5222:0:75"
+              "src": "5222:0:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46220,
+            "id": 40517,
             "nodeType": "FunctionDefinition",
-            "src": "5627:71:75",
+            "src": "5627:71:97",
             "nodes": [],
             "documentation": {
-              "id": 46215,
+              "id": 40512,
               "nodeType": "StructuredDocumentation",
-              "src": "5229:393:75",
+              "src": "5229:393:97",
               "text": "@notice Set the threshold factor for when a wall is considered \"down\".\n @notice Access restricted to activated policies.\n @param  thresholdFactor_ - Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%).\n @dev    The new threshold factor will not go into effect until the next time regenerate() is called for each side of the wall."
             },
             "functionSelector": "33bd33b4",
@@ -3370,20 +3369,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "setThresholdFactor",
-            "nameLocation": "5636:18:75",
+            "nameLocation": "5636:18:97",
             "parameters": {
-              "id": 46218,
+              "id": 40515,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46217,
+                  "id": 40514,
                   "mutability": "mutable",
                   "name": "thresholdFactor_",
-                  "nameLocation": "5663:16:75",
+                  "nameLocation": "5663:16:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46220,
-                  "src": "5655:24:75",
+                  "scope": 40517,
+                  "src": "5655:24:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3391,10 +3390,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46216,
+                    "id": 40513,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5655:7:75",
+                    "src": "5655:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3403,28 +3402,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5654:26:75"
+              "src": "5654:26:97"
             },
             "returnParameters": {
-              "id": 46219,
+              "id": 40516,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5697:0:75"
+              "src": "5697:0:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46227,
+            "id": 40524,
             "nodeType": "FunctionDefinition",
-            "src": "5757:62:75",
+            "src": "5757:62:97",
             "nodes": [],
             "documentation": {
-              "id": 46221,
+              "id": 40518,
               "nodeType": "StructuredDocumentation",
-              "src": "5704:48:75",
+              "src": "5704:48:97",
               "text": "@notice Get the full Range data in a struct."
             },
             "functionSelector": "e97206a9",
@@ -3432,68 +3431,68 @@
             "kind": "function",
             "modifiers": [],
             "name": "range",
-            "nameLocation": "5766:5:75",
+            "nameLocation": "5766:5:97",
             "parameters": {
-              "id": 46222,
+              "id": 40519,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5771:2:75"
+              "src": "5771:2:97"
             },
             "returnParameters": {
-              "id": 46226,
+              "id": 40523,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46225,
+                  "id": 40522,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46227,
-                  "src": "5805:12:75",
+                  "scope": 40524,
+                  "src": "5805:12:97",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Range_$46160_memory_ptr",
+                    "typeIdentifier": "t_struct$_Range_$40457_memory_ptr",
                     "typeString": "struct RANGEv1.Range"
                   },
                   "typeName": {
-                    "id": 46224,
+                    "id": 40521,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 46223,
+                      "id": 40520,
                       "name": "Range",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 46160,
-                      "src": "5805:5:75"
+                      "referencedDeclaration": 40457,
+                      "src": "5805:5:97"
                     },
-                    "referencedDeclaration": 46160,
-                    "src": "5805:5:75",
+                    "referencedDeclaration": 40457,
+                    "src": "5805:5:97",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Range_$46160_storage_ptr",
+                      "typeIdentifier": "t_struct$_Range_$40457_storage_ptr",
                       "typeString": "struct RANGEv1.Range"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "5804:14:75"
+              "src": "5804:14:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46235,
+            "id": 40532,
             "nodeType": "FunctionDefinition",
-            "src": "5997:70:75",
+            "src": "5997:70:97",
             "nodes": [],
             "documentation": {
-              "id": 46228,
+              "id": 40525,
               "nodeType": "StructuredDocumentation",
-              "src": "5825:167:75",
+              "src": "5825:167:97",
               "text": "@notice Get the capacity for a side of the range.\n @param  high_ - Specifies the side of the range to get capacity for (true = high side, false = low side)."
             },
             "functionSelector": "bf30142b",
@@ -3501,20 +3500,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "capacity",
-            "nameLocation": "6006:8:75",
+            "nameLocation": "6006:8:97",
             "parameters": {
-              "id": 46231,
+              "id": 40528,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46230,
+                  "id": 40527,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "6020:5:75",
+                  "nameLocation": "6020:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46235,
-                  "src": "6015:10:75",
+                  "scope": 40532,
+                  "src": "6015:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3522,10 +3521,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46229,
+                    "id": 40526,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6015:4:75",
+                    "src": "6015:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -3534,21 +3533,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6014:12:75"
+              "src": "6014:12:97"
             },
             "returnParameters": {
-              "id": 46234,
+              "id": 40531,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46233,
+                  "id": 40530,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46235,
-                  "src": "6058:7:75",
+                  "scope": 40532,
+                  "src": "6058:7:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3556,10 +3555,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46232,
+                    "id": 40529,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6058:7:75",
+                    "src": "6058:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3568,22 +3567,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6057:9:75"
+              "src": "6057:9:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46243,
+            "id": 40540,
             "nodeType": "FunctionDefinition",
-            "src": "6270:65:75",
+            "src": "6270:65:97",
             "nodes": [],
             "documentation": {
-              "id": 46236,
+              "id": 40533,
               "nodeType": "StructuredDocumentation",
-              "src": "6073:192:75",
+              "src": "6073:192:97",
               "text": "@notice Get the status of a side of the range (whether it is active or not).\n @param  high_ - Specifies the side of the range to get status for (true = high side, false = low side)."
             },
             "functionSelector": "59d236e6",
@@ -3591,20 +3590,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "active",
-            "nameLocation": "6279:6:75",
+            "nameLocation": "6279:6:97",
             "parameters": {
-              "id": 46239,
+              "id": 40536,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46238,
+                  "id": 40535,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "6291:5:75",
+                  "nameLocation": "6291:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46243,
-                  "src": "6286:10:75",
+                  "scope": 40540,
+                  "src": "6286:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3612,10 +3611,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46237,
+                    "id": 40534,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6286:4:75",
+                    "src": "6286:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -3624,21 +3623,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6285:12:75"
+              "src": "6285:12:97"
             },
             "returnParameters": {
-              "id": 46242,
+              "id": 40539,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46241,
+                  "id": 40538,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46243,
-                  "src": "6329:4:75",
+                  "scope": 40540,
+                  "src": "6329:4:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3646,10 +3645,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46240,
+                    "id": 40537,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6329:4:75",
+                    "src": "6329:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -3658,22 +3657,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6328:6:75"
+              "src": "6328:6:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46253,
+            "id": 40550,
             "nodeType": "FunctionDefinition",
-            "src": "6631:79:75",
+            "src": "6631:79:97",
             "nodes": [],
             "documentation": {
-              "id": 46244,
+              "id": 40541,
               "nodeType": "StructuredDocumentation",
-              "src": "6341:285:75",
+              "src": "6341:285:97",
               "text": "@notice Get the price for the wall or cushion for a side of the range.\n @param  wall_ - Specifies the band to get the price for (true = wall, false = cushion).\n @param  high_ - Specifies the side of the range to get the price for (true = high side, false = low side)."
             },
             "functionSelector": "3778c2b2",
@@ -3681,20 +3680,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "price",
-            "nameLocation": "6640:5:75",
+            "nameLocation": "6640:5:97",
             "parameters": {
-              "id": 46249,
+              "id": 40546,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46246,
+                  "id": 40543,
                   "mutability": "mutable",
                   "name": "wall_",
-                  "nameLocation": "6651:5:75",
+                  "nameLocation": "6651:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46253,
-                  "src": "6646:10:75",
+                  "scope": 40550,
+                  "src": "6646:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3702,10 +3701,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46245,
+                    "id": 40542,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6646:4:75",
+                    "src": "6646:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -3715,13 +3714,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46248,
+                  "id": 40545,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "6663:5:75",
+                  "nameLocation": "6663:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46253,
-                  "src": "6658:10:75",
+                  "scope": 40550,
+                  "src": "6658:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3729,10 +3728,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46247,
+                    "id": 40544,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6658:4:75",
+                    "src": "6658:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -3741,21 +3740,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6645:24:75"
+              "src": "6645:24:97"
             },
             "returnParameters": {
-              "id": 46252,
+              "id": 40549,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46251,
+                  "id": 40548,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46253,
-                  "src": "6701:7:75",
+                  "scope": 40550,
+                  "src": "6701:7:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3763,10 +3762,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46250,
+                    "id": 40547,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6701:7:75",
+                    "src": "6701:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3775,22 +3774,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6700:9:75"
+              "src": "6700:9:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46261,
+            "id": 40558,
             "nodeType": "FunctionDefinition",
-            "src": "6874:68:75",
+            "src": "6874:68:97",
             "nodes": [],
             "documentation": {
-              "id": 46254,
+              "id": 40551,
               "nodeType": "StructuredDocumentation",
-              "src": "6716:153:75",
+              "src": "6716:153:97",
               "text": "@notice Get the spread for the wall or cushion band.\n @param  wall_ - Specifies the band to get the spread for (true = wall, false = cushion)."
             },
             "functionSelector": "8c3f914a",
@@ -3798,20 +3797,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "spread",
-            "nameLocation": "6883:6:75",
+            "nameLocation": "6883:6:97",
             "parameters": {
-              "id": 46257,
+              "id": 40554,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46256,
+                  "id": 40553,
                   "mutability": "mutable",
                   "name": "wall_",
-                  "nameLocation": "6895:5:75",
+                  "nameLocation": "6895:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46261,
-                  "src": "6890:10:75",
+                  "scope": 40558,
+                  "src": "6890:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3819,10 +3818,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46255,
+                    "id": 40552,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6890:4:75",
+                    "src": "6890:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -3831,21 +3830,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6889:12:75"
+              "src": "6889:12:97"
             },
             "returnParameters": {
-              "id": 46260,
+              "id": 40557,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46259,
+                  "id": 40556,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46261,
-                  "src": "6933:7:75",
+                  "scope": 40558,
+                  "src": "6933:7:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3853,10 +3852,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46258,
+                    "id": 40555,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6933:7:75",
+                    "src": "6933:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3865,22 +3864,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6932:9:75"
+              "src": "6932:9:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46269,
+            "id": 40566,
             "nodeType": "FunctionDefinition",
-            "src": "7119:68:75",
+            "src": "7119:68:97",
             "nodes": [],
             "documentation": {
-              "id": 46262,
+              "id": 40559,
               "nodeType": "StructuredDocumentation",
-              "src": "6948:166:75",
+              "src": "6948:166:97",
               "text": "@notice Get the market ID for a side of the range.\n @param  high_ - Specifies the side of the range to get market for (true = high side, false = low side)."
             },
             "functionSelector": "c45e91d6",
@@ -3888,20 +3887,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "market",
-            "nameLocation": "7128:6:75",
+            "nameLocation": "7128:6:97",
             "parameters": {
-              "id": 46265,
+              "id": 40562,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46264,
+                  "id": 40561,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "7140:5:75",
+                  "nameLocation": "7140:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46269,
-                  "src": "7135:10:75",
+                  "scope": 40566,
+                  "src": "7135:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3909,10 +3908,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46263,
+                    "id": 40560,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7135:4:75",
+                    "src": "7135:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -3921,21 +3920,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7134:12:75"
+              "src": "7134:12:97"
             },
             "returnParameters": {
-              "id": 46268,
+              "id": 40565,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46267,
+                  "id": 40564,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46269,
-                  "src": "7178:7:75",
+                  "scope": 40566,
+                  "src": "7178:7:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3943,10 +3942,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46266,
+                    "id": 40563,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7178:7:75",
+                    "src": "7178:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3955,22 +3954,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7177:9:75"
+              "src": "7177:9:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46277,
+            "id": 40574,
             "nodeType": "FunctionDefinition",
-            "src": "7374:72:75",
+            "src": "7374:72:97",
             "nodes": [],
             "documentation": {
-              "id": 46270,
+              "id": 40567,
               "nodeType": "StructuredDocumentation",
-              "src": "7193:176:75",
+              "src": "7193:176:97",
               "text": "@notice Get the timestamp when the range was last active.\n @param  high_ - Specifies the side of the range to get timestamp for (true = high side, false = low side)."
             },
             "functionSelector": "e69f3c4e",
@@ -3978,20 +3977,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "lastActive",
-            "nameLocation": "7383:10:75",
+            "nameLocation": "7383:10:97",
             "parameters": {
-              "id": 46273,
+              "id": 40570,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46272,
+                  "id": 40569,
                   "mutability": "mutable",
                   "name": "high_",
-                  "nameLocation": "7399:5:75",
+                  "nameLocation": "7399:5:97",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46277,
-                  "src": "7394:10:75",
+                  "scope": 40574,
+                  "src": "7394:10:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3999,10 +3998,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46271,
+                    "id": 40568,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7394:4:75",
+                    "src": "7394:4:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -4011,21 +4010,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7393:12:75"
+              "src": "7393:12:97"
             },
             "returnParameters": {
-              "id": 46276,
+              "id": 40573,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46275,
+                  "id": 40572,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46277,
-                  "src": "7437:7:75",
+                  "scope": 40574,
+                  "src": "7437:7:97",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4033,10 +4032,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 46274,
+                    "id": 40571,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7437:7:75",
+                    "src": "7437:7:97",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -4045,9 +4044,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7436:9:75"
+              "src": "7436:9:97"
             },
-            "scope": 46278,
+            "scope": 40575,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
@@ -4057,15 +4056,15 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 46071,
+              "id": 40368,
               "name": "Module",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 29616,
-              "src": "165:6:75"
+              "referencedDeclaration": 28577,
+              "src": "165:6:97"
             },
-            "id": 46072,
+            "id": 40369,
             "nodeType": "InheritanceSpecifier",
-            "src": "165:6:75"
+            "src": "165:6:97"
           }
         ],
         "canonicalName": "RANGEv1",
@@ -4073,21 +4072,21 @@
         "contractKind": "contract",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          46278,
-          29616,
-          29551
+          40575,
+          28577,
+          28512
         ],
         "name": "RANGEv1",
-        "nameLocation": "154:7:75",
-        "scope": 46279,
+        "nameLocation": "154:7:97",
+        "scope": 40576,
         "usedErrors": [
-          29504,
-          29558,
-          46124
+          28465,
+          28519,
+          40421
         ]
       }
     ],
     "license": "AGPL-3.0"
   },
-  "id": 75
+  "id": 97
 }

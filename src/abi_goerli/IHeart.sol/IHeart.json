@@ -177,7 +177,7 @@
     "setRewardTokenAndAmount(address,uint256)": "63392990",
     "withdrawUnspentRewards(address)": "9ab7d7e7"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"Heart_BeatAvailable\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Heart_BeatStopped\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Heart_InvalidParams\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Heart_OutOfCycle\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"}],\"name\":\"Beat\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to_\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewardAmount_\",\"type\":\"uint256\"}],\"name\":\"RewardIssued\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"contract ERC20\",\"name\":\"token_\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewardAmount_\",\"type\":\"uint256\"}],\"name\":\"RewardUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"activate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"beat\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"deactivate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"frequency\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"resetBeat\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator_\",\"type\":\"address\"}],\"name\":\"setOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"token_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"reward_\",\"type\":\"uint256\"}],\"name\":\"setRewardTokenAndAmount\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"token_\",\"type\":\"address\"}],\"name\":\"withdrawUnspentRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"activate()\":{\"details\":\"This function is used to restart the heart after a pause\"},\"beat()\":{\"details\":\"Triggers price oracle update and market operations\"},\"deactivate()\":{\"details\":\"Emergency stop function for the heart\"},\"setOperator(address)\":{\"params\":{\"operator_\":\"The address of the new Operator contract\"}},\"setRewardTokenAndAmount(address,uint256)\":{\"params\":{\"reward_\":\"- New reward amount, in units of the reward token\",\"token_\":\"- New reward token address\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"activate()\":{\"notice\":\"Turns the heart on and resets the beatAccess restricted\"},\"beat()\":{\"notice\":\"Beats the heartOnly callable when enough time has passed since last beat (determined by frequency variable)This function is incentivized with a token reward (see rewardToken and reward variables).\"},\"deactivate()\":{\"notice\":\"Turns the heart offAccess restricted\"},\"frequency()\":{\"notice\":\"Heart beat frequency, in seconds\"},\"resetBeat()\":{\"notice\":\"Unlocks the cycle if stuck on one side, eject functionAccess restricted\"},\"setOperator(address)\":{\"notice\":\"Updates the Operator contract address that the Heart calls on a beatAccess restricted\"},\"setRewardTokenAndAmount(address,uint256)\":{\"notice\":\"Sets the reward token and amount for the beat functionAccess restricted\"},\"withdrawUnspentRewards(address)\":{\"notice\":\"Withdraws unspent balance of provided token to senderAccess restricted\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/policies/interfaces/IHeart.sol\":\"IHeart\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"lib/solmate/src/tokens/ERC20.sol\":{\"keccak256\":\"0xb14869b3d931ceb1b8f8fcd00dc59e0901198ae271a6cb3e8d0c7b8ac1999d18\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://3c533078cfb24dc68c0138437f1a2a946f74ab70d01a9fbe24f3e35905a25aed\",\"dweb:/ipfs/QmRDGa933AjqmDpJSL2CRNDJmJu6U9bKpU5RuiGTgxRFsC\"]},\"src/policies/interfaces/IHeart.sol\":{\"keccak256\":\"0xf10f6e638083033bb09889773730b159030659ab0a806200233fd29bda7bb18a\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://e4ace80ceb1b271468c5a3e673cf8b5a989d5325ce8258b8cba7a9fd6d7a46ab\",\"dweb:/ipfs/QmTMo14ESwcD2iWUMbbC2dEVGprhsAZ42Yyy83srxLGSsf\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"Heart_BeatAvailable\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Heart_BeatStopped\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Heart_InvalidParams\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Heart_OutOfCycle\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp_\",\"type\":\"uint256\"}],\"name\":\"Beat\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to_\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewardAmount_\",\"type\":\"uint256\"}],\"name\":\"RewardIssued\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"contract ERC20\",\"name\":\"token_\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewardAmount_\",\"type\":\"uint256\"}],\"name\":\"RewardUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"activate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"beat\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"deactivate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"frequency\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"resetBeat\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator_\",\"type\":\"address\"}],\"name\":\"setOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"token_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"reward_\",\"type\":\"uint256\"}],\"name\":\"setRewardTokenAndAmount\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"token_\",\"type\":\"address\"}],\"name\":\"withdrawUnspentRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"activate()\":{\"details\":\"This function is used to restart the heart after a pause\"},\"beat()\":{\"details\":\"Triggers price oracle update and market operations\"},\"deactivate()\":{\"details\":\"Emergency stop function for the heart\"},\"setOperator(address)\":{\"params\":{\"operator_\":\"The address of the new Operator contract\"}},\"setRewardTokenAndAmount(address,uint256)\":{\"params\":{\"reward_\":\"- New reward amount, in units of the reward token\",\"token_\":\"- New reward token address\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"activate()\":{\"notice\":\"Turns the heart on and resets the beatAccess restricted\"},\"beat()\":{\"notice\":\"Beats the heartOnly callable when enough time has passed since last beat (determined by frequency variable)This function is incentivized with a token reward (see rewardToken and reward variables).\"},\"deactivate()\":{\"notice\":\"Turns the heart offAccess restricted\"},\"frequency()\":{\"notice\":\"Heart beat frequency, in seconds\"},\"resetBeat()\":{\"notice\":\"Unlocks the cycle if stuck on one side, eject functionAccess restricted\"},\"setOperator(address)\":{\"notice\":\"Updates the Operator contract address that the Heart calls on a beatAccess restricted\"},\"setRewardTokenAndAmount(address,uint256)\":{\"notice\":\"Sets the reward token and amount for the beat functionAccess restricted\"},\"withdrawUnspentRewards(address)\":{\"notice\":\"Withdraws unspent balance of provided token to senderAccess restricted\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/policies/interfaces/IHeart.sol\":\"IHeart\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":20000},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"lib/solmate/src/tokens/ERC20.sol\":{\"keccak256\":\"0xb14869b3d931ceb1b8f8fcd00dc59e0901198ae271a6cb3e8d0c7b8ac1999d18\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://3c533078cfb24dc68c0138437f1a2a946f74ab70d01a9fbe24f3e35905a25aed\",\"dweb:/ipfs/QmRDGa933AjqmDpJSL2CRNDJmJu6U9bKpU5RuiGTgxRFsC\"]},\"src/policies/interfaces/IHeart.sol\":{\"keccak256\":\"0xf10f6e638083033bb09889773730b159030659ab0a806200233fd29bda7bb18a\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://e4ace80ceb1b271468c5a3e673cf8b5a989d5325ce8258b8cba7a9fd6d7a46ab\",\"dweb:/ipfs/QmTMo14ESwcD2iWUMbbC2dEVGprhsAZ42Yyy83srxLGSsf\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.15+commit.e14f2714"
@@ -403,14 +403,13 @@
         ":interfaces/=src/interfaces/",
         ":libraries/=src/libraries/",
         ":modules/=src/modules/",
-        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
         ":policies/=src/policies/",
         ":solmate/=lib/solmate/src/",
         ":test/=src/test/"
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 10
+        "runs": 20000
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -442,22 +441,22 @@
   },
   "ast": {
     "absolutePath": "src/policies/interfaces/IHeart.sol",
-    "id": 57759,
+    "id": 52056,
     "exportedSymbols": {
       "ERC20": [
-        29147
+        25731
       ],
       "IHeart": [
-        57758
+        52055
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "37:2268:95",
+    "src": "37:2268:117",
     "nodes": [
       {
-        "id": 57686,
+        "id": 51983,
         "nodeType": "PragmaDirective",
-        "src": "37:24:95",
+        "src": "37:24:117",
         "nodes": [],
         "literals": [
           "solidity",
@@ -467,24 +466,24 @@
         ]
       },
       {
-        "id": 57688,
+        "id": 51985,
         "nodeType": "ImportDirective",
-        "src": "63:47:95",
+        "src": "63:47:117",
         "nodes": [],
         "absolutePath": "lib/solmate/src/tokens/ERC20.sol",
         "file": "solmate/tokens/ERC20.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 57759,
-        "sourceUnit": 29148,
+        "scope": 52056,
+        "sourceUnit": 25732,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 57687,
+              "id": 51984,
               "name": "ERC20",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 29147,
-              "src": "71:5:95",
+              "referencedDeclaration": 25731,
+              "src": "71:5:117",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -493,33 +492,33 @@
         "unitAlias": ""
       },
       {
-        "id": 57758,
+        "id": 52055,
         "nodeType": "ContractDefinition",
-        "src": "112:2192:95",
+        "src": "112:2192:117",
         "nodes": [
           {
-            "id": 57692,
+            "id": 51989,
             "nodeType": "EventDefinition",
-            "src": "174:31:95",
+            "src": "174:31:117",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "d5215e0661831421a9ebc79f9d2848dbfc61213cf6ae3c92b45e17ea50be1910",
             "name": "Beat",
-            "nameLocation": "180:4:95",
+            "nameLocation": "180:4:117",
             "parameters": {
-              "id": 57691,
+              "id": 51988,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 57690,
+                  "id": 51987,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "timestamp_",
-                  "nameLocation": "193:10:95",
+                  "nameLocation": "193:10:117",
                   "nodeType": "VariableDeclaration",
-                  "scope": 57692,
-                  "src": "185:18:95",
+                  "scope": 51989,
+                  "src": "185:18:117",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -527,10 +526,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 57689,
+                    "id": 51986,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "185:7:95",
+                    "src": "185:7:117",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -539,32 +538,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "184:20:95"
+              "src": "184:20:117"
             }
           },
           {
-            "id": 57698,
+            "id": 51995,
             "nodeType": "EventDefinition",
-            "src": "210:55:95",
+            "src": "210:55:117",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "f9b6ec770c96c3a6f9225bf3a8463a8ad03e884448af07b4ecd4d19d628946ee",
             "name": "RewardIssued",
-            "nameLocation": "216:12:95",
+            "nameLocation": "216:12:117",
             "parameters": {
-              "id": 57697,
+              "id": 51994,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 57694,
+                  "id": 51991,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "to_",
-                  "nameLocation": "237:3:95",
+                  "nameLocation": "237:3:117",
                   "nodeType": "VariableDeclaration",
-                  "scope": 57698,
-                  "src": "229:11:95",
+                  "scope": 51995,
+                  "src": "229:11:117",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -572,10 +571,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 57693,
+                    "id": 51990,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "229:7:95",
+                    "src": "229:7:117",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -586,14 +585,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 57696,
+                  "id": 51993,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "rewardAmount_",
-                  "nameLocation": "250:13:95",
+                  "nameLocation": "250:13:117",
                   "nodeType": "VariableDeclaration",
-                  "scope": 57698,
-                  "src": "242:21:95",
+                  "scope": 51995,
+                  "src": "242:21:117",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -601,10 +600,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 57695,
+                    "id": 51992,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "242:7:95",
+                    "src": "242:7:117",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -613,52 +612,52 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "228:36:95"
+              "src": "228:36:117"
             }
           },
           {
-            "id": 57705,
+            "id": 52002,
             "nodeType": "EventDefinition",
-            "src": "270:57:95",
+            "src": "270:57:117",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "401ccfec4c6c7ac3f3b71182750d0f8d73c0d29cc476732b0b21ab0d359da47f",
             "name": "RewardUpdated",
-            "nameLocation": "276:13:95",
+            "nameLocation": "276:13:117",
             "parameters": {
-              "id": 57704,
+              "id": 52001,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 57701,
+                  "id": 51998,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "token_",
-                  "nameLocation": "296:6:95",
+                  "nameLocation": "296:6:117",
                   "nodeType": "VariableDeclaration",
-                  "scope": 57705,
-                  "src": "290:12:95",
+                  "scope": 52002,
+                  "src": "290:12:117",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20_$29147",
+                    "typeIdentifier": "t_contract$_ERC20_$25731",
                     "typeString": "contract ERC20"
                   },
                   "typeName": {
-                    "id": 57700,
+                    "id": 51997,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 57699,
+                      "id": 51996,
                       "name": "ERC20",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 29147,
-                      "src": "290:5:95"
+                      "referencedDeclaration": 25731,
+                      "src": "290:5:117"
                     },
-                    "referencedDeclaration": 29147,
-                    "src": "290:5:95",
+                    "referencedDeclaration": 25731,
+                    "src": "290:5:117",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$29147",
+                      "typeIdentifier": "t_contract$_ERC20_$25731",
                       "typeString": "contract ERC20"
                     }
                   },
@@ -666,14 +665,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 57703,
+                  "id": 52000,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "rewardAmount_",
-                  "nameLocation": "312:13:95",
+                  "nameLocation": "312:13:117",
                   "nodeType": "VariableDeclaration",
-                  "scope": 57705,
-                  "src": "304:21:95",
+                  "scope": 52002,
+                  "src": "304:21:117",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -681,10 +680,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 57702,
+                    "id": 51999,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "304:7:95",
+                    "src": "304:7:117",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -693,78 +692,78 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "289:37:95"
+              "src": "289:37:117"
             }
           },
           {
-            "id": 57707,
+            "id": 52004,
             "nodeType": "ErrorDefinition",
-            "src": "372:25:95",
+            "src": "372:25:117",
             "nodes": [],
             "errorSelector": "8c377706",
             "name": "Heart_OutOfCycle",
-            "nameLocation": "378:16:95",
+            "nameLocation": "378:16:117",
             "parameters": {
-              "id": 57706,
+              "id": 52003,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "394:2:95"
+              "src": "394:2:117"
             }
           },
           {
-            "id": 57709,
+            "id": 52006,
             "nodeType": "ErrorDefinition",
-            "src": "402:26:95",
+            "src": "402:26:117",
             "nodes": [],
             "errorSelector": "9bf7f180",
             "name": "Heart_BeatStopped",
-            "nameLocation": "408:17:95",
+            "nameLocation": "408:17:117",
             "parameters": {
-              "id": 57708,
+              "id": 52005,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "425:2:95"
+              "src": "425:2:117"
             }
           },
           {
-            "id": 57711,
+            "id": 52008,
             "nodeType": "ErrorDefinition",
-            "src": "433:28:95",
+            "src": "433:28:117",
             "nodes": [],
             "errorSelector": "97440c9c",
             "name": "Heart_InvalidParams",
-            "nameLocation": "439:19:95",
+            "nameLocation": "439:19:117",
             "parameters": {
-              "id": 57710,
+              "id": 52007,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "458:2:95"
+              "src": "458:2:117"
             }
           },
           {
-            "id": 57713,
+            "id": 52010,
             "nodeType": "ErrorDefinition",
-            "src": "466:28:95",
+            "src": "466:28:117",
             "nodes": [],
             "errorSelector": "2f36f8a4",
             "name": "Heart_BeatAvailable",
-            "nameLocation": "472:19:95",
+            "nameLocation": "472:19:117",
             "parameters": {
-              "id": 57712,
+              "id": 52009,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "491:2:95"
+              "src": "491:2:117"
             }
           },
           {
-            "id": 57717,
+            "id": 52014,
             "nodeType": "FunctionDefinition",
-            "src": "861:25:95",
+            "src": "861:25:117",
             "nodes": [],
             "documentation": {
-              "id": 57714,
+              "id": 52011,
               "nodeType": "StructuredDocumentation",
-              "src": "547:309:95",
+              "src": "547:309:117",
               "text": "@notice Beats the heart\n @notice Only callable when enough time has passed since last beat (determined by frequency variable)\n @notice This function is incentivized with a token reward (see rewardToken and reward variables).\n @dev    Triggers price oracle update and market operations"
             },
             "functionSelector": "7a259dba",
@@ -772,33 +771,33 @@
             "kind": "function",
             "modifiers": [],
             "name": "beat",
-            "nameLocation": "870:4:95",
+            "nameLocation": "870:4:117",
             "parameters": {
-              "id": 57715,
+              "id": 52012,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "874:2:95"
+              "src": "874:2:117"
             },
             "returnParameters": {
-              "id": 57716,
+              "id": 52013,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "885:0:95"
+              "src": "885:0:117"
             },
-            "scope": 57758,
+            "scope": 52055,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 57721,
+            "id": 52018,
             "nodeType": "FunctionDefinition",
-            "src": "1045:30:95",
+            "src": "1045:30:117",
             "nodes": [],
             "documentation": {
-              "id": 57718,
+              "id": 52015,
               "nodeType": "StructuredDocumentation",
-              "src": "940:100:95",
+              "src": "940:100:117",
               "text": "@notice Unlocks the cycle if stuck on one side, eject function\n @notice Access restricted"
             },
             "functionSelector": "ef68b87d",
@@ -806,33 +805,33 @@
             "kind": "function",
             "modifiers": [],
             "name": "resetBeat",
-            "nameLocation": "1054:9:95",
+            "nameLocation": "1054:9:117",
             "parameters": {
-              "id": 57719,
+              "id": 52016,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1063:2:95"
+              "src": "1063:2:117"
             },
             "returnParameters": {
-              "id": 57720,
+              "id": 52017,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1074:0:95"
+              "src": "1074:0:117"
             },
-            "scope": 57758,
+            "scope": 52055,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 57725,
+            "id": 52022,
             "nodeType": "FunctionDefinition",
-            "src": "1243:29:95",
+            "src": "1243:29:117",
             "nodes": [],
             "documentation": {
-              "id": 57722,
+              "id": 52019,
               "nodeType": "StructuredDocumentation",
-              "src": "1081:157:95",
+              "src": "1081:157:117",
               "text": "@notice Turns the heart on and resets the beat\n @notice Access restricted\n @dev    This function is used to restart the heart after a pause"
             },
             "functionSelector": "0f15f4c0",
@@ -840,33 +839,33 @@
             "kind": "function",
             "modifiers": [],
             "name": "activate",
-            "nameLocation": "1252:8:95",
+            "nameLocation": "1252:8:117",
             "parameters": {
-              "id": 57723,
+              "id": 52020,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1260:2:95"
+              "src": "1260:2:117"
             },
             "returnParameters": {
-              "id": 57724,
+              "id": 52021,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1271:0:95"
+              "src": "1271:0:117"
             },
-            "scope": 57758,
+            "scope": 52055,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 57729,
+            "id": 52026,
             "nodeType": "FunctionDefinition",
-            "src": "1402:31:95",
+            "src": "1402:31:117",
             "nodes": [],
             "documentation": {
-              "id": 57726,
+              "id": 52023,
               "nodeType": "StructuredDocumentation",
-              "src": "1278:119:95",
+              "src": "1278:119:117",
               "text": "@notice Turns the heart off\n @notice Access restricted\n @dev    Emergency stop function for the heart"
             },
             "functionSelector": "51b42b00",
@@ -874,33 +873,33 @@
             "kind": "function",
             "modifiers": [],
             "name": "deactivate",
-            "nameLocation": "1411:10:95",
+            "nameLocation": "1411:10:117",
             "parameters": {
-              "id": 57727,
+              "id": 52024,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1421:2:95"
+              "src": "1421:2:117"
             },
             "returnParameters": {
-              "id": 57728,
+              "id": 52025,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1432:0:95"
+              "src": "1432:0:117"
             },
-            "scope": 57758,
+            "scope": 52055,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 57735,
+            "id": 52032,
             "nodeType": "FunctionDefinition",
-            "src": "1625:49:95",
+            "src": "1625:49:117",
             "nodes": [],
             "documentation": {
-              "id": 57730,
+              "id": 52027,
               "nodeType": "StructuredDocumentation",
-              "src": "1439:181:95",
+              "src": "1439:181:117",
               "text": "@notice Updates the Operator contract address that the Heart calls on a beat\n @notice Access restricted\n @param  operator_ The address of the new Operator contract"
             },
             "functionSelector": "b3ab15fb",
@@ -908,20 +907,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "setOperator",
-            "nameLocation": "1634:11:95",
+            "nameLocation": "1634:11:117",
             "parameters": {
-              "id": 57733,
+              "id": 52030,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 57732,
+                  "id": 52029,
                   "mutability": "mutable",
                   "name": "operator_",
-                  "nameLocation": "1654:9:95",
+                  "nameLocation": "1654:9:117",
                   "nodeType": "VariableDeclaration",
-                  "scope": 57735,
-                  "src": "1646:17:95",
+                  "scope": 52032,
+                  "src": "1646:17:117",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -929,10 +928,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 57731,
+                    "id": 52028,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1646:7:95",
+                    "src": "1646:7:117",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -942,28 +941,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1645:19:95"
+              "src": "1645:19:117"
             },
             "returnParameters": {
-              "id": 57734,
+              "id": 52031,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1673:0:95"
+              "src": "1673:0:117"
             },
-            "scope": 57758,
+            "scope": 52055,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 57744,
+            "id": 52041,
             "nodeType": "FunctionDefinition",
-            "src": "1909:73:95",
+            "src": "1909:73:117",
             "nodes": [],
             "documentation": {
-              "id": 57736,
+              "id": 52033,
               "nodeType": "StructuredDocumentation",
-              "src": "1680:224:95",
+              "src": "1680:224:117",
               "text": "@notice Sets the reward token and amount for the beat function\n @notice Access restricted\n @param  token_ - New reward token address\n @param  reward_ - New reward amount, in units of the reward token"
             },
             "functionSelector": "63392990",
@@ -971,40 +970,40 @@
             "kind": "function",
             "modifiers": [],
             "name": "setRewardTokenAndAmount",
-            "nameLocation": "1918:23:95",
+            "nameLocation": "1918:23:117",
             "parameters": {
-              "id": 57742,
+              "id": 52039,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 57739,
+                  "id": 52036,
                   "mutability": "mutable",
                   "name": "token_",
-                  "nameLocation": "1948:6:95",
+                  "nameLocation": "1948:6:117",
                   "nodeType": "VariableDeclaration",
-                  "scope": 57744,
-                  "src": "1942:12:95",
+                  "scope": 52041,
+                  "src": "1942:12:117",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20_$29147",
+                    "typeIdentifier": "t_contract$_ERC20_$25731",
                     "typeString": "contract ERC20"
                   },
                   "typeName": {
-                    "id": 57738,
+                    "id": 52035,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 57737,
+                      "id": 52034,
                       "name": "ERC20",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 29147,
-                      "src": "1942:5:95"
+                      "referencedDeclaration": 25731,
+                      "src": "1942:5:117"
                     },
-                    "referencedDeclaration": 29147,
-                    "src": "1942:5:95",
+                    "referencedDeclaration": 25731,
+                    "src": "1942:5:117",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$29147",
+                      "typeIdentifier": "t_contract$_ERC20_$25731",
                       "typeString": "contract ERC20"
                     }
                   },
@@ -1012,13 +1011,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 57741,
+                  "id": 52038,
                   "mutability": "mutable",
                   "name": "reward_",
-                  "nameLocation": "1964:7:95",
+                  "nameLocation": "1964:7:117",
                   "nodeType": "VariableDeclaration",
-                  "scope": 57744,
-                  "src": "1956:15:95",
+                  "scope": 52041,
+                  "src": "1956:15:117",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1026,10 +1025,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 57740,
+                    "id": 52037,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1956:7:95",
+                    "src": "1956:7:117",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1038,28 +1037,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1941:31:95"
+              "src": "1941:31:117"
             },
             "returnParameters": {
-              "id": 57743,
+              "id": 52040,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1981:0:95"
+              "src": "1981:0:117"
             },
-            "scope": 57758,
+            "scope": 52055,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 57751,
+            "id": 52048,
             "nodeType": "FunctionDefinition",
-            "src": "2092:55:95",
+            "src": "2092:55:117",
             "nodes": [],
             "documentation": {
-              "id": 57745,
+              "id": 52042,
               "nodeType": "StructuredDocumentation",
-              "src": "1988:99:95",
+              "src": "1988:99:117",
               "text": "@notice Withdraws unspent balance of provided token to sender\n @notice Access restricted"
             },
             "functionSelector": "9ab7d7e7",
@@ -1067,68 +1066,68 @@
             "kind": "function",
             "modifiers": [],
             "name": "withdrawUnspentRewards",
-            "nameLocation": "2101:22:95",
+            "nameLocation": "2101:22:117",
             "parameters": {
-              "id": 57749,
+              "id": 52046,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 57748,
+                  "id": 52045,
                   "mutability": "mutable",
                   "name": "token_",
-                  "nameLocation": "2130:6:95",
+                  "nameLocation": "2130:6:117",
                   "nodeType": "VariableDeclaration",
-                  "scope": 57751,
-                  "src": "2124:12:95",
+                  "scope": 52048,
+                  "src": "2124:12:117",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20_$29147",
+                    "typeIdentifier": "t_contract$_ERC20_$25731",
                     "typeString": "contract ERC20"
                   },
                   "typeName": {
-                    "id": 57747,
+                    "id": 52044,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 57746,
+                      "id": 52043,
                       "name": "ERC20",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 29147,
-                      "src": "2124:5:95"
+                      "referencedDeclaration": 25731,
+                      "src": "2124:5:117"
                     },
-                    "referencedDeclaration": 29147,
-                    "src": "2124:5:95",
+                    "referencedDeclaration": 25731,
+                    "src": "2124:5:117",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$29147",
+                      "typeIdentifier": "t_contract$_ERC20_$25731",
                       "typeString": "contract ERC20"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "2123:14:95"
+              "src": "2123:14:117"
             },
             "returnParameters": {
-              "id": 57750,
+              "id": 52047,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2146:0:95"
+              "src": "2146:0:117"
             },
-            "scope": 57758,
+            "scope": 52055,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 57757,
+            "id": 52054,
             "nodeType": "FunctionDefinition",
-            "src": "2249:53:95",
+            "src": "2249:53:117",
             "nodes": [],
             "documentation": {
-              "id": 57752,
+              "id": 52049,
               "nodeType": "StructuredDocumentation",
-              "src": "2200:44:95",
+              "src": "2200:44:117",
               "text": "@notice Heart beat frequency, in seconds"
             },
             "functionSelector": "ead50da3",
@@ -1136,26 +1135,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "frequency",
-            "nameLocation": "2258:9:95",
+            "nameLocation": "2258:9:117",
             "parameters": {
-              "id": 57753,
+              "id": 52050,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2267:2:95"
+              "src": "2267:2:117"
             },
             "returnParameters": {
-              "id": 57756,
+              "id": 52053,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 57755,
+                  "id": 52052,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 57757,
-                  "src": "2293:7:95",
+                  "scope": 52054,
+                  "src": "2293:7:117",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1163,10 +1162,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 57754,
+                    "id": 52051,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2293:7:95",
+                    "src": "2293:7:117",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1175,9 +1174,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2292:9:95"
+              "src": "2292:9:117"
             },
-            "scope": 57758,
+            "scope": 52055,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1190,20 +1189,20 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          57758
+          52055
         ],
         "name": "IHeart",
-        "nameLocation": "122:6:95",
-        "scope": 57759,
+        "nameLocation": "122:6:117",
+        "scope": 52056,
         "usedErrors": [
-          57707,
-          57709,
-          57711,
-          57713
+          52004,
+          52006,
+          52008,
+          52010
         ]
       }
     ],
     "license": "AGPL-3.0"
   },
-  "id": 95
+  "id": 117
 }

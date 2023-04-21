@@ -303,7 +303,7 @@
     "requireRole(bytes32,address)": "d09a20c5",
     "saveRole(bytes32,address)": "656361ff"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"KernelAdapter_OnlyKernel\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"}],\"name\":\"Module_PolicyNotPermitted\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ROLES_AddressAlreadyHasRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ROLES_AddressDoesNotHaveRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ROLES_InvalidRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ROLES_RequireRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ROLES_RoleDoesNotExist\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"INIT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"KEYCODE\",\"outputs\":[{\"internalType\":\"Keycode\",\"name\":\"\",\"type\":\"bytes5\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"major\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"minor\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"newKernel_\",\"type\":\"address\"}],\"name\":\"changeKernel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ensureValidRole\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"}],\"name\":\"removeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"requireRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"}],\"name\":\"saveRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"INIT()\":{\"details\":\"This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.\"},\"VERSION()\":{\"returns\":{\"major\":\"- Major version upgrade indicates breaking change to the interface.\",\"minor\":\"- Minor version change retains backward-compatible interface.\"}},\"requireRole(bytes32,address)\":{\"details\":\"Roles are defined in the policy and granted by the ROLES admin.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"INIT()\":{\"notice\":\"Initialization function for the module\"},\"KEYCODE()\":{\"notice\":\"5 byte identifier for a module.\"},\"VERSION()\":{\"notice\":\"Returns which semantic version of a module is being implemented.\"},\"changeKernel(address)\":{\"notice\":\"Function used by kernel when migrating to a new kernel.\"},\"ensureValidRole(bytes32)\":{\"notice\":\"Function that checks if role is valid (all lower case)\"},\"hasRole(address,bytes32)\":{\"notice\":\"Mapping for if an address has a policy-defined role.\"},\"removeRole(bytes32,address)\":{\"notice\":\"Function to revoke policy-defined roles from some address. Can only be called by admin.\"},\"requireRole(bytes32,address)\":{\"notice\":\"\\\"Modifier\\\" to restrict policy function access to certain addresses with a role.\"},\"saveRole(bytes32,address)\":{\"notice\":\"Function to grant policy-defined roles to some address. Can only be called by admin.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/modules/ROLES/ROLES.v1.sol\":\"ROLESv1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"src/Kernel.sol\":{\"keccak256\":\"0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5\",\"dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab\"]},\"src/modules/ROLES/ROLES.v1.sol\":{\"keccak256\":\"0x9adeb15569648e1dc977b5ae44d48ce79a63790625510a616b37df9d9e093985\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://d16866adf6987025ea2f89c1e20613a5df351eaeb46d6b0fc5caf88d41734300\",\"dweb:/ipfs/QmZbRoJcUhe4eUzYriPpGFx5NEbmh7Q2DZzrgYLanvqYKd\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"KernelAdapter_OnlyKernel\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"}],\"name\":\"Module_PolicyNotPermitted\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ROLES_AddressAlreadyHasRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ROLES_AddressDoesNotHaveRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ROLES_InvalidRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ROLES_RequireRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ROLES_RoleDoesNotExist\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"INIT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"KEYCODE\",\"outputs\":[{\"internalType\":\"Keycode\",\"name\":\"\",\"type\":\"bytes5\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"major\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"minor\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"newKernel_\",\"type\":\"address\"}],\"name\":\"changeKernel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"}],\"name\":\"ensureValidRole\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"}],\"name\":\"removeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"requireRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role_\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"addr_\",\"type\":\"address\"}],\"name\":\"saveRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"INIT()\":{\"details\":\"This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.\"},\"VERSION()\":{\"returns\":{\"major\":\"- Major version upgrade indicates breaking change to the interface.\",\"minor\":\"- Minor version change retains backward-compatible interface.\"}},\"requireRole(bytes32,address)\":{\"details\":\"Roles are defined in the policy and granted by the ROLES admin.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"INIT()\":{\"notice\":\"Initialization function for the module\"},\"KEYCODE()\":{\"notice\":\"5 byte identifier for a module.\"},\"VERSION()\":{\"notice\":\"Returns which semantic version of a module is being implemented.\"},\"changeKernel(address)\":{\"notice\":\"Function used by kernel when migrating to a new kernel.\"},\"ensureValidRole(bytes32)\":{\"notice\":\"Function that checks if role is valid (all lower case)\"},\"hasRole(address,bytes32)\":{\"notice\":\"Mapping for if an address has a policy-defined role.\"},\"removeRole(bytes32,address)\":{\"notice\":\"Function to revoke policy-defined roles from some address. Can only be called by admin.\"},\"requireRole(bytes32,address)\":{\"notice\":\"\\\"Modifier\\\" to restrict policy function access to certain addresses with a role.\"},\"saveRole(bytes32,address)\":{\"notice\":\"Function to grant policy-defined roles to some address. Can only be called by admin.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/modules/ROLES/ROLES.v1.sol\":\"ROLESv1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":20000},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"src/Kernel.sol\":{\"keccak256\":\"0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5\",\"dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab\"]},\"src/modules/ROLES/ROLES.v1.sol\":{\"keccak256\":\"0x9adeb15569648e1dc977b5ae44d48ce79a63790625510a616b37df9d9e093985\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://d16866adf6987025ea2f89c1e20613a5df351eaeb46d6b0fc5caf88d41734300\",\"dweb:/ipfs/QmZbRoJcUhe4eUzYriPpGFx5NEbmh7Q2DZzrgYLanvqYKd\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.15+commit.e14f2714"
@@ -649,14 +649,13 @@
         ":interfaces/=src/interfaces/",
         ":libraries/=src/libraries/",
         ":modules/=src/modules/",
-        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
         ":policies/=src/policies/",
         ":solmate/=lib/solmate/src/",
         ":test/=src/test/"
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 10
+        "runs": 20000
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -688,61 +687,61 @@
   },
   "ast": {
     "absolutePath": "src/modules/ROLES/ROLES.v1.sol",
-    "id": 46574,
+    "id": 40871,
     "exportedSymbols": {
       "Actions": [
-        29387
+        28348
       ],
       "Instruction": [
-        29393
+        28354
       ],
       "InvalidKeycode": [
-        29410
+        28371
       ],
       "Kernel": [
-        30536
+        29497
       ],
       "KernelAdapter": [
-        29551
+        28512
       ],
       "Keycode": [
-        29401
+        28362
       ],
       "Module": [
-        29616
+        28577
       ],
       "Permissions": [
-        29399
+        28360
       ],
       "Policy": [
-        29698
+        28659
       ],
       "ROLESv1": [
-        46573
+        40870
       ],
       "TargetNotAContract": [
-        29405
+        28366
       ],
       "ensureContract": [
-        29454
+        28415
       ],
       "ensureValidKeycode": [
-        29499
+        28460
       ],
       "fromKeycode": [
-        29438
+        28399
       ],
       "toKeycode": [
-        29424
+        28385
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "42:1539:77",
+    "src": "42:1539:99",
     "nodes": [
       {
-        "id": 46496,
+        "id": 40793,
         "nodeType": "PragmaDirective",
-        "src": "42:23:77",
+        "src": "42:23:99",
         "nodes": [],
         "literals": [
           "solidity",
@@ -751,46 +750,46 @@
         ]
       },
       {
-        "id": 46497,
+        "id": 40794,
         "nodeType": "ImportDirective",
-        "src": "67:24:77",
+        "src": "67:24:99",
         "nodes": [],
         "absolutePath": "src/Kernel.sol",
         "file": "src/Kernel.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 46574,
-        "sourceUnit": 30537,
+        "scope": 40871,
+        "sourceUnit": 29498,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 46573,
+        "id": 40870,
         "nodeType": "ContractDefinition",
-        "src": "93:1487:77",
+        "src": "93:1487:99",
         "nodes": [
           {
-            "id": 46505,
+            "id": 40802,
             "nodeType": "EventDefinition",
-            "src": "174:64:77",
+            "src": "174:64:99",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "2ae6a113c0ed5b78a53413ffbb7679881f11145ccfba4fb92e863dfcd5a1d2f3",
             "name": "RoleGranted",
-            "nameLocation": "180:11:77",
+            "nameLocation": "180:11:99",
             "parameters": {
-              "id": 46504,
+              "id": 40801,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46501,
+                  "id": 40798,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "208:5:77",
+                  "nameLocation": "208:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46505,
-                  "src": "192:21:77",
+                  "scope": 40802,
+                  "src": "192:21:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -798,10 +797,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46500,
+                    "id": 40797,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "192:7:77",
+                    "src": "192:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -811,14 +810,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46503,
+                  "id": 40800,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "addr_",
-                  "nameLocation": "231:5:77",
+                  "nameLocation": "231:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46505,
-                  "src": "215:21:77",
+                  "scope": 40802,
+                  "src": "215:21:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -826,10 +825,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46502,
+                    "id": 40799,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "215:7:77",
+                    "src": "215:7:99",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -839,32 +838,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "191:46:77"
+              "src": "191:46:99"
             }
           },
           {
-            "id": 46511,
+            "id": 40808,
             "nodeType": "EventDefinition",
-            "src": "243:64:77",
+            "src": "243:64:99",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "155aaafb6329a2098580462df33ec4b7441b19729b9601c5fc17ae1cf99a8a52",
             "name": "RoleRevoked",
-            "nameLocation": "249:11:77",
+            "nameLocation": "249:11:99",
             "parameters": {
-              "id": 46510,
+              "id": 40807,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46507,
+                  "id": 40804,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "277:5:77",
+                  "nameLocation": "277:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46511,
-                  "src": "261:21:77",
+                  "scope": 40808,
+                  "src": "261:21:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -872,10 +871,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46506,
+                    "id": 40803,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "261:7:77",
+                    "src": "261:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -885,14 +884,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46509,
+                  "id": 40806,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "addr_",
-                  "nameLocation": "300:5:77",
+                  "nameLocation": "300:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46511,
-                  "src": "284:21:77",
+                  "scope": 40808,
+                  "src": "284:21:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -900,10 +899,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46508,
+                    "id": 40805,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "284:7:77",
+                    "src": "284:7:99",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -913,30 +912,30 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "260:46:77"
+              "src": "260:46:99"
             }
           },
           {
-            "id": 46515,
+            "id": 40812,
             "nodeType": "ErrorDefinition",
-            "src": "352:39:77",
+            "src": "352:39:99",
             "nodes": [],
             "errorSelector": "0eebce88",
             "name": "ROLES_InvalidRole",
-            "nameLocation": "358:17:77",
+            "nameLocation": "358:17:99",
             "parameters": {
-              "id": 46514,
+              "id": 40811,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46513,
+                  "id": 40810,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "384:5:77",
+                  "nameLocation": "384:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46515,
-                  "src": "376:13:77",
+                  "scope": 40812,
+                  "src": "376:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -944,10 +943,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46512,
+                    "id": 40809,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "376:7:77",
+                    "src": "376:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -956,30 +955,30 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "375:15:77"
+              "src": "375:15:99"
             }
           },
           {
-            "id": 46519,
+            "id": 40816,
             "nodeType": "ErrorDefinition",
-            "src": "396:39:77",
+            "src": "396:39:99",
             "nodes": [],
             "errorSelector": "7de30f41",
             "name": "ROLES_RequireRole",
-            "nameLocation": "402:17:77",
+            "nameLocation": "402:17:99",
             "parameters": {
-              "id": 46518,
+              "id": 40815,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46517,
+                  "id": 40814,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "428:5:77",
+                  "nameLocation": "428:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46519,
-                  "src": "420:13:77",
+                  "scope": 40816,
+                  "src": "420:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -987,10 +986,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46516,
+                    "id": 40813,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "420:7:77",
+                    "src": "420:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -999,30 +998,30 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "419:15:77"
+              "src": "419:15:99"
             }
           },
           {
-            "id": 46525,
+            "id": 40822,
             "nodeType": "ErrorDefinition",
-            "src": "440:64:77",
+            "src": "440:64:99",
             "nodes": [],
             "errorSelector": "bfa0c124",
             "name": "ROLES_AddressAlreadyHasRole",
-            "nameLocation": "446:27:77",
+            "nameLocation": "446:27:99",
             "parameters": {
-              "id": 46524,
+              "id": 40821,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46521,
+                  "id": 40818,
                   "mutability": "mutable",
                   "name": "addr_",
-                  "nameLocation": "482:5:77",
+                  "nameLocation": "482:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46525,
-                  "src": "474:13:77",
+                  "scope": 40822,
+                  "src": "474:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1030,10 +1029,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46520,
+                    "id": 40817,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "474:7:77",
+                    "src": "474:7:99",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1044,13 +1043,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46523,
+                  "id": 40820,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "497:5:77",
+                  "nameLocation": "497:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46525,
-                  "src": "489:13:77",
+                  "scope": 40822,
+                  "src": "489:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1058,10 +1057,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46522,
+                    "id": 40819,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "489:7:77",
+                    "src": "489:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1070,30 +1069,30 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "473:30:77"
+              "src": "473:30:99"
             }
           },
           {
-            "id": 46531,
+            "id": 40828,
             "nodeType": "ErrorDefinition",
-            "src": "509:65:77",
+            "src": "509:65:99",
             "nodes": [],
             "errorSelector": "b2a720cc",
             "name": "ROLES_AddressDoesNotHaveRole",
-            "nameLocation": "515:28:77",
+            "nameLocation": "515:28:99",
             "parameters": {
-              "id": 46530,
+              "id": 40827,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46527,
+                  "id": 40824,
                   "mutability": "mutable",
                   "name": "addr_",
-                  "nameLocation": "552:5:77",
+                  "nameLocation": "552:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46531,
-                  "src": "544:13:77",
+                  "scope": 40828,
+                  "src": "544:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1101,10 +1100,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46526,
+                    "id": 40823,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "544:7:77",
+                    "src": "544:7:99",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1115,13 +1114,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46529,
+                  "id": 40826,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "567:5:77",
+                  "nameLocation": "567:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46531,
-                  "src": "559:13:77",
+                  "scope": 40828,
+                  "src": "559:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1129,10 +1128,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46528,
+                    "id": 40825,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "559:7:77",
+                    "src": "559:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1141,30 +1140,30 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "543:30:77"
+              "src": "543:30:99"
             }
           },
           {
-            "id": 46535,
+            "id": 40832,
             "nodeType": "ErrorDefinition",
-            "src": "579:44:77",
+            "src": "579:44:99",
             "nodes": [],
             "errorSelector": "bd5b069c",
             "name": "ROLES_RoleDoesNotExist",
-            "nameLocation": "585:22:77",
+            "nameLocation": "585:22:99",
             "parameters": {
-              "id": 46534,
+              "id": 40831,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46533,
+                  "id": 40830,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "616:5:77",
+                  "nameLocation": "616:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46535,
-                  "src": "608:13:77",
+                  "scope": 40832,
+                  "src": "608:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1172,10 +1171,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46532,
+                    "id": 40829,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "608:7:77",
+                    "src": "608:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1184,26 +1183,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "607:15:77"
+              "src": "607:15:99"
             }
           },
           {
-            "id": 46542,
+            "id": 40839,
             "nodeType": "VariableDeclaration",
-            "src": "736:59:77",
+            "src": "736:59:99",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 46536,
+              "id": 40833,
               "nodeType": "StructuredDocumentation",
-              "src": "667:64:77",
+              "src": "667:64:99",
               "text": "@notice Mapping for if an address has a policy-defined role."
             },
             "functionSelector": "ac4ab3fb",
             "mutability": "mutable",
             "name": "hasRole",
-            "nameLocation": "788:7:77",
-            "scope": 46573,
+            "nameLocation": "788:7:99",
+            "scope": 40870,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1211,46 +1210,46 @@
               "typeString": "mapping(address => mapping(bytes32 => bool))"
             },
             "typeName": {
-              "id": 46541,
+              "id": 40838,
               "keyType": {
-                "id": 46537,
+                "id": 40834,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "744:7:77",
+                "src": "744:7:99",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "736:44:77",
+              "src": "736:44:99",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_bytes32_$_t_bool_$_$",
                 "typeString": "mapping(address => mapping(bytes32 => bool))"
               },
               "valueType": {
-                "id": 46540,
+                "id": 40837,
                 "keyType": {
-                  "id": 46538,
+                  "id": 40835,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "763:7:77",
+                  "src": "763:7:99",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
                   }
                 },
                 "nodeType": "Mapping",
-                "src": "755:24:77",
+                "src": "755:24:99",
                 "typeDescriptions": {
                   "typeIdentifier": "t_mapping$_t_bytes32_$_t_bool_$",
                   "typeString": "mapping(bytes32 => bool)"
                 },
                 "valueType": {
-                  "id": 46539,
+                  "id": 40836,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "774:4:77",
+                  "src": "774:4:99",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1261,14 +1260,14 @@
             "visibility": "public"
           },
           {
-            "id": 46550,
+            "id": 40847,
             "nodeType": "FunctionDefinition",
-            "src": "945:65:77",
+            "src": "945:65:99",
             "nodes": [],
             "documentation": {
-              "id": 46543,
+              "id": 40840,
               "nodeType": "StructuredDocumentation",
-              "src": "844:96:77",
+              "src": "844:96:99",
               "text": "@notice Function to grant policy-defined roles to some address. Can only be called by admin."
             },
             "functionSelector": "656361ff",
@@ -1276,20 +1275,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "saveRole",
-            "nameLocation": "954:8:77",
+            "nameLocation": "954:8:99",
             "parameters": {
-              "id": 46548,
+              "id": 40845,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46545,
+                  "id": 40842,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "971:5:77",
+                  "nameLocation": "971:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46550,
-                  "src": "963:13:77",
+                  "scope": 40847,
+                  "src": "963:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1297,10 +1296,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46544,
+                    "id": 40841,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "963:7:77",
+                    "src": "963:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1310,13 +1309,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46547,
+                  "id": 40844,
                   "mutability": "mutable",
                   "name": "addr_",
-                  "nameLocation": "986:5:77",
+                  "nameLocation": "986:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46550,
-                  "src": "978:13:77",
+                  "scope": 40847,
+                  "src": "978:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1324,10 +1323,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46546,
+                    "id": 40843,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "978:7:77",
+                    "src": "978:7:99",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1337,28 +1336,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "962:30:77"
+              "src": "962:30:99"
             },
             "returnParameters": {
-              "id": 46549,
+              "id": 40846,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1009:0:77"
+              "src": "1009:0:99"
             },
-            "scope": 46573,
+            "scope": 40870,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46558,
+            "id": 40855,
             "nodeType": "FunctionDefinition",
-            "src": "1120:67:77",
+            "src": "1120:67:99",
             "nodes": [],
             "documentation": {
-              "id": 46551,
+              "id": 40848,
               "nodeType": "StructuredDocumentation",
-              "src": "1016:99:77",
+              "src": "1016:99:99",
               "text": "@notice Function to revoke policy-defined roles from some address. Can only be called by admin."
             },
             "functionSelector": "f6ba0007",
@@ -1366,20 +1365,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "removeRole",
-            "nameLocation": "1129:10:77",
+            "nameLocation": "1129:10:99",
             "parameters": {
-              "id": 46556,
+              "id": 40853,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46553,
+                  "id": 40850,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "1148:5:77",
+                  "nameLocation": "1148:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46558,
-                  "src": "1140:13:77",
+                  "scope": 40855,
+                  "src": "1140:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1387,10 +1386,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46552,
+                    "id": 40849,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1140:7:77",
+                    "src": "1140:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1400,13 +1399,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46555,
+                  "id": 40852,
                   "mutability": "mutable",
                   "name": "addr_",
-                  "nameLocation": "1163:5:77",
+                  "nameLocation": "1163:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46558,
-                  "src": "1155:13:77",
+                  "scope": 40855,
+                  "src": "1155:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1414,10 +1413,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46554,
+                    "id": 40851,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1155:7:77",
+                    "src": "1155:7:99",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1427,28 +1426,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1139:30:77"
+              "src": "1139:30:99"
             },
             "returnParameters": {
-              "id": 46557,
+              "id": 40854,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1186:0:77"
+              "src": "1186:0:99"
             },
-            "scope": 46573,
+            "scope": 40870,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46566,
+            "id": 40863,
             "nodeType": "FunctionDefinition",
-            "src": "1369:70:77",
+            "src": "1369:70:99",
             "nodes": [],
             "documentation": {
-              "id": 46559,
+              "id": 40856,
               "nodeType": "StructuredDocumentation",
-              "src": "1193:171:77",
+              "src": "1193:171:99",
               "text": "@notice \"Modifier\" to restrict policy function access to certain addresses with a role.\n @dev    Roles are defined in the policy and granted by the ROLES admin."
             },
             "functionSelector": "d09a20c5",
@@ -1456,20 +1455,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "requireRole",
-            "nameLocation": "1378:11:77",
+            "nameLocation": "1378:11:99",
             "parameters": {
-              "id": 46564,
+              "id": 40861,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46561,
+                  "id": 40858,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "1398:5:77",
+                  "nameLocation": "1398:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46566,
-                  "src": "1390:13:77",
+                  "scope": 40863,
+                  "src": "1390:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1477,10 +1476,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46560,
+                    "id": 40857,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1390:7:77",
+                    "src": "1390:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1490,13 +1489,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46563,
+                  "id": 40860,
                   "mutability": "mutable",
                   "name": "caller_",
-                  "nameLocation": "1413:7:77",
+                  "nameLocation": "1413:7:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46566,
-                  "src": "1405:15:77",
+                  "scope": 40863,
+                  "src": "1405:15:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1504,10 +1503,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46562,
+                    "id": 40859,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1405:7:77",
+                    "src": "1405:7:99",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1517,28 +1516,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1389:32:77"
+              "src": "1389:32:99"
             },
             "returnParameters": {
-              "id": 46565,
+              "id": 40862,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1438:0:77"
+              "src": "1438:0:99"
             },
-            "scope": 46573,
+            "scope": 40870,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 46572,
+            "id": 40869,
             "nodeType": "FunctionDefinition",
-            "src": "1516:62:77",
+            "src": "1516:62:99",
             "nodes": [],
             "documentation": {
-              "id": 46567,
+              "id": 40864,
               "nodeType": "StructuredDocumentation",
-              "src": "1445:66:77",
+              "src": "1445:66:99",
               "text": "@notice Function that checks if role is valid (all lower case)"
             },
             "functionSelector": "40e312f8",
@@ -1546,20 +1545,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "ensureValidRole",
-            "nameLocation": "1525:15:77",
+            "nameLocation": "1525:15:99",
             "parameters": {
-              "id": 46570,
+              "id": 40867,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46569,
+                  "id": 40866,
                   "mutability": "mutable",
                   "name": "role_",
-                  "nameLocation": "1549:5:77",
+                  "nameLocation": "1549:5:99",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46572,
-                  "src": "1541:13:77",
+                  "scope": 40869,
+                  "src": "1541:13:99",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1567,10 +1566,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46568,
+                    "id": 40865,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1541:7:77",
+                    "src": "1541:7:99",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1579,15 +1578,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1540:15:77"
+              "src": "1540:15:99"
             },
             "returnParameters": {
-              "id": 46571,
+              "id": 40868,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1577:0:77"
+              "src": "1577:0:99"
             },
-            "scope": 46573,
+            "scope": 40870,
             "stateMutability": "pure",
             "virtual": true,
             "visibility": "external"
@@ -1597,15 +1596,15 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 46498,
+              "id": 40795,
               "name": "Module",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 29616,
-              "src": "122:6:77"
+              "referencedDeclaration": 28577,
+              "src": "122:6:99"
             },
-            "id": 46499,
+            "id": 40796,
             "nodeType": "InheritanceSpecifier",
-            "src": "122:6:77"
+            "src": "122:6:99"
           }
         ],
         "canonicalName": "ROLESv1",
@@ -1613,25 +1612,25 @@
         "contractKind": "contract",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          46573,
-          29616,
-          29551
+          40870,
+          28577,
+          28512
         ],
         "name": "ROLESv1",
-        "nameLocation": "111:7:77",
-        "scope": 46574,
+        "nameLocation": "111:7:99",
+        "scope": 40871,
         "usedErrors": [
-          29504,
-          29558,
-          46515,
-          46519,
-          46525,
-          46531,
-          46535
+          28465,
+          28519,
+          40812,
+          40816,
+          40822,
+          40828,
+          40832
         ]
       }
     ],
     "license": "AGPL-3.0-only"
   },
-  "id": 77
+  "id": 99
 }

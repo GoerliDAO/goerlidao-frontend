@@ -20,9 +20,11 @@ export const OP_BOND_DEPOSITORY_ADDRESSES = {
   [NetworkId.LOCALHOST]: "",
 };
 
-// export const OHM_DAI_LP_ADDRESSES = {
-//   [NetworkId.MAINNET]: "0x055475920a8c93CfFb64d039A8205F7AcC7722d3",
-// };
+export const DAO_TREASURY_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "0x6e36b2f9f2BcC273f090ff049952Fa4B5Cc67567",
+  [NetworkId.TESTNET_SEPOLIA]: "",
+  [NetworkId.LOCALHOST]: "",
+};
 
 // export const OHM_DAI_LP_ADDRESSES = {
 //   [NetworkId.TESTNET_SEPOLIA]: "0x055475920a8c93CfFb64d039A8205F7AcC7722d3",
@@ -95,10 +97,10 @@ export const SGDAO_ADDRESSES = {
 //   [NetworkId.TESTNET_SEPOLIA]: "0x252d447c54F33e033AD04048baEAdE7628cB1274",
 // };
 
-export const ZAP_ADDRESSES = {
-  [NetworkId.TESTNET_SEPOLIA]: "",
-  [NetworkId.TESTNET_GOERLI]: "",
-};
+// export const ZAP_ADDRESSES = {
+//   [NetworkId.TESTNET_SEPOLIA]: "0x6F5CC3EDEa92AB52b75bad50Bcf4C6daa781B87e",
+//   [NetworkId.TESTNET_GOERLI]: "",
+// };
 
 // export const PT_PRIZE_POOL_ADDRESSES = {
 //   [NetworkId.TESTNET_SEPOLIA]: "0xEaB695A8F5a44f583003A8bC97d677880D528248",
@@ -135,14 +137,6 @@ export const DEV_FAUCET = {
   [NetworkId.TESTNET_SEPOLIA]: "0xfFCD4EE7E1c294617074B747a6DDF4B3473F4721",
   [NetworkId.LOCALHOST]: "",
 };
-
-// export const VOTES_ADDRESSES = {
-//   [NetworkId.TESTNET_GOERLI]: "",
-//   [NetworkId.MAINNET]: "",
-//   [NetworkId.LOCALHOST]: "",
-// };
-
-// Policies
 
 export const BOND_AGGREGATOR_ADDRESSES = {
   [NetworkId.TESTNET_SEPOLIA]: "0xfc7724823061ce89d9514267de048dedae852dc6",

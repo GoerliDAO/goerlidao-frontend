@@ -48,33 +48,6 @@ export const XGDAO_TOKEN = new Token({
   purchaseUrl: "",
 });
 
-// export const V1_OHM_TOKEN = new Token({
-//   icons: ["OHM"],
-//   name: "OHM (v1)",
-//   decimals: 9,
-//   addresses: V1_OHM_ADDRESSES,
-//   factory: IERC20__factory,
-//   purchaseUrl: "",
-// });
-
-// export const V1_SOHM_TOKEN = new Token({
-//   icons: ["sOHM"],
-//   name: "sOHM (v1)",
-//   decimals: 9,
-//   addresses: V1_SOHM_ADDRESSES,
-//   factory: IERC20__factory,
-//   purchaseUrl: "",
-// });
-
-// export const WSOHM_TOKEN = new Token({
-//   icons: ["wsOHM"],
-//   name: "wsOHM",
-//   decimals: 18,
-//   addresses: WSOHM_ADDRESSES,
-//   factory: IERC20__factory,
-//   purchaseUrl: "",
-// });
-
 export const WETH_TOKEN = new Token({
   icons: ["wETH"],
   name: "WETH",

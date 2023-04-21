@@ -235,7 +235,7 @@
     "storedInstructions(uint256,uint256)": "8ba639a4",
     "totalInstructions()": "6eaadfc7"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"INSTR_InstructionsCannotBeEmpty\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"INSTR_InvalidAction\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"KernelAdapter_OnlyKernel\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"}],\"name\":\"Module_PolicyNotPermitted\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"instructionsId\",\"type\":\"uint256\"}],\"name\":\"InstructionsStored\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"INIT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"KEYCODE\",\"outputs\":[{\"internalType\":\"Keycode\",\"name\":\"\",\"type\":\"bytes5\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"major\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"minor\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"newKernel_\",\"type\":\"address\"}],\"name\":\"changeKernel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"instructionsId_\",\"type\":\"uint256\"}],\"name\":\"getInstructions\",\"outputs\":[{\"components\":[{\"internalType\":\"enum Actions\",\"name\":\"action\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"internalType\":\"struct Instruction[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"enum Actions\",\"name\":\"action\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"internalType\":\"struct Instruction[]\",\"name\":\"instructions_\",\"type\":\"tuple[]\"}],\"name\":\"store\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"storedInstructions\",\"outputs\":[{\"internalType\":\"enum Actions\",\"name\":\"action\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalInstructions\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"INIT()\":{\"details\":\"This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.\"},\"VERSION()\":{\"returns\":{\"major\":\"- Major version upgrade indicates breaking change to the interface.\",\"minor\":\"- Minor version change retains backward-compatible interface.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"INIT()\":{\"notice\":\"Initialization function for the module\"},\"KEYCODE()\":{\"notice\":\"5 byte identifier for a module.\"},\"VERSION()\":{\"notice\":\"Returns which semantic version of a module is being implemented.\"},\"changeKernel(address)\":{\"notice\":\"Function used by kernel when migrating to a new kernel.\"},\"getInstructions(uint256)\":{\"notice\":\"View function for retrieving a list of Instructions in an outside contract.\"},\"store((uint8,address)[])\":{\"notice\":\"Store a list of Instructions to be executed in the future.\"},\"storedInstructions(uint256,uint256)\":{\"notice\":\"All stored instructions per count in totalInstructions\"},\"totalInstructions()\":{\"notice\":\"Counter of total instructions\"}},\"notice\":\"Caches and executes batched instructions for protocol upgrades in the Kernel.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/modules/INSTR/INSTR.v1.sol\":\"INSTRv1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"src/Kernel.sol\":{\"keccak256\":\"0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5\",\"dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab\"]},\"src/modules/INSTR/INSTR.v1.sol\":{\"keccak256\":\"0xc929ce0db190ec074c64890d4e16b055c2a388599eee521f3ca0233dea5666d3\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://56e080c61b2bd742cf64354c35149fdc4eed9286e072175e2290d77a9a2021ec\",\"dweb:/ipfs/QmbJ15oSJczHvciyPazaVFtYCjACWtGsDdRMf2v8YUcSiT\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"INSTR_InstructionsCannotBeEmpty\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"INSTR_InvalidAction\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"KernelAdapter_OnlyKernel\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"}],\"name\":\"Module_PolicyNotPermitted\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"instructionsId\",\"type\":\"uint256\"}],\"name\":\"InstructionsStored\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"INIT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"KEYCODE\",\"outputs\":[{\"internalType\":\"Keycode\",\"name\":\"\",\"type\":\"bytes5\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"major\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"minor\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"newKernel_\",\"type\":\"address\"}],\"name\":\"changeKernel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"instructionsId_\",\"type\":\"uint256\"}],\"name\":\"getInstructions\",\"outputs\":[{\"components\":[{\"internalType\":\"enum Actions\",\"name\":\"action\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"internalType\":\"struct Instruction[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"enum Actions\",\"name\":\"action\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"internalType\":\"struct Instruction[]\",\"name\":\"instructions_\",\"type\":\"tuple[]\"}],\"name\":\"store\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"storedInstructions\",\"outputs\":[{\"internalType\":\"enum Actions\",\"name\":\"action\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalInstructions\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"INIT()\":{\"details\":\"This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.\"},\"VERSION()\":{\"returns\":{\"major\":\"- Major version upgrade indicates breaking change to the interface.\",\"minor\":\"- Minor version change retains backward-compatible interface.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"INIT()\":{\"notice\":\"Initialization function for the module\"},\"KEYCODE()\":{\"notice\":\"5 byte identifier for a module.\"},\"VERSION()\":{\"notice\":\"Returns which semantic version of a module is being implemented.\"},\"changeKernel(address)\":{\"notice\":\"Function used by kernel when migrating to a new kernel.\"},\"getInstructions(uint256)\":{\"notice\":\"View function for retrieving a list of Instructions in an outside contract.\"},\"store((uint8,address)[])\":{\"notice\":\"Store a list of Instructions to be executed in the future.\"},\"storedInstructions(uint256,uint256)\":{\"notice\":\"All stored instructions per count in totalInstructions\"},\"totalInstructions()\":{\"notice\":\"Counter of total instructions\"}},\"notice\":\"Caches and executes batched instructions for protocol upgrades in the Kernel.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/modules/INSTR/INSTR.v1.sol\":\"INSTRv1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":20000},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"src/Kernel.sol\":{\"keccak256\":\"0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5\",\"dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab\"]},\"src/modules/INSTR/INSTR.v1.sol\":{\"keccak256\":\"0xc929ce0db190ec074c64890d4e16b055c2a388599eee521f3ca0233dea5666d3\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://56e080c61b2bd742cf64354c35149fdc4eed9286e072175e2290d77a9a2021ec\",\"dweb:/ipfs/QmbJ15oSJczHvciyPazaVFtYCjACWtGsDdRMf2v8YUcSiT\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.15+commit.e14f2714"
@@ -512,14 +512,13 @@
         ":interfaces/=src/interfaces/",
         ":libraries/=src/libraries/",
         ":modules/=src/modules/",
-        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
         ":policies/=src/policies/",
         ":solmate/=lib/solmate/src/",
         ":test/=src/test/"
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 10
+        "runs": 20000
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -551,61 +550,61 @@
   },
   "ast": {
     "absolutePath": "src/modules/INSTR/INSTR.v1.sol",
-    "id": 44044,
+    "id": 38341,
     "exportedSymbols": {
       "Actions": [
-        29387
+        28348
       ],
       "INSTRv1": [
-        44043
+        38340
       ],
       "Instruction": [
-        29393
+        28354
       ],
       "InvalidKeycode": [
-        29410
+        28371
       ],
       "Kernel": [
-        30536
+        29497
       ],
       "KernelAdapter": [
-        29551
+        28512
       ],
       "Keycode": [
-        29401
+        28362
       ],
       "Module": [
-        29616
+        28577
       ],
       "Permissions": [
-        29399
+        28360
       ],
       "Policy": [
-        29698
+        28659
       ],
       "TargetNotAContract": [
-        29405
+        28366
       ],
       "ensureContract": [
-        29454
+        28415
       ],
       "ensureValidKeycode": [
-        29499
+        28460
       ],
       "fromKeycode": [
-        29438
+        28399
       ],
       "toKeycode": [
-        29424
+        28385
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "42:1083:69",
+    "src": "42:1083:91",
     "nodes": [
       {
-        "id": 44000,
+        "id": 38297,
         "nodeType": "PragmaDirective",
-        "src": "42:23:69",
+        "src": "42:23:91",
         "nodes": [],
         "literals": [
           "solidity",
@@ -614,46 +613,46 @@
         ]
       },
       {
-        "id": 44001,
+        "id": 38298,
         "nodeType": "ImportDirective",
-        "src": "67:24:69",
+        "src": "67:24:91",
         "nodes": [],
         "absolutePath": "src/Kernel.sol",
         "file": "src/Kernel.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 44044,
-        "sourceUnit": 30537,
+        "scope": 38341,
+        "sourceUnit": 29498,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 44043,
+        "id": 38340,
         "nodeType": "ContractDefinition",
-        "src": "183:941:69",
+        "src": "183:941:91",
         "nodes": [
           {
-            "id": 44008,
+            "id": 38305,
             "nodeType": "EventDefinition",
-            "src": "264:49:69",
+            "src": "264:49:91",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "786456549a8048fc360b44d675c164244436ef1e5048c3aecea4d160400fd001",
             "name": "InstructionsStored",
-            "nameLocation": "270:18:69",
+            "nameLocation": "270:18:91",
             "parameters": {
-              "id": 44007,
+              "id": 38304,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 44006,
+                  "id": 38303,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "instructionsId",
-                  "nameLocation": "297:14:69",
+                  "nameLocation": "297:14:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 44008,
-                  "src": "289:22:69",
+                  "scope": 38305,
+                  "src": "289:22:91",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -661,10 +660,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 44005,
+                    "id": 38302,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "289:7:69",
+                    "src": "289:7:91",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -673,56 +672,56 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "288:24:69"
+              "src": "288:24:91"
             }
           },
           {
-            "id": 44010,
+            "id": 38307,
             "nodeType": "ErrorDefinition",
-            "src": "358:40:69",
+            "src": "358:40:91",
             "nodes": [],
             "errorSelector": "3f6c6e99",
             "name": "INSTR_InstructionsCannotBeEmpty",
-            "nameLocation": "364:31:69",
+            "nameLocation": "364:31:91",
             "parameters": {
-              "id": 44009,
+              "id": 38306,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "395:2:69"
+              "src": "395:2:91"
             }
           },
           {
-            "id": 44012,
+            "id": 38309,
             "nodeType": "ErrorDefinition",
-            "src": "403:28:69",
+            "src": "403:28:91",
             "nodes": [],
             "errorSelector": "515b07cd",
             "name": "INSTR_InvalidAction",
-            "nameLocation": "409:19:69",
+            "nameLocation": "409:19:91",
             "parameters": {
-              "id": 44011,
+              "id": 38308,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "428:2:69"
+              "src": "428:2:91"
             }
           },
           {
-            "id": 44015,
+            "id": 38312,
             "nodeType": "VariableDeclaration",
-            "src": "521:32:69",
+            "src": "521:32:91",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 44013,
+              "id": 38310,
               "nodeType": "StructuredDocumentation",
-              "src": "475:41:69",
+              "src": "475:41:91",
               "text": "@notice Counter of total instructions"
             },
             "functionSelector": "6eaadfc7",
             "mutability": "mutable",
             "name": "totalInstructions",
-            "nameLocation": "536:17:69",
-            "scope": 44043,
+            "nameLocation": "536:17:91",
+            "scope": 38340,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -730,10 +729,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 44014,
+              "id": 38311,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "521:7:69",
+              "src": "521:7:91",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -742,69 +741,69 @@
             "visibility": "public"
           },
           {
-            "id": 44022,
+            "id": 38319,
             "nodeType": "VariableDeclaration",
-            "src": "631:59:69",
+            "src": "631:59:91",
             "nodes": [],
             "constant": false,
             "documentation": {
-              "id": 44016,
+              "id": 38313,
               "nodeType": "StructuredDocumentation",
-              "src": "560:66:69",
+              "src": "560:66:91",
               "text": "@notice All stored instructions per count in totalInstructions"
             },
             "functionSelector": "8ba639a4",
             "mutability": "mutable",
             "name": "storedInstructions",
-            "nameLocation": "672:18:69",
-            "scope": 44043,
+            "nameLocation": "672:18:91",
+            "scope": 38340,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Instruction_$29393_storage_$dyn_storage_$",
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Instruction_$28354_storage_$dyn_storage_$",
               "typeString": "mapping(uint256 => struct Instruction[])"
             },
             "typeName": {
-              "id": 44021,
+              "id": 38318,
               "keyType": {
-                "id": 44017,
+                "id": 38314,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "639:7:69",
+                "src": "639:7:91",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "631:33:69",
+              "src": "631:33:91",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Instruction_$29393_storage_$dyn_storage_$",
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Instruction_$28354_storage_$dyn_storage_$",
                 "typeString": "mapping(uint256 => struct Instruction[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 44019,
+                  "id": 38316,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 44018,
+                    "id": 38315,
                     "name": "Instruction",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 29393,
-                    "src": "650:11:69"
+                    "referencedDeclaration": 28354,
+                    "src": "650:11:91"
                   },
-                  "referencedDeclaration": 29393,
-                  "src": "650:11:69",
+                  "referencedDeclaration": 28354,
+                  "src": "650:11:91",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Instruction_$29393_storage_ptr",
+                    "typeIdentifier": "t_struct$_Instruction_$28354_storage_ptr",
                     "typeString": "struct Instruction"
                   }
                 },
-                "id": 44020,
+                "id": 38317,
                 "nodeType": "ArrayTypeName",
-                "src": "650:13:69",
+                "src": "650:13:91",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_array$_t_struct$_Instruction_$29393_storage_$dyn_storage_ptr",
+                  "typeIdentifier": "t_array$_t_struct$_Instruction_$28354_storage_$dyn_storage_ptr",
                   "typeString": "struct Instruction[]"
                 }
               }
@@ -812,14 +811,14 @@
             "visibility": "public"
           },
           {
-            "id": 44032,
+            "id": 38329,
             "nodeType": "FunctionDefinition",
-            "src": "831:122:69",
+            "src": "831:122:91",
             "nodes": [],
             "documentation": {
-              "id": 44023,
+              "id": 38320,
               "nodeType": "StructuredDocumentation",
-              "src": "739:87:69",
+              "src": "739:87:91",
               "text": "@notice View function for retrieving a list of Instructions in an outside contract."
             },
             "functionSelector": "f19928c0",
@@ -827,20 +826,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "getInstructions",
-            "nameLocation": "840:15:69",
+            "nameLocation": "840:15:91",
             "parameters": {
-              "id": 44026,
+              "id": 38323,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 44025,
+                  "id": 38322,
                   "mutability": "mutable",
                   "name": "instructionsId_",
-                  "nameLocation": "864:15:69",
+                  "nameLocation": "864:15:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 44032,
-                  "src": "856:23:69",
+                  "scope": 38329,
+                  "src": "856:23:91",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -848,10 +847,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 44024,
+                    "id": 38321,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "856:7:69",
+                    "src": "856:7:91",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -860,72 +859,72 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "855:25:69"
+              "src": "855:25:91"
             },
             "returnParameters": {
-              "id": 44031,
+              "id": 38328,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 44030,
+                  "id": 38327,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 44032,
-                  "src": "931:20:69",
+                  "scope": 38329,
+                  "src": "931:20:91",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Instruction_$29393_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Instruction_$28354_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct Instruction[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 44028,
+                      "id": 38325,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 44027,
+                        "id": 38324,
                         "name": "Instruction",
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 29393,
-                        "src": "931:11:69"
+                        "referencedDeclaration": 28354,
+                        "src": "931:11:91"
                       },
-                      "referencedDeclaration": 29393,
-                      "src": "931:11:69",
+                      "referencedDeclaration": 28354,
+                      "src": "931:11:91",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Instruction_$29393_storage_ptr",
+                        "typeIdentifier": "t_struct$_Instruction_$28354_storage_ptr",
                         "typeString": "struct Instruction"
                       }
                     },
-                    "id": 44029,
+                    "id": 38326,
                     "nodeType": "ArrayTypeName",
-                    "src": "931:13:69",
+                    "src": "931:13:91",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Instruction_$29393_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Instruction_$28354_storage_$dyn_storage_ptr",
                       "typeString": "struct Instruction[]"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "930:22:69"
+              "src": "930:22:91"
             },
-            "scope": 44043,
+            "scope": 38340,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
-            "id": 44042,
+            "id": 38339,
             "nodeType": "FunctionDefinition",
-            "src": "1034:88:69",
+            "src": "1034:88:91",
             "nodes": [],
             "documentation": {
-              "id": 44033,
+              "id": 38330,
               "nodeType": "StructuredDocumentation",
-              "src": "959:70:69",
+              "src": "959:70:91",
               "text": "@notice Store a list of Instructions to be executed in the future."
             },
             "functionSelector": "b1d85eec",
@@ -933,70 +932,70 @@
             "kind": "function",
             "modifiers": [],
             "name": "store",
-            "nameLocation": "1043:5:69",
+            "nameLocation": "1043:5:91",
             "parameters": {
-              "id": 44038,
+              "id": 38335,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 44037,
+                  "id": 38334,
                   "mutability": "mutable",
                   "name": "instructions_",
-                  "nameLocation": "1072:13:69",
+                  "nameLocation": "1072:13:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 44042,
-                  "src": "1049:36:69",
+                  "scope": 38339,
+                  "src": "1049:36:91",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Instruction_$29393_calldata_ptr_$dyn_calldata_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Instruction_$28354_calldata_ptr_$dyn_calldata_ptr",
                     "typeString": "struct Instruction[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 44035,
+                      "id": 38332,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 44034,
+                        "id": 38331,
                         "name": "Instruction",
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 29393,
-                        "src": "1049:11:69"
+                        "referencedDeclaration": 28354,
+                        "src": "1049:11:91"
                       },
-                      "referencedDeclaration": 29393,
-                      "src": "1049:11:69",
+                      "referencedDeclaration": 28354,
+                      "src": "1049:11:91",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Instruction_$29393_storage_ptr",
+                        "typeIdentifier": "t_struct$_Instruction_$28354_storage_ptr",
                         "typeString": "struct Instruction"
                       }
                     },
-                    "id": 44036,
+                    "id": 38333,
                     "nodeType": "ArrayTypeName",
-                    "src": "1049:13:69",
+                    "src": "1049:13:91",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Instruction_$29393_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Instruction_$28354_storage_$dyn_storage_ptr",
                       "typeString": "struct Instruction[]"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1048:38:69"
+              "src": "1048:38:91"
             },
             "returnParameters": {
-              "id": 44041,
+              "id": 38338,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 44040,
+                  "id": 38337,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 44042,
-                  "src": "1113:7:69",
+                  "scope": 38339,
+                  "src": "1113:7:91",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1004,10 +1003,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 44039,
+                    "id": 38336,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1113:7:69",
+                    "src": "1113:7:91",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1016,9 +1015,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1112:9:69"
+              "src": "1112:9:91"
             },
-            "scope": 44043,
+            "scope": 38340,
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
@@ -1028,44 +1027,44 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 44003,
+              "id": 38300,
               "name": "Module",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 29616,
-              "src": "212:6:69"
+              "referencedDeclaration": 28577,
+              "src": "212:6:91"
             },
-            "id": 44004,
+            "id": 38301,
             "nodeType": "InheritanceSpecifier",
-            "src": "212:6:69"
+            "src": "212:6:91"
           }
         ],
         "canonicalName": "INSTRv1",
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 44002,
+          "id": 38299,
           "nodeType": "StructuredDocumentation",
-          "src": "93:90:69",
+          "src": "93:90:91",
           "text": "@notice Caches and executes batched instructions for protocol upgrades in the Kernel."
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          44043,
-          29616,
-          29551
+          38340,
+          28577,
+          28512
         ],
         "name": "INSTRv1",
-        "nameLocation": "201:7:69",
-        "scope": 44044,
+        "nameLocation": "201:7:91",
+        "scope": 38341,
         "usedErrors": [
-          29504,
-          29558,
-          44010,
-          44012
+          28465,
+          28519,
+          38307,
+          38309
         ]
       }
     ],
     "license": "AGPL-3.0-only"
   },
-  "id": 69
+  "id": 91
 }
