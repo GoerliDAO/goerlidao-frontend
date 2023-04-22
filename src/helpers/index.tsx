@@ -2,7 +2,7 @@ import { BigNumber, BigNumberish } from "@ethersproject/bignumber";
 import { formatUnits } from "@ethersproject/units";
 import axios from "axios";
 import { NetworkId } from "src/constants";
-import { OHM_DAI_LP_TOKEN } from "src/constants/tokens";
+import { GDAO_WETH_LP_TOKEN } from "src/constants/tokens";
 import { Environment } from "src/helpers/environment/Environment/Environment";
 
 /**
@@ -10,7 +10,7 @@ import { Environment } from "src/helpers/environment/Environment/Environment";
  * @returns Number like 333.33
  */
 export async function getMarketPrice() {
-  const contract = OHM_DAI_LP_TOKEN.getEthersContract(NetworkId.MAINNET);
+  const contract = GDAO_WETH_LP_TOKEN.getEthersContract(NetworkId.TESTNET_GOERLI);
   const reserves = await contract.getReserves();
 
   return Number(reserves[1].toString()) / Number(reserves[0].toString()) / 10 ** 9;

@@ -14,7 +14,7 @@ import {
 // import { useOldAssetsDetected } from "src/hooks/useOldAssetsDetected";
 // import { useOldAssetsEnoughToMigrate } from "src/hooks/useOldAssetsEnoughToMigrate";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
-import { Stake, V1Stake } from "src/views";
+import { Stake /*, V1Stake */ } from "src/views";
 
 export const StakeVersionContainer: React.FC<{ setMigrationModalOpen: Dispatch<SetStateAction<boolean>> }> = props => {
   // const oldAssetsDetected = useOldAssetsDetected();
@@ -35,10 +35,10 @@ export const StakeVersionContainer: React.FC<{ setMigrationModalOpen: Dispatch<S
   const totalXgdaoBalance = xgdaoTokens
     .filter(nonNullable)
     .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
-  const newAssetsDetected = Number(totalXgdaoBalance) || Number(sGdaoBalance) || Number(gdaoBalance);
+  // const newAssetsDetected = Number(totalXgdaoBalance) || Number(sGdaoBalance) || Number(gdaoBalance);
 
   // if (newAssetsDetected || (!newAssetsDetected && !oldAssetsDetected) || !oldAssetsEnoughToMigrate) return <Stake />;
-  if (newAssetsDetected) return <Stake />;
+  /* if (newAssetsDetected) */ return <Stake />;
 
-  return <V1Stake setMigrationModalOpen={props.setMigrationModalOpen} />;
+  // return <V1Stake setMigrationModalOpen={props.setMigrationModalOpen} />;
 };

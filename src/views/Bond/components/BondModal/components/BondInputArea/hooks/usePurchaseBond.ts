@@ -6,7 +6,7 @@ import {
   BOND_DEPOSITORY_CONTRACT,
   BOND_FIXED_EXPIRY_TELLER,
   BOND_FIXED_TERM_TELLER,
-  OP_BOND_DEPOSITORY_CONTRACT,
+  // OP_BOND_DEPOSITORY_CONTRACT,
 } from "src/constants/contracts";
 import { trackGAEvent, trackGtagEvent } from "src/helpers/analytics/trackGAEvent";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
@@ -77,17 +77,17 @@ export const usePurchaseBond = (bond: Bond) => {
         .div(bond.price.inBaseToken)
         .mul(new DecimalBigNumber("1").sub(slippageAsPercent));
 
-      if (isInverseBond && !bond.isV3Bond) {
-        const transaction = await OP_BOND_DEPOSITORY_CONTRACT.getEthersContract(networks.MAINNET)
-          .connect(signer)
-          .deposit(
-            bond.id,
-            [parsedAmount.toBigNumber(), minAmountOut.toBigNumber(bond.baseToken.decimals)],
-            [recipientAddress, referrer],
-          );
+      // if (isInverseBond && !bond.isV3Bond) {
+      //   const transaction = await OP_BOND_DEPOSITORY_CONTRACT.getEthersContract(networks.MAINNET)
+      //     .connect(signer)
+      //     .deposit(
+      //       bond.id,
+      //       [parsedAmount.toBigNumber(), minAmountOut.toBigNumber(bond.baseToken.decimals)],
+      //       [recipientAddress, referrer],
+      //     );
 
-        return transaction.wait();
-      }
+      //   return transaction.wait();
+      // }
       //TODO: V3 Bond only supports Fixed Expiry. Not tested for fixed term/ERC-1155
       if (bond.isV3Bond) {
         const bondContract = bond.isFixedTerm ? BOND_FIXED_TERM_TELLER : BOND_FIXED_EXPIRY_TELLER;

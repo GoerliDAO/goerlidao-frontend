@@ -1,10 +1,10 @@
 import { QueryKey, useQuery } from "@tanstack/react-query";
 import { NetworkId } from "src/constants";
-import { OHM_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES } from "src/constants/addresses";
 import {
   BOND_AGGREGATOR_CONTRACT,
   BOND_DEPOSITORY_CONTRACT,
-  OP_BOND_DEPOSITORY_CONTRACT,
+  // OP_BOND_DEPOSITORY_CONTRACT,
 } from "src/constants/contracts";
 import { getQueryData } from "src/helpers/react-query/getQueryData";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
@@ -13,7 +13,7 @@ import { bondV3QueryKey, fetchBondV3 } from "src/views/Bond/hooks/useBondV3";
 
 export interface UseLiveBondsOptions {
   isInverseBond: boolean;
-  networkId: NetworkId.MAINNET | NetworkId.TESTNET_GOERLI;
+  networkId: NetworkId.TESTNET_SEPOLIA | NetworkId.TESTNET_GOERLI;
 }
 
 export const liveBondsQueryKey = (options: UseLiveBondsOptions): QueryKey => ["useLiveBonds", options];
@@ -32,9 +32,11 @@ export const useLiveBondsV3 = ({ isInverseBond = false }: { isInverseBond?: bool
 
 export const fetchLiveBonds = async ({ networkId, isInverseBond }: UseLiveBondsOptions) => {
   console.debug("Fetching v2 bonds");
-  const contract = isInverseBond
-    ? OP_BOND_DEPOSITORY_CONTRACT.getEthersContract(networkId)
-    : BOND_DEPOSITORY_CONTRACT.getEthersContract(networkId);
+  const contract =
+    //  isInverseBond
+    // ? OP_BOND_DEPOSITORY_CONTRACT.getEthersContract(networkId)
+    // :
+    BOND_DEPOSITORY_CONTRACT.getEthersContract(networkId);
 
   const markets = await contract.liveMarkets().then(ids => ids.map(id => id.toString()));
 
@@ -54,7 +56,7 @@ export const fetchLiveBondsV3 = async ({ networkId, isInverseBond }: UseLiveBond
   const contract = BOND_AGGREGATOR_CONTRACT.getEthersContract(networkId);
 
   const markets = await contract
-    .liveMarketsFor(OHM_ADDRESSES[networkId], isInverseBond ? false : true)
+    .liveMarketsFor(GDAO_ADDRESSES[networkId], isInverseBond ? false : true)
     .then(ids => ids.map(id => id.toString()));
   const promises = await Promise.allSettled(
     markets

@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { BigNumber } from "ethers";
 import { EthereumNetwork, NetworkId } from "src/constants";
-import { BOND_DEPOSITORY_CONTRACT, OP_BOND_DEPOSITORY_CONTRACT } from "src/constants/contracts";
+import { BOND_DEPOSITORY_CONTRACT /*OP_BOND_DEPOSITORY_CONTRACT */ } from "src/constants/contracts";
+// import { BOND_DEPOSITORY_CONTRACT } from "src/constants/contracts";
+import { GDAO_TOKEN } from "src/constants/tokens";
 import { getTokenByAddress } from "src/helpers/contracts/getTokenByAddress";
 import { Token } from "src/helpers/contracts/Token";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
@@ -81,23 +83,25 @@ export const useBond = ({ id, isInverseBond = false }: Omit<UseBondOptions, "net
 };
 
 export const fetchBond = async ({ id, isInverseBond, networkId }: UseBondOptions) => {
-  const contract = isInverseBond
-    ? OP_BOND_DEPOSITORY_CONTRACT.getEthersContract(networkId)
-    : BOND_DEPOSITORY_CONTRACT.getEthersContract(networkId);
+  const contract =
+    // isInverseBond
+    // ? (OP_BOND_DEPOSITORY_CONTRACT.getEthersContract(networkId))
+    // :
+    BOND_DEPOSITORY_CONTRACT.getEthersContract(networkId);
 
   const [terms, market] = await Promise.all([contract.terms(id), contract.markets(id)]);
 
   const baseToken = isInverseBond
     ? await getTokenByAddress({ address: (market as any).baseToken, networkId })
-    : OHM_TOKEN;
+    : GDAO_TOKEN;
   assert(baseToken, `Unknown base token address: ${(market as any).baseToken}`);
 
-  const quoteToken = isInverseBond ? OHM_TOKEN : await getTokenByAddress({ address: market.quoteToken, networkId });
+  const quoteToken = isInverseBond ? GDAO_TOKEN : await getTokenByAddress({ address: market.quoteToken, networkId });
   assert(quoteToken, `Unknown quote token address: ${market.quoteToken}`);
 
   const [baseTokenPerUsd, quoteTokenPerUsd, quoteTokenPerBaseToken] = await Promise.all([
-    baseToken.getPrice(NetworkId.MAINNET),
-    quoteToken.getPrice(NetworkId.MAINNET),
+    baseToken.getPrice(NetworkId.TESTNET_GOERLI),
+    quoteToken.getPrice(NetworkId.TESTNET_GOERLI),
     contract.marketPrice(id).then(price => new DecimalBigNumber(price, baseToken.decimals)),
   ]);
 

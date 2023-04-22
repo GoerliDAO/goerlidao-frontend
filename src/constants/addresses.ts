@@ -3,7 +3,7 @@ import { NetworkId } from "src/constants";
 export type AddressMap = Partial<Record<NetworkId, string>>;
 
 export const STAKING_ADDRESSES = {
-  [NetworkId.TESTNET_GOERLI]: "0x7263372b9ff6E619d8774aEB046cE313677E2Ec7",
+  [NetworkId.TESTNET_GOERLI]: "0xe50186c29e2e8bedb78edbe8940176b19a959f7a",
   [NetworkId.TESTNET_SEPOLIA]: "0x2daba5d558088f874110dbda520717d6c1947f42",
   [NetworkId.LOCALHOST]: "",
 };
@@ -26,9 +26,9 @@ export const DAO_TREASURY_ADDRESSES = {
   [NetworkId.LOCALHOST]: "",
 };
 
-// export const OHM_DAI_LP_ADDRESSES = {
-//   [NetworkId.TESTNET_SEPOLIA]: "0x055475920a8c93CfFb64d039A8205F7AcC7722d3",
-// };
+export const GDAO_WETH_LP_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+};
 
 // export const OHM_DAI_BALANCER_LP_ADDRESSES = {
 //   [NetworkId.TESTNET_SEPOLIA]: "0x76fcf0e8c7ff37a47a799fa2cd4c13cde0d981c9",
@@ -70,7 +70,7 @@ export const XGDAO_ADDRESSES = {
 };
 
 export const GDAO_ADDRESSES = {
-  [NetworkId.TESTNET_GOERLI]: "0x0595328847AF962F951a4f8F8eE9A3Bf261e4f6b",
+  [NetworkId.TESTNET_GOERLI]: "0xba7cac3e2a1391bb9d5edfd64793ccd4fd29dc09", //TGD
   [NetworkId.TESTNET_SEPOLIA]: "0x9523d80e515960a26cB787C5809CCF68ddAbCBDb",
   [NetworkId.LOCALHOST]: "",
 };
@@ -97,10 +97,10 @@ export const SGDAO_ADDRESSES = {
 //   [NetworkId.TESTNET_SEPOLIA]: "0x252d447c54F33e033AD04048baEAdE7628cB1274",
 // };
 
-// export const ZAP_ADDRESSES = {
-//   [NetworkId.TESTNET_SEPOLIA]: "0x6F5CC3EDEa92AB52b75bad50Bcf4C6daa781B87e",
-//   [NetworkId.TESTNET_GOERLI]: "",
-// };
+export const ZAP_ADDRESSES = {
+  [NetworkId.TESTNET_SEPOLIA]: "0x6F5CC3EDEa92AB52b75bad50Bcf4C6daa781B87e",
+  [NetworkId.TESTNET_GOERLI]: "",
+};
 
 // export const PT_PRIZE_POOL_ADDRESSES = {
 //   [NetworkId.TESTNET_SEPOLIA]: "0xEaB695A8F5a44f583003A8bC97d677880D528248",
@@ -113,6 +113,10 @@ export const SGDAO_ADDRESSES = {
 // export const BALANCER_VAULT_ADDRESSSES = {
 //   [NetworkId.TESTNET_SEPOLIA]: "0xba12222222228d8ba445958a75a0704d566bf2c8",
 // };
+
+export const MIGRATOR_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+};
 
 export const RANGE_OPERATOR_ADDRESSES = {
   [NetworkId.TESTNET_SEPOLIA]: "0x1Ce568DbB34B2631aCDB5B453c3195EA0070EC65",

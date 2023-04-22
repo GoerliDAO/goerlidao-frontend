@@ -93,4 +93,3 @@ export const useXgdaoBalance = () => useBalance(XGDAO_ADDRESSES);
 // export const useV1OhmBalance = () => useBalance(V1_OHM_ADDRESSES);
 // export const useV1SohmBalance = () => useBalance(V1_SOHM_ADDRESSES);
 // export const useGohmTokemakBalance = () => useBalance(GOHM_TOKEMAK_ADDRESSES);
-// export const useGohmTokemakBalance = () => useBalance(GOHM_TOKEMAK_ADDRESSES);

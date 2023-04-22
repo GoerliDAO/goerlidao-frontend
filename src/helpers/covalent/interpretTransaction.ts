@@ -2,12 +2,12 @@ import { BigNumber } from "ethers";
 import { NetworkId } from "src/constants";
 import {
   BOND_DEPOSITORY_ADDRESSES,
-  FIATDAO_WSOHM_ADDRESSES,
-  FUSE_POOL_6_ADDRESSES,
-  FUSE_POOL_18_ADDRESSES,
-  FUSE_POOL_36_ADDRESSES,
-  MIGRATOR_ADDRESSES,
-  PT_PRIZE_POOL_ADDRESSES,
+  // FIATDAO_WSOHM_ADDRESSES,
+  // FUSE_POOL_6_ADDRESSES,
+  // FUSE_POOL_18_ADDRESSES,
+  // FUSE_POOL_36_ADDRESSES,
+  // MIGRATOR_ADDRESSES,
+  // PT_PRIZE_POOL_ADDRESSES,
   STAKING_ADDRESSES,
   ZAP_ADDRESSES,
 } from "src/constants/addresses";
@@ -58,7 +58,7 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
     }
 
     if (isContract(STAKING_ADDRESSES, transaction.to_address)) {
-      if (isContract(STAKING_ADDRESSES, first.decoded.params[0].value) && isContract(OHM_TOKEN, first.sender_address))
+      if (isContract(STAKING_ADDRESSES, first.decoded.params[0].value) && isContract(GDAO_TOKEN, first.sender_address))
         results.push({
           token: GDAO_TOKEN,
           transaction,
@@ -85,65 +85,65 @@ export const interpretTransaction = (transactions: CovalentTransaction[], addres
         value: new DecimalBigNumber(BigNumber.from(second.decoded.params[2].value), second.sender_contract_decimals),
       });
 
-    if (isContract(MIGRATOR_ADDRESSES, transaction.to_address))
-      results.push({
-        token: GDAO_TOKEN,
-        transaction,
-        type: "migration",
-        details: "Migration",
-        value: new DecimalBigNumber(BigNumber.from(first.decoded.params[2].value), first.sender_contract_decimals),
-      });
+    // if (isContract(MIGRATOR_ADDRESSES, transaction.to_address))
+    //   results.push({
+    //     token: GDAO_TOKEN,
+    //     transaction,
+    //     type: "migration",
+    //     details: "Migration",
+    //     value: new DecimalBigNumber(BigNumber.from(first.decoded.params[2].value), first.sender_contract_decimals),
+    //   });
 
-    if (isContract(PT_PRIZE_POOL_ADDRESSES, transaction.to_address))
-      results.push({
-        token: GDAO_TOKEN,
-        transaction,
-        type: "33together",
-        details: "33Together Claim",
-        value: new DecimalBigNumber(BigNumber.from(second.decoded.params[2].value), second.sender_contract_decimals),
-      });
+    // if (isContract(PT_PRIZE_POOL_ADDRESSES, transaction.to_address))
+    //   results.push({
+    //     token: GDAO_TOKEN,
+    //     transaction,
+    //     type: "33together",
+    //     details: "33Together Claim",
+    //     value: new DecimalBigNumber(BigNumber.from(second.decoded.params[2].value), second.sender_contract_decimals),
+    //   });
 
-    if (isContract(FUSE_POOL_36_ADDRESSES, transaction.to_address)) {
-      const event = transaction.log_events.filter((event: { decoded: { name: string }; sender_address: string }) => {
-        return (
-          event.decoded.name == "Transfer" &&
-          isContract(FUSE_POOL_36_ADDRESSES, event.sender_address) &&
-          isContract(FUSE_POOL_18_ADDRESSES, event.sender_address) &&
-          isContract(FUSE_POOL_6_ADDRESSES, event.sender_address)
-        );
-      });
+    // if (isContract(FUSE_POOL_36_ADDRESSES, transaction.to_address)) {
+    //   const event = transaction.log_events.filter((event: { decoded: { name: string }; sender_address: string }) => {
+    //     return (
+    //       event.decoded.name == "Transfer" &&
+    //       isContract(FUSE_POOL_36_ADDRESSES, event.sender_address) &&
+    //       isContract(FUSE_POOL_18_ADDRESSES, event.sender_address) &&
+    //       isContract(FUSE_POOL_6_ADDRESSES, event.sender_address)
+    //     );
+    //   });
 
-      results.push({
-        token: GDAO_TOKEN,
-        transaction,
-        type: "borrow",
-        details: "Supply to Fuse",
-        value: new DecimalBigNumber(
-          BigNumber.from(event[0]?.decoded.params[2].value),
-          event[0]?.sender_contract_decimals,
-        ),
-      });
-    }
-
-    if (isContract(FIATDAO_WSOHM_ADDRESSES, transaction.to_address)) {
-      if (isContract(FIATDAO_WSOHM_ADDRESSES, first.sender_address))
-        results.push({
-          token: GDAO_TOKEN,
-          transaction,
-          type: "staking",
-          details: "FiatDAO Withdraw",
-          value: new DecimalBigNumber(BigNumber.from(first.decoded.params[2].value), second.sender_contract_decimals),
-        });
-      else
-        results.push({
-          token: GDAO_TOKEN,
-          transaction,
-          type: "staking",
-          details: "FiatDAO Deposit",
-          value: new DecimalBigNumber(BigNumber.from(first.decoded.params[2].value), second.sender_contract_decimals),
-        });
-    }
+    results.push({
+      token: GDAO_TOKEN,
+      transaction,
+      type: "borrow",
+      details: "Supply to Fuse",
+      value: new DecimalBigNumber(
+        BigNumber.from(event[0]?.decoded.params[2].value),
+        event[0]?.sender_contract_decimals,
+      ),
+    });
   }
+
+  // if (isContract(FIATDAO_WSOHM_ADDRESSES, transaction.to_address)) {
+  //   if (isContract(FIATDAO_WSOHM_ADDRESSES, first.sender_address))
+  //     results.push({
+  //       token: GDAO_TOKEN,
+  //       transaction,
+  //       type: "staking",
+  //       details: "FiatDAO Withdraw",
+  //       value: new DecimalBigNumber(BigNumber.from(first.decoded.params[2].value), second.sender_contract_decimals),
+  //     });
+  //   else
+  //     results.push({
+  //       token: GDAO_TOKEN,
+  //       transaction,
+  //       type: "staking",
+  //       details: "FiatDAO Deposit",
+  //       value: new DecimalBigNumber(BigNumber.from(first.decoded.params[2].value), second.sender_contract_decimals),
+  //     });
+  // }
+  // }
 
   return results;
 };

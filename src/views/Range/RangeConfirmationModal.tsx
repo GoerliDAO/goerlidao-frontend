@@ -5,7 +5,7 @@ import { useIsMutating } from "@tanstack/react-query";
 import { BigNumber } from "ethers";
 import { useEffect, useState } from "react";
 import { TokenAllowanceGuard } from "src/components/TokenAllowanceGuard/TokenAllowanceGuard";
-import { OHM_ADDRESSES, RANGE_OPERATOR_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES, RANGE_OPERATOR_ADDRESSES } from "src/constants/addresses";
 import { formatNumber } from "src/helpers";
 import { BondSettingsModal } from "src/views/Bond/components/BondModal/components/BondSettingsModal";
 import { BondTellerAddress, RangeSwap } from "src/views/Range/hooks";
@@ -134,7 +134,7 @@ const RangeConfirmationModal = (props: {
               for swapping.
             </>
           }
-          tokenAddressMap={props.sellActive ? OHM_ADDRESSES : { [chain.id]: props.reserveAddress }}
+          tokenAddressMap={props.sellActive ? GDAO_ADDRESSES : { [chain.id]: props.reserveAddress }}
           spenderAddressMap={props.contract === "bond" ? { [chain.id]: tellerAddress } : RANGE_OPERATOR_ADDRESSES}
           approvalText={`Approve ${props.sellActive ? "OHM" : props.reserveSymbol} for Swap`}
         >
@@ -167,7 +167,7 @@ const RangeConfirmationModal = (props: {
               rangeSwap.mutate({
                 market: props.market,
                 tokenAddress: props.sellActive
-                  ? OHM_ADDRESSES[chain.id as keyof typeof OHM_ADDRESSES]
+                  ? GDAO_ADDRESSES[chain.id as keyof typeof GDAO_ADDRESSES]
                   : props.reserveAddress,
                 amount: props.sellActive ? props.ohmAmount : props.reserveAmount,
                 swapType: props.contract,

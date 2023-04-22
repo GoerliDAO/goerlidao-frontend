@@ -153,7 +153,10 @@ const TokenPrice: React.VFC<{ token: Token; isInverseBond?: boolean; baseSymbol:
   quoteSymbol,
   baseSymbol,
 }) => {
-  const { data: priceToken = new DecimalBigNumber("0") } = useTokenPrice({ token, networkId: NetworkId.MAINNET });
+  const { data: priceToken = new DecimalBigNumber("0") } = useTokenPrice({
+    token,
+    networkId: NetworkId.TESTNET_GOERLI,
+  });
   const { data: gdaoPrice = 0 } = useGdaoPrice();
   const sameToken = quoteSymbol === baseSymbol;
   const price = sameToken

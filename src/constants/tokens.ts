@@ -4,6 +4,7 @@ import {
   GDAO_ADDRESSES,
   // OHM_DAI_BALANCER_LP_ADDRESSES,
   // OHM_DAI_LP_ADDRESSES,
+  GDAO_WETH_LP_ADDRESSES,
   SGDAO_ADDRESSES,
   // UST_ADDRESSES,
   // V1_OHM_ADDRESSES,
@@ -18,14 +19,14 @@ import {
 import { Token } from "src/helpers/contracts/Token";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { NetworkId } from "src/networkDetails";
-import { IERC20__factory } from "src/typechain_goerli/factories";
+import { IERC20__factory, IGDAO__factory, IUniswapV2Pair__factory } from "src/typechain_goerli/factories";
 
 export const GDAO_TOKEN = new Token({
   icons: ["GDAO"],
   name: "GDAO",
   decimals: 9,
   addresses: GDAO_ADDRESSES,
-  factory: IERC20__factory,
+  factory: IGDAO__factory,
   purchaseUrl: "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
 });
 
@@ -63,6 +64,15 @@ export const DAI_TOKEN = new Token({
   decimals: 18,
   addresses: DAI_ADDRESSES,
   factory: IERC20__factory,
+  purchaseUrl: "",
+});
+
+export const GDAO_WETH_LP_TOKEN = new Token({
+  icons: ["GDAO", "WETH"],
+  name: "GDAO-WETH",
+  decimals: 18,
+  addresses: GDAO_WETH_LP_ADDRESSES,
+  factory: IUniswapV2Pair__factory,
   purchaseUrl: "",
 });
 
@@ -106,8 +116,8 @@ TEST_DAI_TOKEN.customPricingFunc = async () => {
   return new DecimalBigNumber("1", 18);
 };
 
-// OHM_DAI_LP_TOKEN.customPricingFunc = networkId =>
-//   calculateUniOrSushiLPValue({ networkId, lpToken: OHM_DAI_LP_TOKEN, poolTokens: [OHM_TOKEN, DAI_TOKEN] });
+GDAO_WETH_LP_TOKEN.customPricingFunc = networkId =>
+  calculateUniOrSushiLPValue({ networkId, lpToken: GDAO_WETH_LP_TOKEN, poolTokens: [GDAO_TOKEN, WETH_TOKEN] });
 
 // export const OHM_DAI_BALANCER_LP_TOKEN = new Token({
 //   decimals: 18,

@@ -1,21 +1,23 @@
 import { createAsyncThunk, createSelector, createSlice } from "@reduxjs/toolkit";
 import { BigNumber, ethers } from "ethers";
 import {
-  GOHM_ADDRESSES,
-  MIGRATOR_ADDRESSES,
-  OHM_ADDRESSES,
+  // MIGRATOR_ADDRESSES,
+  GDAO_ADDRESSES,
   STAKING_ADDRESSES,
-  V1_OHM_ADDRESSES,
-  V1_SOHM_ADDRESSES,
-  V1_STAKING_ADDRESSES,
-  V1_STAKING_HELPER_ADDRESSES,
-  WSOHM_ADDRESSES,
+  XGDAO_ADDRESSES,
+  // V1_OHM_ADDRESSES,
+  // V1_SOHM_ADDRESSES,
+  // V1_STAKING_ADDRESSES,
+  // V1_STAKING_HELPER_ADDRESSES,
+  // WSOHM_ADDRESSES,
 } from "src/constants/addresses";
 import { handleContractError, setAll } from "src/helpers";
 import { IBaseAddressAsyncThunk } from "src/slices/interfaces";
 import { RootState } from "src/store";
-import { IERC20__factory, WsOHM__factory } from "src/typechain";
-import { GOHM__factory } from "src/typechain/factories/GOHM__factory";
+// import { IERC20__factory, WsOHM__factory } from "src/typechain";
+// import { GOHM__factory } from "src/typechain/factories/GOHM__factory";
+import { IERC20__factory } from "src/typechain_goerli/factories";
+import { XGDAO__factory } from "src/typechain_goerli/factories/xGDAOERC20.sol/XGDAO__factory";
 
 interface IUserBalances {
   balances: {
@@ -28,42 +30,42 @@ interface IUserBalances {
 export const getBalances = createAsyncThunk(
   "account/getBalances",
   async ({ address, networkID, provider }: IBaseAddressAsyncThunk): Promise<IUserBalances> => {
-    let ohmBalance = BigNumber.from("0");
-    let sohmBalance = BigNumber.from("0");
-    let wsohmBalance = BigNumber.from("0");
+    let gdaoBalance = BigNumber.from("0");
+    let sgdaoBalance = BigNumber.from("0");
+    // let wsohmBalance = BigNumber.from("0");
+    // try {
+    //   const wsohmContract = WsOHM__factory.connect(
+    //     WSOHM_ADDRESSES[networkID as keyof typeof WSOHM_ADDRESSES],
+    //     provider,
+    //   );
+    //   wsohmBalance = await wsohmContract.balanceOf(address);
+    // } catch (e) {
+    //   handleContractError(e);
+    // }
     try {
-      const wsohmContract = WsOHM__factory.connect(
-        WSOHM_ADDRESSES[networkID as keyof typeof WSOHM_ADDRESSES],
-        provider,
-      );
-      wsohmBalance = await wsohmContract.balanceOf(address);
-    } catch (e) {
-      handleContractError(e);
-    }
-    try {
-      const ohmContract = IERC20__factory.connect(
+      const gdaoContract = IERC20__factory.connect(
         V1_OHM_ADDRESSES[networkID as keyof typeof V1_OHM_ADDRESSES],
         provider,
       );
-      ohmBalance = await ohmContract.balanceOf(address);
+      gdaoBalance = await gdaoContract.balanceOf(address);
     } catch (e) {
       handleContractError(e);
     }
     try {
-      const sohmContract = IERC20__factory.connect(
+      const sgdaoContract = IERC20__factory.connect(
         V1_SOHM_ADDRESSES[networkID as keyof typeof V1_SOHM_ADDRESSES],
         provider,
       );
-      sohmBalance = await sohmContract.balanceOf(address);
+      sgdaoBalance = await sgdaoContract.balanceOf(address);
     } catch (e) {
       handleContractError(e);
     }
 
     return {
       balances: {
-        ohmV1: ethers.utils.formatUnits(ohmBalance, "gwei"),
-        sohmV1: ethers.utils.formatUnits(sohmBalance, "gwei"),
-        wsohm: ethers.utils.formatEther(wsohmBalance),
+        ohmV1: ethers.utils.formatUnits(gdaoBalance, "gwei"),
+        sohmV1: ethers.utils.formatUnits(sgdaoBalance, "gwei"),
+        // wsohm: ethers.utils.formatEther(wsohmBalance),
       },
     };
   },
@@ -135,10 +137,10 @@ export const getMigrationAllowances = createAsyncThunk(
       }
     }
 
-    if (GOHM_ADDRESSES[networkID as keyof typeof GOHM_ADDRESSES]) {
+    if (XGDAO_ADDRESSES[networkID as keyof typeof XGDAO_ADDRESSES]) {
       try {
         const gOhmContract = IERC20__factory.connect(
-          GOHM_ADDRESSES[networkID as keyof typeof GOHM_ADDRESSES],
+          XGDAO_ADDRESSES[networkID as keyof typeof XGDAO_ADDRESSES],
           provider,
         );
         gOhmAllowance = await gOhmContract.allowance(
@@ -165,45 +167,48 @@ export const getMigrationAllowances = createAsyncThunk(
 export const loadAccountDetails = createAsyncThunk(
   "account/loadAccountDetails",
   async ({ networkID, provider, address }: IBaseAddressAsyncThunk, { dispatch }) => {
-    let stakeAllowance = BigNumber.from("0");
-    let unstakeAllowance = BigNumber.from("0");
-    let wrapAllowance = BigNumber.from("0");
+    const stakeAllowance = BigNumber.from("0");
+    const unstakeAllowance = BigNumber.from("0");
+    // let wrapAllowance = BigNumber.from("0");
     let gOhmUnwrapAllowance = BigNumber.from("0");
-    let wsOhmMigrateAllowance = BigNumber.from("0");
+    // let wsOhmMigrateAllowance = BigNumber.from("0");
 
     try {
-      const gOhmContract = GOHM__factory.connect(GOHM_ADDRESSES[networkID as keyof typeof GOHM_ADDRESSES], provider);
-      gOhmUnwrapAllowance = await gOhmContract.allowance(
+      const xGdaoContract = XGDAO__factory.connect(
+        XGDAO_ADDRESSES[networkID as keyof typeof XGDAO_ADDRESSES],
+        provider,
+      );
+      gOhmUnwrapAllowance = await xGdaoContract.allowance(
         address,
         STAKING_ADDRESSES[networkID as keyof typeof STAKING_ADDRESSES],
       );
 
-      const wsOhmContract = IERC20__factory.connect(
-        WSOHM_ADDRESSES[networkID as keyof typeof WSOHM_ADDRESSES],
-        provider,
-      );
-      wsOhmMigrateAllowance = await wsOhmContract.balanceOf(address);
+      // const wsOhmContract = IERC20__factory.connect(
+      //   WSOHM_ADDRESSES[networkID as keyof typeof WSOHM_ADDRESSES],
+      //   provider,
+      // );
+      // wsOhmMigrateAllowance = await wsOhmContract.balanceOf(address);
 
-      const ohmContract = IERC20__factory.connect(OHM_ADDRESSES[networkID as keyof typeof OHM_ADDRESSES], provider);
+      const gdaoContract = IERC20__factory.connect(GDAO_ADDRESSES[networkID as keyof typeof GDAO_ADDRESSES], provider);
 
-      stakeAllowance = await ohmContract.allowance(
-        address,
-        V1_STAKING_HELPER_ADDRESSES[networkID as keyof typeof V1_STAKING_HELPER_ADDRESSES],
-      );
+      // stakeAllowance = await ohmContract.allowance(
+      //   address,
+      //   V1_STAKING_HELPER_ADDRESSES[networkID as keyof typeof V1_STAKING_HELPER_ADDRESSES],
+      // );
 
-      const sohmContract = IERC20__factory.connect(
-        V1_SOHM_ADDRESSES[networkID as keyof typeof V1_SOHM_ADDRESSES],
-        provider,
-      );
+      //   const sgdaoContract = IERC20__factory.connect(
+      //     V1_SOHM_ADDRESSES[networkID as keyof typeof V1_SOHM_ADDRESSES],
+      //     provider,
+      //   );
 
-      unstakeAllowance = await sohmContract.allowance(
-        address,
-        V1_STAKING_ADDRESSES[networkID as keyof typeof V1_STAKING_ADDRESSES],
-      );
-      wrapAllowance = await sohmContract.allowance(
-        address,
-        STAKING_ADDRESSES[networkID as keyof typeof STAKING_ADDRESSES],
-      );
+      // unstakeAllowance = await sgdaoContract.allowance(
+      //   address,
+      //   V1_STAKING_ADDRESSES[networkID as keyof typeof V1_STAKING_ADDRESSES],
+      // );
+      //   wrapAllowance = await sgdaoContract.allowance(
+      //     address,
+      //     STAKING_ADDRESSES[networkID as keyof typeof STAKING_ADDRESSES],
+      //   );
     } catch (e) {
       handleContractError(e);
     }
@@ -214,11 +219,11 @@ export const loadAccountDetails = createAsyncThunk(
         ohmStakeV1: +stakeAllowance,
         ohmUnstakeV1: +unstakeAllowance,
       },
-      wrapping: {
-        sohmWrap: Number(ethers.utils.formatUnits(wrapAllowance, "gwei")),
-        gOhmUnwrap: Number(ethers.utils.formatUnits(gOhmUnwrapAllowance, "ether")),
-        wsOhmMigrate: Number(ethers.utils.formatUnits(wsOhmMigrateAllowance, "ether")),
-      },
+      //   wrapping: {
+      //     sohmWrap: Number(ethers.utils.formatUnits(wrapAllowance, "gwei")),
+      //     gOhmUnwrap: Number(ethers.utils.formatUnits(gOhmUnwrapAllowance, "ether")),
+      //     wsOhmMigrate: Number(ethers.utils.formatUnits(wsOhmMigrateAllowance, "ether")),
+      //   },
     };
   },
 );

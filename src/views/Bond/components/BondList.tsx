@@ -270,7 +270,7 @@ const TokenIcons: React.VFC<{ token: Token; explorer?: boolean }> = ({ token, ex
       <Link
         color="primary"
         target="_blank"
-        href={explorer ? `https://etherscan.io/token/${token.addresses[NetworkId.MAINNET]}` : token.purchaseUrl}
+        href={explorer ? `https://etherscan.io/token/${token.addresses[NetworkId.TESTNET_GOERLI]}` : token.purchaseUrl}
       >
         <Box display="flex" alignItems="center">
           <Typography style={{ fontSize: "12px", lineHeight: "18px" }}>

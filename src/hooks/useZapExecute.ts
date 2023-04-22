@@ -2,8 +2,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { BigNumber, ContractReceipt, ethers } from "ethers";
 import toast from "react-hot-toast";
 import { NetworkId } from "src/constants";
-import { DAO_TREASURY_ADDRESSES, GOHM_ADDRESSES, ZAP_ADDRESSES } from "src/constants/addresses";
-import { SOHM_ADDRESSES } from "src/constants/addresses";
+import { DAO_TREASURY_ADDRESSES, XGDAO_ADDRESSES, ZAP_ADDRESSES } from "src/constants/addresses";
+import { SGDAO_ADDRESSES } from "src/constants/addresses";
 import { trackGAEvent } from "src/helpers/analytics/trackGAEvent";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { isSupportedChain } from "src/helpers/ZapHelper";
@@ -61,17 +61,17 @@ export const useZapExecute = () => {
       if (!minimumAmount || !minimumAmountNumber.gt("0")) throw new Error(`Minimum amount must be greater than 0`);
 
       if (!isSupportedChain(chain.id)) {
-        toast.error(`Zaps are only available on Ethereum Mainnet. Please switch networks.`);
-        throw new Error(`Zaps are only available on Ethereum Mainnet. Please switch networks.`);
+        toast.error(`Zaps are only available on Ethereum TESTNET_GOERLI. Please switch networks.`);
+        throw new Error(`Zaps are only available on Ethereum TESTNET_GOERLI. Please switch networks.`);
       }
 
-      // We only operate on Ethereum mainnet for the moment, so we can use a static contract
+      // We only operate on Ethereum TESTNET_GOERLI for the moment, so we can use a static contract
       const contract = Zap__factory.connect(ZAP_ADDRESSES[chain.id as keyof typeof ZAP_ADDRESSES], signer);
       if (!contract) throw new Error(`Unable to access Zap contract on network ${chain.id}`);
 
       const toToken = gOHM
-        ? GOHM_ADDRESSES[chain.id as keyof typeof GOHM_ADDRESSES]
-        : SOHM_ADDRESSES[chain.id as keyof typeof SOHM_ADDRESSES];
+        ? XGDAO_ADDRESSES[chain.id as keyof typeof XGDAO_ADDRESSES]
+        : SGDAO_ADDRESSES[chain.id as keyof typeof SGDAO_ADDRESSES];
       if (!toToken)
         throw new Error(`Unable to fetch address for token (${gOHM ? "gOHM" : "sOHM"}) on network ${chain.id}`);
 
@@ -151,8 +151,8 @@ export const useZapExecute = () => {
 
         // We force a refresh of balances, but don't wait on the result
         const keysToRefetch = [
-          balanceQueryKey(address, SOHM_ADDRESSES, NetworkId.MAINNET),
-          balanceQueryKey(address, GOHM_ADDRESSES, NetworkId.MAINNET),
+          balanceQueryKey(address, SGDAO_ADDRESSES, NetworkId.TESTNET_GOERLI),
+          balanceQueryKey(address, XGDAO_ADDRESSES, NetworkId.TESTNET_GOERLI),
           warmupQueryKey(address, chain?.id),
           zapTokenBalancesKey(address),
         ];
@@ -173,7 +173,7 @@ const fetchSwapData = async (
   const sellToken = tokenAddress === "0x0000000000000000000000000000000000000000" ? "ETH" : tokenAddress;
   const response = await fetch(
     `https://api.0x.org/swap/v1/quote?sellToken=${sellToken}&buyToken=0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5&sellAmount=${sellAmount}&slippagePercentage=${slippageDecimal}&affiliateAddress=${
-      DAO_TREASURY_ADDRESSES[NetworkId.MAINNET]
+      DAO_TREASURY_ADDRESSES[NetworkId.TESTNET_GOERLI]
     }`,
   );
   const responseJson = await response.json();

@@ -45,10 +45,10 @@ export const fetchBondV3 = async ({ id, isInverseBond, networkId }: UseBondOptio
     : BondFixedExpirySDA__factory.connect(auctioneerAddress, aggregatorContract.provider);
 
   const market = await auctioneerContract.markets(id);
-  const baseToken = isInverseBond ? await getTokenByAddress({ address: market.payoutToken, networkId }) : OHM_TOKEN;
+  const baseToken = isInverseBond ? await getTokenByAddress({ address: market.payoutToken, networkId }) : GDAO_TOKEN;
   assert(baseToken, `Unknown base token address: ${market.payoutToken}`);
 
-  const quoteToken = isInverseBond ? OHM_TOKEN : await getTokenByAddress({ address: market.quoteToken, networkId });
+  const quoteToken = isInverseBond ? GDAO_TOKEN : await getTokenByAddress({ address: market.quoteToken, networkId });
   assert(quoteToken, `Unknown quote token address: ${market.quoteToken}`);
 
   //we shouldnt return an OHM bond as an inverse bond
@@ -57,8 +57,8 @@ export const fetchBondV3 = async ({ id, isInverseBond, networkId }: UseBondOptio
   const terms = await auctioneerContract.terms(id);
 
   const [baseTokenPerUsd, quoteTokenPerUsd, bondMarketPrice] = await Promise.all([
-    baseToken.getPrice(NetworkId.MAINNET),
-    quoteToken.getPrice(NetworkId.MAINNET),
+    baseToken.getPrice(NetworkId.TESTNET_GOERLI),
+    quoteToken.getPrice(NetworkId.TESTNET_GOERLI),
     auctioneerContract.marketPrice(id).then(price => price),
   ]);
 

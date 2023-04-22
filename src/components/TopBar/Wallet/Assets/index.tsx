@@ -13,10 +13,10 @@ import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber"
 import { prettifySeconds, prettifySecondsInDays } from "src/helpers/timeUtil";
 import { nonNullable } from "src/helpers/types/nonNullable";
 import {
-  useFuseBalance,
+  // useFuseBalance,
   // useGohmBalance,
   useGdaoBalance,
-  useGohmTokemakBalance,
+  // useGohmTokemakBalance,
   useSgdaoBalance,
   useXgdaoBalance,
   // useOhmBalance,
@@ -101,13 +101,13 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   const { data: sGdaoBalance = new DecimalBigNumber("0", 9) } = useSgdaoBalance()[networks.MAINNET];
   // const wsohmBalances = useWsohmBalance();
   const xgdaoBalances = useXgdaoBalance();
-  const { data: gohmFuseBalance = new DecimalBigNumber("0", 18) } = useFuseBalance()[NetworkId.MAINNET];
-  const { data: gohmTokemakBalance = new DecimalBigNumber("0", 18) } = useGohmTokemakBalance()[NetworkId.MAINNET];
+  // const { data: gohmFuseBalance = new DecimalBigNumber("0", 18) } = useFuseBalance()[NetworkId.MAINNET];
+  // const { data: gohmTokemakBalance = new DecimalBigNumber("0", 18) } = useGohmTokemakBalance()[NetworkId.MAINNET];
   const [faucetToken, setFaucetToken] = useState("GDAO");
 
   const xgdaoTokens = [
-    gohmFuseBalance,
-    gohmTokemakBalance,
+    // gohmFuseBalance,
+    // gohmTokemakBalance,
     xgdaoBalances[networks.MAINNET].data,
     // xgdaoBalances[NetworkId.ARBITRUM].data,
     // xgdaoBalances[NetworkId.AVALANCHE].data,
@@ -236,8 +236,8 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
                 >
                   <MenuItem value="DAI">DAI</MenuItem>
                   <MenuItem value="GDAO">GDAO</MenuItem>
-                  <MenuItem value="GDAO">SGDAO</MenuItem>
-                  <MenuItem value="GDAO">XGDAO</MenuItem>
+                  <MenuItem value="SGDAO">SGDAO</MenuItem>
+                  <MenuItem value="XGDAO">XGDAO</MenuItem>
                 </Select>
               </FormControl>
               <SecondaryButton onClick={() => faucetMutation.mutate(faucetToken)}>

@@ -88,7 +88,6 @@ export * as vohmVaultTSol from "./VohmVault.t.sol";
 export * as zuniswapV2PairSol from "./ZuniswapV2Pair.sol";
 export * as draftIerc20PermitSol from "./draft-IERC20Permit.sol";
 export * as sGdaoSol from "./sGDAO.sol";
-export * as testSol from "./test.sol";
 export * as testDaiSol from "./testDAI.sol";
 export * as xGdaoerc20Sol from "./xGDAOERC20.sol";
 export { BondAggregator__factory } from "./BondAggregator__factory";

@@ -1,19 +1,19 @@
 import { createAsyncThunk, createSelector, createSlice } from "@reduxjs/toolkit";
 import { ethers } from "ethers";
 import { NetworkId } from "src/constants";
-import { STAKING_ADDRESSES, V1_STAKING_ADDRESSES } from "src/constants/addresses";
+import { STAKING_ADDRESSES /*, V1_STAKING_ADDRESSES */ } from "src/constants/addresses";
 import { getMarketPrice, getTokenPrice, setAll } from "src/helpers";
 import { Providers } from "src/helpers/providers/Providers/Providers";
 import { IBaseAsyncThunk } from "src/slices/interfaces";
 import { RootState } from "src/store";
-import { OlympusStaking__factory, OlympusStakingv2__factory } from "src/typechain";
+import { OlympusStakingv2__factory } from "src/typechain";
 
 export const loadAppDetails = createAsyncThunk(
   "app/loadAppDetails",
   async ({ networkID, provider }: IBaseAsyncThunk, { dispatch }) => {
-    if (networkID !== NetworkId.MAINNET) {
-      provider = Providers.getStaticProvider(NetworkId.MAINNET);
-      networkID = NetworkId.MAINNET;
+    if (networkID !== NetworkId.TESTNET_GOERLI) {
+      provider = Providers.getStaticProvider(NetworkId.TESTNET_GOERLI);
+      networkID = NetworkId.TESTNET_GOERLI;
     }
 
     // NOTE (appleseed): marketPrice from Graph was delayed, so get CoinGecko price
@@ -44,17 +44,17 @@ export const loadAppDetails = createAsyncThunk(
       STAKING_ADDRESSES[networkID as keyof typeof STAKING_ADDRESSES],
       provider,
     );
-    const stakingContractV1 = OlympusStaking__factory.connect(
-      V1_STAKING_ADDRESSES[networkID as keyof typeof STAKING_ADDRESSES],
-      provider,
-    );
+    // const stakingContractV1 = OlympusStaking__factory.connect(
+    //   V1_STAKING_ADDRESSES[networkID as keyof typeof STAKING_ADDRESSES],
+    //   provider,
+    // );
 
     // Current index
     const currentIndex = await stakingContract.index();
-    const currentIndexV1 = await stakingContractV1.index();
+    // const currentIndexV1 = await stakingContractV1.index();
     return {
       currentIndex: ethers.utils.formatUnits(currentIndex, "gwei"),
-      currentIndexV1: ethers.utils.formatUnits(currentIndexV1, "gwei"),
+      // currentIndexV1: ethers.utils.formatUnits(currentIndexV1, "gwei"),
       currentBlock,
       marketPrice,
     } as IAppData;
@@ -69,7 +69,7 @@ export const loadAppDetails = createAsyncThunk(
 const loadMarketPrice = createAsyncThunk("app/loadMarketPrice", async ({}: IBaseAsyncThunk) => {
   let marketPrice: number;
   try {
-    // only get marketPrice from eth mainnet
+    // only get marketPrice from eth TESTNET_GOERLI
     marketPrice = await getMarketPrice();
   } catch (e) {
     marketPrice = await getTokenPrice("olympus");

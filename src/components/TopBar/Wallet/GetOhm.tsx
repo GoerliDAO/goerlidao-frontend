@@ -5,10 +5,9 @@ import { FC } from "react";
 import { ReactComponent as balancerIcon } from "src/assets/balancer.svg";
 import sushiswapImg from "src/assets/sushiswap.png";
 import uniswapImg from "src/assets/uniswap.png";
-import { SupplyRatePerBlock } from "src/components/TopBar/Wallet/queries";
-// import { OHM_ADDRESSES } from "src/constants/addresses";
+// import { SupplyRatePerBlock } from "src/components/TopBar/Wallet/queries";
 import { GDAO_ADDRESSES } from "src/constants/addresses";
-import { formatCurrency, formatNumber, parseBigNumber, trim } from "src/helpers";
+import { formatCurrency, formatNumber, trim } from "src/helpers";
 import { balancerPools, convexPools, curvePools, fraxPools } from "src/helpers/AllExternalPools";
 import { sortByDiscount } from "src/helpers/bonds/sortByDiscount";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
@@ -47,13 +46,13 @@ const StyledBox = styled(Box)(() => ({
  */
 const GetOhm: FC = () => {
   const { chain = { id: 1 } } = useNetwork();
-  const { data: supplyRate } = SupplyRatePerBlock();
+  // const { data: supplyRate } = SupplyRatePerBlock();
   const { data: rebaseRate = 0 } = useStakingRebaseRate();
   const ethMantissa = 1e18;
   const blocksPerDay = 6500;
   const daysPerYear = 365;
-  const fuseSupplyApy =
-    supplyRate && (Math.pow((parseBigNumber(supplyRate) / ethMantissa) * blocksPerDay + 1, daysPerYear) - 1) * 100;
+  // const fuseSupplyApy =
+  //   supplyRate && (Math.pow((parseBigNumber(supplyRate) / ethMantissa) * blocksPerDay + 1, daysPerYear) - 1) * 100;
 
   const bonds = useLiveBonds().data;
   const fiveDayRate = Math.pow(1 + rebaseRate, 5 * 3) - 1;
@@ -87,7 +86,7 @@ const GetOhm: FC = () => {
             />
           </Grid>
         </Grid>
-        {NetworkId.MAINNET === chain.id && (
+        {NetworkId.TESTNET_GOERLI === chain.id && (
           <>
             <Typography variant="h6" className={classes.title}>
               Zap
