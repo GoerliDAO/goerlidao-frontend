@@ -15,7 +15,7 @@ export const useNextRebaseDate = () => {
 };
 
 export const useNextRebase = () => {
-  const contract = useStaticStakingContract(STAKING_ADDRESSES[NetworkId.MAINNET], NetworkId.MAINNET);
+  const contract = useStaticStakingContract(STAKING_ADDRESSES[NetworkId.TESTNET_SEPOLIA], NetworkId.TESTNET_SEPOLIA);
 
   return useQuery<BigNumber, Error>(["secondsToNextRebase"], async () => {
     const secondsToRebase = await contract.secondsToNextEpoch();

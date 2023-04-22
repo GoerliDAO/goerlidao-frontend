@@ -1,0 +1,3876 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "Operator_AlreadyInitialized",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amountOut",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minAmountOut",
+          "type": "uint256"
+        }
+      ],
+      "name": "Operator_AmountLessThanMinimum",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Operator_Inactive",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Operator_InsufficientCapacity",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Operator_InvalidParams",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Operator_NotInitialized",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Operator_WallDown",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "cushionFactor_",
+          "type": "uint32"
+        }
+      ],
+      "name": "CushionFactorChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "duration_",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "debtBuffer_",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "depositInterval_",
+          "type": "uint32"
+        }
+      ],
+      "name": "CushionParamsChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "wait_",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "threshold_",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "observe_",
+          "type": "uint32"
+        }
+      ],
+      "name": "RegenParamsChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "reserveFactor_",
+          "type": "uint32"
+        }
+      ],
+      "name": "ReserveFactorChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "contract ERC20",
+          "name": "tokenIn_",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "contract ERC20",
+          "name": "tokenOut_",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amountIn_",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amountOut_",
+          "type": "uint256"
+        }
+      ],
+      "name": "Swap",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "activate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "config",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint32",
+              "name": "cushionFactor",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "cushionDuration",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "cushionDebtBuffer",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "cushionDepositInterval",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "reserveFactor",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "regenWait",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "regenThreshold",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "regenObserve",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct IOperator.Config",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "deactivate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "high_",
+          "type": "bool"
+        }
+      ],
+      "name": "deactivateCushion",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "high_",
+          "type": "bool"
+        }
+      ],
+      "name": "fullCapacity",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ERC20",
+          "name": "tokenIn_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amountIn_",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAmountOut",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "operate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "high_",
+          "type": "bool"
+        }
+      ],
+      "name": "regenerate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IBondSDA",
+          "name": "auctioneer_",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IBondCallback",
+          "name": "callback_",
+          "type": "address"
+        }
+      ],
+      "name": "setBondContracts",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "cushionFactor_",
+          "type": "uint32"
+        }
+      ],
+      "name": "setCushionFactor",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "duration_",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "debtBuffer_",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "depositInterval_",
+          "type": "uint32"
+        }
+      ],
+      "name": "setCushionParams",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "wait_",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "threshold_",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "observe_",
+          "type": "uint32"
+        }
+      ],
+      "name": "setRegenParams",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "reserveFactor_",
+          "type": "uint32"
+        }
+      ],
+      "name": "setReserveFactor",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "cushionSpread_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "wallSpread_",
+          "type": "uint256"
+        }
+      ],
+      "name": "setSpreads",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "thresholdFactor_",
+          "type": "uint256"
+        }
+      ],
+      "name": "setThresholdFactor",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "status",
+      "outputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint32",
+                  "name": "count",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "uint48",
+                  "name": "lastRegen",
+                  "type": "uint48"
+                },
+                {
+                  "internalType": "uint32",
+                  "name": "nextObservation",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "bool[]",
+                  "name": "observations",
+                  "type": "bool[]"
+                }
+              ],
+              "internalType": "struct IOperator.Regen",
+              "name": "low",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint32",
+                  "name": "count",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "uint48",
+                  "name": "lastRegen",
+                  "type": "uint48"
+                },
+                {
+                  "internalType": "uint32",
+                  "name": "nextObservation",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "bool[]",
+                  "name": "observations",
+                  "type": "bool[]"
+                }
+              ],
+              "internalType": "struct IOperator.Regen",
+              "name": "high",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct IOperator.Status",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ERC20",
+          "name": "tokenIn_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amountIn_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minAmountOut_",
+          "type": "uint256"
+        }
+      ],
+      "name": "swap",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "amountOut",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "activate()": "0f15f4c0",
+    "config()": "79502c55",
+    "deactivate()": "51b42b00",
+    "deactivateCushion(bool)": "f2f6d5bb",
+    "fullCapacity(bool)": "9e897711",
+    "getAmountOut(address,uint256)": "ca706bcf",
+    "initialize()": "8129fc1c",
+    "operate()": "7159a618",
+    "regenerate(bool)": "2ecd1f20",
+    "setBondContracts(address,address)": "19f63dd7",
+    "setCushionFactor(uint32)": "aa9760a1",
+    "setCushionParams(uint32,uint32,uint32)": "f2fa4737",
+    "setRegenParams(uint32,uint32,uint32)": "3a3f54bc",
+    "setReserveFactor(uint32)": "01de9ba8",
+    "setSpreads(uint256,uint256)": "41f19a46",
+    "setThresholdFactor(uint256)": "33bd33b4",
+    "status()": "200d2ed2",
+    "swap(address,uint256,uint256)": "9f1d0f59"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"Operator_AlreadyInitialized\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minAmountOut\",\"type\":\"uint256\"}],\"name\":\"Operator_AmountLessThanMinimum\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Operator_Inactive\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Operator_InsufficientCapacity\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Operator_InvalidParams\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Operator_NotInitialized\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Operator_WallDown\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"cushionFactor_\",\"type\":\"uint32\"}],\"name\":\"CushionFactorChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"duration_\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"debtBuffer_\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"depositInterval_\",\"type\":\"uint32\"}],\"name\":\"CushionParamsChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"wait_\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"threshold_\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"observe_\",\"type\":\"uint32\"}],\"name\":\"RegenParamsChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"reserveFactor_\",\"type\":\"uint32\"}],\"name\":\"ReserveFactorChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract ERC20\",\"name\":\"tokenIn_\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"contract ERC20\",\"name\":\"tokenOut_\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountIn_\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOut_\",\"type\":\"uint256\"}],\"name\":\"Swap\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"activate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"config\",\"outputs\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"cushionFactor\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"cushionDuration\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"cushionDebtBuffer\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"cushionDepositInterval\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"reserveFactor\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"regenWait\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"regenThreshold\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"regenObserve\",\"type\":\"uint32\"}],\"internalType\":\"struct IOperator.Config\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"deactivate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"deactivateCushion\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"fullCapacity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"tokenIn_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amountIn_\",\"type\":\"uint256\"}],\"name\":\"getAmountOut\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"operate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"high_\",\"type\":\"bool\"}],\"name\":\"regenerate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IBondSDA\",\"name\":\"auctioneer_\",\"type\":\"address\"},{\"internalType\":\"contract IBondCallback\",\"name\":\"callback_\",\"type\":\"address\"}],\"name\":\"setBondContracts\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"cushionFactor_\",\"type\":\"uint32\"}],\"name\":\"setCushionFactor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"duration_\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"debtBuffer_\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"depositInterval_\",\"type\":\"uint32\"}],\"name\":\"setCushionParams\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"wait_\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"threshold_\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"observe_\",\"type\":\"uint32\"}],\"name\":\"setRegenParams\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"reserveFactor_\",\"type\":\"uint32\"}],\"name\":\"setReserveFactor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"cushionSpread_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"wallSpread_\",\"type\":\"uint256\"}],\"name\":\"setSpreads\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"thresholdFactor_\",\"type\":\"uint256\"}],\"name\":\"setThresholdFactor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"status\",\"outputs\":[{\"components\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"count\",\"type\":\"uint32\"},{\"internalType\":\"uint48\",\"name\":\"lastRegen\",\"type\":\"uint48\"},{\"internalType\":\"uint32\",\"name\":\"nextObservation\",\"type\":\"uint32\"},{\"internalType\":\"bool[]\",\"name\":\"observations\",\"type\":\"bool[]\"}],\"internalType\":\"struct IOperator.Regen\",\"name\":\"low\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint32\",\"name\":\"count\",\"type\":\"uint32\"},{\"internalType\":\"uint48\",\"name\":\"lastRegen\",\"type\":\"uint48\"},{\"internalType\":\"uint32\",\"name\":\"nextObservation\",\"type\":\"uint32\"},{\"internalType\":\"bool[]\",\"name\":\"observations\",\"type\":\"bool[]\"}],\"internalType\":\"struct IOperator.Regen\",\"name\":\"high\",\"type\":\"tuple\"}],\"internalType\":\"struct IOperator.Status\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"tokenIn_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amountIn_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minAmountOut_\",\"type\":\"uint256\"}],\"name\":\"swap\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"activate()\":{\"details\":\"Restart function for the Operator after a pause.\"},\"deactivate()\":{\"details\":\"Emergency pause function for the Operator. Prevents market operations from occurring.\"},\"deactivateCushion(bool)\":{\"details\":\"Emergency shutdown function for Cushions\",\"params\":{\"high_\":\"Whether to deactivate the high or low side cushion (true = high, false = low)\"}},\"fullCapacity(bool)\":{\"details\":\"Calculates the capacity to deploy for a wall based on the amount of reserves owned by the treasury and the reserve factor.\",\"params\":{\"high_\":\"- Whether to return the full capacity for the high or low wall\"}},\"getAmountOut(address,uint256)\":{\"params\":{\"amountIn_\":\"- Amount of tokenIn to swap\",\"tokenIn_\":\"- Token to swap into the wall         - If OHM: swap at the low wall price for Reserve         - If Reserve: swap at the high wall price for OHM\"},\"returns\":{\"_0\":\"Amount of opposite token received\"}},\"initialize()\":{\"details\":\"This function executes actions required to start operations that cannot be done prior to the Operator policy being approved by the Kernel.\"},\"operate()\":{\"details\":\"This function is triggered by a keeper on the Heart contract.\"},\"regenerate(bool)\":{\"details\":\"This function is an escape hatch to trigger out of cycle regenerations and may be useful when doing migrations of Treasury funds\",\"params\":{\"high_\":\"Whether to regenerate the high side or low side (true = high, false = low)\"}},\"setBondContracts(address,address)\":{\"params\":{\"auctioneer_\":\"- Address of the bond auctioneer to use.\",\"callback_\":\"- Address of the callback to use.\"}},\"setCushionFactor(uint32)\":{\"params\":{\"cushionFactor_\":\"- Percent of wall capacity that the operator will deploy in the cushion, assumes 2 decimals (i.e. 1000 = 10%)\"}},\"setCushionParams(uint32,uint32,uint32)\":{\"params\":{\"debtBuffer_\":\"- Percentage over the initial debt to allow the market to accumulate at any one time. Percent with 3 decimals, e.g. 1_000 = 1 %. See IBondSDA for more info.\",\"depositInterval_\":\"- Target frequency of deposits in seconds. Determines max payout of the bond market. See IBondSDA for more info.\",\"duration_\":\"- Duration of cushion bond markets in seconds\"}},\"setRegenParams(uint32,uint32,uint32)\":{\"details\":\"We must see Threshold number of price points that meet our criteria within the last Observe number of price points to regenerate a wall.\",\"params\":{\"observe_\":\"- Number of price points to observe to determine regeneration\",\"threshold_\":\"- Number of price points on other side of moving average to reinstate a wall\",\"wait_\":\"- Minimum duration to wait to reinstate a wall in seconds\"}},\"setReserveFactor(uint32)\":{\"params\":{\"reserveFactor_\":\"- Percent of treasury reserves to deploy as capacity for market operations, assumes 2 decimals (i.e. 1000 = 10%)\"}},\"setSpreads(uint256,uint256)\":{\"details\":\"Interface for externally setting these values on the RANGE module\",\"params\":{\"cushionSpread_\":\"- Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%)\",\"wallSpread_\":\"- Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%)\"}},\"setThresholdFactor(uint256)\":{\"details\":\"Interface for externally setting this value on the RANGE module\",\"params\":{\"thresholdFactor_\":\"- Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%)\"}},\"swap(address,uint256,uint256)\":{\"params\":{\"amountIn_\":\"- Amount of tokenIn to swap\",\"minAmountOut_\":\"- Minimum amount of opposite token to receive\",\"tokenIn_\":\"- Token to swap into the wall         - OHM: swap at the low wall price for Reserve         - Reserve: swap at the high wall price for OHM\"},\"returns\":{\"amountOut\":\"- Amount of opposite token received\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"activate()\":{\"notice\":\"Activate the OperatorAccess restricted\"},\"config()\":{\"notice\":\"Returns the config variable of the Operator as a Config struct\"},\"deactivate()\":{\"notice\":\"Deactivate the OperatorAccess restricted\"},\"deactivateCushion(bool)\":{\"notice\":\"Manually close a cushion bond marketAccess restricted\"},\"fullCapacity(bool)\":{\"notice\":\"Returns the full capacity of the specified wall (if it was regenerated now)\"},\"getAmountOut(address,uint256)\":{\"notice\":\"Returns the amount to be received from a swap\"},\"initialize()\":{\"notice\":\"Initialize the Operator to begin market operationsAccess restrictedCan only be called once\"},\"operate()\":{\"notice\":\"Executes market operations logic.Access restricted\"},\"regenerate(bool)\":{\"notice\":\"Regenerate the wall for a sideAccess restricted\"},\"setBondContracts(address,address)\":{\"notice\":\"Set the contracts that the Operator deploys bond markets with.Access restricted\"},\"setCushionFactor(uint32)\":{\"notice\":\"Set the cushion factorAccess restricted\"},\"setCushionParams(uint32,uint32,uint32)\":{\"notice\":\"Set the parameters used to deploy cushion bond marketsAccess restricted\"},\"setRegenParams(uint32,uint32,uint32)\":{\"notice\":\"Set the wall regeneration parametersAccess restricted\"},\"setReserveFactor(uint32)\":{\"notice\":\"Set the reserve factorAccess restricted\"},\"setSpreads(uint256,uint256)\":{\"notice\":\"Set the wall and cushion spreadsAccess restricted\"},\"setThresholdFactor(uint256)\":{\"notice\":\"Set the threshold factor for when a wall is considered \\\"down\\\"Access restricted\"},\"status()\":{\"notice\":\"Returns the status variable of the Operator as a Status struct\"},\"swap(address,uint256,uint256)\":{\"notice\":\"Swap at the current wall prices\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/policies/interfaces/IOperator.sol\":\"IOperator\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":balancer-v2/=lib/balancer-v2/\",\":bonds/=lib/bonds/src/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"lib/solmate/src/tokens/ERC20.sol\":{\"keccak256\":\"0xb14869b3d931ceb1b8f8fcd00dc59e0901198ae271a6cb3e8d0c7b8ac1999d18\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://3c533078cfb24dc68c0138437f1a2a946f74ab70d01a9fbe24f3e35905a25aed\",\"dweb:/ipfs/QmRDGa933AjqmDpJSL2CRNDJmJu6U9bKpU5RuiGTgxRFsC\"]},\"src/interfaces/IBondAggregator.sol\":{\"keccak256\":\"0xcbed51d7460ff8cf4d21f7ede6214af17b18dc4267c97b33989d657c84b732db\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://983965755356b317371609b20859cd2ca4c6493fa607d9dffaabb1d0cfd9dffb\",\"dweb:/ipfs/QmZJGhmKLLgi8wvBN6RrZF8y7sT6MgCYXx6NAM1bLqu5SU\"]},\"src/interfaces/IBondAuctioneer.sol\":{\"keccak256\":\"0x72842370a860a167633d01b6806db55d6db1011985d8186bd7947ed35d397c38\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://36c3eb05cd77617ce675871eb7b288ee6e9d75b60b82dbcf62667b08c37c2a8f\",\"dweb:/ipfs/QmcSddgbfTyfSZywcMDnWPsxs5nYgkBYBqzrEJWeEPzfT7\"]},\"src/interfaces/IBondCallback.sol\":{\"keccak256\":\"0x8ccf5a971b9548ed415e90b1b66e44230b6f3934984fbe35e80d1bfa58b4b0f5\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://5c5a6e92ef3e65f5dba9ee5a752f0f02cbdf956fe208640141ccfa054a388b6b\",\"dweb:/ipfs/QmUbKa6eh3TmCToTD4vusuzLMd8xkGpbfv89tLDe4VQLvC\"]},\"src/interfaces/IBondSDA.sol\":{\"keccak256\":\"0xb0a61e34a41e7fc745d1380af61513f6766de4270a3577f14ddac61fd233c4cf\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://7cbceb0696bfd499216ac5d75fbc3a50b0912a044b6f1915ddbd5ccd5ddf0a97\",\"dweb:/ipfs/QmTdjYhhCbF8G1JFMjgGBR6Vj5T2x5NKZh5xu7Z3kNxoFW\"]},\"src/interfaces/IBondTeller.sol\":{\"keccak256\":\"0xb14fc9301858ec61abc52462699ced9f32478f1944b64c9398d811794d8769a1\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://9a6fb18f623109e285ce99f8be07969d3e50a235543ceb28b5dc620d606ea150\",\"dweb:/ipfs/QmXAz2yXoZQ6XzkS9mwPc7Dkj7kD3RyhW9rix7daVvxkMf\"]},\"src/policies/interfaces/IOperator.sol\":{\"keccak256\":\"0x7faf3bf2dc670f3ba3b119d2bb6d517b054cee83f5188465d7ba252a990a3254\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://0ba0f58d87aeb10df91ccfd24cb6f6aef8b45132a52e8bdac0ee03e1b3fccd27\",\"dweb:/ipfs/QmQePzASU52Br8TrVkAYzFQZmnBkAo4rpeuZ7YEG48G7zt\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.15+commit.e14f2714"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "Operator_AlreadyInitialized"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amountOut",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "minAmountOut",
+              "type": "uint256"
+            }
+          ],
+          "type": "error",
+          "name": "Operator_AmountLessThanMinimum"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "Operator_Inactive"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "Operator_InsufficientCapacity"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "Operator_InvalidParams"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "Operator_NotInitialized"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "Operator_WallDown"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32",
+              "name": "cushionFactor_",
+              "type": "uint32",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "CushionFactorChanged",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32",
+              "name": "duration_",
+              "type": "uint32",
+              "indexed": false
+            },
+            {
+              "internalType": "uint32",
+              "name": "debtBuffer_",
+              "type": "uint32",
+              "indexed": false
+            },
+            {
+              "internalType": "uint32",
+              "name": "depositInterval_",
+              "type": "uint32",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "CushionParamsChanged",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32",
+              "name": "wait_",
+              "type": "uint32",
+              "indexed": false
+            },
+            {
+              "internalType": "uint32",
+              "name": "threshold_",
+              "type": "uint32",
+              "indexed": false
+            },
+            {
+              "internalType": "uint32",
+              "name": "observe_",
+              "type": "uint32",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "RegenParamsChanged",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32",
+              "name": "reserveFactor_",
+              "type": "uint32",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "ReserveFactorChanged",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ERC20",
+              "name": "tokenIn_",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "contract ERC20",
+              "name": "tokenOut_",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountIn_",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountOut_",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "Swap",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "activate"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "config",
+          "outputs": [
+            {
+              "internalType": "struct IOperator.Config",
+              "name": "",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "uint32",
+                  "name": "cushionFactor",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "uint32",
+                  "name": "cushionDuration",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "uint32",
+                  "name": "cushionDebtBuffer",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "uint32",
+                  "name": "cushionDepositInterval",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "uint32",
+                  "name": "reserveFactor",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "uint32",
+                  "name": "regenWait",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "uint32",
+                  "name": "regenThreshold",
+                  "type": "uint32"
+                },
+                {
+                  "internalType": "uint32",
+                  "name": "regenObserve",
+                  "type": "uint32"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "deactivate"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bool",
+              "name": "high_",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "deactivateCushion"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bool",
+              "name": "high_",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "fullCapacity",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ERC20",
+              "name": "tokenIn_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountIn_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getAmountOut",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "initialize"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "operate"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bool",
+              "name": "high_",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "regenerate"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract IBondSDA",
+              "name": "auctioneer_",
+              "type": "address"
+            },
+            {
+              "internalType": "contract IBondCallback",
+              "name": "callback_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setBondContracts"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32",
+              "name": "cushionFactor_",
+              "type": "uint32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setCushionFactor"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32",
+              "name": "duration_",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "debtBuffer_",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "depositInterval_",
+              "type": "uint32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setCushionParams"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32",
+              "name": "wait_",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "threshold_",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "observe_",
+              "type": "uint32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setRegenParams"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint32",
+              "name": "reserveFactor_",
+              "type": "uint32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setReserveFactor"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "cushionSpread_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "wallSpread_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setSpreads"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "thresholdFactor_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setThresholdFactor"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "status",
+          "outputs": [
+            {
+              "internalType": "struct IOperator.Status",
+              "name": "",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "struct IOperator.Regen",
+                  "name": "low",
+                  "type": "tuple",
+                  "components": [
+                    {
+                      "internalType": "uint32",
+                      "name": "count",
+                      "type": "uint32"
+                    },
+                    {
+                      "internalType": "uint48",
+                      "name": "lastRegen",
+                      "type": "uint48"
+                    },
+                    {
+                      "internalType": "uint32",
+                      "name": "nextObservation",
+                      "type": "uint32"
+                    },
+                    {
+                      "internalType": "bool[]",
+                      "name": "observations",
+                      "type": "bool[]"
+                    }
+                  ]
+                },
+                {
+                  "internalType": "struct IOperator.Regen",
+                  "name": "high",
+                  "type": "tuple",
+                  "components": [
+                    {
+                      "internalType": "uint32",
+                      "name": "count",
+                      "type": "uint32"
+                    },
+                    {
+                      "internalType": "uint48",
+                      "name": "lastRegen",
+                      "type": "uint48"
+                    },
+                    {
+                      "internalType": "uint32",
+                      "name": "nextObservation",
+                      "type": "uint32"
+                    },
+                    {
+                      "internalType": "bool[]",
+                      "name": "observations",
+                      "type": "bool[]"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ERC20",
+              "name": "tokenIn_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountIn_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "minAmountOut_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "swap",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "amountOut",
+              "type": "uint256"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "activate()": {
+            "details": "Restart function for the Operator after a pause."
+          },
+          "deactivate()": {
+            "details": "Emergency pause function for the Operator. Prevents market operations from occurring."
+          },
+          "deactivateCushion(bool)": {
+            "details": "Emergency shutdown function for Cushions",
+            "params": {
+              "high_": "Whether to deactivate the high or low side cushion (true = high, false = low)"
+            }
+          },
+          "fullCapacity(bool)": {
+            "details": "Calculates the capacity to deploy for a wall based on the amount of reserves owned by the treasury and the reserve factor.",
+            "params": {
+              "high_": "- Whether to return the full capacity for the high or low wall"
+            }
+          },
+          "getAmountOut(address,uint256)": {
+            "params": {
+              "amountIn_": "- Amount of tokenIn to swap",
+              "tokenIn_": "- Token to swap into the wall         - If OHM: swap at the low wall price for Reserve         - If Reserve: swap at the high wall price for OHM"
+            },
+            "returns": {
+              "_0": "Amount of opposite token received"
+            }
+          },
+          "initialize()": {
+            "details": "This function executes actions required to start operations that cannot be done prior to the Operator policy being approved by the Kernel."
+          },
+          "operate()": {
+            "details": "This function is triggered by a keeper on the Heart contract."
+          },
+          "regenerate(bool)": {
+            "details": "This function is an escape hatch to trigger out of cycle regenerations and may be useful when doing migrations of Treasury funds",
+            "params": {
+              "high_": "Whether to regenerate the high side or low side (true = high, false = low)"
+            }
+          },
+          "setBondContracts(address,address)": {
+            "params": {
+              "auctioneer_": "- Address of the bond auctioneer to use.",
+              "callback_": "- Address of the callback to use."
+            }
+          },
+          "setCushionFactor(uint32)": {
+            "params": {
+              "cushionFactor_": "- Percent of wall capacity that the operator will deploy in the cushion, assumes 2 decimals (i.e. 1000 = 10%)"
+            }
+          },
+          "setCushionParams(uint32,uint32,uint32)": {
+            "params": {
+              "debtBuffer_": "- Percentage over the initial debt to allow the market to accumulate at any one time. Percent with 3 decimals, e.g. 1_000 = 1 %. See IBondSDA for more info.",
+              "depositInterval_": "- Target frequency of deposits in seconds. Determines max payout of the bond market. See IBondSDA for more info.",
+              "duration_": "- Duration of cushion bond markets in seconds"
+            }
+          },
+          "setRegenParams(uint32,uint32,uint32)": {
+            "details": "We must see Threshold number of price points that meet our criteria within the last Observe number of price points to regenerate a wall.",
+            "params": {
+              "observe_": "- Number of price points to observe to determine regeneration",
+              "threshold_": "- Number of price points on other side of moving average to reinstate a wall",
+              "wait_": "- Minimum duration to wait to reinstate a wall in seconds"
+            }
+          },
+          "setReserveFactor(uint32)": {
+            "params": {
+              "reserveFactor_": "- Percent of treasury reserves to deploy as capacity for market operations, assumes 2 decimals (i.e. 1000 = 10%)"
+            }
+          },
+          "setSpreads(uint256,uint256)": {
+            "details": "Interface for externally setting these values on the RANGE module",
+            "params": {
+              "cushionSpread_": "- Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%)",
+              "wallSpread_": "- Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%)"
+            }
+          },
+          "setThresholdFactor(uint256)": {
+            "details": "Interface for externally setting this value on the RANGE module",
+            "params": {
+              "thresholdFactor_": "- Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%)"
+            }
+          },
+          "swap(address,uint256,uint256)": {
+            "params": {
+              "amountIn_": "- Amount of tokenIn to swap",
+              "minAmountOut_": "- Minimum amount of opposite token to receive",
+              "tokenIn_": "- Token to swap into the wall         - OHM: swap at the low wall price for Reserve         - Reserve: swap at the high wall price for OHM"
+            },
+            "returns": {
+              "amountOut": "- Amount of opposite token received"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "activate()": {
+            "notice": "Activate the OperatorAccess restricted"
+          },
+          "config()": {
+            "notice": "Returns the config variable of the Operator as a Config struct"
+          },
+          "deactivate()": {
+            "notice": "Deactivate the OperatorAccess restricted"
+          },
+          "deactivateCushion(bool)": {
+            "notice": "Manually close a cushion bond marketAccess restricted"
+          },
+          "fullCapacity(bool)": {
+            "notice": "Returns the full capacity of the specified wall (if it was regenerated now)"
+          },
+          "getAmountOut(address,uint256)": {
+            "notice": "Returns the amount to be received from a swap"
+          },
+          "initialize()": {
+            "notice": "Initialize the Operator to begin market operationsAccess restrictedCan only be called once"
+          },
+          "operate()": {
+            "notice": "Executes market operations logic.Access restricted"
+          },
+          "regenerate(bool)": {
+            "notice": "Regenerate the wall for a sideAccess restricted"
+          },
+          "setBondContracts(address,address)": {
+            "notice": "Set the contracts that the Operator deploys bond markets with.Access restricted"
+          },
+          "setCushionFactor(uint32)": {
+            "notice": "Set the cushion factorAccess restricted"
+          },
+          "setCushionParams(uint32,uint32,uint32)": {
+            "notice": "Set the parameters used to deploy cushion bond marketsAccess restricted"
+          },
+          "setRegenParams(uint32,uint32,uint32)": {
+            "notice": "Set the wall regeneration parametersAccess restricted"
+          },
+          "setReserveFactor(uint32)": {
+            "notice": "Set the reserve factorAccess restricted"
+          },
+          "setSpreads(uint256,uint256)": {
+            "notice": "Set the wall and cushion spreadsAccess restricted"
+          },
+          "setThresholdFactor(uint256)": {
+            "notice": "Set the threshold factor for when a wall is considered \"down\"Access restricted"
+          },
+          "status()": {
+            "notice": "Returns the status variable of the Operator as a Status struct"
+          },
+          "swap(address,uint256,uint256)": {
+            "notice": "Swap at the current wall prices"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":balancer-v2/=lib/balancer-v2/",
+        ":bonds/=lib/bonds/src/",
+        ":ds-test/=lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/",
+        ":interfaces/=src/interfaces/",
+        ":libraries/=src/libraries/",
+        ":modules/=src/modules/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+        ":policies/=src/policies/",
+        ":solmate/=lib/solmate/src/",
+        ":test/=src/test/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 10
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/policies/interfaces/IOperator.sol": "IOperator"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "lib/solmate/src/tokens/ERC20.sol": {
+        "keccak256": "0xb14869b3d931ceb1b8f8fcd00dc59e0901198ae271a6cb3e8d0c7b8ac1999d18",
+        "urls": [
+          "bzz-raw://3c533078cfb24dc68c0138437f1a2a946f74ab70d01a9fbe24f3e35905a25aed",
+          "dweb:/ipfs/QmRDGa933AjqmDpJSL2CRNDJmJu6U9bKpU5RuiGTgxRFsC"
+        ],
+        "license": "AGPL-3.0-only"
+      },
+      "src/interfaces/IBondAggregator.sol": {
+        "keccak256": "0xcbed51d7460ff8cf4d21f7ede6214af17b18dc4267c97b33989d657c84b732db",
+        "urls": [
+          "bzz-raw://983965755356b317371609b20859cd2ca4c6493fa607d9dffaabb1d0cfd9dffb",
+          "dweb:/ipfs/QmZJGhmKLLgi8wvBN6RrZF8y7sT6MgCYXx6NAM1bLqu5SU"
+        ],
+        "license": "AGPL-3.0"
+      },
+      "src/interfaces/IBondAuctioneer.sol": {
+        "keccak256": "0x72842370a860a167633d01b6806db55d6db1011985d8186bd7947ed35d397c38",
+        "urls": [
+          "bzz-raw://36c3eb05cd77617ce675871eb7b288ee6e9d75b60b82dbcf62667b08c37c2a8f",
+          "dweb:/ipfs/QmcSddgbfTyfSZywcMDnWPsxs5nYgkBYBqzrEJWeEPzfT7"
+        ],
+        "license": "AGPL-3.0"
+      },
+      "src/interfaces/IBondCallback.sol": {
+        "keccak256": "0x8ccf5a971b9548ed415e90b1b66e44230b6f3934984fbe35e80d1bfa58b4b0f5",
+        "urls": [
+          "bzz-raw://5c5a6e92ef3e65f5dba9ee5a752f0f02cbdf956fe208640141ccfa054a388b6b",
+          "dweb:/ipfs/QmUbKa6eh3TmCToTD4vusuzLMd8xkGpbfv89tLDe4VQLvC"
+        ],
+        "license": "AGPL-3.0"
+      },
+      "src/interfaces/IBondSDA.sol": {
+        "keccak256": "0xb0a61e34a41e7fc745d1380af61513f6766de4270a3577f14ddac61fd233c4cf",
+        "urls": [
+          "bzz-raw://7cbceb0696bfd499216ac5d75fbc3a50b0912a044b6f1915ddbd5ccd5ddf0a97",
+          "dweb:/ipfs/QmTdjYhhCbF8G1JFMjgGBR6Vj5T2x5NKZh5xu7Z3kNxoFW"
+        ],
+        "license": "AGPL-3.0"
+      },
+      "src/interfaces/IBondTeller.sol": {
+        "keccak256": "0xb14fc9301858ec61abc52462699ced9f32478f1944b64c9398d811794d8769a1",
+        "urls": [
+          "bzz-raw://9a6fb18f623109e285ce99f8be07969d3e50a235543ceb28b5dc620d606ea150",
+          "dweb:/ipfs/QmXAz2yXoZQ6XzkS9mwPc7Dkj7kD3RyhW9rix7daVvxkMf"
+        ],
+        "license": "AGPL-3.0"
+      },
+      "src/policies/interfaces/IOperator.sol": {
+        "keccak256": "0x7faf3bf2dc670f3ba3b119d2bb6d517b054cee83f5188465d7ba252a990a3254",
+        "urls": [
+          "bzz-raw://0ba0f58d87aeb10df91ccfd24cb6f6aef8b45132a52e8bdac0ee03e1b3fccd27",
+          "dweb:/ipfs/QmQePzASU52Br8TrVkAYzFQZmnBkAo4rpeuZ7YEG48G7zt"
+        ],
+        "license": "AGPL-3.0"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/policies/interfaces/IOperator.sol",
+    "id": 57986,
+    "exportedSymbols": {
+      "ERC20": [
+        29147
+      ],
+      "IBondCallback": [
+        42454
+      ],
+      "IBondSDA": [
+        42663
+      ],
+      "IOperator": [
+        57985
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "37:9408:96",
+    "nodes": [
+      {
+        "id": 57760,
+        "nodeType": "PragmaDirective",
+        "src": "37:24:96",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0"
+        ]
+      },
+      {
+        "id": 57762,
+        "nodeType": "ImportDirective",
+        "src": "63:47:96",
+        "nodes": [],
+        "absolutePath": "lib/solmate/src/tokens/ERC20.sol",
+        "file": "solmate/tokens/ERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 57986,
+        "sourceUnit": 29148,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 57761,
+              "name": "ERC20",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 29147,
+              "src": "71:5:96",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 57764,
+        "nodeType": "ImportDirective",
+        "src": "111:49:96",
+        "nodes": [],
+        "absolutePath": "src/interfaces/IBondSDA.sol",
+        "file": "interfaces/IBondSDA.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 57986,
+        "sourceUnit": 42664,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 57763,
+              "name": "IBondSDA",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 42663,
+              "src": "119:8:96",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 57766,
+        "nodeType": "ImportDirective",
+        "src": "161:59:96",
+        "nodes": [],
+        "absolutePath": "src/interfaces/IBondCallback.sol",
+        "file": "interfaces/IBondCallback.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 57986,
+        "sourceUnit": 42455,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 57765,
+              "name": "IBondCallback",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 42454,
+              "src": "169:13:96",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 57985,
+        "nodeType": "ContractDefinition",
+        "src": "222:9222:96",
+        "nodes": [
+          {
+            "id": 57778,
+            "nodeType": "EventDefinition",
+            "src": "287:137:96",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "fa2dda1cc1b86e41239702756b13effbc1a092b5c57e3ad320fbe4f3b13fe235",
+            "name": "Swap",
+            "nameLocation": "293:4:96",
+            "parameters": {
+              "id": 57777,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57769,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenIn_",
+                  "nameLocation": "321:8:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57778,
+                  "src": "307:22:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$29147",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "id": 57768,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 57767,
+                      "name": "ERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 29147,
+                      "src": "307:5:96"
+                    },
+                    "referencedDeclaration": 29147,
+                    "src": "307:5:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$29147",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57772,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "tokenOut_",
+                  "nameLocation": "353:9:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57778,
+                  "src": "339:23:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$29147",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "id": 57771,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 57770,
+                      "name": "ERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 29147,
+                      "src": "339:5:96"
+                    },
+                    "referencedDeclaration": 29147,
+                    "src": "339:5:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$29147",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57774,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amountIn_",
+                  "nameLocation": "380:9:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57778,
+                  "src": "372:17:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57773,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "372:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57776,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amountOut_",
+                  "nameLocation": "407:10:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57778,
+                  "src": "399:18:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57775,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "399:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "297:126:96"
+            }
+          },
+          {
+            "id": 57782,
+            "nodeType": "EventDefinition",
+            "src": "429:50:96",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "5760955ed2acbd2b290c0a6edf1c0bc845f64f1da0b9f89582fac3daade8dff5",
+            "name": "CushionFactorChanged",
+            "nameLocation": "435:20:96",
+            "parameters": {
+              "id": 57781,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57780,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "cushionFactor_",
+                  "nameLocation": "463:14:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57782,
+                  "src": "456:21:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57779,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "456:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "455:23:96"
+            }
+          },
+          {
+            "id": 57790,
+            "nodeType": "EventDefinition",
+            "src": "484:90:96",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "6627cd780fa2d7faf558f4d9d700a0852b79903fd60ce8c0f734103cf8aa12b8",
+            "name": "CushionParamsChanged",
+            "nameLocation": "490:20:96",
+            "parameters": {
+              "id": 57789,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57784,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "duration_",
+                  "nameLocation": "518:9:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57790,
+                  "src": "511:16:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57783,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "511:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57786,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "debtBuffer_",
+                  "nameLocation": "536:11:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57790,
+                  "src": "529:18:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57785,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "529:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57788,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "depositInterval_",
+                  "nameLocation": "556:16:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57790,
+                  "src": "549:23:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57787,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "549:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "510:63:96"
+            }
+          },
+          {
+            "id": 57794,
+            "nodeType": "EventDefinition",
+            "src": "579:50:96",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "b3f67f3c41e3a7c2c87b93a1c1fe4581744242b44b44d4a873ca8facec1ee8a5",
+            "name": "ReserveFactorChanged",
+            "nameLocation": "585:20:96",
+            "parameters": {
+              "id": 57793,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57792,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "reserveFactor_",
+                  "nameLocation": "613:14:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57794,
+                  "src": "606:21:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57791,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "606:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "605:23:96"
+            }
+          },
+          {
+            "id": 57802,
+            "nodeType": "EventDefinition",
+            "src": "634:75:96",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "9f11b1d829316eb1d4d6f91541c83d9f78bc1e309f755c759d190c973f7b4fae",
+            "name": "RegenParamsChanged",
+            "nameLocation": "640:18:96",
+            "parameters": {
+              "id": 57801,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57796,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "wait_",
+                  "nameLocation": "666:5:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57802,
+                  "src": "659:12:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57795,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "659:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57798,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "threshold_",
+                  "nameLocation": "680:10:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57802,
+                  "src": "673:17:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57797,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "673:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57800,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "observe_",
+                  "nameLocation": "699:8:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57802,
+                  "src": "692:15:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57799,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "692:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "658:50:96"
+            }
+          },
+          {
+            "id": 57804,
+            "nodeType": "ErrorDefinition",
+            "src": "754:31:96",
+            "nodes": [],
+            "errorSelector": "42a67ad0",
+            "name": "Operator_InvalidParams",
+            "nameLocation": "760:22:96",
+            "parameters": {
+              "id": 57803,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "782:2:96"
+            }
+          },
+          {
+            "id": 57806,
+            "nodeType": "ErrorDefinition",
+            "src": "790:38:96",
+            "nodes": [],
+            "errorSelector": "2c050361",
+            "name": "Operator_InsufficientCapacity",
+            "nameLocation": "796:29:96",
+            "parameters": {
+              "id": 57805,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "825:2:96"
+            }
+          },
+          {
+            "id": 57812,
+            "nodeType": "ErrorDefinition",
+            "src": "833:78:96",
+            "nodes": [],
+            "errorSelector": "c2d2c743",
+            "name": "Operator_AmountLessThanMinimum",
+            "nameLocation": "839:30:96",
+            "parameters": {
+              "id": 57811,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57808,
+                  "mutability": "mutable",
+                  "name": "amountOut",
+                  "nameLocation": "878:9:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57812,
+                  "src": "870:17:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57807,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "870:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57810,
+                  "mutability": "mutable",
+                  "name": "minAmountOut",
+                  "nameLocation": "897:12:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57812,
+                  "src": "889:20:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57809,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "889:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "869:41:96"
+            }
+          },
+          {
+            "id": 57814,
+            "nodeType": "ErrorDefinition",
+            "src": "916:26:96",
+            "nodes": [],
+            "errorSelector": "1c184ff5",
+            "name": "Operator_WallDown",
+            "nameLocation": "922:17:96",
+            "parameters": {
+              "id": 57813,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "939:2:96"
+            }
+          },
+          {
+            "id": 57816,
+            "nodeType": "ErrorDefinition",
+            "src": "947:36:96",
+            "nodes": [],
+            "errorSelector": "58b8d275",
+            "name": "Operator_AlreadyInitialized",
+            "nameLocation": "953:27:96",
+            "parameters": {
+              "id": 57815,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "980:2:96"
+            }
+          },
+          {
+            "id": 57818,
+            "nodeType": "ErrorDefinition",
+            "src": "988:32:96",
+            "nodes": [],
+            "errorSelector": "79709bae",
+            "name": "Operator_NotInitialized",
+            "nameLocation": "994:23:96",
+            "parameters": {
+              "id": 57817,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1017:2:96"
+            }
+          },
+          {
+            "id": 57820,
+            "nodeType": "ErrorDefinition",
+            "src": "1025:26:96",
+            "nodes": [],
+            "errorSelector": "5ac0916c",
+            "name": "Operator_Inactive",
+            "nameLocation": "1031:17:96",
+            "parameters": {
+              "id": 57819,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1048:2:96"
+            }
+          },
+          {
+            "id": 57837,
+            "nodeType": "StructDefinition",
+            "src": "1155:993:96",
+            "nodes": [],
+            "canonicalName": "IOperator.Config",
+            "members": [
+              {
+                "constant": false,
+                "id": 57822,
+                "mutability": "mutable",
+                "name": "cushionFactor",
+                "nameLocation": "1186:13:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57837,
+                "src": "1179:20:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 57821,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1179:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57824,
+                "mutability": "mutable",
+                "name": "cushionDuration",
+                "nameLocation": "1320:15:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57837,
+                "src": "1313:22:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 57823,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1313:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57826,
+                "mutability": "mutable",
+                "name": "cushionDebtBuffer",
+                "nameLocation": "1406:17:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57837,
+                "src": "1399:24:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 57825,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1399:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57828,
+                "mutability": "mutable",
+                "name": "cushionDepositInterval",
+                "nameLocation": "1598:22:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57837,
+                "src": "1591:29:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 57827,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1591:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57830,
+                "mutability": "mutable",
+                "name": "reserveFactor",
+                "nameLocation": "1740:13:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57837,
+                "src": "1733:20:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 57829,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1733:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57832,
+                "mutability": "mutable",
+                "name": "regenWait",
+                "nameLocation": "1872:9:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57837,
+                "src": "1865:16:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 57831,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1865:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57834,
+                "mutability": "mutable",
+                "name": "regenThreshold",
+                "nameLocation": "1957:14:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57837,
+                "src": "1950:21:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 57833,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1950:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57836,
+                "mutability": "mutable",
+                "name": "regenObserve",
+                "nameLocation": "2066:12:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57837,
+                "src": "2059:19:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 57835,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2059:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Config",
+            "nameLocation": "1162:6:96",
+            "scope": 57985,
+            "visibility": "public"
+          },
+          {
+            "id": 57844,
+            "nodeType": "StructDefinition",
+            "src": "2235:167:96",
+            "nodes": [],
+            "canonicalName": "IOperator.Status",
+            "members": [
+              {
+                "constant": false,
+                "id": 57840,
+                "mutability": "mutable",
+                "name": "low",
+                "nameLocation": "2265:3:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57844,
+                "src": "2259:9:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Regen_$57854_storage_ptr",
+                  "typeString": "struct IOperator.Regen"
+                },
+                "typeName": {
+                  "id": 57839,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 57838,
+                    "name": "Regen",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 57854,
+                    "src": "2259:5:96"
+                  },
+                  "referencedDeclaration": 57854,
+                  "src": "2259:5:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Regen_$57854_storage_ptr",
+                    "typeString": "struct IOperator.Regen"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57843,
+                "mutability": "mutable",
+                "name": "high",
+                "nameLocation": "2337:4:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57844,
+                "src": "2331:10:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Regen_$57854_storage_ptr",
+                  "typeString": "struct IOperator.Regen"
+                },
+                "typeName": {
+                  "id": 57842,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 57841,
+                    "name": "Regen",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 57854,
+                    "src": "2331:5:96"
+                  },
+                  "referencedDeclaration": 57854,
+                  "src": "2331:5:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Regen_$57854_storage_ptr",
+                    "typeString": "struct IOperator.Regen"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Status",
+            "nameLocation": "2242:6:96",
+            "scope": 57985,
+            "visibility": "public"
+          },
+          {
+            "id": 57854,
+            "nodeType": "StructDefinition",
+            "src": "2510:397:96",
+            "nodes": [],
+            "canonicalName": "IOperator.Regen",
+            "members": [
+              {
+                "constant": false,
+                "id": 57846,
+                "mutability": "mutable",
+                "name": "count",
+                "nameLocation": "2540:5:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57854,
+                "src": "2533:12:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 57845,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2533:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57848,
+                "mutability": "mutable",
+                "name": "lastRegen",
+                "nameLocation": "2628:9:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57854,
+                "src": "2621:16:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint48",
+                  "typeString": "uint48"
+                },
+                "typeName": {
+                  "id": 57847,
+                  "name": "uint48",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2621:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint48",
+                    "typeString": "uint48"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57850,
+                "mutability": "mutable",
+                "name": "nextObservation",
+                "nameLocation": "2692:15:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57854,
+                "src": "2685:22:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 57849,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2685:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 57853,
+                "mutability": "mutable",
+                "name": "observations",
+                "nameLocation": "2783:12:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 57854,
+                "src": "2776:19:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_bool_$dyn_storage_ptr",
+                  "typeString": "bool[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 57851,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2776:4:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 57852,
+                  "nodeType": "ArrayTypeName",
+                  "src": "2776:6:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bool_$dyn_storage_ptr",
+                    "typeString": "bool[]"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Regen",
+            "nameLocation": "2517:5:96",
+            "scope": 57985,
+            "visibility": "public"
+          },
+          {
+            "id": 57858,
+            "nodeType": "FunctionDefinition",
+            "src": "3122:28:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57855,
+              "nodeType": "StructuredDocumentation",
+              "src": "2960:157:96",
+              "text": "@notice Executes market operations logic.\n @notice Access restricted\n @dev    This function is triggered by a keeper on the Heart contract."
+            },
+            "functionSelector": "7159a618",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "operate",
+            "nameLocation": "3131:7:96",
+            "parameters": {
+              "id": 57856,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3138:2:96"
+            },
+            "returnParameters": {
+              "id": 57857,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3149:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57871,
+            "nodeType": "FunctionDefinition",
+            "src": "3638:139:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57859,
+              "nodeType": "StructuredDocumentation",
+              "src": "3218:415:96",
+              "text": "@notice Swap at the current wall prices\n @param  tokenIn_ - Token to swap into the wall\n         - OHM: swap at the low wall price for Reserve\n         - Reserve: swap at the high wall price for OHM\n @param  amountIn_ - Amount of tokenIn to swap\n @param  minAmountOut_ - Minimum amount of opposite token to receive\n @return amountOut - Amount of opposite token received"
+            },
+            "functionSelector": "9f1d0f59",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "swap",
+            "nameLocation": "3647:4:96",
+            "parameters": {
+              "id": 57867,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57862,
+                  "mutability": "mutable",
+                  "name": "tokenIn_",
+                  "nameLocation": "3667:8:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57871,
+                  "src": "3661:14:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$29147",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "id": 57861,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 57860,
+                      "name": "ERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 29147,
+                      "src": "3661:5:96"
+                    },
+                    "referencedDeclaration": 29147,
+                    "src": "3661:5:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$29147",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57864,
+                  "mutability": "mutable",
+                  "name": "amountIn_",
+                  "nameLocation": "3693:9:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57871,
+                  "src": "3685:17:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57863,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3685:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57866,
+                  "mutability": "mutable",
+                  "name": "minAmountOut_",
+                  "nameLocation": "3720:13:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57871,
+                  "src": "3712:21:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57865,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3712:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3651:88:96"
+            },
+            "returnParameters": {
+              "id": 57870,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57869,
+                  "mutability": "mutable",
+                  "name": "amountOut",
+                  "nameLocation": "3766:9:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57871,
+                  "src": "3758:17:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57868,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3758:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3757:19:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57882,
+            "nodeType": "FunctionDefinition",
+            "src": "4135:89:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57872,
+              "nodeType": "StructuredDocumentation",
+              "src": "3783:347:96",
+              "text": "@notice Returns the amount to be received from a swap\n @param  tokenIn_ - Token to swap into the wall\n         - If OHM: swap at the low wall price for Reserve\n         - If Reserve: swap at the high wall price for OHM\n @param  amountIn_ - Amount of tokenIn to swap\n @return Amount of opposite token received"
+            },
+            "functionSelector": "ca706bcf",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAmountOut",
+            "nameLocation": "4144:12:96",
+            "parameters": {
+              "id": 57878,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57875,
+                  "mutability": "mutable",
+                  "name": "tokenIn_",
+                  "nameLocation": "4163:8:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57882,
+                  "src": "4157:14:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$29147",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "id": 57874,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 57873,
+                      "name": "ERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 29147,
+                      "src": "4157:5:96"
+                    },
+                    "referencedDeclaration": 29147,
+                    "src": "4157:5:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$29147",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57877,
+                  "mutability": "mutable",
+                  "name": "amountIn_",
+                  "nameLocation": "4181:9:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57882,
+                  "src": "4173:17:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57876,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4173:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4156:35:96"
+            },
+            "returnParameters": {
+              "id": 57881,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57880,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57882,
+                  "src": "4215:7:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57879,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4215:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4214:9:96"
+            },
+            "scope": 57985,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57890,
+            "nodeType": "FunctionDefinition",
+            "src": "4717:74:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57883,
+              "nodeType": "StructuredDocumentation",
+              "src": "4278:434:96",
+              "text": "@notice Set the wall and cushion spreads\n @notice Access restricted\n @dev    Interface for externally setting these values on the RANGE module\n @param  cushionSpread_ - Percent spread to set the cushions at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%)\n @param  wallSpread_ - Percent spread to set the walls at above/below the moving average, assumes 2 decimals (i.e. 1000 = 10%)"
+            },
+            "functionSelector": "41f19a46",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setSpreads",
+            "nameLocation": "4726:10:96",
+            "parameters": {
+              "id": 57888,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57885,
+                  "mutability": "mutable",
+                  "name": "cushionSpread_",
+                  "nameLocation": "4745:14:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57890,
+                  "src": "4737:22:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57884,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4737:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57887,
+                  "mutability": "mutable",
+                  "name": "wallSpread_",
+                  "nameLocation": "4769:11:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57890,
+                  "src": "4761:19:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57886,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4761:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4736:45:96"
+            },
+            "returnParameters": {
+              "id": 57889,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4790:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57896,
+            "nodeType": "FunctionDefinition",
+            "src": "5115:63:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57891,
+              "nodeType": "StructuredDocumentation",
+              "src": "4797:313:96",
+              "text": "@notice Set the threshold factor for when a wall is considered \"down\"\n @notice Access restricted\n @dev    Interface for externally setting this value on the RANGE module\n @param  thresholdFactor_ - Percent of capacity that the wall should close below, assumes 2 decimals (i.e. 1000 = 10%)"
+            },
+            "functionSelector": "33bd33b4",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setThresholdFactor",
+            "nameLocation": "5124:18:96",
+            "parameters": {
+              "id": 57894,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57893,
+                  "mutability": "mutable",
+                  "name": "thresholdFactor_",
+                  "nameLocation": "5151:16:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57896,
+                  "src": "5143:24:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57892,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5143:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5142:26:96"
+            },
+            "returnParameters": {
+              "id": 57895,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "5177:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57902,
+            "nodeType": "FunctionDefinition",
+            "src": "5398:58:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57897,
+              "nodeType": "StructuredDocumentation",
+              "src": "5184:209:96",
+              "text": "@notice Set the cushion factor\n @notice Access restricted\n @param  cushionFactor_ - Percent of wall capacity that the operator will deploy in the cushion, assumes 2 decimals (i.e. 1000 = 10%)"
+            },
+            "functionSelector": "aa9760a1",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setCushionFactor",
+            "nameLocation": "5407:16:96",
+            "parameters": {
+              "id": 57900,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57899,
+                  "mutability": "mutable",
+                  "name": "cushionFactor_",
+                  "nameLocation": "5431:14:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57902,
+                  "src": "5424:21:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57898,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5424:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5423:23:96"
+            },
+            "returnParameters": {
+              "id": 57901,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "5455:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57912,
+            "nodeType": "FunctionDefinition",
+            "src": "5970:128:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57903,
+              "nodeType": "StructuredDocumentation",
+              "src": "5462:503:96",
+              "text": "@notice Set the parameters used to deploy cushion bond markets\n @notice Access restricted\n @param  duration_ - Duration of cushion bond markets in seconds\n @param  debtBuffer_ - Percentage over the initial debt to allow the market to accumulate at any one time. Percent with 3 decimals, e.g. 1_000 = 1 %. See IBondSDA for more info.\n @param  depositInterval_ - Target frequency of deposits in seconds. Determines max payout of the bond market. See IBondSDA for more info."
+            },
+            "functionSelector": "f2fa4737",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setCushionParams",
+            "nameLocation": "5979:16:96",
+            "parameters": {
+              "id": 57910,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57905,
+                  "mutability": "mutable",
+                  "name": "duration_",
+                  "nameLocation": "6012:9:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57912,
+                  "src": "6005:16:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57904,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6005:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57907,
+                  "mutability": "mutable",
+                  "name": "debtBuffer_",
+                  "nameLocation": "6038:11:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57912,
+                  "src": "6031:18:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57906,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6031:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57909,
+                  "mutability": "mutable",
+                  "name": "depositInterval_",
+                  "nameLocation": "6066:16:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57912,
+                  "src": "6059:23:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57908,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6059:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5995:93:96"
+            },
+            "returnParameters": {
+              "id": 57911,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "6097:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57918,
+            "nodeType": "FunctionDefinition",
+            "src": "6321:58:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57913,
+              "nodeType": "StructuredDocumentation",
+              "src": "6104:212:96",
+              "text": "@notice Set the reserve factor\n @notice Access restricted\n @param  reserveFactor_ - Percent of treasury reserves to deploy as capacity for market operations, assumes 2 decimals (i.e. 1000 = 10%)"
+            },
+            "functionSelector": "01de9ba8",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setReserveFactor",
+            "nameLocation": "6330:16:96",
+            "parameters": {
+              "id": 57916,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57915,
+                  "mutability": "mutable",
+                  "name": "reserveFactor_",
+                  "nameLocation": "6354:14:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57918,
+                  "src": "6347:21:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57914,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6347:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6346:23:96"
+            },
+            "returnParameters": {
+              "id": 57917,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "6378:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57928,
+            "nodeType": "FunctionDefinition",
+            "src": "6896:113:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57919,
+              "nodeType": "StructuredDocumentation",
+              "src": "6385:506:96",
+              "text": "@notice Set the wall regeneration parameters\n @notice Access restricted\n @param  wait_ - Minimum duration to wait to reinstate a wall in seconds\n @param  threshold_ - Number of price points on other side of moving average to reinstate a wall\n @param  observe_ - Number of price points to observe to determine regeneration\n @dev    We must see Threshold number of price points that meet our criteria within the last Observe number of price points to regenerate a wall."
+            },
+            "functionSelector": "3a3f54bc",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setRegenParams",
+            "nameLocation": "6905:14:96",
+            "parameters": {
+              "id": 57926,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57921,
+                  "mutability": "mutable",
+                  "name": "wait_",
+                  "nameLocation": "6936:5:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57928,
+                  "src": "6929:12:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57920,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6929:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57923,
+                  "mutability": "mutable",
+                  "name": "threshold_",
+                  "nameLocation": "6958:10:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57928,
+                  "src": "6951:17:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57922,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6951:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57925,
+                  "mutability": "mutable",
+                  "name": "observe_",
+                  "nameLocation": "6985:8:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57928,
+                  "src": "6978:15:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 57924,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6978:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6919:80:96"
+            },
+            "returnParameters": {
+              "id": 57927,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7008:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57938,
+            "nodeType": "FunctionDefinition",
+            "src": "7257:82:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57929,
+              "nodeType": "StructuredDocumentation",
+              "src": "7015:237:96",
+              "text": "@notice Set the contracts that the Operator deploys bond markets with.\n @notice Access restricted\n @param  auctioneer_ - Address of the bond auctioneer to use.\n @param  callback_ - Address of the callback to use."
+            },
+            "functionSelector": "19f63dd7",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setBondContracts",
+            "nameLocation": "7266:16:96",
+            "parameters": {
+              "id": 57936,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57932,
+                  "mutability": "mutable",
+                  "name": "auctioneer_",
+                  "nameLocation": "7292:11:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57938,
+                  "src": "7283:20:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IBondSDA_$42663",
+                    "typeString": "contract IBondSDA"
+                  },
+                  "typeName": {
+                    "id": 57931,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 57930,
+                      "name": "IBondSDA",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 42663,
+                      "src": "7283:8:96"
+                    },
+                    "referencedDeclaration": 42663,
+                    "src": "7283:8:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IBondSDA_$42663",
+                      "typeString": "contract IBondSDA"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 57935,
+                  "mutability": "mutable",
+                  "name": "callback_",
+                  "nameLocation": "7319:9:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57938,
+                  "src": "7305:23:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IBondCallback_$42454",
+                    "typeString": "contract IBondCallback"
+                  },
+                  "typeName": {
+                    "id": 57934,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 57933,
+                      "name": "IBondCallback",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 42454,
+                      "src": "7305:13:96"
+                    },
+                    "referencedDeclaration": 42454,
+                    "src": "7305:13:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IBondCallback_$42454",
+                      "typeString": "contract IBondCallback"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "7282:47:96"
+            },
+            "returnParameters": {
+              "id": 57937,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7338:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57942,
+            "nodeType": "FunctionDefinition",
+            "src": "7641:31:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57939,
+              "nodeType": "StructuredDocumentation",
+              "src": "7345:291:96",
+              "text": "@notice Initialize the Operator to begin market operations\n @notice Access restricted\n @notice Can only be called once\n @dev    This function executes actions required to start operations that cannot be done prior to the Operator policy being approved by the Kernel."
+            },
+            "functionSelector": "8129fc1c",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "initialize",
+            "nameLocation": "7650:10:96",
+            "parameters": {
+              "id": 57940,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7660:2:96"
+            },
+            "returnParameters": {
+              "id": 57941,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7671:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57948,
+            "nodeType": "FunctionDefinition",
+            "src": "8001:41:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57943,
+              "nodeType": "StructuredDocumentation",
+              "src": "7678:318:96",
+              "text": "@notice Regenerate the wall for a side\n @notice Access restricted\n @param  high_ Whether to regenerate the high side or low side (true = high, false = low)\n @dev    This function is an escape hatch to trigger out of cycle regenerations and may be useful when doing migrations of Treasury funds"
+            },
+            "functionSelector": "2ecd1f20",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "regenerate",
+            "nameLocation": "8010:10:96",
+            "parameters": {
+              "id": 57946,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57945,
+                  "mutability": "mutable",
+                  "name": "high_",
+                  "nameLocation": "8026:5:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57948,
+                  "src": "8021:10:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 57944,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8021:4:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8020:12:96"
+            },
+            "returnParameters": {
+              "id": 57947,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "8041:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57952,
+            "nodeType": "FunctionDefinition",
+            "src": "8224:31:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57949,
+              "nodeType": "StructuredDocumentation",
+              "src": "8048:171:96",
+              "text": "@notice Deactivate the Operator\n @notice Access restricted\n @dev    Emergency pause function for the Operator. Prevents market operations from occurring."
+            },
+            "functionSelector": "51b42b00",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deactivate",
+            "nameLocation": "8233:10:96",
+            "parameters": {
+              "id": 57950,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "8243:2:96"
+            },
+            "returnParameters": {
+              "id": 57951,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "8254:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57956,
+            "nodeType": "FunctionDefinition",
+            "src": "8398:29:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57953,
+              "nodeType": "StructuredDocumentation",
+              "src": "8261:132:96",
+              "text": "@notice Activate the Operator\n @notice Access restricted\n @dev    Restart function for the Operator after a pause."
+            },
+            "functionSelector": "0f15f4c0",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "activate",
+            "nameLocation": "8407:8:96",
+            "parameters": {
+              "id": 57954,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "8415:2:96"
+            },
+            "returnParameters": {
+              "id": 57955,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "8426:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57962,
+            "nodeType": "FunctionDefinition",
+            "src": "8677:48:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57957,
+              "nodeType": "StructuredDocumentation",
+              "src": "8433:239:96",
+              "text": "@notice Manually close a cushion bond market\n @notice Access restricted\n @param  high_ Whether to deactivate the high or low side cushion (true = high, false = low)\n @dev    Emergency shutdown function for Cushions"
+            },
+            "functionSelector": "f2f6d5bb",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deactivateCushion",
+            "nameLocation": "8686:17:96",
+            "parameters": {
+              "id": 57960,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57959,
+                  "mutability": "mutable",
+                  "name": "high_",
+                  "nameLocation": "8709:5:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57962,
+                  "src": "8704:10:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 57958,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8704:4:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8703:12:96"
+            },
+            "returnParameters": {
+              "id": 57961,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "8724:0:96"
+            },
+            "scope": 57985,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57970,
+            "nodeType": "FunctionDefinition",
+            "src": "9094:66:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57963,
+              "nodeType": "StructuredDocumentation",
+              "src": "8778:311:96",
+              "text": "@notice Returns the full capacity of the specified wall (if it was regenerated now)\n @dev    Calculates the capacity to deploy for a wall based on the amount of reserves owned by the treasury and the reserve factor.\n @param  high_ - Whether to return the full capacity for the high or low wall"
+            },
+            "functionSelector": "9e897711",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "fullCapacity",
+            "nameLocation": "9103:12:96",
+            "parameters": {
+              "id": 57966,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57965,
+                  "mutability": "mutable",
+                  "name": "high_",
+                  "nameLocation": "9121:5:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57970,
+                  "src": "9116:10:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 57964,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9116:4:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "9115:12:96"
+            },
+            "returnParameters": {
+              "id": 57969,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57968,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57970,
+                  "src": "9151:7:96",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 57967,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9151:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "9150:9:96"
+            },
+            "scope": 57985,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57977,
+            "nodeType": "FunctionDefinition",
+            "src": "9245:56:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57971,
+              "nodeType": "StructuredDocumentation",
+              "src": "9166:74:96",
+              "text": "@notice Returns the status variable of the Operator as a Status struct"
+            },
+            "functionSelector": "200d2ed2",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "status",
+            "nameLocation": "9254:6:96",
+            "parameters": {
+              "id": 57972,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "9260:2:96"
+            },
+            "returnParameters": {
+              "id": 57976,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57975,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57977,
+                  "src": "9286:13:96",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Status_$57844_memory_ptr",
+                    "typeString": "struct IOperator.Status"
+                  },
+                  "typeName": {
+                    "id": 57974,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 57973,
+                      "name": "Status",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 57844,
+                      "src": "9286:6:96"
+                    },
+                    "referencedDeclaration": 57844,
+                    "src": "9286:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Status_$57844_storage_ptr",
+                      "typeString": "struct IOperator.Status"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "9285:15:96"
+            },
+            "scope": 57985,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 57984,
+            "nodeType": "FunctionDefinition",
+            "src": "9386:56:96",
+            "nodes": [],
+            "documentation": {
+              "id": 57978,
+              "nodeType": "StructuredDocumentation",
+              "src": "9307:74:96",
+              "text": "@notice Returns the config variable of the Operator as a Config struct"
+            },
+            "functionSelector": "79502c55",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "config",
+            "nameLocation": "9395:6:96",
+            "parameters": {
+              "id": 57979,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "9401:2:96"
+            },
+            "returnParameters": {
+              "id": 57983,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 57982,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 57984,
+                  "src": "9427:13:96",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Config_$57837_memory_ptr",
+                    "typeString": "struct IOperator.Config"
+                  },
+                  "typeName": {
+                    "id": 57981,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 57980,
+                      "name": "Config",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 57837,
+                      "src": "9427:6:96"
+                    },
+                    "referencedDeclaration": 57837,
+                    "src": "9427:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Config_$57837_storage_ptr",
+                      "typeString": "struct IOperator.Config"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "9426:15:96"
+            },
+            "scope": 57985,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IOperator",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          57985
+        ],
+        "name": "IOperator",
+        "nameLocation": "232:9:96",
+        "scope": 57986,
+        "usedErrors": [
+          57804,
+          57806,
+          57812,
+          57814,
+          57816,
+          57818,
+          57820
+        ]
+      }
+    ],
+    "license": "AGPL-3.0"
+  },
+  "id": 96
+}

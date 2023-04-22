@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ContractReceipt } from "ethers";
 import toast from "react-hot-toast";
-import { OHM_ADDRESSES, STAKING_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES, STAKING_ADDRESSES } from "src/constants/addresses";
 import { trackGAEvent, trackGtagEvent } from "src/helpers/analytics/trackGAEvent";
 import { balanceQueryKey } from "src/hooks/useBalance";
 import { useDynamicStakingContract } from "src/hooks/useContract";
@@ -18,7 +18,7 @@ export const useForfeitToken = () => {
   const { address = "" } = useAccount();
   const networks = useTestableNetworks();
   const { data: claim } = useWarmupClaim();
-  const claimBalance = claim?.sohm;
+  const claimBalance = claim?.sgdao;
   const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
 
   return useMutation<ContractReceipt, EthersError>({
@@ -37,7 +37,7 @@ export const useForfeitToken = () => {
     },
     onSuccess: async (tx, data) => {
       const keysToRefetch = [
-        balanceQueryKey(address, OHM_ADDRESSES, networks.MAINNET),
+        balanceQueryKey(address, GDAO_ADDRESSES, networks.MAINNET),
         warmupQueryKey(address, networks.MAINNET),
       ];
 

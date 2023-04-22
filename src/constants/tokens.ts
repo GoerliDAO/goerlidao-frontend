@@ -1,77 +1,49 @@
 import {
   DAI_ADDRESSES,
-  FRAX_ADDRESSES,
-  GOHM_ADDRESSES,
-  LUSD_ADDRESSES,
-  OHM_ADDRESSES,
-  OHM_DAI_BALANCER_LP_ADDRESSES,
-  OHM_DAI_LP_ADDRESSES,
-  SOHM_ADDRESSES,
-  UST_ADDRESSES,
-  V1_OHM_ADDRESSES,
-  V1_SOHM_ADDRESSES,
-  WBTC_ADDRESSES,
+  // LUSD_ADDRESSES,
+  GDAO_ADDRESSES,
+  // OHM_DAI_BALANCER_LP_ADDRESSES,
+  // OHM_DAI_LP_ADDRESSES,
+  SGDAO_ADDRESSES,
+  // UST_ADDRESSES,
+  // V1_OHM_ADDRESSES,
+  // V1_SOHM_ADDRESSES,
+  // WBTC_ADDRESSES,
   WETH_ADDRESSES,
-  WSOHM_ADDRESSES,
+  // FRAX_ADDRESSES,
+  XGDAO_ADDRESSES,
+  // WSOHM_ADDRESSES,
 } from "src/constants/addresses";
-import { BALANCER_VAULT } from "src/constants/contracts";
+// import { BALANCER_VAULT } from "src/constants/contracts";
 import { Token } from "src/helpers/contracts/Token";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
-import { calculateUniOrSushiLPValue } from "src/helpers/pricing/calculateUniOrSushiLPValue";
 import { NetworkId } from "src/networkDetails";
-import { BalancerV2Pool__factory, IERC20__factory, PairContract__factory } from "src/typechain";
+import { IERC20__factory } from "src/typechain_goerli/factories";
 
-export const OHM_TOKEN = new Token({
-  icons: ["OHM"],
-  name: "OHM",
+export const GDAO_TOKEN = new Token({
+  icons: ["GDAO"],
+  name: "GDAO",
   decimals: 9,
-  addresses: OHM_ADDRESSES,
+  addresses: GDAO_ADDRESSES,
   factory: IERC20__factory,
   purchaseUrl: "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
 });
 
-export const SOHM_TOKEN = new Token({
-  icons: ["sOHM"],
-  name: "sOHM",
+export const SGDAO_TOKEN = new Token({
+  icons: ["sGDAO"],
+  name: "sGDAO",
   decimals: 9,
-  addresses: SOHM_ADDRESSES,
+  addresses: SGDAO_ADDRESSES,
   factory: IERC20__factory,
-  customPricingFunc: OHM_TOKEN.getPrice,
+  customPricingFunc: GDAO_TOKEN.getPrice,
   purchaseUrl: "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
 });
 
-export const GOHM_TOKEN = new Token({
-  icons: ["gOHM"],
-  name: "gOHM",
+export const XGDAO_TOKEN = new Token({
+  icons: ["xGDAO"],
+  name: "xGDAO",
   decimals: 18,
-  addresses: GOHM_ADDRESSES,
-  factory: IERC20__factory,
-  purchaseUrl: "",
-});
-
-export const V1_OHM_TOKEN = new Token({
-  icons: ["OHM"],
-  name: "OHM (v1)",
-  decimals: 9,
-  addresses: V1_OHM_ADDRESSES,
-  factory: IERC20__factory,
-  purchaseUrl: "",
-});
-
-export const V1_SOHM_TOKEN = new Token({
-  icons: ["sOHM"],
-  name: "sOHM (v1)",
-  decimals: 9,
-  addresses: V1_SOHM_ADDRESSES,
-  factory: IERC20__factory,
-  purchaseUrl: "",
-});
-
-export const WSOHM_TOKEN = new Token({
-  icons: ["wsOHM"],
-  name: "wsOHM",
-  decimals: 18,
-  addresses: WSOHM_ADDRESSES,
+  addresses: XGDAO_ADDRESSES,
   factory: IERC20__factory,
   purchaseUrl: "",
 });
@@ -118,7 +90,7 @@ export const TEST_DAI_TOKEN = new Token({
   name: "DAI",
   decimals: 18,
   addresses: {
-    [NetworkId.MAINNET]: DAI_ADDRESSES[NetworkId.MAINNET],
+    [NetworkId.TESTNET_SEPOLIA]: DAI_ADDRESSES[NetworkId.TESTNET_SEPOLIA],
     [NetworkId.TESTNET_GOERLI]: DAI_ADDRESSES[NetworkId.TESTNET_GOERLI],
   },
   factory: IERC20__factory,
@@ -134,80 +106,34 @@ TEST_DAI_TOKEN.customPricingFunc = async () => {
   return new DecimalBigNumber("1", 18);
 };
 
-export const LUSD_TOKEN = new Token({
-  icons: ["LUSD"],
-  name: "LUSD",
-  decimals: 18,
-  addresses: LUSD_ADDRESSES,
-  factory: IERC20__factory,
-  purchaseUrl: "",
-});
+// OHM_DAI_LP_TOKEN.customPricingFunc = networkId =>
+//   calculateUniOrSushiLPValue({ networkId, lpToken: OHM_DAI_LP_TOKEN, poolTokens: [OHM_TOKEN, DAI_TOKEN] });
 
-export const OHM_DAI_LP_TOKEN = new Token({
-  decimals: 18,
-  name: "OHM-DAI LP",
-  icons: ["OHM", "DAI"],
-  factory: PairContract__factory,
-  addresses: OHM_DAI_LP_ADDRESSES,
-  purchaseUrl:
-    "https://app.sushi.com/add/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5/0x6b175474e89094c44da98b954eedeac495271d0f",
-});
+// export const OHM_DAI_BALANCER_LP_TOKEN = new Token({
+//   decimals: 18,
+//   name: "50OHM-50DAI",
+//   icons: ["OHM", "DAI"],
+//   factory: BalancerV2Pool__factory,
+//   addresses: OHM_DAI_BALANCER_LP_ADDRESSES,
+//   purchaseUrl: "https://app.balancer.fi/#/trade",
+// });
 
-OHM_DAI_LP_TOKEN.customPricingFunc = networkId =>
-  calculateUniOrSushiLPValue({ networkId, lpToken: OHM_DAI_LP_TOKEN, poolTokens: [OHM_TOKEN, DAI_TOKEN] });
+// OHM_DAI_BALANCER_LP_TOKEN.customPricingFunc = async () => {
+//   const contract = OHM_DAI_BALANCER_LP_TOKEN.getEthersContract(NetworkId.MAINNET);
+//   const vault = BALANCER_VAULT.getEthersContract(NetworkId.MAINNET);
+//   const poolId = await contract.getPoolId();
+//   const poolTokens = await vault.getPoolTokens(poolId);
+//   const daiPrice = await DAI_TOKEN.getPrice(NetworkId.MAINNET);
+//   const daiUSDValue = daiPrice.mul(new DecimalBigNumber(poolTokens.balances[1], 18));
 
-export const OHM_DAI_BALANCER_LP_TOKEN = new Token({
-  decimals: 18,
-  name: "50OHM-50DAI",
-  icons: ["OHM", "DAI"],
-  factory: BalancerV2Pool__factory,
-  addresses: OHM_DAI_BALANCER_LP_ADDRESSES,
-  purchaseUrl: "https://app.balancer.fi/#/trade",
-});
-
-OHM_DAI_BALANCER_LP_TOKEN.customPricingFunc = async () => {
-  const contract = OHM_DAI_BALANCER_LP_TOKEN.getEthersContract(NetworkId.MAINNET);
-  const vault = BALANCER_VAULT.getEthersContract(NetworkId.MAINNET);
-  const poolId = await contract.getPoolId();
-  const poolTokens = await vault.getPoolTokens(poolId);
-  const daiPrice = await DAI_TOKEN.getPrice(NetworkId.MAINNET);
-  const daiUSDValue = daiPrice.mul(new DecimalBigNumber(poolTokens.balances[1], 18));
-
-  return daiUSDValue.div(new DecimalBigNumber(poolTokens.balances[0], 9));
-};
-
-export const UST_TOKEN = new Token({
-  icons: ["UST"],
-  name: "UST",
-  decimals: 6,
-  addresses: UST_ADDRESSES,
-  factory: IERC20__factory,
-  purchaseUrl: "",
-});
-
-export const FRAX_TOKEN = new Token({
-  icons: ["FRAX"],
-  name: "FRAX",
-  decimals: 18,
-  addresses: FRAX_ADDRESSES,
-  factory: IERC20__factory,
-  purchaseUrl: "",
-});
-
-export const WBTC_TOKEN = new Token({
-  icons: ["wBTC"],
-  name: "WBTC",
-  decimals: 8,
-  addresses: WBTC_ADDRESSES,
-  factory: IERC20__factory,
-  purchaseUrl: "",
-});
+//   return daiUSDValue.div(new DecimalBigNumber(poolTokens.balances[0], 9));
+// };
 
 /**
  * We have to add the custom pricing func after
  * the token has been initialised to prevent
  * circular references during initialisation.
  */
-OHM_TOKEN.customPricingFunc = async () => {
-  return OHM_DAI_BALANCER_LP_TOKEN.getPrice(NetworkId.MAINNET);
-};
+// OHM_TOKEN.customPricingFunc = async () => {
+//   return OHM_DAI_BALANCER_LP_TOKEN.getPrice(NetworkId.MAINNET);
+// };
