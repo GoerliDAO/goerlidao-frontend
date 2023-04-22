@@ -176,7 +176,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
       timeRemaining:
         Date.now() > note.matured ? "Fully Vested" : prettifySecondsInDays((note.matured - Date.now()) / 1000),
       assetValue: note.payout.toApproxNumber() * xgdaoPrice,
-      underlyingSymbol: "gGDAO",
+      underlyingSymbol: "xGDAO",
       pnl: Number(note.payout) === 0 ? 0 : formatCurrency(note.payout.toApproxNumber() * xGdaoPriceChange, 2),
       ctaText: "Claim",
       ctaOnClick: () => navigate("/bonds"),
@@ -221,31 +221,33 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
               );
           }
         })()}
-        {(chain.id === NetworkId.TESTNET_GOERLI ||
-          chain.id === NetworkId.LOCALHOST ||
-          chain.id === NetworkId.TESTNET_SEPOLIA) && (
-          <>
-            <Typography variant="h5">Dev Faucet</Typography>
-            <Box display="flex" flexDirection="row" justifyContent="space-between" mt="18px">
-              <FormControl className={classes.faucet}>
-                <Select
-                  label="Contract"
-                  id="contract-select"
-                  value={faucetToken}
-                  onChange={event => setFaucetToken(event.target.value)}
-                >
-                  <MenuItem value="DAI">DAI</MenuItem>
-                  <MenuItem value="GDAO">GDAO</MenuItem>
-                  <MenuItem value="SGDAO">SGDAO</MenuItem>
-                  <MenuItem value="XGDAO">XGDAO</MenuItem>
-                </Select>
-              </FormControl>
-              <SecondaryButton onClick={() => faucetMutation.mutate(faucetToken)}>
-                {isFaucetLoading ? "Loading..." : "Get Tokens"}
-              </SecondaryButton>
-            </Box>
-          </>
-        )}
+        {
+          // chain.id === NetworkId.TESTNET_GOERLI ||
+          // chain.id === NetworkId.LOCALHOST ||
+          chain.id === NetworkId.TESTNET_SEPOLIA && (
+            <>
+              <Typography variant="h5">Dev Faucet</Typography>
+              <Box display="flex" flexDirection="row" justifyContent="space-between" mt="18px">
+                <FormControl className={classes.faucet}>
+                  <Select
+                    label="Contract"
+                    id="contract-select"
+                    value={faucetToken}
+                    onChange={event => setFaucetToken(event.target.value)}
+                  >
+                    <MenuItem value="DAI">DAI</MenuItem>
+                    <MenuItem value="GDAO">GDAO</MenuItem>
+                    <MenuItem value="SGDAO">SGDAO</MenuItem>
+                    <MenuItem value="XGDAO">XGDAO</MenuItem>
+                  </Select>
+                </FormControl>
+                <SecondaryButton onClick={() => faucetMutation.mutate(faucetToken)}>
+                  {isFaucetLoading ? "Loading..." : "Get Tokens"}
+                </SecondaryButton>
+              </Box>
+            </>
+          )
+        }
       </Box>
     </StyledFade>
   );

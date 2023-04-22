@@ -19,14 +19,14 @@ import {
 import { Token } from "src/helpers/contracts/Token";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { NetworkId } from "src/networkDetails";
-import { IERC20__factory, IGDAO__factory, IUniswapV2Pair__factory } from "src/typechain_goerli/factories";
+import { IERC20__factory, IUniswapV2Pair__factory } from "src/typechain_goerli/factories";
 
 export const GDAO_TOKEN = new Token({
   icons: ["GDAO"],
   name: "GDAO",
   decimals: 9,
   addresses: GDAO_ADDRESSES,
-  factory: IGDAO__factory,
+  factory: IERC20__factory,
   purchaseUrl: "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
 });
 

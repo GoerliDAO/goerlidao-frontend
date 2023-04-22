@@ -23,7 +23,7 @@ export enum NetworkId {
   // BOBA_TESTNET = 28,
 }
 
-export type EthereumNetwork = NetworkId.TESTNET_SEPOLIA | NetworkId.TESTNET_GOERLI | NetworkId.LOCALHOST;
+export type EthereumNetwork = NetworkId.TESTNET_SEPOLIA | NetworkId.TESTNET_GOERLI; // | NetworkId.LOCALHOST;
 
 // VIEWS FOR NETWORK is used to denote which paths should be viewable on each network
 // ... attempting to prevent contract calls that can't complete & prevent user's from getting
@@ -75,17 +75,17 @@ export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
     bondsV2: true,
     range: false,
   },
-  [NetworkId.LOCALHOST]: {
-    dashboard: true,
-    stake: true,
-    wrap: false,
-    zap: false,
-    threeTogether: false,
-    bonds: true,
-    network: true,
-    bondsV2: true,
-    range: false,
-  },
+  // [NetworkId.LOCALHOST]: {
+  //   dashboard: true,
+  //   stake: true,
+  //   wrap: false,
+  //   zap: false,
+  //   threeTogether: false,
+  //   bonds: true,
+  //   network: true,
+  //   bondsV2: true,
+  //   range: false,
+  // },
   // [NetworkId.ARBITRUM]: {
   //   dashboard: true,
   //   stake: false,

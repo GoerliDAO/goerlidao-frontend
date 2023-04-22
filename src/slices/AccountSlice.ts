@@ -87,70 +87,70 @@ interface IUserAccountDetails {
 export const getMigrationAllowances = createAsyncThunk(
   "account/getMigrationAllowances",
   async ({ networkID, provider, address }: IBaseAddressAsyncThunk) => {
-    let ohmAllowance = BigNumber.from(0);
-    let sOhmAllowance = BigNumber.from(0);
-    let wsOhmAllowance = BigNumber.from(0);
-    let gOhmAllowance = BigNumber.from(0);
+    const ohmAllowance = BigNumber.from(0);
+    const sOhmAllowance = BigNumber.from(0);
+    const wsOhmAllowance = BigNumber.from(0);
+    const gOhmAllowance = BigNumber.from(0);
 
-    if (V1_OHM_ADDRESSES[networkID as keyof typeof V1_OHM_ADDRESSES]) {
-      try {
-        const ohmContract = IERC20__factory.connect(
-          V1_OHM_ADDRESSES[networkID as keyof typeof V1_OHM_ADDRESSES],
-          provider,
-        );
-        ohmAllowance = await ohmContract.allowance(
-          address,
-          MIGRATOR_ADDRESSES[networkID as keyof typeof MIGRATOR_ADDRESSES],
-        );
-      } catch (e) {
-        handleContractError(e);
-      }
-    }
+    // if (V1_OHM_ADDRESSES[networkID as keyof typeof V1_OHM_ADDRESSES]) {
+    //   try {
+    //     const ohmContract = IERC20__factory.connect(
+    //       V1_OHM_ADDRESSES[networkID as keyof typeof V1_OHM_ADDRESSES],
+    //       provider,
+    //     );
+    //     ohmAllowance = await ohmContract.allowance(
+    //       address,
+    //       MIGRATOR_ADDRESSES[networkID as keyof typeof MIGRATOR_ADDRESSES],
+    //     );
+    //   } catch (e) {
+    //     handleContractError(e);
+    //   }
+    // }
 
-    if (V1_SOHM_ADDRESSES[networkID as keyof typeof V1_SOHM_ADDRESSES]) {
-      try {
-        const sOhmContract = IERC20__factory.connect(
-          V1_SOHM_ADDRESSES[networkID as keyof typeof V1_SOHM_ADDRESSES],
-          provider,
-        );
-        sOhmAllowance = await sOhmContract.allowance(
-          address,
-          MIGRATOR_ADDRESSES[networkID as keyof typeof MIGRATOR_ADDRESSES],
-        );
-      } catch (e) {
-        handleContractError(e);
-      }
-    }
+    // if (V1_SOHM_ADDRESSES[networkID as keyof typeof V1_SOHM_ADDRESSES]) {
+    //   try {
+    //     const sOhmContract = IERC20__factory.connect(
+    //       V1_SOHM_ADDRESSES[networkID as keyof typeof V1_SOHM_ADDRESSES],
+    //       provider,
+    //     );
+    //     sOhmAllowance = await sOhmContract.allowance(
+    //       address,
+    //       MIGRATOR_ADDRESSES[networkID as keyof typeof MIGRATOR_ADDRESSES],
+    //     );
+    //   } catch (e) {
+    //     handleContractError(e);
+    //   }
+    // }
 
-    if (WSOHM_ADDRESSES[networkID as keyof typeof WSOHM_ADDRESSES]) {
-      try {
-        const wsOhmContract = IERC20__factory.connect(
-          WSOHM_ADDRESSES[networkID as keyof typeof WSOHM_ADDRESSES],
-          provider,
-        );
-        wsOhmAllowance = await wsOhmContract.allowance(
-          address,
-          MIGRATOR_ADDRESSES[networkID as keyof typeof MIGRATOR_ADDRESSES],
-        );
-      } catch (e) {
-        handleContractError(e);
-      }
-    }
+    // if (WSOHM_ADDRESSES[networkID as keyof typeof WSOHM_ADDRESSES]) {
+    //   try {
+    //     const wsOhmContract = IERC20__factory.connect(
+    //       WSOHM_ADDRESSES[networkID as keyof typeof WSOHM_ADDRESSES],
+    //       provider,
+    //     );
+    //     wsOhmAllowance = await wsOhmContract.allowance(
+    //       address,
+    //       MIGRATOR_ADDRESSES[networkID as keyof typeof MIGRATOR_ADDRESSES],
+    //     );
+    //   } catch (e) {
+    //     handleContractError(e);
+    //   }
+    // }
 
-    if (XGDAO_ADDRESSES[networkID as keyof typeof XGDAO_ADDRESSES]) {
-      try {
-        const gOhmContract = IERC20__factory.connect(
-          XGDAO_ADDRESSES[networkID as keyof typeof XGDAO_ADDRESSES],
-          provider,
-        );
-        gOhmAllowance = await gOhmContract.allowance(
-          address,
-          MIGRATOR_ADDRESSES[networkID as keyof typeof MIGRATOR_ADDRESSES],
-        );
-      } catch (e) {
-        handleContractError(e);
-      }
-    }
+    // if (XGDAO_ADDRESSES[networkID as keyof typeof XGDAO_ADDRESSES]) {
+    //   try {
+    //     const gOhmContract = IERC20__factory.connect(
+    //       XGDAO_ADDRESSES[networkID as keyof typeof XGDAO_ADDRESSES],
+    //       provider,
+    //     );
+    //     gOhmAllowance = await gOhmContract.allowance(
+    //       address,
+    //       MIGRATOR_ADDRESSES[networkID as keyof typeof MIGRATOR_ADDRESSES],
+    //     );
+    //   } catch (e) {
+    //     handleContractError(e);
+    //   }
+    // }
 
     return {
       migration: {

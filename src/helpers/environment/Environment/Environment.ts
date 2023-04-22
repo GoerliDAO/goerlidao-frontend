@@ -66,19 +66,19 @@ export class Environment {
       //   });
       case NetworkId.TESTNET_GOERLI:
         return this._get({
-          key: `VITE_ETHEREUM_TESTNET_NODE_URL`,
-          fallback: "",
+          key: `VITE_GOERLI_TESTNET_NODE_URL`,
+          fallback: "https://rpc.ankr.com/eth_goerli/f713a6f0d0bcb807e6b9d607215a1f9dcda5da9718555d1c97a939348db05c4d",
         });
       case NetworkId.TESTNET_SEPOLIA:
         return this._get({
-          key: `VITE_ETHEREUM_TESTNET_NODE_URL`,
-          fallback: "",
+          key: `VITE_SEPOLIA_TESTNET_NODE_URL`,
+          fallback: "https://rpc.ankr.com/eth_sepolia/f713a6f0d0bcb807e6b9d607215a1f9dcda5da9718555d1c97a939348db05c4d",
         });
-      case NetworkId.LOCALHOST:
-        return this._get({
-          key: `VITE_ETHEREUM_TESTNET_NODE_URL`,
-          fallback: "",
-        });
+      // case NetworkId.LOCALHOST:
+      //   return this._get({
+      //     key: `VITE_LOCALHOST_NODE_URL`,
+      //     fallback: "https://localhost:8545",
+      //   });
       // case NetworkId.ARBITRUM:
       //   return this._get({
       //     key: `VITE_ARBITRUM_NODE_URL`,

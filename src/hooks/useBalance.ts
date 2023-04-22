@@ -16,10 +16,10 @@ import {
   // WSOHM_ADDRESSES,
   // XGDAO_ADDRESSES,
 } from "src/constants/addresses";
-import { GDAO_TOKEN, SGDAO_TOKEN, XGDAO_TOKEN } from "src/constants/token";
+import { GDAO_TOKEN, SGDAO_TOKEN, XGDAO_TOKEN } from "src/constants/tokens";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { nonNullable } from "src/helpers/types/nonNullable";
-// import { useMultipleTokenContracts } from "src/hooks/useContract";
+import { useMultipleTokenContracts } from "src/hooks/useContract";
 import { useAccount } from "wagmi";
 
 export const balanceQueryKey = (address?: string, tokenAddressMap?: AddressMap, networkId?: NetworkId) =>
@@ -29,10 +29,14 @@ export const balanceQueryKey = (address?: string, tokenAddressMap?: AddressMap, 
  * Returns a balance.
  * @param addressMap Address map of the token you want the balance of.
  */
-export const useGdao = <TAddressMap extends AddressMap = AddressMap>(tokenAddressMap: TAddressMap) => {
+export const useBalance = <TAddressMap extends AddressMap = AddressMap>(tokenAddressMap: TAddressMap) => {
   const { address = "" } = useAccount();
-  // const contracts = useMultipleTokenContracts(tokenAddressMap);
+  const contracts = useMultipleTokenContracts(tokenAddressMap);
+  console.log("contracts: ", contracts);
   const gdaoContract = GDAO_TOKEN.getEthersContract(NetworkId.TESTNET_GOERLI);
+  const sgdaoContract = SGDAO_TOKEN.getEthersContract(NetworkId.TESTNET_GOERLI);
+  const xgdaoContract = XGDAO_TOKEN.getEthersContract(NetworkId.TESTNET_GOERLI);
+  const newContracts = [gdaoContract, sgdaoContract, xgdaoContract];
 
   const networkIds = Object.keys(tokenAddressMap).map(Number);
 
@@ -42,63 +46,7 @@ export const useGdao = <TAddressMap extends AddressMap = AddressMap>(tokenAddres
       enabled: !!address,
 
       queryFn: async () => {
-        const contract = gdaoContract[networkId as NetworkId];
-        console.debug("Refetching balance");
-        const [balance, decimals] = await Promise.all([contract.balanceOf(address), contract.decimals()]);
-
-        return new DecimalBigNumber(balance, decimals);
-      },
-    })),
-  });
-
-  return networkIds.reduce(
-    (prev, networkId, index) => Object.assign(prev, { [networkId]: results[index] }),
-    {} as Record<keyof typeof tokenAddressMap, UseQueryResult<DecimalBigNumber, Error>>,
-  );
-};
-
-export const useSgdao = <TAddressMap extends AddressMap = AddressMap>(tokenAddressMap: TAddressMap) => {
-  const { address = "" } = useAccount();
-  // const contracts = useMultipleTokenContracts(tokenAddressMap);
-  const gdaoContract = GDAO_TOKEN.getEthersContract(NetworkId.TESTNET_GOERLI);
-
-  const networkIds = Object.keys(tokenAddressMap).map(Number);
-
-  const results = useQueries({
-    queries: networkIds.map(networkId => ({
-      queryKey: [balanceQueryKey(address, tokenAddressMap, networkId)],
-      enabled: !!address,
-
-      queryFn: async () => {
-        const contract = gdaoContract[networkId as NetworkId];
-        console.debug("Refetching balance");
-        const [balance, decimals] = await Promise.all([contract.balanceOf(address), contract.decimals()]);
-
-        return new DecimalBigNumber(balance, decimals);
-      },
-    })),
-  });
-
-  return networkIds.reduce(
-    (prev, networkId, index) => Object.assign(prev, { [networkId]: results[index] }),
-    {} as Record<keyof typeof tokenAddressMap, UseQueryResult<DecimalBigNumber, Error>>,
-  );
-};
-
-export const useXgdao = <TAddressMap extends AddressMap = AddressMap>(tokenAddressMap: TAddressMap) => {
-  const { address = "" } = useAccount();
-  // const contracts = useMultipleTokenContracts(tokenAddressMap);
-  const gdaoContract = GDAO_TOKEN.getEthersContract(NetworkId.TESTNET_GOERLI);
-
-  const networkIds = Object.keys(tokenAddressMap).map(Number);
-
-  const results = useQueries({
-    queries: networkIds.map(networkId => ({
-      queryKey: [balanceQueryKey(address, tokenAddressMap, networkId)],
-      enabled: !!address,
-
-      queryFn: async () => {
-        const contract = gdaoContract[networkId as NetworkId];
+        const contract = contracts[networkId as NetworkId];
         console.debug("Refetching balance");
         const [balance, decimals] = await Promise.all([contract.balanceOf(address), contract.decimals()]);
 
@@ -144,9 +92,9 @@ export const useXgdao = <TAddressMap extends AddressMap = AddressMap>(tokenAddre
 //   return { [NetworkId.MAINNET]: query } as Record<NetworkId.MAINNET, typeof query>;
 // };
 
-export const useGdaoBalance = () => useGdao(GDAO_TOKEN);
-export const useSgdaoBalance = () => useSgdao(SGDAO_TOKEN);
-export const useXgdaoBalance = () => useXgdao(XGDAO_TOKEN);
+export const useGdaoBalance = () => useBalance(GDAO_TOKEN);
+export const useSgdaoBalance = () => useBalance(SGDAO_TOKEN);
+export const useXgdaoBalance = () => useBalance(XGDAO_TOKEN);
 // export const useWsohmBalance = () => useBalance(WSOHM_ADDRESSES);
 // export const useV1OhmBalance = () => useBalance(V1_OHM_ADDRESSES);
 // export const useV1SohmBalance = () => useBalance(V1_SOHM_ADDRESSES);
