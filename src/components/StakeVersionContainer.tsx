@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
-import { nonNullable } from "src/helpers/types/nonNullable";
 import {
   // useFuseBalance,
   // useGohmBalance,
@@ -21,20 +20,20 @@ export const StakeVersionContainer: React.FC<{ setMigrationModalOpen: Dispatch<S
   // const oldAssetsEnoughToMigrate = useOldAssetsEnoughToMigrate();
 
   const networks = useTestableNetworks();
-  const { data: sGdaoBalance = new DecimalBigNumber("0", 9) } = useSgdaoBalance()[networks.MAINNET];
-  const { data: gdaoBalance = new DecimalBigNumber("0", 9) } = useGdaoBalance()[networks.MAINNET];
-  const xgdaoBalances = useXgdaoBalance();
+  const { data: sGdaoBalance = new DecimalBigNumber("0", 9) } = useSgdaoBalance();
+  const { data: gdaoBalance = new DecimalBigNumber("0", 9) } = useGdaoBalance();
+  const { data: xGdaoBalance = new DecimalBigNumber("0", 9) } = useXgdaoBalance();
   // const { data: gohmFuseBalance = new DecimalBigNumber("0", 18) } = useFuseBalance()[NetworkId.TESTNET_SEPOLIA];
   // const { data: gohmTokemakBalance = new DecimalBigNumber("0", 18) } =
   //   useGohmTokemakBalance()[NetworkId.TESTNET_SEPOLIA];
-  const xgdaoTokens = [
-    // gohmFuseBalance,
-    // gohmTokemakBalance,
-    xgdaoBalances[networks.MAINNET].data,
-  ];
-  const totalXgdaoBalance = xgdaoTokens
-    .filter(nonNullable)
-    .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
+  // const xgdaoTokens = [
+  //   // gohmFuseBalance,
+  //   // gohmTokemakBalance,
+  //   xGdaoBalance,
+  // ];
+  // const totalXgdaoBalance = xgdaoTokens
+  //   .filter(nonNullable)
+  //   .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
   // const newAssetsDetected = Number(totalXgdaoBalance) || Number(sGdaoBalance) || Number(gdaoBalance);
 
   // if (newAssetsDetected || (!newAssetsDetected && !oldAssetsDetected) || !oldAssetsEnoughToMigrate) return <Stake />;

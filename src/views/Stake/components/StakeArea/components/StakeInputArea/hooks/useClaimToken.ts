@@ -18,7 +18,7 @@ export const useClaimToken = () => {
   const client = useQueryClient();
   const { address = "" } = useAccount();
   const networks = useTestableNetworks();
-  const balance = useBalance(GDAO_ADDRESSES)[networks.MAINNET].data;
+  const { data: balance } = useBalance(GDAO_ADDRESSES);
   const contract = STAKING_CONTRACT.getEthersContract(networks.MAINNET);
 
   return useMutation<ContractReceipt, EthersError, { toToken: string }>({

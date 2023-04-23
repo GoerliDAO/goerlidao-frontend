@@ -36,7 +36,7 @@ export const SGDAO_TOKEN = new Token({
   decimals: 9,
   addresses: SGDAO_ADDRESSES,
   factory: IERC20__factory,
-  customPricingFunc: GDAO_TOKEN.getPrice,
+  // customPricingFunc: GDAO_TOKEN.getPrice,
   purchaseUrl: "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
 });
 
@@ -68,7 +68,7 @@ export const DAI_TOKEN = new Token({
 });
 
 export const GDAO_WETH_LP_TOKEN = new Token({
-  icons: ["GDAO", "WETH"],
+  icons: ["GDAO", "wETH"],
   name: "GDAO-WETH",
   decimals: 18,
   addresses: GDAO_WETH_LP_ADDRESSES,

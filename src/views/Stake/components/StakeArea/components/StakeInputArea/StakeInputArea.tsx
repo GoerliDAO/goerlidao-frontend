@@ -25,6 +25,7 @@ import {
   ZAP_ADDRESSES,
 } from "src/constants/addresses";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
+import { useGdaoBalance, useSgdaoBalance, useXgdaoBalance } from "src/hooks/useBalance";
 import { useBalance } from "src/hooks/useBalance";
 import { useCurrentIndex } from "src/hooks/useCurrentIndex";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
@@ -104,10 +105,15 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
   const [zapOutputAmount, setZapOutputAmount] = useState("");
   const addresses = fromToken === "GDAO" ? GDAO_ADDRESSES : fromToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES;
 
-  const balance = useBalance(addresses)[networks.MAINNET].data;
-  const gdaoBalance = useBalance(GDAO_ADDRESSES)[networks.MAINNET].data;
-  const sGdaoBalance = useBalance(SGDAO_ADDRESSES)[networks.MAINNET].data;
-  const xGdaoBalance = useBalance(XGDAO_ADDRESSES)[networks.MAINNET].data;
+  const { data: balance } = useBalance(addresses);
+  const { data: sgdaoBalance = new DecimalBigNumber("0", 9) } = useSgdaoBalance();
+  const { data: gdaoBalance = new DecimalBigNumber("0", 9) } = useGdaoBalance();
+  const { data: xgdaoBalance = new DecimalBigNumber("0", 9) } = useXgdaoBalance();
+
+  // const balance = useBalance(addresses)[networks.MAINNET].data;
+  // const gdaoBalance = useBalance(GDAO_ADDRESSES)[networks.MAINNET].data;
+  // const sGdaoBalance = useBalance(SGDAO_ADDRESSES)[networks.MAINNET].data;
+  // const xGdaoBalance = useBalance(XGDAO_ADDRESSES)[networks.MAINNET].data;
   const { data: currentIndex } = useCurrentIndex();
 
   const contractRouting = ["GDAO", "xGDAO"].includes(swapAssetType.name)
@@ -195,8 +201,8 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
   const OhmSwapCard = () => {
     const balance =
       swapAssetType.name === "sGDAO"
-        ? sGdaoBalance
-          ? sGdaoBalance.toString({ decimals: 2 })
+        ? sgdaoBalance
+          ? sgdaoBalance.toString({ decimals: 2 })
           : "0.00"
         : swapAssetType.name === "GDAO"
         ? gdaoBalance
@@ -233,9 +239,9 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
   };
 
   const GohmSwapCard = () => {
-    const balance = stakedAssetType.name === "sGDAO" ? sGdaoBalance : xGdaoBalance;
+    const balance = stakedAssetType.name === "sGDAO" ? sgdaoBalance : xgdaoBalance;
     const tokenOnClick =
-      sGdaoBalance && currentAction === "UNSTAKE" ? { tokenOnClick: () => setTokenModalOpen(true) } : {};
+      sgdaoBalance && currentAction === "UNSTAKE" ? { tokenOnClick: () => setTokenModalOpen(true) } : {};
 
     return (
       <SwapCard
@@ -292,8 +298,8 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
                 open={tokenModalOpen}
                 handleSelect={name => setStakedAssetType(name)}
                 handleClose={() => setTokenModalOpen(false)}
-                sOhmBalance={sGdaoBalance && sGdaoBalance.toString({ decimals: 2 })}
-                gOhmBalance={xGdaoBalance && xGdaoBalance.toString({ decimals: 2 })}
+                sOhmBalance={sgdaoBalance && sgdaoBalance.toString({ decimals: 2 })}
+                gOhmBalance={xgdaoBalance && xgdaoBalance.toString({ decimals: 2 })}
               />
             )}
             {zapTokenModalOpen && (
@@ -304,8 +310,8 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
                 }}
                 handleClose={() => setZapTokenModalOpen(false)}
                 ohmBalance={gdaoBalance && gdaoBalance.toString({ decimals: 2 })}
-                sOhmBalance={sGdaoBalance && sGdaoBalance.toString({ decimals: 2 })}
-                gOhmBalance={xGdaoBalance && xGdaoBalance.toString({ decimals: 2 })}
+                sOhmBalance={sgdaoBalance && sgdaoBalance.toString({ decimals: 2 })}
+                gOhmBalance={xgdaoBalance && xgdaoBalance.toString({ decimals: 2 })}
                 showZapAssets
               />
             )}

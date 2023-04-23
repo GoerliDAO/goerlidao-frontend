@@ -1,6 +1,5 @@
 import { DataRow } from "@olympusdao/component-library";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
-import { nonNullable } from "src/helpers/types/nonNullable";
 import {
   // useFuseBalance,
   // useGohmBalance,
@@ -28,44 +27,44 @@ export const StakeBalances = () => {
   const networks = useTestableNetworks();
   const { data: currentIndex } = useCurrentIndex();
 
-  const xgdaoBalance = useXgdaoBalance();
-  // const wsohmBalances = useWsohmBalance();
-
-  const gdaoBalance = useGdaoBalance();
-  const sgdaoBalance = useSgdaoBalance();
+  const { data: sgdaoBalance = new DecimalBigNumber("0", 9) } = useSgdaoBalance();
+  const { data: gdaoBalance = new DecimalBigNumber("0", 9) } = useGdaoBalance();
+  const { data: xgdaoBalance = new DecimalBigNumber("0", 9) } = useXgdaoBalance();
   // const v1sohmBalance = useV1SohmBalance()[networks.MAINNET].data;
   // const gohmFuseBalance = useFuseBalance()[NetworkId.MAINNET].data;
   // const gohmTokemakBalance = useGohmTokemakBalance()[NetworkId.MAINNET].data;
 
   // const sohmTokens = [sohmBalance, v1sohmBalance];
-  const sgdaoTokens = [sgdaoBalance];
+  const sgdaoTokens = sgdaoBalance;
+  const xgdaoTokens = xgdaoBalance;
 
-  const xgdaoTokens = [
-    // gohmFuseBalance,
-    // gohmTokemakBalance,
-    // xgdaoBalances[networks.MAINNET].data,
-    xgdaoBalance,
-    // gohmBalances[networks.ARBITRUM].data,
-    // gohmBalances[networks.AVALANCHE].data,
-    // gohmBalances[NetworkId.POLYGON].data,
-    // gohmBalances[NetworkId.FANTOM].data,
-    // wsohmBalances[networks.MAINNET].data,
-    // wsohmBalances[networks.ARBITRUM].data,
-    // wsohmBalances[networks.AVALANCHE].data,
-    // gohmBalances[NetworkId.OPTIMISM].data,
-  ];
+  // const xgdaoTokens = [
+  //   // gohmFuseBalance,
+  //   // gohmTokemakBalance,
+  //   // xgdaoBalances[networks.MAINNET].data,
+  //   xgdaoBalance,
+  //   // gohmBalances[networks.ARBITRUM].data,
+  //   // gohmBalances[networks.AVALANCHE].data,
+  //   // gohmBalances[NetworkId.POLYGON].data,
+  //   // gohmBalances[NetworkId.FANTOM].data,
+  //   // wsohmBalances[networks.MAINNET].data,
+  //   // wsohmBalances[networks.ARBITRUM].data,
+  //   // wsohmBalances[networks.AVALANCHE].data,
+  //   // gohmBalances[NetworkId.OPTIMISM].data,
+  // ];
 
-  const totalSgdaoBalance = sgdaoTokens
-    .filter(nonNullable)
-    .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 9));
+  // const totalSgdaoBalance = sgdaoTokens
+  //   .filter(nonNullable)
+  //   .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 9));
 
-  const totalXgdaoBalance = xgdaoTokens
-    .filter(nonNullable)
-    .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
+  // const totalXgdaoBalance = xgdaoTokens
+  //   .filter(nonNullable)
+  //   .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
 
-  const totalStakedBalance = currentIndex && formatBalance(totalXgdaoBalance.mul(currentIndex).add(totalSgdaoBalance));
+  const totalStakedBalance = currentIndex && formatBalance(xgdaoTokens.mul(currentIndex).add(sgdaoTokens));
 
-  const allBalancesLoaded = sgdaoTokens.every(Boolean) && xgdaoTokens.every(Boolean);
+  // const allBalancesLoaded = sgdaoTokens.every(Boolean) && xgdaoTokens.every(Boolean);
+  const allBalancesLoaded = sgdaoTokens && xgdaoTokens;
 
   return (
     <>

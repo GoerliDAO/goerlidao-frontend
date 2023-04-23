@@ -100,6 +100,8 @@ export const fetchBond = async ({ id, isInverseBond, networkId }: UseBondOptions
   assert(quoteToken, `Unknown quote token address: ${market.quoteToken}`);
 
   const [baseTokenPerUsd, quoteTokenPerUsd, quoteTokenPerBaseToken] = await Promise.all([
+    // baseToken.getPrice(NetworkId.TESTNET_GOERLI),
+    // quoteToken.getPrice(NetworkId.TESTNET_GOERLI),
     baseToken.getPrice(NetworkId.TESTNET_GOERLI),
     quoteToken.getPrice(NetworkId.TESTNET_GOERLI),
     contract.marketPrice(id).then(price => new DecimalBigNumber(price, baseToken.decimals)),

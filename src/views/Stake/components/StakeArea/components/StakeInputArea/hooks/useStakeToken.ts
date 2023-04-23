@@ -16,7 +16,7 @@ export const useStakeToken = () => {
   const client = useQueryClient();
   const { address = "" } = useAccount();
   const networks = useTestableNetworks();
-  const balance = useBalance(GDAO_ADDRESSES)[networks.MAINNET].data;
+  const { data: balance } = useBalance(GDAO_ADDRESSES);
   // const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
   const contract = STAKING_CONTRACT.getEthersContract(networks.MAINNET);
 

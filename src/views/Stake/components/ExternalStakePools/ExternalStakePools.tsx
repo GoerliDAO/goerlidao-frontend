@@ -113,8 +113,8 @@ const AllPools = (props: { isSmallScreen: boolean }) => (
 const StakePool: React.FC<{ pool: ExternalPool; tvl?: number; apy?: number }> = props => {
   const { isConnected } = useAccount();
 
-  const userBalances = useStakePoolBalance(props.pool);
-  const userBalance = userBalances[props.pool.networkID].data;
+  const { data: userBalance } = useStakePoolBalance(props.pool);
+  // const userBalance = userBalances[props.pool.networkID].data;
   const ToolTipContent = () => (
     <>
       <Typography pb={"5px"}>Mint and Sync Pool</Typography>
@@ -182,8 +182,8 @@ const StakePool: React.FC<{ pool: ExternalPool; tvl?: number; apy?: number }> = 
 const MobileStakePool: React.FC<{ pool: ExternalPool; tvl?: number; apy?: number }> = props => {
   const { isConnected } = useAccount();
 
-  const userBalances = useStakePoolBalance(props.pool);
-  const userBalance = userBalances[props.pool.networkID].data;
+  const { data: userBalance } = useStakePoolBalance(props.pool);
+  // const userBalance = userBalances[props.pool.networkID].data;
 
   return (
     <Box mt="42px">

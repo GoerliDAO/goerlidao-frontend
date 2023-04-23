@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { BigNumber, ethers } from "ethers";
 import { NetworkId } from "src/constants";
 import { BOND_AGGREGATOR_CONTRACT, BOND_FIXED_EXPIRY_TELLER } from "src/constants/contracts";
+import { GDAO_TOKEN } from "src/constants/tokens";
 import { getTokenByAddress } from "src/helpers/contracts/getTokenByAddress";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { assert } from "src/helpers/types/assert";
@@ -57,8 +58,8 @@ export const fetchBondV3 = async ({ id, isInverseBond, networkId }: UseBondOptio
   const terms = await auctioneerContract.terms(id);
 
   const [baseTokenPerUsd, quoteTokenPerUsd, bondMarketPrice] = await Promise.all([
-    baseToken.getPrice(NetworkId.TESTNET_GOERLI),
-    quoteToken.getPrice(NetworkId.TESTNET_GOERLI),
+    baseToken.getPrice(),
+    quoteToken.getPrice(),
     auctioneerContract.marketPrice(id).then(price => price),
   ]);
 

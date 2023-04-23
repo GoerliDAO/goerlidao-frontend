@@ -2,9 +2,7 @@ import { OHMTokenStackProps } from "@olympusdao/component-library";
 import { AddressMap } from "src/constants/addresses";
 import { Contract, ContractConfig, Factory } from "src/helpers/contracts/Contract";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
-import { getCoingeckoPrice } from "src/helpers/pricing/getCoingeckoPrice";
-import { assert } from "src/helpers/types/assert";
-import { NetworkId } from "src/networkDetails";
+// import { getCoingeckoPrice } from "src/helpers/pricing/getCoingeckoPrice";
 
 export interface TokenConfig<TFactory extends Factory = Factory, TAddressMap extends AddressMap = AddressMap>
   extends ContractConfig<TFactory, TAddressMap> {
@@ -49,13 +47,13 @@ export class Token<TFactory extends Factory = Factory, TAddressMap extends Addre
     this.customPricingFunc = config.customPricingFunc;
   }
 
-  async getPrice(networkId: keyof TAddressMap) {
-    if (this.customPricingFunc) return this.customPricingFunc(networkId);
+  // async getPrice(networkId: keyof TAddressMap) {
+  //   if (this.customPricingFunc) return this.customPricingFunc(networkId);
 
-    const address = this.addresses[networkId];
-    assert(address, `Address should exist for token: ${this.name} on network: ${networkId.toString()}`);
+  //   const address = this.addresses[networkId];
+  //   assert(address, `Address should exist for token: ${this.name} on network: ${networkId.toString()}`);
 
-    // Default to coingecko
-    return getCoingeckoPrice(networkId as NetworkId, address as unknown as string);
-  }
+  //   // Default to coingecko
+  //   return getCoingeckoPrice(networkId as NetworkId, address as unknown as string);
+  // }
 }
