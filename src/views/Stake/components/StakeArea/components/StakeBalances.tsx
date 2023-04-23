@@ -28,21 +28,23 @@ export const StakeBalances = () => {
   const networks = useTestableNetworks();
   const { data: currentIndex } = useCurrentIndex();
 
-  const xgdaoBalances = useXgdaoBalance();
+  const xgdaoBalance = useXgdaoBalance();
   // const wsohmBalances = useWsohmBalance();
 
-  const gdaoBalance = useGdaoBalance()[networks.MAINNET].data;
-  const sgdaoBalance = useSgdaoBalance()[networks.MAINNET].data;
+  const gdaoBalance = useGdaoBalance();
+  const sgdaoBalance = useSgdaoBalance();
   // const v1sohmBalance = useV1SohmBalance()[networks.MAINNET].data;
   // const gohmFuseBalance = useFuseBalance()[NetworkId.MAINNET].data;
   // const gohmTokemakBalance = useGohmTokemakBalance()[NetworkId.MAINNET].data;
 
   // const sohmTokens = [sohmBalance, v1sohmBalance];
   const sgdaoTokens = [sgdaoBalance];
+
   const xgdaoTokens = [
     // gohmFuseBalance,
     // gohmTokemakBalance,
-    xgdaoBalances[networks.MAINNET].data,
+    // xgdaoBalances[networks.MAINNET].data,
+    xgdaoBalance,
     // gohmBalances[networks.ARBITRUM].data,
     // gohmBalances[networks.AVALANCHE].data,
     // gohmBalances[NetworkId.POLYGON].data,
@@ -71,7 +73,8 @@ export const StakeBalances = () => {
         id="user-balance"
         title={`Unstaked Balance`}
         isLoading={!gdaoBalance}
-        balance={`${formatBalance(gdaoBalance)} GDAO`}
+        // balance={`${formatBalance(gdaoBalance)} GDAO`}
+        balance={`${gdaoBalance} GDAO`}
       />
 
       <DataRow
@@ -86,15 +89,17 @@ export const StakeBalances = () => {
             title={`sGDAO`}
             id="sgdao-balance"
             isLoading={!sgdaoBalance}
-            balance={`${formatBalance(sgdaoBalance)} sGDAO`}
+            // balance={`${formatBalance(sgdaoBalance)} sGDAO`}
+            balance={`${sgdaoBalance} sGDAO`}
           />
         )}
 
         <DataRow
           indented
           title={`xGDAO`}
-          isLoading={!xgdaoBalances[networks.MAINNET].data}
-          balance={`${formatBalance(xgdaoBalances[networks.MAINNET].data)} xGDAO`}
+          isLoading={!xgdaoBalance}
+          // balance={`${formatBalance(xgdaoBalances[networks.MAINNET].data)} xGDAO`}
+          balance={`${xgdaoBalance} xGDAO`}
         />
 
         {/* {hasVisibleBalance(gohmBalances[NetworkId.ARBITRUM].data) && (
