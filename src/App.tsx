@@ -44,6 +44,7 @@ const NotFound = lazy(() => import("./views/404/NotFound"));
 const V1Stake = lazy(() => import("./views/V1-Stake/V1-Stake"));
 const Range = lazy(() => import("./views/Range"));
 const Swap = lazy(() => import("./views/Swap"));
+const Donate = lazy(() => import("./views/Donate"));
 
 const PREFIX = "App";
 
@@ -220,6 +221,7 @@ function App() {
                   <Route path="/bonds" element={<Bond />} />
                   <Route path="/bonds/inverse" element={<Bond />} />
                   <Route path="/bridge" element={<Bridge />} />
+                  <Route path="/donate" element={<Donate />} />
                   <Route path="/stats/*" element={<TreasuryDashboard />} />
                   <Route path="/range/*" element={<Range />} />
                   <Route

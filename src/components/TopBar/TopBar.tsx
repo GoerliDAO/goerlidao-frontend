@@ -101,7 +101,8 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
       case location.pathname === "/bridge" ||
         location.pathname === "/swap" ||
         location.pathname === "/stake" ||
-        location.pathname === "/stats":
+        location.pathname === "/stats" ||
+        location.pathname === "/donate":
         return theme.palette.mode === "light" ? "#000" : "#FFF";
       case isBonds:
         return theme.palette.mode === "light" ? "#000" : "#FFF";
@@ -130,8 +131,9 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
             color: renderedColor(),
           }}
           id="navLinks"
-          className="hidden md:grid grid-cols-5 grid-rows-1 gap-8 text-sm font-base"
+          className="hidden md:grid grid-cols-6 grid-rows-1 gap-8 text-xs font-base"
         >
+          <Link to="/donate">Donate</Link>
           <Link to="/bridge">Bridge</Link>
           <Link to="/swap">Swap</Link>
           <Link to="/stake">Stake</Link>

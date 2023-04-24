@@ -1,12 +1,7 @@
-import IUniswapV3PoolABI from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json";
-import Quoter from "@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json";
-import { computePoolAddress, FeeAmount } from "@uniswap/v3-sdk";
 import { SwapWidget } from "@uniswap/widgets";
-import { ethers } from "ethers";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Footer from "src/components/Footer";
-import { POOL_FACTORY_CONTRACT_ADDRESS, QUOTER_CONTRACT_ADDRESS, USDC_TOKEN, WETH_TOKEN } from "src/lib/constants";
-import { fromReadableAmount } from "src/lib/conversion";
+import { useProvider } from "wagmi";
 
 declare let window: any;
 
@@ -16,6 +11,12 @@ interface TokensListProps {
   selected: Token;
   tokens: Token[];
 }
+
+const mainnet_RPC_URL = import.meta.env.VITE_INFURA_URL_KEY;
+
+const jsonRpcUrlMap = {
+  1: [mainnet_RPC_URL],
+};
 
 const tokens = ["WETH", "USDC"];
 
@@ -33,48 +34,47 @@ const TokensList: React.FC<TokensListProps> = ({ selected, tokens }) => {
 };
 
 const Swap = () => {
-  const [provider, setProvider] = useState<ethers.providers.Web3Provider>();
+  const provider = useProvider();
+  // const getPairs = async () => {
+  //   try {
+  //     const currentPoolAddress = computePoolAddress({
+  //       factoryAddress: POOL_FACTORY_CONTRACT_ADDRESS,
+  //       tokenA: USDC_TOKEN,
+  //       tokenB: WETH_TOKEN,
+  //       fee: FeeAmount.LOWEST,
+  //     });
 
-  const getPairs = async () => {
-    try {
-      const currentPoolAddress = computePoolAddress({
-        factoryAddress: POOL_FACTORY_CONTRACT_ADDRESS,
-        tokenA: USDC_TOKEN,
-        tokenB: WETH_TOKEN,
-        fee: FeeAmount.LOWEST,
-      });
+  //     const poolContract = new ethers.Contract(currentPoolAddress, IUniswapV3PoolABI.abi, provider);
 
-      const poolContract = new ethers.Contract(currentPoolAddress, IUniswapV3PoolABI.abi, provider);
+  //     const [token0, token1, fee] = await Promise.all([
+  //       poolContract.token0(),
+  //       poolContract.token1(),
+  //       poolContract.fee(),
+  //     ]);
 
-      const [token0, token1, fee] = await Promise.all([
-        poolContract.token0(),
-        poolContract.token1(),
-        poolContract.fee(),
-      ]);
+  //     const quoterContract = new ethers.Contract(QUOTER_CONTRACT_ADDRESS, Quoter.abi, provider);
 
-      const quoterContract = new ethers.Contract(QUOTER_CONTRACT_ADDRESS, Quoter.abi, provider);
+  //     const quotedAmountOut = await quoterContract.callStatic.quoteExactInputSingle(
+  //       token0,
+  //       token1,
+  //       fee,
+  //       fromReadableAmount(10, 10).toString(),
+  //       0,
+  //     );
 
-      const quotedAmountOut = await quoterContract.callStatic.quoteExactInputSingle(
-        token0,
-        token1,
-        fee,
-        fromReadableAmount(10, 10).toString(),
-        0,
-      );
+  //     const number = ethers.BigNumber.from(quotedAmountOut);
 
-      const number = ethers.BigNumber.from(quotedAmountOut);
+  //     console.log("This is the quoted amount: ", quotedAmountOut);
+  //     console.log("This is the final number :", number);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-      console.log("This is the quoted amount: ", quotedAmountOut);
-      console.log("This is the final number :", number);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    setProvider(new ethers.providers.Web3Provider(window.ethereum));
-    getPairs();
-  }, []);
+  // // useEffect(() => {
+  // //   setProvider(new ethers.providers.Web3Provider(window.ethereum));
+  // //   getPairs();
+  // // }, []);
 
   return (
     <>
@@ -99,7 +99,12 @@ const Swap = () => {
           </fieldset>
         </form>
         <div className="Uniswap my-10">
-          <SwapWidget />
+          <SwapWidget
+            jsonRpcUrlMap={jsonRpcUrlMap}
+            brandedFooter={false}
+            //@ts-ignore
+            provider={provider}
+          />
         </div>
       </div>
       <Footer />
