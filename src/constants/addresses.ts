@@ -11,19 +11,19 @@ export const STAKING_ADDRESSES = {
 export const BOND_DEPOSITORY_ADDRESSES = {
   [NetworkId.TESTNET_GOERLI]: "0xAda3336fcD233Ff0Eb39BeA0b1a7784E43aD4B00",
   [NetworkId.TESTNET_SEPOLIA]: "",
-  [NetworkId.LOCALHOST]: "",
+  // [NetworkId.LOCALHOST]: "",
 };
 
 export const OP_BOND_DEPOSITORY_ADDRESSES = {
   [NetworkId.TESTNET_GOERLI]: "0x0C9D01FbD07cC2fD3e09bD953bb65698351AF05D",
   [NetworkId.TESTNET_SEPOLIA]: "",
-  [NetworkId.LOCALHOST]: "",
+  // [NetworkId.LOCALHOST]: "",
 };
 
 export const DAO_TREASURY_ADDRESSES = {
   [NetworkId.TESTNET_GOERLI]: "0x6e36b2f9f2BcC273f090ff049952Fa4B5Cc67567",
   [NetworkId.TESTNET_SEPOLIA]: "",
-  [NetworkId.LOCALHOST]: "",
+  // [NetworkId.LOCALHOST]: "",
 };
 
 export const GDAO_WETH_LP_ADDRESSES = {
@@ -72,7 +72,7 @@ export const XGDAO_ADDRESSES = {
 export const GDAO_ADDRESSES = {
   [NetworkId.TESTNET_GOERLI]: "0xba7cac3e2a1391bb9d5edfd64793ccd4fd29dc09", //TGD
   [NetworkId.TESTNET_SEPOLIA]: "0x9523d80e515960a26cB787C5809CCF68ddAbCBDb",
-  [NetworkId.LOCALHOST]: "",
+  [NetworkId.LOCALHOST]: "0xba7cac3e2a1391bb9d5edfd64793ccd4fd29dc09",
 };
 
 export const SGDAO_ADDRESSES = {
@@ -110,9 +110,10 @@ export const ZAP_ADDRESSES = {
 //   [NetworkId.TESTNET_SEPOLIA]: "0xe98ae8cD25CDC06562c29231Db339d17D02Fd486",
 // };
 
-// export const BALANCER_VAULT_ADDRESSSES = {
-//   [NetworkId.TESTNET_SEPOLIA]: "0xba12222222228d8ba445958a75a0704d566bf2c8",
-// };
+export const BALANCER_VAULT_ADDRESSES = {
+  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.TESTNET_SEPOLIA]: "0xba12222222228d8ba445958a75a0704d566bf2c8",
+};
 
 export const MIGRATOR_ADDRESSES = {
   [NetworkId.TESTNET_GOERLI]: "",

@@ -89,7 +89,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   const navigate = useNavigate();
   const networks = useTestableNetworks();
   const { chain = { id: 1 } } = useNetwork();
-  const { data: gdaoPrice = 0 } = useGdaoPrice();
+  const { data: gdaoPrice = new DecimalBigNumber("0", 9) } = useGdaoPrice();
   const { data: priceFeed = { usd_24h_change: -0 } } = GetTokenPrice();
   const { data: currentIndex = new DecimalBigNumber("0", 9) } = useCurrentIndex();
   const { data: nextRebaseDate } = useNextRebaseDate();
@@ -136,7 +136,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   const formattedxGdaoBalance = xGdaoBalance.toString({ decimals: 4, trim: false, format: true });
   const formattedSGdaoBalance = sGdaoBalance.toString({ decimals: 4, trim: false, format: true });
   const xGdaoPriceChange = priceFeed.usd_24h_change * currentIndex.toApproxNumber();
-  const xgdaoPrice = gdaoPrice * currentIndex.toApproxNumber();
+  const xgdaoPrice = gdaoPrice.mul(currentIndex);
   const rebaseAmountPerDay = rebaseRate * Number(formattedSGdaoBalance) * 3;
 
   const tokenArray = [
@@ -144,7 +144,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
       symbol: ["GDAO"] as OHMTokenStackProps["tokens"],
       balance: formattedgdaoBalance,
       // assetValue: gdaoBalance.toApproxNumber() * gdaoPrice,
-      assetValue: gdaoBalance * gdaoPrice,
+      assetValue: gdaoBalance.mul(gdaoPrice),
       alwaysShow: true,
     },
     {
@@ -153,7 +153,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
       timeRemaining:
         nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
       // assetValue: sGdaoBalance.toApproxNumber() * gdaoPrice,
-      assetValue: sGdaoBalance * gdaoPrice,
+      assetValue: sGdaoBalance.mul(gdaoPrice),
       alwaysShow: true,
       lineThreeLabel: "Rebases per day",
       lineThreeValue: Number(formattedSGdaoBalance) > 0 ? `${trim(rebaseAmountPerDay, 3)} sGDAO ` : undefined,

@@ -3,6 +3,7 @@ import { BigNumber, ethers } from "ethers";
 import {
   // MIGRATOR_ADDRESSES,
   GDAO_ADDRESSES,
+  SGDAO_ADDRESSES,
   STAKING_ADDRESSES,
   XGDAO_ADDRESSES,
   // V1_OHM_ADDRESSES,
@@ -23,7 +24,7 @@ interface IUserBalances {
   balances: {
     ohmV1: string;
     sohmV1: string;
-    wsohm: string;
+    // wsohm: string;
   };
 }
 
@@ -43,17 +44,14 @@ export const getBalances = createAsyncThunk(
     //   handleContractError(e);
     // }
     try {
-      const gdaoContract = IERC20__factory.connect(
-        V1_OHM_ADDRESSES[networkID as keyof typeof V1_OHM_ADDRESSES],
-        provider,
-      );
+      const gdaoContract = IERC20__factory.connect(GDAO_ADDRESSES[networkID as keyof typeof GDAO_ADDRESSES], provider);
       gdaoBalance = await gdaoContract.balanceOf(address);
     } catch (e) {
       handleContractError(e);
     }
     try {
       const sgdaoContract = IERC20__factory.connect(
-        V1_SOHM_ADDRESSES[networkID as keyof typeof V1_SOHM_ADDRESSES],
+        SGDAO_ADDRESSES[networkID as keyof typeof SGDAO_ADDRESSES],
         provider,
       );
       sgdaoBalance = await sgdaoContract.balanceOf(address);

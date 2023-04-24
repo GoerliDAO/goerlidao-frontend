@@ -1,6 +1,5 @@
-// import { getBalancerLPToken } from "src/helpers/contracts/getBalancerLPToken";
-// import { getCurveLPToken } from "src/helpers/contracts/getCurveLPToken";
-// import { getGelatoLPToken } from "src/helpers/contracts/getGelatoLPToken";
+import { getBalancerLPToken } from "src/helpers/contracts/getBalancerLPToken";
+import { getCurveLPToken } from "src/helpers/contracts/getCurveLPToken";
 import { getUniOrSushiLPToken } from "src/helpers/contracts/getUniOrSushiLPToken";
 import { NetworkId } from "src/networkDetails";
 
@@ -14,8 +13,8 @@ export const getLPTokenByAddress = async ({ address, networkId }: { address: str
   const uniOrSushi = await getUniOrSushiLPToken({ address, networkId });
   if (uniOrSushi) return uniOrSushi;
 
-  // const balancer = await getBalancerLPToken({ address, networkId });
-  // if (balancer) return balancer;
+  const balancer = await getBalancerLPToken({ address, networkId });
+  if (balancer) return balancer;
 
-  // return getCurveLPToken({ address, networkId });
+  return getCurveLPToken({ address, networkId });
 };

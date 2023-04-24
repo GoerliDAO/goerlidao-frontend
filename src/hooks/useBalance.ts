@@ -82,7 +82,9 @@ export const useBalance = <TAddressMap extends AddressMap = AddressMap>(tokenAdd
       queryFn: async () => {
         const contract = contracts[networkId as NetworkId];
         console.debug("Refetching balance");
-        const [balance, decimals] = await Promise.all([contract.useBalanceOf(address), contract.useDecimals()]);
+        // const [balance, decimals] = await Promise.all([contract.useBalanceOf(address), contract.useDecimals()]);
+        const { data: balance } = contract.useBalanceOf(address);
+        const { data: decimals } = contract.useDecimals();
 
         return new DecimalBigNumber(balance, decimals);
       },

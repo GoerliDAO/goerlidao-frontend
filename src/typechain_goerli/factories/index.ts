@@ -78,7 +78,7 @@ export * as stakingHelperSol from "./StakingHelper.sol";
 export * as tgdSol from "./TGD.sol";
 export * as trsryTSol from "./TRSRY.t.sol";
 export * as trsryV1Sol from "./TRSRY.v1.sol";
-export * as testSol from "./Test.sol";
+// export * as testSol from "./Test.sol";
 export * as testGdaoSol from "./TestGDAO.sol";
 export * as treasuryCustodianTSol from "./TreasuryCustodian.t.sol";
 export * as v1FaucetSol from "./V1Faucet.sol";

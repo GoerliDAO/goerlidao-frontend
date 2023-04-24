@@ -1,4 +1,5 @@
 import {
+  BALANCER_VAULT_ADDRESSES,
   BOND_AGGREGATOR_ADDRESSES,
   BOND_DEPOSITORY_ADDRESSES,
   BOND_FIXED_EXPIRY_TELLER_ADDRESSES,
@@ -14,7 +15,7 @@ import {
 } from "src/constants/addresses";
 import { Contract } from "src/helpers/contracts/Contract";
 import {
-  // BalancerVault__factory,
+  BalancerVault__factory,
   BondDepository__factory,
   BondFixedExpiryTeller__factory,
   // BondFixedTermTeller__factory,
@@ -69,11 +70,11 @@ export const SGDAO_CONTRACT = new Contract({
 //   addresses: MIGRATOR_ADDRESSES,
 // });
 
-// export const BALANCER_VAULT = new Contract({
-//   factory: BalancerVault__factory,
-//   name: "Balancer Vault Contract",
-//   addresses: BALANCER_VAULT_ADDRESSSES,
-// });
+export const BALANCER_VAULT = new Contract({
+  factory: BalancerVault__factory,
+  name: "Balancer Vault Contract",
+  addresses: BALANCER_VAULT_ADDRESSES,
+});
 
 export const RANGE_OPERATOR_CONTRACT = new Contract({
   factory: RangeOperator__factory,

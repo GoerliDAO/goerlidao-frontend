@@ -58,8 +58,8 @@ export const fetchBondV3 = async ({ id, isInverseBond, networkId }: UseBondOptio
   const terms = await auctioneerContract.terms(id);
 
   const [baseTokenPerUsd, quoteTokenPerUsd, bondMarketPrice] = await Promise.all([
-    baseToken.getPrice(),
-    quoteToken.getPrice(),
+    baseToken.getPrice(networkId),
+    quoteToken.getPrice(networkId),
     auctioneerContract.marketPrice(id).then(price => price),
   ]);
 

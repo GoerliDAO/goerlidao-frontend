@@ -24,9 +24,9 @@ export class DecimalBigNumber {
    * @param decimals the number of decimal places supported by the number. If `number` is a string, this parameter is optional.
    * @returns a new, immutable instance of `DecimalBigNumber`
    */
-  constructor(value: string, decimals?: number);
-  constructor(value: BigNumber, decimals: number);
-  constructor(value: BigNumber | string, decimals?: number) {
+  constructor(value?: BigNumber, decimals?: number);
+  constructor(value?: string, decimals?: number);
+  constructor(value?: BigNumber | string, decimals?: number) {
     if (typeof value === "string") {
       const _value = value.trim() === "" || isNaN(Number(value)) ? "0" : value;
       const _decimals = decimals === undefined ? this._inferDecimalAmount(value) : this._ensurePositive(decimals);
@@ -84,6 +84,10 @@ export class DecimalBigNumber {
    */
   public toBigNumber(decimals?: number): BigNumber {
     return decimals === undefined ? this._value : new DecimalBigNumber(this.toString(), decimals)._value;
+  }
+
+  public toNumber(decimals?: BigNumber): number {
+    return decimals === undefined ? this._value.toNumber() : this._value.toNumber();
   }
 
   /**

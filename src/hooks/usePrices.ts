@@ -30,12 +30,12 @@ export const useXGDAOPrice = () => {
   const { data: currentIndex } = useCurrentIndex();
 
   const key = xgdaoPriceQueryKey(gdaoPrice, currentIndex);
+
   return useQuery<number, Error>(
     [key],
     async () => {
       queryAssertion(gdaoPrice && currentIndex, key);
-
-      return currentIndex.toApproxNumber() * gdaoPrice;
+      return currentIndex.toNumber() * gdaoPrice;
     },
     { enabled: !!gdaoPrice && !!currentIndex },
   );

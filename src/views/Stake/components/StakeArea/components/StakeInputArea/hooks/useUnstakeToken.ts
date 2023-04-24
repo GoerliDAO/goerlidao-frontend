@@ -20,7 +20,7 @@ export const useUnstakeToken = (fromToken: "sGDAO" | "xGDAO") => {
   const contract = STAKING_CONTRACT.getEthersContract(networks.MAINNET);
 
   const addresses = fromToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES;
-  const balance = useBalance(addresses)[networks.MAINNET].data;
+  const balance = useBalance(addresses);
 
   return useMutation<ContractReceipt, EthersError, string>(
     async amount => {

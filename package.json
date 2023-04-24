@@ -169,7 +169,7 @@
     "watch": "node ./scripts/watch.js",
     "snapshot": "vitest -u ",
     "stats": "yarn build --stats && npx webpack-bundle-analyzer ./build/bundle-stats.json",
-    "typechain:build": "yarn run typechain --target ethers-v5 --out-dir src/typechain src/abi/*.json src/abi/**/*.json",
+    "typechain:build": "yarn run typechain --target ethers-v5 --out-dir src/typechain_goerli src/abi_goerli/*.json src/abi_goerli/**/*.json",
     "postinstall": "yarn typechain:build",
     "prepare": "husky install",
     "graphql-codegen": "graphql-codegen --config codegen.yml"
