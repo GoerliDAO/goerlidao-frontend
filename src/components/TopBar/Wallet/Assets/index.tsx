@@ -90,6 +90,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   const networks = useTestableNetworks();
   const { chain = { id: 1 } } = useNetwork();
   const { data: gdaoPrice = new DecimalBigNumber("0", 9) } = useGdaoPrice();
+  // const { data: balance = new DecimalBigNumber("0", 9) } = useBalance();
   const { data: priceFeed = { usd_24h_change: -0 } } = GetTokenPrice();
   const { data: currentIndex = new DecimalBigNumber("0", 9) } = useCurrentIndex();
   const { data: nextRebaseDate } = useNextRebaseDate();
@@ -104,30 +105,6 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   // const { data: gohmTokemakBalance = new DecimalBigNumber("0", 18) } = useGohmTokemakBalance()[NetworkId.MAINNET];
   const [faucetToken, setFaucetToken] = useState("GDAO");
 
-  // const xgdaoTokens = [
-  //   // gohmFuseBalance,
-  //   // gohmTokemakBalance,
-  //   xgdaoBalances,
-  //   // xgdaoBalances[NetworkId.ARBITRUM].data,
-  //   // xgdaoBalances[NetworkId.AVALANCHE].data,
-  //   // xgdaoBalances[NetworkId.POLYGON].data,
-  //   // xgdaoBalances[NetworkId.FANTOM].data,
-  //   // xgdaoBalances[NetworkId.OPTIMISM].data,
-  // ];
-  // // const wsohmTokens = [
-  // //   wsohmBalances[NetworkId.MAINNET].data,
-  // //   wsohmBalances[NetworkId.ARBITRUM].data,
-  // //   wsohmBalances[NetworkId.AVALANCHE].data,
-  // // ];
-
-  // const totalXgdaoBalance = xgdaoTokens
-  //   .filter(nonNullable)
-  //   .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
-
-  // const totalWsohmBalance = wsohmTokens
-  //   .filter(nonNullable)
-  //   .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
-
   const notes = useBondNotes().data;
   const formattedgdaoBalance = gdaoBalance.toString({ decimals: 4, trim: false, format: true });
   // const formattedV1OhmBalance = v1OhmBalance.toString({ decimals: 4, trim: false, format: true });
@@ -135,7 +112,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   // const formattedWsOhmBalance = totalWsohmBalance.toString({ decimals: 4, trim: false, format: true });
   const formattedxGdaoBalance = xGdaoBalance.toString({ decimals: 4, trim: false, format: true });
   const formattedSGdaoBalance = sGdaoBalance.toString({ decimals: 4, trim: false, format: true });
-  const xGdaoPriceChange = priceFeed.usd_24h_change * currentIndex.toApproxNumber();
+  const xGdaoPriceChange = priceFeed.usd_24h_change * currentIndex.toNumber();
   const xgdaoPrice = gdaoPrice.mul(currentIndex);
   const rebaseAmountPerDay = rebaseRate * Number(formattedSGdaoBalance) * 3;
 
@@ -161,8 +138,8 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
     {
       symbol: ["xGDAO"] as OHMTokenStackProps["tokens"],
       balance: formattedxGdaoBalance,
-      assetValue: xgdaoPrice * xGdaoBalance,
-      pnl: formattedxGdaoBalance ? 0 : formatCurrency(xGdaoBalance * xGdaoPriceChange, 2),
+      assetValue: xgdaoPrice.mul(xGdaoBalance),
+      pnl: formattedxGdaoBalance ? 0 : formatCurrency(xGdaoBalance.toNumber() * xGdaoPriceChange, 2),
       alwaysShow: true,
       geckoTicker: "governance-ohm",
     },

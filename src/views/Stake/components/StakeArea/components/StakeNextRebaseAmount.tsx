@@ -1,6 +1,5 @@
 import { DataRow } from "@olympusdao/component-library";
 import { formatNumber } from "src/helpers";
-import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import {
   // useFuseBalance,
   // useGohmBalance,
@@ -25,9 +24,9 @@ export const StakeNextRebaseAmount = () => {
   // const v1sohmBalances = useV1SohmBalance();
   // const gohmFuseBalances = useFuseBalance();
   // const gohmTokemakBalances = useGohmTokemakBalance();
-  const { data: sgdaoBalance = new DecimalBigNumber("0", 9) } = useSgdaoBalance();
-  const { data: gdaoBalance = new DecimalBigNumber("0", 9) } = useGdaoBalance();
-  const { data: xgdaoBalance = new DecimalBigNumber("0", 9) } = useXgdaoBalance();
+  const { data: sgdaoBalance } = useSgdaoBalance();
+  const { data: gdaoBalance } = useGdaoBalance();
+  const { data: xgdaoBalance } = useXgdaoBalance();
 
   const networks = useTestableNetworks();
   const { data: currentIndex } = useCurrentIndex();
@@ -60,7 +59,7 @@ export const StakeNextRebaseAmount = () => {
   const props: PropsOf<typeof DataRow> = { title: `Your Next Rebase` };
 
   if (rebaseRate && sgdaoBalance && xgdaoBalance && currentIndex) {
-    const nextRewardAmount = rebaseRate * xgdaoBalance.mul(currentIndex).add(sgdaoBalance).toApproxNumber();
+    const nextRewardAmount = rebaseRate * xgdaoBalance.mul(currentIndex.toBigNumber()).add(sgdaoBalance).toNumber();
     props.balance = `${formatNumber(nextRewardAmount, 4)} OHM`;
   } else props.isLoading = true;
 

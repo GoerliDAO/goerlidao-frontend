@@ -17,11 +17,11 @@ import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 
 const DECIMAL_PLACES_SHOWN = 4;
 
-const hasVisibleBalance = (balance?: DecimalBigNumber) =>
-  balance && balance.toApproxNumber() > 9 / Math.pow(10, DECIMAL_PLACES_SHOWN + 1);
+const hasVisibleBalance = (balance: DecimalBigNumber) =>
+  balance && balance.toNumber() > 9 / Math.pow(10, DECIMAL_PLACES_SHOWN + 1);
 
-export const formatBalance = (balance?: DecimalBigNumber) =>
-  balance?.toString({ decimals: DECIMAL_PLACES_SHOWN, trim: false, format: true });
+export const formatBalance = (balance: DecimalBigNumber) =>
+  balance.toString({ decimals: DECIMAL_PLACES_SHOWN, trim: false, format: true });
 
 export const StakeBalances = () => {
   const networks = useTestableNetworks();
@@ -35,9 +35,6 @@ export const StakeBalances = () => {
   // const gohmTokemakBalance = useGohmTokemakBalance()[NetworkId.MAINNET].data;
 
   // const sohmTokens = [sohmBalance, v1sohmBalance];
-  const sgdaoTokens = sgdaoBalance;
-  const xgdaoTokens = xgdaoBalance;
-
   // const xgdaoTokens = [
   //   // gohmFuseBalance,
   //   // gohmTokemakBalance,
@@ -61,10 +58,10 @@ export const StakeBalances = () => {
   //   .filter(nonNullable)
   //   .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
 
-  const totalStakedBalance = currentIndex && formatBalance(xgdaoTokens.mul(currentIndex).add(sgdaoTokens));
+  const totalStakedBalance = currentIndex && formatBalance(xgdaoBalance.mul(currentIndex).add(sgdaoBalance));
 
   // const allBalancesLoaded = sgdaoTokens.every(Boolean) && xgdaoTokens.every(Boolean);
-  const allBalancesLoaded = sgdaoTokens && xgdaoTokens;
+  const allBalancesLoaded = sgdaoBalance && xgdaoBalance;
 
   return (
     <>

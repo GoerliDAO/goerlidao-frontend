@@ -105,7 +105,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
   const [zapOutputAmount, setZapOutputAmount] = useState("");
   const addresses = fromToken === "GDAO" ? GDAO_ADDRESSES : fromToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES;
 
-  const { data: balance } = useBalance(addresses);
+  const { data: balance = new DecimalBigNumber("0", 9) } = useBalance(addresses);
   const { data: sgdaoBalance = new DecimalBigNumber("0", 9) } = useSgdaoBalance();
   const { data: gdaoBalance = new DecimalBigNumber("0", 9) } = useGdaoBalance();
   const { data: xgdaoBalance = new DecimalBigNumber("0", 9) } = useXgdaoBalance();
@@ -140,7 +140,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
   const isMutationSuccess = stakeMutation.isSuccess || unstakeMutation.isSuccess; //|| zapExecute.isSuccess || wrapMutation.isSuccess;
 
   const bonds = useLiveBonds({ isInverseBond: true }).data;
-  const amountExceedsBalance = balance && new DecimalBigNumber(amount).gt(balance) ? true : false;
+  const amountExceedsBalance = balance && new DecimalBigNumber(amount) > balance ? true : false;
 
   const liveInverseBonds = bonds && bonds.length > 0;
 
