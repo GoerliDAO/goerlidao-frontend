@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { BigNumber } from "ethers";
 import { NetworkId } from "src/constants";
-import { SOHM_CONTRACT, STAKING_CONTRACT } from "src/constants/contracts";
+import { GOERLI_STAKING_CONTRACT, SGDAO_CONTRACT } from "src/constants/contracts";
 import { parseBigNumber } from "src/helpers";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { useNextRebase } from "src/views/Stake/components/StakeArea/components/RebaseTimer/hooks/useNextRebaseDate";
@@ -17,8 +17,8 @@ export interface IWarmupBalances {
   deposit: BigNumber; // if forfeiting, ohm quantity
   expiry: BigNumber; // end of warmup period (epoch #)
   lock: boolean; // prevents malicious delays for claim
-  sohm: DecimalBigNumber; // staked balance
-  gohm: DecimalBigNumber; // staked balance
+  sgdao: DecimalBigNumber; // staked balance
+  xgdao: DecimalBigNumber; // staked balance
 }
 
 /** claim info for the connected wallet */
@@ -30,18 +30,24 @@ export const useWarmupClaim = () => {
     [warmupQueryKey(address, chain?.id)],
     async () => {
       if (![NetworkId.MAINNET, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
-      const stakingContract = STAKING_CONTRACT.getEthersContract(chain.id);
-      const sohmContract = SOHM_CONTRACT.getEthersContract(chain.id);
-      const warmupClaim = await stakingContract.warmupInfo(address);
-      const sOHMBalance = await sohmContract.balanceForGons(warmupClaim.gons);
-      const gOHMBalance = await sohmContract.toG(sOHMBalance);
+      // const stakingContract = STAKING_CONTRACT.getEthersContract(chain.id);
+      // const sohmContract = SOHM_CONTRACT.getEthersContract(chain.id);
+      // const warmupClaim = await stakingContract.warmupInfo(address);
+      // const sOHMBalance = await sohmContract.balanceForGons(warmupClaim.gons);
+      // const gOHMBalance = await sohmContract.toG(sOHMBalance);
+
+      const g_stakingContract = GOERLI_STAKING_CONTRACT.getEthersContract(chain.id);
+      const sgdaoContract = SGDAO_CONTRACT.getEthersContract(chain.id);
+      const warmupClaim = await g_stakingContract.warmupInfo(address);
+      const sGDAOBalance = await sgdaoContract.balanceForGons(warmupClaim.gons);
+      const gGDAOBalance = await sgdaoContract.toG(sGDAOBalance);
 
       const warmupBalances: IWarmupBalances = {
         deposit: warmupClaim.deposit,
         expiry: warmupClaim.expiry,
         lock: warmupClaim.lock,
-        sohm: new DecimalBigNumber(sOHMBalance, 9),
-        gohm: new DecimalBigNumber(gOHMBalance, 18),
+        sgdao: new DecimalBigNumber(sGDAOBalance, 9),
+        xgdao: new DecimalBigNumber(gGDAOBalance, 18),
       };
 
       // return new DecimalBigNumber(warmupClaim, 9);
@@ -87,9 +93,10 @@ export const useWarmupPeriod = () => {
 
   return useQuery<DecimalBigNumber, Error>(["warmupPeriodLength", chain?.id], async () => {
     if (![NetworkId.MAINNET, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
-    const stakingContract = STAKING_CONTRACT.getEthersContract(chain.id);
+    // const stakingContract = STAKING_CONTRACT.getEthersContract(chain.id);
+    const g_stakingContract = GOERLI_STAKING_CONTRACT.getEthersContract(chain.id);
 
-    const length = await stakingContract.warmupPeriod();
+    const length = await g_stakingContract.warmupPeriod();
 
     return new DecimalBigNumber(length, 0);
   });
@@ -109,9 +116,10 @@ export const useEpoch = () => {
 
   return useQuery<IEpoch, Error>(["epoch"], async () => {
     if (![NetworkId.MAINNET, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
-    const stakingContract = STAKING_CONTRACT.getEthersContract(chain.id);
+    // const stakingContract = STAKING_CONTRACT.getEthersContract(chain.id);
+    const g_stakingContract = GOERLI_STAKING_CONTRACT.getEthersContract(chain.id);
 
-    const epoch = await stakingContract.epoch();
+    const epoch = await g_stakingContract.epoch();
     return {
       length: new DecimalBigNumber(epoch[0], 0), // epoch.length returns the length of the epoch array, not the `length` value of the epoch object
       number: new DecimalBigNumber(epoch.number, 0),
@@ -126,14 +134,16 @@ export const useEpoch = () => {
  * @returns gons
  */
 export const useGonsForBalance = ({ balance }: { balance: string }) => {
-  const { chain = { id: 1 } } = useNetwork();
+  // const { chain = { id: 1 } } = useNetwork();
+  const { chain = { id: 5 } } = useNetwork();
 
   return useQuery<DecimalBigNumber, Error>(["gonsForBalance", balance], async () => {
     if (![NetworkId.MAINNET, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
-    const sohmContract = SOHM_CONTRACT.getEthersContract(chain.id);
+    // const sohmContract = SOHM_CONTRACT.getEthersContract(chain.id);
+    const sgdaoContract = SGDAO_CONTRACT.getEthersContract(chain.id);
 
     const _balance = new DecimalBigNumber(balance, 9);
-    const gons = await sohmContract.gonsForBalance(_balance.toBigNumber());
+    const gons = await sgdaoContract.gonsForBalance(_balance.toBigNumber());
 
     return new DecimalBigNumber(gons, 9);
   });
@@ -142,17 +152,19 @@ export const useGonsForBalance = ({ balance }: { balance: string }) => {
 /**
  *
  * @param gons a quantity of gons
- * @returns sOHM balance
+ * @returns sGDAO balance
  */
 export const useBalanceForGons = ({ gons }: { gons: string }) => {
-  const { chain = { id: 1 } } = useNetwork();
+  // const { chain = { id: 1 } } = useNetwork();
+  const { chain = { id: 5 } } = useNetwork();
 
   return useQuery<DecimalBigNumber, Error>(["balanceForGons", gons], async () => {
     if (![NetworkId.MAINNET, NetworkId.TESTNET_GOERLI].includes(chain.id)) throw new Error("Not implemented");
-    const sohmContract = SOHM_CONTRACT.getEthersContract(chain.id);
+    // const sohmContract = SOHM_CONTRACT.getEthersContract(chain.id);
+    const sgdaoContract = SGDAO_CONTRACT.getEthersContract(chain.id);
 
     const _gons = new DecimalBigNumber(gons, 9);
-    const balance = await sohmContract.balanceForGons(_gons.toBigNumber());
+    const balance = await sgdaoContract.balanceForGons(_gons.toBigNumber());
 
     return new DecimalBigNumber(balance, 9);
   });

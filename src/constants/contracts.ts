@@ -6,11 +6,15 @@ import {
   BOND_FIXED_TERM_TELLER_ADDRESSES,
   DEV_FAUCET,
   DISTRIBUTOR_ADDRESSES,
+  G_DISTRIBUTOR_ADDR,
+  GOERLI_STAKING_ADDR,
+  LIQUIDITY_REGISTRY_ADDRESSES,
   MIGRATOR_ADDRESSES,
   OP_BOND_DEPOSITORY_ADDRESSES,
   RANGE_ADDRESSES,
   RANGE_OPERATOR_ADDRESSES,
   RANGE_PRICE_ADDRESSES,
+  SGDAO_ADDRESSES,
   SOHM_ADDRESSES,
   STAKING_ADDRESSES,
   ZAP_ADDRESSES,
@@ -22,16 +26,20 @@ import {
   BondFixedExpiryTeller__factory,
   BondFixedTermTeller__factory,
   CrossChainMigrator__factory,
+  GoerliStaking__factory,
+  OlympusLiquidityRegistry__factory,
   OlympusProV2__factory,
   OlympusStakingv2__factory,
   Range__factory,
   RangeOperator__factory,
   RangePrice__factory,
+  SGDAO__factory,
   SOhmv2__factory,
   Zap__factory,
 } from "src/typechain";
 import { BondAggregator__factory } from "src/typechain/factories/BondAggregator__factory";
 import { DevFaucet__factory } from "src/typechain/factories/DevFaucet__factory";
+import { Distributor__factory } from "src/typechain/factories/Distributor__factory";
 import { OlympusDistributor__factory } from "src/typechain/factories/OlympusDistributor__factory";
 
 export const BOND_DEPOSITORY_CONTRACT = new Contract({
@@ -52,10 +60,22 @@ export const STAKING_CONTRACT = new Contract({
   addresses: STAKING_ADDRESSES,
 });
 
+export const GOERLI_STAKING_CONTRACT = new Contract({
+  factory: GoerliStaking__factory,
+  name: "Goerli Staking Contract",
+  addresses: GOERLI_STAKING_ADDR,
+});
+
 export const SOHM_CONTRACT = new Contract({
   factory: SOhmv2__factory,
   name: "sOHM Contract",
   addresses: SOHM_ADDRESSES,
+});
+
+export const SGDAO_CONTRACT = new Contract({
+  factory: SGDAO__factory,
+  name: "sGDAO Contract",
+  addresses: SGDAO_ADDRESSES,
 });
 
 export const ZAP_CONTRACT = new Contract({
@@ -122,4 +142,16 @@ export const DISTRIBUTOR_CONTRACT = new Contract({
   factory: OlympusDistributor__factory,
   name: "Distributor Contract",
   addresses: DISTRIBUTOR_ADDRESSES,
+});
+
+export const G_DISTRIBUTOR_CONTRACT = new Contract({
+  factory: Distributor__factory,
+  name: "Goerli Distributor Contract",
+  addresses: G_DISTRIBUTOR_ADDR,
+});
+
+export const LIQUDITY_REGISTRY_CONTRACT = new Contract({
+  factory: OlympusLiquidityRegistry__factory,
+  name: "Liquidity Registry Contract",
+  addresses: LIQUIDITY_REGISTRY_ADDRESSES,
 });

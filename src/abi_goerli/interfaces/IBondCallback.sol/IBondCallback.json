@@ -1,0 +1,1102 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "amountsForMarket",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "in_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "out_",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "teller_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "blacklist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "inputAmount_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "outputAmount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "callback",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ERC20",
+          "name": "token_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "deposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "teller_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_",
+          "type": "uint256"
+        }
+      ],
+      "name": "whitelist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to_",
+          "type": "address"
+        },
+        {
+          "internalType": "contract ERC20",
+          "name": "token_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "amountsForMarket(uint256)": "8aeb40fd",
+    "blacklist(address,uint256)": "1074bce5",
+    "callback(uint256,uint256,uint256)": "4b9de77c",
+    "deposit(address,uint256)": "47e7ef24",
+    "whitelist(address,uint256)": "98fc55d8",
+    "withdraw(address,address,uint256)": "d9caed12"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"amountsForMarket\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"in_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"out_\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"teller_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"blacklist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"inputAmount_\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"outputAmount_\",\"type\":\"uint256\"}],\"name\":\"callback\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"token_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"teller_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id_\",\"type\":\"uint256\"}],\"name\":\"whitelist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to_\",\"type\":\"address\"},{\"internalType\":\"contract ERC20\",\"name\":\"token_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"amountsForMarket(uint256)\":{\"params\":{\"id_\":\"ID of the market\"},\"returns\":{\"in_\":\"    Amount of quote tokens bonded to the market\",\"out_\":\"   Amount of payout tokens paid out to the market\"}},\"blacklist(address,uint256)\":{\"details\":\"Shutdown function in case there's an issue with the teller\",\"params\":{\"id_\":\"ID of the market to remove from whitelist\",\"teller_\":\"Address of the Teller contract which serves the market\"}},\"callback(uint256,uint256,uint256)\":{\"details\":\"Must transfer the output amount of payout tokens back to the TellerShould check that the quote tokens have been transferred to the contract in the _callback function\",\"params\":{\"id_\":\"ID of the market\",\"inputAmount_\":\"Amount of quote tokens bonded to the market\",\"outputAmount_\":\"Amount of payout tokens to be paid out to the market\"}},\"deposit(address,uint256)\":{\"params\":{\"amount_\":\"Amount of tokens to deposit\",\"token_\":\"Address of the token to deposit\"}},\"whitelist(address,uint256)\":{\"params\":{\"id_\":\"ID of the market\",\"teller_\":\"Address of the Teller contract which serves the market\"}},\"withdraw(address,address,uint256)\":{\"params\":{\"amount_\":\"Amount of tokens to withdraw\",\"to_\":\"Address of the recipient\",\"token_\":\"Address of the token to withdraw\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"amountsForMarket(uint256)\":{\"notice\":\"Returns the number of quote tokens received and payout tokens paid out for a market\"},\"blacklist(address,uint256)\":{\"notice\":\"Remove a market ID on a teller from the whitelist\"},\"callback(uint256,uint256,uint256)\":{\"notice\":\"Send payout tokens to Teller while allowing market owners to perform custom logic on received or paid out tokensMarket ID on Teller must be whitelisted\"},\"deposit(address,uint256)\":{\"notice\":\"Deposit tokens to the callback and update balancesOnly callback owner\"},\"whitelist(address,uint256)\":{\"notice\":\"Whitelist a teller and market ID combinationMust be callback owner\"},\"withdraw(address,address,uint256)\":{\"notice\":\"Withdraw tokens from the callback and update balancesOnly callback owner\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/test/lib/bonds/interfaces/IBondCallback.sol\":\"IBondCallback\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":balancer-v2/=lib/balancer-v2/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"lib/solmate/src/tokens/ERC20.sol\":{\"keccak256\":\"0xb14869b3d931ceb1b8f8fcd00dc59e0901198ae271a6cb3e8d0c7b8ac1999d18\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://3c533078cfb24dc68c0138437f1a2a946f74ab70d01a9fbe24f3e35905a25aed\",\"dweb:/ipfs/QmRDGa933AjqmDpJSL2CRNDJmJu6U9bKpU5RuiGTgxRFsC\"]},\"src/test/lib/bonds/interfaces/IBondCallback.sol\":{\"keccak256\":\"0x3d3883bc1365a89aed6362221cee2da26d5bd8e2a1e4a01b5134415948df5a3e\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://c16aa500c4aeaf62a3d46a93e8341b5a4c41ff3bdb203a15c465cd6dabf4f809\",\"dweb:/ipfs/QmaaQWiCbcxR5mUKKcjpWPDM8tqjBzbpvSzQfueG8yP4Bh\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.15+commit.e14f2714"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "amountsForMarket",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "in_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "out_",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "teller_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "blacklist"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "inputAmount_",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "outputAmount_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "callback"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ERC20",
+              "name": "token_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "deposit"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "teller_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "whitelist"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to_",
+              "type": "address"
+            },
+            {
+              "internalType": "contract ERC20",
+              "name": "token_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "withdraw"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "amountsForMarket(uint256)": {
+            "params": {
+              "id_": "ID of the market"
+            },
+            "returns": {
+              "in_": "    Amount of quote tokens bonded to the market",
+              "out_": "   Amount of payout tokens paid out to the market"
+            }
+          },
+          "blacklist(address,uint256)": {
+            "details": "Shutdown function in case there's an issue with the teller",
+            "params": {
+              "id_": "ID of the market to remove from whitelist",
+              "teller_": "Address of the Teller contract which serves the market"
+            }
+          },
+          "callback(uint256,uint256,uint256)": {
+            "details": "Must transfer the output amount of payout tokens back to the TellerShould check that the quote tokens have been transferred to the contract in the _callback function",
+            "params": {
+              "id_": "ID of the market",
+              "inputAmount_": "Amount of quote tokens bonded to the market",
+              "outputAmount_": "Amount of payout tokens to be paid out to the market"
+            }
+          },
+          "deposit(address,uint256)": {
+            "params": {
+              "amount_": "Amount of tokens to deposit",
+              "token_": "Address of the token to deposit"
+            }
+          },
+          "whitelist(address,uint256)": {
+            "params": {
+              "id_": "ID of the market",
+              "teller_": "Address of the Teller contract which serves the market"
+            }
+          },
+          "withdraw(address,address,uint256)": {
+            "params": {
+              "amount_": "Amount of tokens to withdraw",
+              "to_": "Address of the recipient",
+              "token_": "Address of the token to withdraw"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "amountsForMarket(uint256)": {
+            "notice": "Returns the number of quote tokens received and payout tokens paid out for a market"
+          },
+          "blacklist(address,uint256)": {
+            "notice": "Remove a market ID on a teller from the whitelist"
+          },
+          "callback(uint256,uint256,uint256)": {
+            "notice": "Send payout tokens to Teller while allowing market owners to perform custom logic on received or paid out tokensMarket ID on Teller must be whitelisted"
+          },
+          "deposit(address,uint256)": {
+            "notice": "Deposit tokens to the callback and update balancesOnly callback owner"
+          },
+          "whitelist(address,uint256)": {
+            "notice": "Whitelist a teller and market ID combinationMust be callback owner"
+          },
+          "withdraw(address,address,uint256)": {
+            "notice": "Withdraw tokens from the callback and update balancesOnly callback owner"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":balancer-v2/=lib/balancer-v2/",
+        ":ds-test/=lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/",
+        ":interfaces/=src/interfaces/",
+        ":libraries/=src/libraries/",
+        ":modules/=src/modules/",
+        ":policies/=src/policies/",
+        ":solmate/=lib/solmate/src/",
+        ":test/=src/test/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 10
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/test/lib/bonds/interfaces/IBondCallback.sol": "IBondCallback"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "lib/solmate/src/tokens/ERC20.sol": {
+        "keccak256": "0xb14869b3d931ceb1b8f8fcd00dc59e0901198ae271a6cb3e8d0c7b8ac1999d18",
+        "urls": [
+          "bzz-raw://3c533078cfb24dc68c0138437f1a2a946f74ab70d01a9fbe24f3e35905a25aed",
+          "dweb:/ipfs/QmRDGa933AjqmDpJSL2CRNDJmJu6U9bKpU5RuiGTgxRFsC"
+        ],
+        "license": "AGPL-3.0-only"
+      },
+      "src/test/lib/bonds/interfaces/IBondCallback.sol": {
+        "keccak256": "0x3d3883bc1365a89aed6362221cee2da26d5bd8e2a1e4a01b5134415948df5a3e",
+        "urls": [
+          "bzz-raw://c16aa500c4aeaf62a3d46a93e8341b5a4c41ff3bdb203a15c465cd6dabf4f809",
+          "dweb:/ipfs/QmaaQWiCbcxR5mUKKcjpWPDM8tqjBzbpvSzQfueG8yP4Bh"
+        ],
+        "license": "AGPL-3.0"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/test/lib/bonds/interfaces/IBondCallback.sol",
+    "id": 59122,
+    "exportedSymbols": {
+      "ERC20": [
+        25226
+      ],
+      "IBondCallback": [
+        59121
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "37:2554:130",
+    "nodes": [
+      {
+        "id": 59062,
+        "nodeType": "PragmaDirective",
+        "src": "37:24:130",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0"
+        ]
+      },
+      {
+        "id": 59064,
+        "nodeType": "ImportDirective",
+        "src": "63:47:130",
+        "nodes": [],
+        "absolutePath": "lib/solmate/src/tokens/ERC20.sol",
+        "file": "solmate/tokens/ERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 59122,
+        "sourceUnit": 25227,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 59063,
+              "name": "ERC20",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 25226,
+              "src": "71:5:130",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 59121,
+        "nodeType": "ContractDefinition",
+        "src": "112:2478:130",
+        "nodes": [
+          {
+            "id": 59074,
+            "nodeType": "FunctionDefinition",
+            "src": "762:115:130",
+            "nodes": [],
+            "documentation": {
+              "id": 59065,
+              "nodeType": "StructuredDocumentation",
+              "src": "142:615:130",
+              "text": "@notice                 Send payout tokens to Teller while allowing market owners to perform custom logic on received or paid out tokens\n @notice                 Market ID on Teller must be whitelisted\n @param id_              ID of the market\n @param inputAmount_     Amount of quote tokens bonded to the market\n @param outputAmount_    Amount of payout tokens to be paid out to the market\n @dev Must transfer the output amount of payout tokens back to the Teller\n @dev Should check that the quote tokens have been transferred to the contract in the _callback function"
+            },
+            "functionSelector": "4b9de77c",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "callback",
+            "nameLocation": "771:8:130",
+            "parameters": {
+              "id": 59072,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 59067,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "797:3:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59074,
+                  "src": "789:11:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59066,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "789:7:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 59069,
+                  "mutability": "mutable",
+                  "name": "inputAmount_",
+                  "nameLocation": "818:12:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59074,
+                  "src": "810:20:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59068,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "810:7:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 59071,
+                  "mutability": "mutable",
+                  "name": "outputAmount_",
+                  "nameLocation": "848:13:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59074,
+                  "src": "840:21:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59070,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "840:7:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "779:88:130"
+            },
+            "returnParameters": {
+              "id": 59073,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "876:0:130"
+            },
+            "scope": 59121,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 59084,
+            "nodeType": "FunctionDefinition",
+            "src": "1171:89:130",
+            "nodes": [],
+            "documentation": {
+              "id": 59075,
+              "nodeType": "StructuredDocumentation",
+              "src": "883:283:130",
+              "text": "@notice         Returns the number of quote tokens received and payout tokens paid out for a market\n @param id_      ID of the market\n @return in_     Amount of quote tokens bonded to the market\n @return out_    Amount of payout tokens paid out to the market"
+            },
+            "functionSelector": "8aeb40fd",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "amountsForMarket",
+            "nameLocation": "1180:16:130",
+            "parameters": {
+              "id": 59078,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 59077,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "1205:3:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59084,
+                  "src": "1197:11:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59076,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1197:7:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1196:13:130"
+            },
+            "returnParameters": {
+              "id": 59083,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 59080,
+                  "mutability": "mutable",
+                  "name": "in_",
+                  "nameLocation": "1241:3:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59084,
+                  "src": "1233:11:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59079,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1233:7:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 59082,
+                  "mutability": "mutable",
+                  "name": "out_",
+                  "nameLocation": "1254:4:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59084,
+                  "src": "1246:12:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59081,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1246:7:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1232:27:130"
+            },
+            "scope": 59121,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 59092,
+            "nodeType": "FunctionDefinition",
+            "src": "1502:58:130",
+            "nodes": [],
+            "documentation": {
+              "id": 59085,
+              "nodeType": "StructuredDocumentation",
+              "src": "1266:231:130",
+              "text": "@notice         Whitelist a teller and market ID combination\n @notice         Must be callback owner\n @param teller_  Address of the Teller contract which serves the market\n @param id_      ID of the market"
+            },
+            "functionSelector": "98fc55d8",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "whitelist",
+            "nameLocation": "1511:9:130",
+            "parameters": {
+              "id": 59090,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 59087,
+                  "mutability": "mutable",
+                  "name": "teller_",
+                  "nameLocation": "1529:7:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59092,
+                  "src": "1521:15:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 59086,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1521:7:130",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 59089,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "1546:3:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59092,
+                  "src": "1538:11:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59088,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1538:7:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1520:30:130"
+            },
+            "returnParameters": {
+              "id": 59091,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1559:0:130"
+            },
+            "scope": 59121,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 59100,
+            "nodeType": "FunctionDefinition",
+            "src": "1852:58:130",
+            "nodes": [],
+            "documentation": {
+              "id": 59093,
+              "nodeType": "StructuredDocumentation",
+              "src": "1566:281:130",
+              "text": "@notice Remove a market ID on a teller from the whitelist\n @dev    Shutdown function in case there's an issue with the teller\n @param  teller_ Address of the Teller contract which serves the market\n @param  id_     ID of the market to remove from whitelist"
+            },
+            "functionSelector": "1074bce5",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "blacklist",
+            "nameLocation": "1861:9:130",
+            "parameters": {
+              "id": 59098,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 59095,
+                  "mutability": "mutable",
+                  "name": "teller_",
+                  "nameLocation": "1879:7:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59100,
+                  "src": "1871:15:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 59094,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1871:7:130",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 59097,
+                  "mutability": "mutable",
+                  "name": "id_",
+                  "nameLocation": "1896:3:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59100,
+                  "src": "1888:11:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59096,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1888:7:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1870:30:130"
+            },
+            "returnParameters": {
+              "id": 59099,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1909:0:130"
+            },
+            "scope": 59121,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 59111,
+            "nodeType": "FunctionDefinition",
+            "src": "2197:101:130",
+            "nodes": [],
+            "documentation": {
+              "id": 59101,
+              "nodeType": "StructuredDocumentation",
+              "src": "1916:276:130",
+              "text": "@notice         Withdraw tokens from the callback and update balances\n @notice         Only callback owner\n @param to_      Address of the recipient\n @param token_   Address of the token to withdraw\n @param amount_  Amount of tokens to withdraw"
+            },
+            "functionSelector": "d9caed12",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "withdraw",
+            "nameLocation": "2206:8:130",
+            "parameters": {
+              "id": 59109,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 59103,
+                  "mutability": "mutable",
+                  "name": "to_",
+                  "nameLocation": "2232:3:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59111,
+                  "src": "2224:11:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 59102,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2224:7:130",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 59106,
+                  "mutability": "mutable",
+                  "name": "token_",
+                  "nameLocation": "2251:6:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59111,
+                  "src": "2245:12:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$25226",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "id": 59105,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 59104,
+                      "name": "ERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 25226,
+                      "src": "2245:5:130"
+                    },
+                    "referencedDeclaration": 25226,
+                    "src": "2245:5:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$25226",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 59108,
+                  "mutability": "mutable",
+                  "name": "amount_",
+                  "nameLocation": "2275:7:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59111,
+                  "src": "2267:15:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59107,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2267:7:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2214:74:130"
+            },
+            "returnParameters": {
+              "id": 59110,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2297:0:130"
+            },
+            "scope": 59121,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 59120,
+            "nodeType": "FunctionDefinition",
+            "src": "2531:57:130",
+            "nodes": [],
+            "documentation": {
+              "id": 59112,
+              "nodeType": "StructuredDocumentation",
+              "src": "2304:222:130",
+              "text": "@notice         Deposit tokens to the callback and update balances\n @notice         Only callback owner\n @param token_   Address of the token to deposit\n @param amount_  Amount of tokens to deposit"
+            },
+            "functionSelector": "47e7ef24",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deposit",
+            "nameLocation": "2540:7:130",
+            "parameters": {
+              "id": 59118,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 59115,
+                  "mutability": "mutable",
+                  "name": "token_",
+                  "nameLocation": "2554:6:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59120,
+                  "src": "2548:12:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$25226",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "id": 59114,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 59113,
+                      "name": "ERC20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 25226,
+                      "src": "2548:5:130"
+                    },
+                    "referencedDeclaration": 25226,
+                    "src": "2548:5:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$25226",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 59117,
+                  "mutability": "mutable",
+                  "name": "amount_",
+                  "nameLocation": "2570:7:130",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 59120,
+                  "src": "2562:15:130",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 59116,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2562:7:130",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2547:31:130"
+            },
+            "returnParameters": {
+              "id": 59119,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2587:0:130"
+            },
+            "scope": 59121,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IBondCallback",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          59121
+        ],
+        "name": "IBondCallback",
+        "nameLocation": "122:13:130",
+        "scope": 59122,
+        "usedErrors": []
+      }
+    ],
+    "license": "AGPL-3.0"
+  },
+  "id": 130
+}

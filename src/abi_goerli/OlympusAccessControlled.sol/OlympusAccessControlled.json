@@ -1,0 +1,1414 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "contract IOlympusAuthority",
+          "name": "authority",
+          "type": "address"
+        }
+      ],
+      "name": "AuthorityUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "authority",
+      "outputs": [
+        {
+          "internalType": "contract IOlympusAuthority",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IOlympusAuthority",
+          "name": "_newAuthority",
+          "type": "address"
+        }
+      ],
+      "name": "setAuthority",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "authority()": "bf7e214f",
+    "setAuthority(address)": "7a9e5e4b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract IOlympusAuthority\",\"name\":\"authority\",\"type\":\"address\"}],\"name\":\"AuthorityUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"authority\",\"outputs\":[{\"internalType\":\"contract IOlympusAuthority\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IOlympusAuthority\",\"name\":\"_newAuthority\",\"type\":\"address\"}],\"name\":\"setAuthority\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/types/OlympusAccessControlled.sol\":\"OlympusAccessControlled\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":balancer-v2/=lib/balancer-v2/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"src/interfaces/IOlympusAuthority.sol\":{\"keccak256\":\"0x9f7316ecbdd915692cee2fd47406c5f5bd6c162a9badb6605c0058ed23f9ee25\",\"license\":\"AGPL-3.0-or-later\",\"urls\":[\"bzz-raw://c2ef3fe6e4e8415faa42131c0065908877f6df0630c5e765eca60bfb6e37e737\",\"dweb:/ipfs/QmNRCM1ei6PxdJdbJmBvAaqpd14BPUCV38K3XyDN7iyNAZ\"]},\"src/types/OlympusAccessControlled.sol\":{\"keccak256\":\"0xd429171e3afaeb91960e2d3f4e596d64c12f292cc264efa0a5b95bf60ded20cf\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://a5091df0f41b5a1b563255d5d4e3633fecb2020afcabf37b29e398243e5d41a1\",\"dweb:/ipfs/QmWB7xbCzTbUqJWndB9J5rU5fmgTP6wjuJVoagG59hnQsk\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.15+commit.e14f2714"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "contract IOlympusAuthority",
+              "name": "authority",
+              "type": "address",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "AuthorityUpdated",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "authority",
+          "outputs": [
+            {
+              "internalType": "contract IOlympusAuthority",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract IOlympusAuthority",
+              "name": "_newAuthority",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setAuthority"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":balancer-v2/=lib/balancer-v2/",
+        ":ds-test/=lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/",
+        ":interfaces/=src/interfaces/",
+        ":libraries/=src/libraries/",
+        ":modules/=src/modules/",
+        ":policies/=src/policies/",
+        ":solmate/=lib/solmate/src/",
+        ":test/=src/test/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 10
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/types/OlympusAccessControlled.sol": "OlympusAccessControlled"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/interfaces/IOlympusAuthority.sol": {
+        "keccak256": "0x9f7316ecbdd915692cee2fd47406c5f5bd6c162a9badb6605c0058ed23f9ee25",
+        "urls": [
+          "bzz-raw://c2ef3fe6e4e8415faa42131c0065908877f6df0630c5e765eca60bfb6e37e737",
+          "dweb:/ipfs/QmNRCM1ei6PxdJdbJmBvAaqpd14BPUCV38K3XyDN7iyNAZ"
+        ],
+        "license": "AGPL-3.0-or-later"
+      },
+      "src/types/OlympusAccessControlled.sol": {
+        "keccak256": "0xd429171e3afaeb91960e2d3f4e596d64c12f292cc264efa0a5b95bf60ded20cf",
+        "urls": [
+          "bzz-raw://a5091df0f41b5a1b563255d5d4e3633fecb2020afcabf37b29e398243e5d41a1",
+          "dweb:/ipfs/QmWB7xbCzTbUqJWndB9J5rU5fmgTP6wjuJVoagG59hnQsk"
+        ],
+        "license": "AGPL-3.0-only"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/types/OlympusAccessControlled.sol",
+    "id": 101070,
+    "exportedSymbols": {
+      "IOlympusAuthority": [
+        36457
+      ],
+      "OlympusAccessControlled": [
+        101069
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "43:1330:178",
+    "nodes": [
+      {
+        "id": 100968,
+        "nodeType": "PragmaDirective",
+        "src": "43:24:178",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          ">=",
+          "0.7",
+          ".5"
+        ]
+      },
+      {
+        "id": 100969,
+        "nodeType": "ImportDirective",
+        "src": "69:46:178",
+        "nodes": [],
+        "absolutePath": "src/interfaces/IOlympusAuthority.sol",
+        "file": "src/interfaces/IOlympusAuthority.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 101070,
+        "sourceUnit": 36458,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 101069,
+        "nodeType": "ContractDefinition",
+        "src": "119:1252:178",
+        "nodes": [
+          {
+            "id": 100974,
+            "nodeType": "EventDefinition",
+            "src": "212:60:178",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "2f658b440c35314f52658ea8a740e05b284cdc84dc9ae01e891f21b8933e7cad",
+            "name": "AuthorityUpdated",
+            "nameLocation": "218:16:178",
+            "parameters": {
+              "id": 100973,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 100972,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "authority",
+                  "nameLocation": "261:9:178",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 100974,
+                  "src": "235:35:178",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                    "typeString": "contract IOlympusAuthority"
+                  },
+                  "typeName": {
+                    "id": 100971,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 100970,
+                      "name": "IOlympusAuthority",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 36457,
+                      "src": "235:17:178"
+                    },
+                    "referencedDeclaration": 36457,
+                    "src": "235:17:178",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                      "typeString": "contract IOlympusAuthority"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "234:37:178"
+            }
+          },
+          {
+            "id": 100977,
+            "nodeType": "VariableDeclaration",
+            "src": "280:36:178",
+            "nodes": [],
+            "constant": false,
+            "mutability": "mutable",
+            "name": "UNAUTHORIZED",
+            "nameLocation": "287:12:178",
+            "scope": 101069,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 100975,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "280:6:178",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "hexValue": "554e415554484f52495a4544",
+              "id": 100976,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "302:14:178",
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_269df367cd41cace5897a935d0e0858fe4543b5619d45e09af6b124c1bb3d528",
+                "typeString": "literal_string \"UNAUTHORIZED\""
+              },
+              "value": "UNAUTHORIZED"
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 100980,
+            "nodeType": "VariableDeclaration",
+            "src": "388:34:178",
+            "nodes": [],
+            "constant": false,
+            "functionSelector": "bf7e214f",
+            "mutability": "mutable",
+            "name": "authority",
+            "nameLocation": "413:9:178",
+            "scope": 101069,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+              "typeString": "contract IOlympusAuthority"
+            },
+            "typeName": {
+              "id": 100979,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 100978,
+                "name": "IOlympusAuthority",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 36457,
+                "src": "388:17:178"
+              },
+              "referencedDeclaration": 36457,
+              "src": "388:17:178",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                "typeString": "contract IOlympusAuthority"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 100995,
+            "nodeType": "FunctionDefinition",
+            "src": "480:127:178",
+            "nodes": [],
+            "body": {
+              "id": 100994,
+              "nodeType": "Block",
+              "src": "522:85:178",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "id": 100988,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 100986,
+                      "name": "authority",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 100980,
+                      "src": "533:9:178",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                        "typeString": "contract IOlympusAuthority"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 100987,
+                      "name": "_authority",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 100983,
+                      "src": "545:10:178",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                        "typeString": "contract IOlympusAuthority"
+                      }
+                    },
+                    "src": "533:22:178",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                      "typeString": "contract IOlympusAuthority"
+                    }
+                  },
+                  "id": 100989,
+                  "nodeType": "ExpressionStatement",
+                  "src": "533:22:178"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 100991,
+                        "name": "_authority",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 100983,
+                        "src": "588:10:178",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                          "typeString": "contract IOlympusAuthority"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                          "typeString": "contract IOlympusAuthority"
+                        }
+                      ],
+                      "id": 100990,
+                      "name": "AuthorityUpdated",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 100974,
+                      "src": "571:16:178",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_contract$_IOlympusAuthority_$36457_$returns$__$",
+                        "typeString": "function (contract IOlympusAuthority)"
+                      }
+                    },
+                    "id": 100992,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "571:28:178",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 100993,
+                  "nodeType": "EmitStatement",
+                  "src": "566:33:178"
+                }
+              ]
+            },
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "parameters": {
+              "id": 100984,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 100983,
+                  "mutability": "mutable",
+                  "name": "_authority",
+                  "nameLocation": "510:10:178",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 100995,
+                  "src": "492:28:178",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                    "typeString": "contract IOlympusAuthority"
+                  },
+                  "typeName": {
+                    "id": 100982,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 100981,
+                      "name": "IOlympusAuthority",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 36457,
+                      "src": "492:17:178"
+                    },
+                    "referencedDeclaration": 36457,
+                    "src": "492:17:178",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                      "typeString": "contract IOlympusAuthority"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "491:30:178"
+            },
+            "returnParameters": {
+              "id": 100985,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "522:0:178"
+            },
+            "scope": 101069,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "id": 101009,
+            "nodeType": "ModifierDefinition",
+            "src": "670:112:178",
+            "nodes": [],
+            "body": {
+              "id": 101008,
+              "nodeType": "Block",
+              "src": "694:88:178",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 101003,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 100998,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "713:3:178",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 100999,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "713:10:178",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "expression": {
+                              "id": 101000,
+                              "name": "authority",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 100980,
+                              "src": "727:9:178",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                                "typeString": "contract IOlympusAuthority"
+                              }
+                            },
+                            "id": 101001,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "governor",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 36441,
+                            "src": "727:18:178",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
+                              "typeString": "function () view external returns (address)"
+                            }
+                          },
+                          "id": 101002,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "727:20:178",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "713:34:178",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "id": 101004,
+                        "name": "UNAUTHORIZED",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 100977,
+                        "src": "749:12:178",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      ],
+                      "id": 100997,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "705:7:178",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 101005,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "705:57:178",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 101006,
+                  "nodeType": "ExpressionStatement",
+                  "src": "705:57:178"
+                },
+                {
+                  "id": 101007,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "773:1:178"
+                }
+              ]
+            },
+            "name": "onlyGovernor",
+            "nameLocation": "679:12:178",
+            "parameters": {
+              "id": 100996,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "691:2:178"
+            },
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "id": 101023,
+            "nodeType": "ModifierDefinition",
+            "src": "794:112:178",
+            "nodes": [],
+            "body": {
+              "id": 101022,
+              "nodeType": "Block",
+              "src": "818:88:178",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 101017,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 101012,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "837:3:178",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 101013,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "837:10:178",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "expression": {
+                              "id": 101014,
+                              "name": "authority",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 100980,
+                              "src": "851:9:178",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                                "typeString": "contract IOlympusAuthority"
+                              }
+                            },
+                            "id": 101015,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "guardian",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 36446,
+                            "src": "851:18:178",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
+                              "typeString": "function () view external returns (address)"
+                            }
+                          },
+                          "id": 101016,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "851:20:178",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "837:34:178",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "id": 101018,
+                        "name": "UNAUTHORIZED",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 100977,
+                        "src": "873:12:178",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      ],
+                      "id": 101011,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "829:7:178",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 101019,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "829:57:178",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 101020,
+                  "nodeType": "ExpressionStatement",
+                  "src": "829:57:178"
+                },
+                {
+                  "id": 101021,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "897:1:178"
+                }
+              ]
+            },
+            "name": "onlyGuardian",
+            "nameLocation": "803:12:178",
+            "parameters": {
+              "id": 101010,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "815:2:178"
+            },
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "id": 101037,
+            "nodeType": "ModifierDefinition",
+            "src": "918:108:178",
+            "nodes": [],
+            "body": {
+              "id": 101036,
+              "nodeType": "Block",
+              "src": "940:86:178",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 101031,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 101026,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "959:3:178",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 101027,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "959:10:178",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "expression": {
+                              "id": 101028,
+                              "name": "authority",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 100980,
+                              "src": "973:9:178",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                                "typeString": "contract IOlympusAuthority"
+                              }
+                            },
+                            "id": 101029,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "policy",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 36451,
+                            "src": "973:16:178",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
+                              "typeString": "function () view external returns (address)"
+                            }
+                          },
+                          "id": 101030,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "973:18:178",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "959:32:178",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "id": 101032,
+                        "name": "UNAUTHORIZED",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 100977,
+                        "src": "993:12:178",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      ],
+                      "id": 101025,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "951:7:178",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 101033,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "951:55:178",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 101034,
+                  "nodeType": "ExpressionStatement",
+                  "src": "951:55:178"
+                },
+                {
+                  "id": 101035,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "1017:1:178"
+                }
+              ]
+            },
+            "name": "onlyPolicy",
+            "nameLocation": "927:10:178",
+            "parameters": {
+              "id": 101024,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "937:2:178"
+            },
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "id": 101051,
+            "nodeType": "ModifierDefinition",
+            "src": "1034:106:178",
+            "nodes": [],
+            "body": {
+              "id": 101050,
+              "nodeType": "Block",
+              "src": "1055:85:178",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 101045,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 101040,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "1074:3:178",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 101041,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "1074:10:178",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "expression": {
+                              "id": 101042,
+                              "name": "authority",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 100980,
+                              "src": "1088:9:178",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                                "typeString": "contract IOlympusAuthority"
+                              }
+                            },
+                            "id": 101043,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "vault",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 36456,
+                            "src": "1088:15:178",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
+                              "typeString": "function () view external returns (address)"
+                            }
+                          },
+                          "id": 101044,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1088:17:178",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "1074:31:178",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "id": 101046,
+                        "name": "UNAUTHORIZED",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 100977,
+                        "src": "1107:12:178",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      ],
+                      "id": 101039,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "1066:7:178",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 101047,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1066:54:178",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 101048,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1066:54:178"
+                },
+                {
+                  "id": 101049,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "1131:1:178"
+                }
+              ]
+            },
+            "name": "onlyVault",
+            "nameLocation": "1043:9:178",
+            "parameters": {
+              "id": 101038,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1052:2:178"
+            },
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "id": 101068,
+            "nodeType": "FunctionDefinition",
+            "src": "1200:168:178",
+            "nodes": [],
+            "body": {
+              "id": 101067,
+              "nodeType": "Block",
+              "src": "1277:91:178",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "id": 101061,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 101059,
+                      "name": "authority",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 100980,
+                      "src": "1288:9:178",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                        "typeString": "contract IOlympusAuthority"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 101060,
+                      "name": "_newAuthority",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 101054,
+                      "src": "1300:13:178",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                        "typeString": "contract IOlympusAuthority"
+                      }
+                    },
+                    "src": "1288:25:178",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                      "typeString": "contract IOlympusAuthority"
+                    }
+                  },
+                  "id": 101062,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1288:25:178"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 101064,
+                        "name": "_newAuthority",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 101054,
+                        "src": "1346:13:178",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                          "typeString": "contract IOlympusAuthority"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                          "typeString": "contract IOlympusAuthority"
+                        }
+                      ],
+                      "id": 101063,
+                      "name": "AuthorityUpdated",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 100974,
+                      "src": "1329:16:178",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_contract$_IOlympusAuthority_$36457_$returns$__$",
+                        "typeString": "function (contract IOlympusAuthority)"
+                      }
+                    },
+                    "id": 101065,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1329:31:178",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 101066,
+                  "nodeType": "EmitStatement",
+                  "src": "1324:36:178"
+                }
+              ]
+            },
+            "functionSelector": "7a9e5e4b",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 101057,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 101056,
+                  "name": "onlyGovernor",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 101009,
+                  "src": "1264:12:178"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1264:12:178"
+              }
+            ],
+            "name": "setAuthority",
+            "nameLocation": "1209:12:178",
+            "parameters": {
+              "id": 101055,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 101054,
+                  "mutability": "mutable",
+                  "name": "_newAuthority",
+                  "nameLocation": "1240:13:178",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 101068,
+                  "src": "1222:31:178",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                    "typeString": "contract IOlympusAuthority"
+                  },
+                  "typeName": {
+                    "id": 101053,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 101052,
+                      "name": "IOlympusAuthority",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 36457,
+                      "src": "1222:17:178"
+                    },
+                    "referencedDeclaration": 36457,
+                    "src": "1222:17:178",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IOlympusAuthority_$36457",
+                      "typeString": "contract IOlympusAuthority"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1221:33:178"
+            },
+            "returnParameters": {
+              "id": 101058,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1277:0:178"
+            },
+            "scope": 101069,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": true,
+        "baseContracts": [],
+        "canonicalName": "OlympusAccessControlled",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          101069
+        ],
+        "name": "OlympusAccessControlled",
+        "nameLocation": "137:23:178",
+        "scope": 101070,
+        "usedErrors": []
+      }
+    ],
+    "license": "AGPL-3.0-only"
+  },
+  "id": 178
+}

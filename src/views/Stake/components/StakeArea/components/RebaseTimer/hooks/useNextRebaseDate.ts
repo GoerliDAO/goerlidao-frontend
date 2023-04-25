@@ -3,7 +3,7 @@ import { BigNumber } from "ethers";
 import { NetworkId } from "src/constants";
 import { STAKING_ADDRESSES } from "src/constants/addresses";
 import { parseBigNumber } from "src/helpers";
-import { useStaticStakingContract } from "src/hooks/useContract";
+import { useStaticGoerliStakingContract } from "src/hooks/useContract";
 
 export const useNextRebaseDate = () => {
   const { data: secondsToRebase, isSuccess } = useNextRebase();
@@ -15,7 +15,11 @@ export const useNextRebaseDate = () => {
 };
 
 export const useNextRebase = () => {
-  const contract = useStaticStakingContract(STAKING_ADDRESSES[NetworkId.MAINNET], NetworkId.MAINNET);
+  // const contract = useStaticStakingContract(STAKING_ADDRESSES[NetworkId.MAINNET], NetworkId.MAINNET);
+  const contract = useStaticGoerliStakingContract(
+    STAKING_ADDRESSES[NetworkId.TESTNET_GOERLI],
+    NetworkId.TESTNET_GOERLI,
+  );
 
   return useQuery<BigNumber, Error>(["secondsToNextRebase"], async () => {
     const secondsToRebase = await contract.secondsToNextEpoch();

@@ -5,13 +5,16 @@ import {
   FUSE_POOL_6_ADDRESSES,
   FUSE_POOL_18_ADDRESSES,
   FUSE_POOL_36_ADDRESSES,
+  GDAO_ADDRESSES,
   GOHM_ADDRESSES,
   GOHM_TOKEMAK_ADDRESSES,
   OHM_ADDRESSES,
+  SGDAO_ADDRESSES,
   SOHM_ADDRESSES,
   V1_OHM_ADDRESSES,
   V1_SOHM_ADDRESSES,
   WSOHM_ADDRESSES,
+  XGDAO_ADDRESSES,
 } from "src/constants/addresses";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { queryAssertion } from "src/helpers/react-query/queryAssertion";
@@ -85,8 +88,11 @@ export const useFuseBalance = () => {
 };
 
 export const useOhmBalance = () => useBalance(OHM_ADDRESSES);
+export const useGdaoBalance = () => useBalance(GDAO_ADDRESSES);
 export const useSohmBalance = () => useBalance(SOHM_ADDRESSES);
+export const useSgdaoBalance = () => useBalance(SGDAO_ADDRESSES);
 export const useGohmBalance = () => useBalance(GOHM_ADDRESSES);
+export const useXgdaoBalance = () => useBalance(XGDAO_ADDRESSES);
 export const useWsohmBalance = () => useBalance(WSOHM_ADDRESSES);
 export const useV1OhmBalance = () => useBalance(V1_OHM_ADDRESSES);
 export const useV1SohmBalance = () => useBalance(V1_SOHM_ADDRESSES);

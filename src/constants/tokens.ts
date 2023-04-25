@@ -1,18 +1,21 @@
 import {
   DAI_ADDRESSES,
   FRAX_ADDRESSES,
-  GOHM_ADDRESSES,
+  GDAO_ADDRESSES,
   LUSD_ADDRESSES,
   OHM_ADDRESSES,
   OHM_DAI_BALANCER_LP_ADDRESSES,
   OHM_DAI_LP_ADDRESSES,
+  SGDAO_ADDRESSES,
   SOHM_ADDRESSES,
+  TGD_WETH_LP_ADDRESSES,
   UST_ADDRESSES,
   V1_OHM_ADDRESSES,
   V1_SOHM_ADDRESSES,
   WBTC_ADDRESSES,
   WETH_ADDRESSES,
   WSOHM_ADDRESSES,
+  XGDAO_ADDRESSES,
 } from "src/constants/addresses";
 import { BALANCER_VAULT } from "src/constants/contracts";
 import { Token } from "src/helpers/contracts/Token";
@@ -30,6 +33,15 @@ export const OHM_TOKEN = new Token({
   purchaseUrl: "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
 });
 
+export const GDAO_TOKEN = new Token({
+  icons: ["GDAO"],
+  name: "GDAO",
+  decimals: 9,
+  addresses: GDAO_ADDRESSES,
+  factory: IERC20__factory,
+  purchaseUrl: "",
+});
+
 export const SOHM_TOKEN = new Token({
   icons: ["sOHM"],
   name: "sOHM",
@@ -40,11 +52,30 @@ export const SOHM_TOKEN = new Token({
   purchaseUrl: "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
 });
 
+export const SGDAO_TOKEN = new Token({
+  icons: ["sGDAO"],
+  name: "sGDAO",
+  decimals: 9,
+  addresses: SGDAO_ADDRESSES,
+  factory: IERC20__factory,
+  customPricingFunc: GDAO_TOKEN.getPrice,
+  purchaseUrl: "",
+});
+
 export const GOHM_TOKEN = new Token({
   icons: ["gOHM"],
   name: "gOHM",
   decimals: 18,
-  addresses: GOHM_ADDRESSES,
+  addresses: XGDAO_ADDRESSES,
+  factory: IERC20__factory,
+  purchaseUrl: "",
+});
+
+export const XGDAO_TOKEN = new Token({
+  icons: ["xGDAO"],
+  name: "xGDAO",
+  decimals: 18,
+  addresses: XGDAO_ADDRESSES,
   factory: IERC20__factory,
   purchaseUrl: "",
 });
@@ -153,6 +184,15 @@ export const OHM_DAI_LP_TOKEN = new Token({
     "https://app.sushi.com/add/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5/0x6b175474e89094c44da98b954eedeac495271d0f",
 });
 
+export const TGD_WETH_LP_TOKEN = new Token({
+  decimals: 18,
+  name: "TGD-WETH LP",
+  icons: ["GDAO", "wETH"],
+  factory: PairContract__factory,
+  addresses: TGD_WETH_LP_ADDRESSES,
+  purchaseUrl: "https://app.uniswap.org/#/swap?outputCurrency=0xba7cac3e2a1391bb9d5edfd64793ccd4fd29dc09",
+});
+
 OHM_DAI_LP_TOKEN.customPricingFunc = networkId =>
   calculateUniOrSushiLPValue({ networkId, lpToken: OHM_DAI_LP_TOKEN, poolTokens: [OHM_TOKEN, DAI_TOKEN] });
 
@@ -210,4 +250,8 @@ export const WBTC_TOKEN = new Token({
  */
 OHM_TOKEN.customPricingFunc = async () => {
   return OHM_DAI_BALANCER_LP_TOKEN.getPrice(NetworkId.MAINNET);
+};
+
+GDAO_TOKEN.customPricingFunc = async () => {
+  return TGD_WETH_LP_TOKEN.getPrice(NetworkId.TESTNET_GOERLI);
 };

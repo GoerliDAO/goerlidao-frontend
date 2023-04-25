@@ -1,0 +1,2059 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "caller_",
+          "type": "address"
+        }
+      ],
+      "name": "KernelAdapter_OnlyKernel",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "MINTR_NotActive",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "MINTR_NotApproved",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "MINTR_ZeroAmount",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "policy_",
+          "type": "address"
+        }
+      ],
+      "name": "Module_PolicyNotPermitted",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "policy_",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from_",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "Burn",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "policy_",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newAmount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "DecreaseMintApproval",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "policy_",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newAmount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "IncreaseMintApproval",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "policy_",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to_",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "Mint",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "INIT",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "KEYCODE",
+      "outputs": [
+        {
+          "internalType": "Keycode",
+          "name": "",
+          "type": "bytes5"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "VERSION",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "major",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "minor",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "activate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "active",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "burnGdao",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract Kernel",
+          "name": "newKernel_",
+          "type": "address"
+        }
+      ],
+      "name": "changeKernel",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "deactivate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "policy_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "decreaseMintApproval",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gdao",
+      "outputs": [
+        {
+          "internalType": "contract GDAO",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "policy_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "increaseMintApproval",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "kernel",
+      "outputs": [
+        {
+          "internalType": "contract Kernel",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "mintApproval",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        }
+      ],
+      "name": "mintGdao",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "INIT()": "ea643914",
+    "KEYCODE()": "1ae7ec2e",
+    "VERSION()": "ffa1ad74",
+    "activate()": "0f15f4c0",
+    "active()": "02fb0c5e",
+    "burnGdao(address,uint256)": "0152a5ea",
+    "changeKernel(address)": "4657b36c",
+    "deactivate()": "51b42b00",
+    "decreaseMintApproval(address,uint256)": "1b0a68f2",
+    "gdao()": "a29a0d90",
+    "increaseMintApproval(address,uint256)": "359fe780",
+    "kernel()": "d4aae0c4",
+    "mintApproval(address)": "664aecb0",
+    "mintGdao(address,uint256)": "bbaed5cb"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller_\",\"type\":\"address\"}],\"name\":\"KernelAdapter_OnlyKernel\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MINTR_NotActive\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MINTR_NotApproved\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MINTR_ZeroAmount\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"}],\"name\":\"Module_PolicyNotPermitted\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from_\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"Burn\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newAmount_\",\"type\":\"uint256\"}],\"name\":\"DecreaseMintApproval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newAmount_\",\"type\":\"uint256\"}],\"name\":\"IncreaseMintApproval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to_\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"Mint\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"INIT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"KEYCODE\",\"outputs\":[{\"internalType\":\"Keycode\",\"name\":\"\",\"type\":\"bytes5\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"major\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"minor\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"activate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"active\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"burnGdao\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"newKernel_\",\"type\":\"address\"}],\"name\":\"changeKernel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"deactivate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"decreaseMintApproval\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gdao\",\"outputs\":[{\"internalType\":\"contract GDAO\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"policy_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"increaseMintApproval\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kernel\",\"outputs\":[{\"internalType\":\"contract Kernel\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"mintApproval\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"mintGdao\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"INIT()\":{\"details\":\"This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic.\"},\"VERSION()\":{\"returns\":{\"major\":\"- Major version upgrade indicates breaking change to the interface.\",\"minor\":\"- Minor version change retains backward-compatible interface.\"}},\"increaseMintApproval(address,uint256)\":{\"details\":\"Policies must explicity request how much they want approved before withdrawing.\"}},\"stateVariables\":{\"mintApproval\":{\"details\":\"minter -> amount. Infinite approval is max(uint256).\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"INIT()\":{\"notice\":\"Initialization function for the module\"},\"KEYCODE()\":{\"notice\":\"5 byte identifier for a module.\"},\"VERSION()\":{\"notice\":\"Returns which semantic version of a module is being implemented.\"},\"activate()\":{\"notice\":\"Re-activate minting and burning after shutdown.\"},\"active()\":{\"notice\":\"Status of the minter. If false, minting and burning GDAO is disabled.\"},\"burnGdao(address,uint256)\":{\"notice\":\"Burn GDAO from an address. Must have approval.\"},\"changeKernel(address)\":{\"notice\":\"Function used by kernel when migrating to a new kernel.\"},\"deactivate()\":{\"notice\":\"Emergency shutdown of minting and burning.\"},\"decreaseMintApproval(address,uint256)\":{\"notice\":\"Decrease approval for specific withdrawer addresses\"},\"increaseMintApproval(address,uint256)\":{\"notice\":\"Increase approval for specific withdrawer addresses\"},\"mintApproval(address)\":{\"notice\":\"Mapping of who is approved for minting.\"},\"mintGdao(address,uint256)\":{\"notice\":\"Mint GDAO to an address.\"}},\"notice\":\"Wrapper for minting and burning functions of GDAO token.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/modules/MINTR/MINTR.v1.sol\":\"MINTRv1\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":10},\"remappings\":[\":balancer-v2/=lib/balancer-v2/\",\":ds-test/=lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":interfaces/=src/interfaces/\",\":libraries/=src/libraries/\",\":modules/=src/modules/\",\":policies/=src/policies/\",\":solmate/=lib/solmate/src/\",\":test/=src/test/\"]},\"sources\":{\"src/Kernel.sol\":{\"keccak256\":\"0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5\",\"dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab\"]},\"src/external/GDAO.sol\":{\"keccak256\":\"0xdb3a71e45f843820b062b2164a72f160f6ca15ee6dadd14016e35beac7a6e6cd\",\"license\":\"AGPL-3.0-or-later\",\"urls\":[\"bzz-raw://2ee3bab2df55568ba06ff7626445d368c6317424569d0a8992124bd43097a230\",\"dweb:/ipfs/QmUTvvMTexq3BvPdPKfd26zoi4UAMkL2Yb44ubR6wWuzJu\"]},\"src/interfaces/IERC20.sol\":{\"keccak256\":\"0x08f1b2e2a227e43ae55199e82318ed82db7a651c50dc9282966ed7d2d7306f9c\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://3d55a799e5c91b4e36185752fc01ad4db92ab7de582a7ea0b658634e38868a18\",\"dweb:/ipfs/QmZpyqYgeMNRcJQ96d1YXNcR3wCzYEpf417PRB2TQWRvGU\"]},\"src/interfaces/IGDAO.sol\":{\"keccak256\":\"0x2fcf3f58956ffd836c17dd3965b925c72ee9d8d788bf1f464d34423200cb4bc2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://526bc4988efae945c790e6bfac2007dd2c99c5e2166f24d3d0ee9d92d1593c58\",\"dweb:/ipfs/QmUxkUdogTc6puCQmY2tgz8j8KRRXKKsbbxqQT1U7D3TTj\"]},\"src/interfaces/IOlympusAuthority.sol\":{\"keccak256\":\"0x9f7316ecbdd915692cee2fd47406c5f5bd6c162a9badb6605c0058ed23f9ee25\",\"license\":\"AGPL-3.0-or-later\",\"urls\":[\"bzz-raw://c2ef3fe6e4e8415faa42131c0065908877f6df0630c5e765eca60bfb6e37e737\",\"dweb:/ipfs/QmNRCM1ei6PxdJdbJmBvAaqpd14BPUCV38K3XyDN7iyNAZ\"]},\"src/libraries/Counters.sol\":{\"keccak256\":\"0xea58f990322bd48fdc365052c14d90de2f46cdf9e78130f681818a4a3cd7cc1c\",\"license\":\"AGPL-3.0\",\"urls\":[\"bzz-raw://6a744d44cd32921b0103abd8c6230a439316e8b745c48893f8e49d44ac91e3a0\",\"dweb:/ipfs/QmRw3iqXU8rx7NsgEXy4ZEb7yiVkDfz7S9rz7Xnxp7UhJC\"]},\"src/libraries/SafeMath.sol\":{\"keccak256\":\"0x6b2eb272970b9933f5fab524e5e4ab62d35130972842800c5b51e14ae0b0e2ed\",\"license\":\"AGPL-3.0-or-later\",\"urls\":[\"bzz-raw://7a4d1e39936168a24bad219ef731a56693a3bb3f871a0d20a058335e1ae62c05\",\"dweb:/ipfs/QmYLLc5J4GurJmh88PP8VWrmfp9HuWd1R8x2Ki3qyRm3f1\"]},\"src/modules/MINTR/MINTR.v1.sol\":{\"keccak256\":\"0xca31ddda510155aed6c6810cb9b5af017166ffd0dbe58b5c1519873c7f9c024c\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://0c345588772f1288be5e9a1e73e56f376679d0a16f7eb070678e239700d6eb71\",\"dweb:/ipfs/QmW9PqE7CvJUNQAuKY8Fd9McSrdiMFtfE872FpqWY5Z4y5\"]},\"src/types/OlympusAccessControlled.sol\":{\"keccak256\":\"0xd429171e3afaeb91960e2d3f4e596d64c12f292cc264efa0a5b95bf60ded20cf\",\"license\":\"AGPL-3.0-only\",\"urls\":[\"bzz-raw://a5091df0f41b5a1b563255d5d4e3633fecb2020afcabf37b29e398243e5d41a1\",\"dweb:/ipfs/QmWB7xbCzTbUqJWndB9J5rU5fmgTP6wjuJVoagG59hnQsk\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.15+commit.e14f2714"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "caller_",
+              "type": "address"
+            }
+          ],
+          "type": "error",
+          "name": "KernelAdapter_OnlyKernel"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "MINTR_NotActive"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "MINTR_NotApproved"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "MINTR_ZeroAmount"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "policy_",
+              "type": "address"
+            }
+          ],
+          "type": "error",
+          "name": "Module_PolicyNotPermitted"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "policy_",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "from_",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "Burn",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "policy_",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "newAmount_",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "DecreaseMintApproval",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "policy_",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "newAmount_",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "IncreaseMintApproval",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "policy_",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "to_",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "Mint",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "INIT"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "KEYCODE",
+          "outputs": [
+            {
+              "internalType": "Keycode",
+              "name": "",
+              "type": "bytes5"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "VERSION",
+          "outputs": [
+            {
+              "internalType": "uint8",
+              "name": "major",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "minor",
+              "type": "uint8"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "activate"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "active",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "from_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "burnGdao"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract Kernel",
+              "name": "newKernel_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "changeKernel"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "deactivate"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "policy_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "decreaseMintApproval"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "gdao",
+          "outputs": [
+            {
+              "internalType": "contract GDAO",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "policy_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "increaseMintApproval"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "kernel",
+          "outputs": [
+            {
+              "internalType": "contract Kernel",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "mintApproval",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to_",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount_",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "mintGdao"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "INIT()": {
+            "details": "This function is called when the module is installed or upgraded by the kernel.MUST BE GATED BY onlyKernel. Used to encompass any initialization or upgrade logic."
+          },
+          "VERSION()": {
+            "returns": {
+              "major": "- Major version upgrade indicates breaking change to the interface.",
+              "minor": "- Minor version change retains backward-compatible interface."
+            }
+          },
+          "increaseMintApproval(address,uint256)": {
+            "details": "Policies must explicity request how much they want approved before withdrawing."
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "INIT()": {
+            "notice": "Initialization function for the module"
+          },
+          "KEYCODE()": {
+            "notice": "5 byte identifier for a module."
+          },
+          "VERSION()": {
+            "notice": "Returns which semantic version of a module is being implemented."
+          },
+          "activate()": {
+            "notice": "Re-activate minting and burning after shutdown."
+          },
+          "active()": {
+            "notice": "Status of the minter. If false, minting and burning GDAO is disabled."
+          },
+          "burnGdao(address,uint256)": {
+            "notice": "Burn GDAO from an address. Must have approval."
+          },
+          "changeKernel(address)": {
+            "notice": "Function used by kernel when migrating to a new kernel."
+          },
+          "deactivate()": {
+            "notice": "Emergency shutdown of minting and burning."
+          },
+          "decreaseMintApproval(address,uint256)": {
+            "notice": "Decrease approval for specific withdrawer addresses"
+          },
+          "increaseMintApproval(address,uint256)": {
+            "notice": "Increase approval for specific withdrawer addresses"
+          },
+          "mintApproval(address)": {
+            "notice": "Mapping of who is approved for minting."
+          },
+          "mintGdao(address,uint256)": {
+            "notice": "Mint GDAO to an address."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":balancer-v2/=lib/balancer-v2/",
+        ":ds-test/=lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/",
+        ":interfaces/=src/interfaces/",
+        ":libraries/=src/libraries/",
+        ":modules/=src/modules/",
+        ":policies/=src/policies/",
+        ":solmate/=lib/solmate/src/",
+        ":test/=src/test/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 10
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/modules/MINTR/MINTR.v1.sol": "MINTRv1"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/Kernel.sol": {
+        "keccak256": "0xda08377f05abc6953fa8abdc4c1f3e3cb720e0dc1af3ada355ef1e016badd1b0",
+        "urls": [
+          "bzz-raw://9a8476cf62abf0800ef5ec78e766e73c1b9a58703a98fe2599c4f1b9f444add5",
+          "dweb:/ipfs/QmWz4yYL3KzHGsRtNd1Kp2Vyhy7yh5a92pMSmQok6B3cab"
+        ],
+        "license": "AGPL-3.0-only"
+      },
+      "src/external/GDAO.sol": {
+        "keccak256": "0xdb3a71e45f843820b062b2164a72f160f6ca15ee6dadd14016e35beac7a6e6cd",
+        "urls": [
+          "bzz-raw://2ee3bab2df55568ba06ff7626445d368c6317424569d0a8992124bd43097a230",
+          "dweb:/ipfs/QmUTvvMTexq3BvPdPKfd26zoi4UAMkL2Yb44ubR6wWuzJu"
+        ],
+        "license": "AGPL-3.0-or-later"
+      },
+      "src/interfaces/IERC20.sol": {
+        "keccak256": "0x08f1b2e2a227e43ae55199e82318ed82db7a651c50dc9282966ed7d2d7306f9c",
+        "urls": [
+          "bzz-raw://3d55a799e5c91b4e36185752fc01ad4db92ab7de582a7ea0b658634e38868a18",
+          "dweb:/ipfs/QmZpyqYgeMNRcJQ96d1YXNcR3wCzYEpf417PRB2TQWRvGU"
+        ],
+        "license": "AGPL-3.0"
+      },
+      "src/interfaces/IGDAO.sol": {
+        "keccak256": "0x2fcf3f58956ffd836c17dd3965b925c72ee9d8d788bf1f464d34423200cb4bc2",
+        "urls": [
+          "bzz-raw://526bc4988efae945c790e6bfac2007dd2c99c5e2166f24d3d0ee9d92d1593c58",
+          "dweb:/ipfs/QmUxkUdogTc6puCQmY2tgz8j8KRRXKKsbbxqQT1U7D3TTj"
+        ],
+        "license": "MIT"
+      },
+      "src/interfaces/IOlympusAuthority.sol": {
+        "keccak256": "0x9f7316ecbdd915692cee2fd47406c5f5bd6c162a9badb6605c0058ed23f9ee25",
+        "urls": [
+          "bzz-raw://c2ef3fe6e4e8415faa42131c0065908877f6df0630c5e765eca60bfb6e37e737",
+          "dweb:/ipfs/QmNRCM1ei6PxdJdbJmBvAaqpd14BPUCV38K3XyDN7iyNAZ"
+        ],
+        "license": "AGPL-3.0-or-later"
+      },
+      "src/libraries/Counters.sol": {
+        "keccak256": "0xea58f990322bd48fdc365052c14d90de2f46cdf9e78130f681818a4a3cd7cc1c",
+        "urls": [
+          "bzz-raw://6a744d44cd32921b0103abd8c6230a439316e8b745c48893f8e49d44ac91e3a0",
+          "dweb:/ipfs/QmRw3iqXU8rx7NsgEXy4ZEb7yiVkDfz7S9rz7Xnxp7UhJC"
+        ],
+        "license": "AGPL-3.0"
+      },
+      "src/libraries/SafeMath.sol": {
+        "keccak256": "0x6b2eb272970b9933f5fab524e5e4ab62d35130972842800c5b51e14ae0b0e2ed",
+        "urls": [
+          "bzz-raw://7a4d1e39936168a24bad219ef731a56693a3bb3f871a0d20a058335e1ae62c05",
+          "dweb:/ipfs/QmYLLc5J4GurJmh88PP8VWrmfp9HuWd1R8x2Ki3qyRm3f1"
+        ],
+        "license": "AGPL-3.0-or-later"
+      },
+      "src/modules/MINTR/MINTR.v1.sol": {
+        "keccak256": "0xca31ddda510155aed6c6810cb9b5af017166ffd0dbe58b5c1519873c7f9c024c",
+        "urls": [
+          "bzz-raw://0c345588772f1288be5e9a1e73e56f376679d0a16f7eb070678e239700d6eb71",
+          "dweb:/ipfs/QmW9PqE7CvJUNQAuKY8Fd9McSrdiMFtfE872FpqWY5Z4y5"
+        ],
+        "license": "AGPL-3.0-only"
+      },
+      "src/types/OlympusAccessControlled.sol": {
+        "keccak256": "0xd429171e3afaeb91960e2d3f4e596d64c12f292cc264efa0a5b95bf60ded20cf",
+        "urls": [
+          "bzz-raw://a5091df0f41b5a1b563255d5d4e3633fecb2020afcabf37b29e398243e5d41a1",
+          "dweb:/ipfs/QmWB7xbCzTbUqJWndB9J5rU5fmgTP6wjuJVoagG59hnQsk"
+        ],
+        "license": "AGPL-3.0-only"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/modules/MINTR/MINTR.v1.sol",
+    "id": 38605,
+    "exportedSymbols": {
+      "Actions": [
+        28076
+      ],
+      "Counters": [
+        37253
+      ],
+      "ECDSA": [
+        30110
+      ],
+      "EIP712": [
+        30254
+      ],
+      "ERC20": [
+        30762
+      ],
+      "ERC20Permit": [
+        30924
+      ],
+      "GDAO": [
+        31028
+      ],
+      "IERC20": [
+        36274
+      ],
+      "IERC20Permit": [
+        30288
+      ],
+      "IGDAO": [
+        36299
+      ],
+      "IOlympusAuthority": [
+        36457
+      ],
+      "Instruction": [
+        28082
+      ],
+      "InvalidKeycode": [
+        28099
+      ],
+      "Kernel": [
+        29225
+      ],
+      "KernelAdapter": [
+        28240
+      ],
+      "Keycode": [
+        28090
+      ],
+      "MINTRv1": [
+        38604
+      ],
+      "Module": [
+        28305
+      ],
+      "OlympusAccessControlled": [
+        101069
+      ],
+      "Permissions": [
+        28088
+      ],
+      "Policy": [
+        28387
+      ],
+      "SafeMath": [
+        37835
+      ],
+      "TargetNotAContract": [
+        28094
+      ],
+      "ensureContract": [
+        28143
+      ],
+      "ensureValidKeycode": [
+        28188
+      ],
+      "fromKeycode": [
+        28127
+      ],
+      "toKeycode": [
+        28113
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "42:2031:94",
+    "nodes": [
+      {
+        "id": 38503,
+        "nodeType": "PragmaDirective",
+        "src": "42:24:94",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".15"
+        ]
+      },
+      {
+        "id": 38504,
+        "nodeType": "ImportDirective",
+        "src": "68:31:94",
+        "nodes": [],
+        "absolutePath": "src/external/GDAO.sol",
+        "file": "src/external/GDAO.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 38605,
+        "sourceUnit": 31029,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 38505,
+        "nodeType": "ImportDirective",
+        "src": "100:24:94",
+        "nodes": [],
+        "absolutePath": "src/Kernel.sol",
+        "file": "src/Kernel.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 38605,
+        "sourceUnit": 29226,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 38604,
+        "nodeType": "ContractDefinition",
+        "src": "195:1877:94",
+        "nodes": [
+          {
+            "id": 38514,
+            "nodeType": "EventDefinition",
+            "src": "276:72:94",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "2f612f30164b43d77b321f13922cb2190f7f7956b9483d817271d30679a1aa7b",
+            "name": "IncreaseMintApproval",
+            "nameLocation": "282:20:94",
+            "parameters": {
+              "id": 38513,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38510,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "policy_",
+                  "nameLocation": "319:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38514,
+                  "src": "303:23:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38509,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "303:7:94",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38512,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "newAmount_",
+                  "nameLocation": "336:10:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38514,
+                  "src": "328:18:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 38511,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "328:7:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "302:45:94"
+            }
+          },
+          {
+            "id": 38520,
+            "nodeType": "EventDefinition",
+            "src": "353:72:94",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "08c666f5d7ad747c595b189947464cfac5e56befa6bd12ced49a49adb3f8166d",
+            "name": "DecreaseMintApproval",
+            "nameLocation": "359:20:94",
+            "parameters": {
+              "id": 38519,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38516,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "policy_",
+                  "nameLocation": "396:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38520,
+                  "src": "380:23:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38515,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "380:7:94",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38518,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "newAmount_",
+                  "nameLocation": "413:10:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38520,
+                  "src": "405:18:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 38517,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "405:7:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "379:45:94"
+            }
+          },
+          {
+            "id": 38528,
+            "nodeType": "EventDefinition",
+            "src": "430:74:94",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "ab8530f87dc9b59234c4623bf917212bb2536d647574c8e7e5da92c2ede0c9f8",
+            "name": "Mint",
+            "nameLocation": "436:4:94",
+            "parameters": {
+              "id": 38527,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38522,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "policy_",
+                  "nameLocation": "457:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38528,
+                  "src": "441:23:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38521,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "441:7:94",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38524,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "to_",
+                  "nameLocation": "482:3:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38528,
+                  "src": "466:19:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38523,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "466:7:94",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38526,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount_",
+                  "nameLocation": "495:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38528,
+                  "src": "487:15:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 38525,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "487:7:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "440:63:94"
+            }
+          },
+          {
+            "id": 38536,
+            "nodeType": "EventDefinition",
+            "src": "509:76:94",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "bac40739b0d4ca32fa2d82fc91630465ba3eddd1598da6fca393b26fb63b9453",
+            "name": "Burn",
+            "nameLocation": "515:4:94",
+            "parameters": {
+              "id": 38535,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38530,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "policy_",
+                  "nameLocation": "536:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38536,
+                  "src": "520:23:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38529,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "520:7:94",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38532,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "from_",
+                  "nameLocation": "561:5:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38536,
+                  "src": "545:21:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38531,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "545:7:94",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38534,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount_",
+                  "nameLocation": "576:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38536,
+                  "src": "568:15:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 38533,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "568:7:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "519:65:94"
+            }
+          },
+          {
+            "id": 38538,
+            "nodeType": "ErrorDefinition",
+            "src": "629:26:94",
+            "nodes": [],
+            "errorSelector": "d20075ba",
+            "name": "MINTR_NotApproved",
+            "nameLocation": "635:17:94",
+            "parameters": {
+              "id": 38537,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "652:2:94"
+            }
+          },
+          {
+            "id": 38540,
+            "nodeType": "ErrorDefinition",
+            "src": "660:25:94",
+            "nodes": [],
+            "errorSelector": "4cd4a416",
+            "name": "MINTR_ZeroAmount",
+            "nameLocation": "666:16:94",
+            "parameters": {
+              "id": 38539,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "682:2:94"
+            }
+          },
+          {
+            "id": 38542,
+            "nodeType": "ErrorDefinition",
+            "src": "690:24:94",
+            "nodes": [],
+            "errorSelector": "a117e45e",
+            "name": "MINTR_NotActive",
+            "nameLocation": "696:15:94",
+            "parameters": {
+              "id": 38541,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "711:2:94"
+            }
+          },
+          {
+            "id": 38545,
+            "nodeType": "VariableDeclaration",
+            "src": "758:16:94",
+            "nodes": [],
+            "constant": false,
+            "functionSelector": "a29a0d90",
+            "mutability": "mutable",
+            "name": "gdao",
+            "nameLocation": "770:4:94",
+            "scope": 38604,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_GDAO_$31028",
+              "typeString": "contract GDAO"
+            },
+            "typeName": {
+              "id": 38544,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 38543,
+                "name": "GDAO",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 31028,
+                "src": "758:4:94"
+              },
+              "referencedDeclaration": 31028,
+              "src": "758:4:94",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_GDAO_$31028",
+                "typeString": "contract GDAO"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 38548,
+            "nodeType": "VariableDeclaration",
+            "src": "867:18:94",
+            "nodes": [],
+            "constant": false,
+            "documentation": {
+              "id": 38546,
+              "nodeType": "StructuredDocumentation",
+              "src": "781:81:94",
+              "text": "@notice Status of the minter. If false, minting and burning GDAO is disabled."
+            },
+            "functionSelector": "02fb0c5e",
+            "mutability": "mutable",
+            "name": "active",
+            "nameLocation": "879:6:94",
+            "scope": 38604,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 38547,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "867:4:94",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 38553,
+            "nodeType": "VariableDeclaration",
+            "src": "1017:47:94",
+            "nodes": [],
+            "constant": false,
+            "documentation": {
+              "id": 38549,
+              "nodeType": "StructuredDocumentation",
+              "src": "892:120:94",
+              "text": "@notice Mapping of who is approved for minting.\n @dev    minter -> amount. Infinite approval is max(uint256)."
+            },
+            "functionSelector": "664aecb0",
+            "mutability": "mutable",
+            "name": "mintApproval",
+            "nameLocation": "1052:12:94",
+            "scope": 38604,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 38552,
+              "keyType": {
+                "id": 38550,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "1025:7:94",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1017:27:94",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 38551,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1036:7:94",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 38563,
+            "nodeType": "ModifierDefinition",
+            "src": "1113:92:94",
+            "nodes": [],
+            "body": {
+              "id": 38562,
+              "nodeType": "Block",
+              "src": "1140:65:94",
+              "nodes": [],
+              "statements": [
+                {
+                  "condition": {
+                    "id": 38556,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "!",
+                    "prefix": true,
+                    "src": "1154:7:94",
+                    "subExpression": {
+                      "id": 38555,
+                      "name": "active",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 38548,
+                      "src": "1155:6:94",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 38560,
+                  "nodeType": "IfStatement",
+                  "src": "1150:37:94",
+                  "trueBody": {
+                    "errorCall": {
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "id": 38557,
+                        "name": "MINTR_NotActive",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 38542,
+                        "src": "1170:15:94",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 38558,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1170:17:94",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$__$",
+                        "typeString": "tuple()"
+                      }
+                    },
+                    "id": 38559,
+                    "nodeType": "RevertStatement",
+                    "src": "1163:24:94"
+                  }
+                },
+                {
+                  "id": 38561,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "1197:1:94"
+                }
+              ]
+            },
+            "name": "onlyWhileActive",
+            "nameLocation": "1122:15:94",
+            "parameters": {
+              "id": 38554,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1137:2:94"
+            },
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "id": 38571,
+            "nodeType": "FunctionDefinition",
+            "src": "1252:65:94",
+            "nodes": [],
+            "documentation": {
+              "id": 38564,
+              "nodeType": "StructuredDocumentation",
+              "src": "1211:36:94",
+              "text": "@notice Mint GDAO to an address."
+            },
+            "functionSelector": "bbaed5cb",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "mintGdao",
+            "nameLocation": "1261:8:94",
+            "parameters": {
+              "id": 38569,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38566,
+                  "mutability": "mutable",
+                  "name": "to_",
+                  "nameLocation": "1278:3:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38571,
+                  "src": "1270:11:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38565,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1270:7:94",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38568,
+                  "mutability": "mutable",
+                  "name": "amount_",
+                  "nameLocation": "1291:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38571,
+                  "src": "1283:15:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 38567,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1283:7:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1269:30:94"
+            },
+            "returnParameters": {
+              "id": 38570,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1316:0:94"
+            },
+            "scope": 38604,
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "external"
+          },
+          {
+            "id": 38579,
+            "nodeType": "FunctionDefinition",
+            "src": "1386:67:94",
+            "nodes": [],
+            "documentation": {
+              "id": 38572,
+              "nodeType": "StructuredDocumentation",
+              "src": "1323:58:94",
+              "text": "@notice Burn GDAO from an address. Must have approval."
+            },
+            "functionSelector": "0152a5ea",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "burnGdao",
+            "nameLocation": "1395:8:94",
+            "parameters": {
+              "id": 38577,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38574,
+                  "mutability": "mutable",
+                  "name": "from_",
+                  "nameLocation": "1412:5:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38579,
+                  "src": "1404:13:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38573,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1404:7:94",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38576,
+                  "mutability": "mutable",
+                  "name": "amount_",
+                  "nameLocation": "1427:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38579,
+                  "src": "1419:15:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 38575,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1419:7:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1403:32:94"
+            },
+            "returnParameters": {
+              "id": 38578,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1452:0:94"
+            },
+            "scope": 38604,
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "external"
+          },
+          {
+            "id": 38587,
+            "nodeType": "FunctionDefinition",
+            "src": "1623:81:94",
+            "nodes": [],
+            "documentation": {
+              "id": 38580,
+              "nodeType": "StructuredDocumentation",
+              "src": "1459:159:94",
+              "text": "@notice Increase approval for specific withdrawer addresses\n @dev    Policies must explicity request how much they want approved before withdrawing."
+            },
+            "functionSelector": "359fe780",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "increaseMintApproval",
+            "nameLocation": "1632:20:94",
+            "parameters": {
+              "id": 38585,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38582,
+                  "mutability": "mutable",
+                  "name": "policy_",
+                  "nameLocation": "1661:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38587,
+                  "src": "1653:15:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38581,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1653:7:94",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38584,
+                  "mutability": "mutable",
+                  "name": "amount_",
+                  "nameLocation": "1678:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38587,
+                  "src": "1670:15:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 38583,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1670:7:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1652:34:94"
+            },
+            "returnParameters": {
+              "id": 38586,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1703:0:94"
+            },
+            "scope": 38604,
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "external"
+          },
+          {
+            "id": 38595,
+            "nodeType": "FunctionDefinition",
+            "src": "1778:81:94",
+            "nodes": [],
+            "documentation": {
+              "id": 38588,
+              "nodeType": "StructuredDocumentation",
+              "src": "1710:63:94",
+              "text": "@notice Decrease approval for specific withdrawer addresses"
+            },
+            "functionSelector": "1b0a68f2",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "decreaseMintApproval",
+            "nameLocation": "1787:20:94",
+            "parameters": {
+              "id": 38593,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38590,
+                  "mutability": "mutable",
+                  "name": "policy_",
+                  "nameLocation": "1816:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38595,
+                  "src": "1808:15:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38589,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1808:7:94",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38592,
+                  "mutability": "mutable",
+                  "name": "amount_",
+                  "nameLocation": "1833:7:94",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38595,
+                  "src": "1825:15:94",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 38591,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1825:7:94",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1807:34:94"
+            },
+            "returnParameters": {
+              "id": 38594,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1858:0:94"
+            },
+            "scope": 38604,
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "external"
+          },
+          {
+            "id": 38599,
+            "nodeType": "FunctionDefinition",
+            "src": "1924:39:94",
+            "nodes": [],
+            "documentation": {
+              "id": 38596,
+              "nodeType": "StructuredDocumentation",
+              "src": "1865:54:94",
+              "text": "@notice Emergency shutdown of minting and burning."
+            },
+            "functionSelector": "51b42b00",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deactivate",
+            "nameLocation": "1933:10:94",
+            "parameters": {
+              "id": 38597,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1943:2:94"
+            },
+            "returnParameters": {
+              "id": 38598,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1962:0:94"
+            },
+            "scope": 38604,
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "external"
+          },
+          {
+            "id": 38603,
+            "nodeType": "FunctionDefinition",
+            "src": "2033:37:94",
+            "nodes": [],
+            "documentation": {
+              "id": 38600,
+              "nodeType": "StructuredDocumentation",
+              "src": "1969:59:94",
+              "text": "@notice Re-activate minting and burning after shutdown."
+            },
+            "functionSelector": "0f15f4c0",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "activate",
+            "nameLocation": "2042:8:94",
+            "parameters": {
+              "id": 38601,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2050:2:94"
+            },
+            "returnParameters": {
+              "id": 38602,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2069:0:94"
+            },
+            "scope": 38604,
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "external"
+          }
+        ],
+        "abstract": true,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 38507,
+              "name": "Module",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 28305,
+              "src": "224:6:94"
+            },
+            "id": 38508,
+            "nodeType": "InheritanceSpecifier",
+            "src": "224:6:94"
+          }
+        ],
+        "canonicalName": "MINTRv1",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 38506,
+          "nodeType": "StructuredDocumentation",
+          "src": "126:69:94",
+          "text": "@notice Wrapper for minting and burning functions of GDAO token."
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          38604,
+          28305,
+          28240
+        ],
+        "name": "MINTRv1",
+        "nameLocation": "213:7:94",
+        "scope": 38605,
+        "usedErrors": [
+          28193,
+          28247,
+          38538,
+          38540,
+          38542
+        ]
+      }
+    ],
+    "license": "AGPL-3.0-only"
+  },
+  "id": 94
+}
