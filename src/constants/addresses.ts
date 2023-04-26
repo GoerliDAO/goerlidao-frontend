@@ -3,13 +3,13 @@ import { NetworkId } from "src/constants";
 export type AddressMap = Partial<Record<NetworkId, string>>;
 
 export const GETH_ADDRESSES = {
-  [NetworkId.TESTNET_GOERLI]: "",
+  [NetworkId.TESTNET_GOERLI]: "0x4f7A67464B5976d7547c860109e4432d50AfB38e",
   [NetworkId.MAINNET]: "0xdD69DB25F6D620A7baD3023c5d32761D353D3De9",
 };
 
 export const METH_ADDRESSES = {
   [NetworkId.TESTNET_GOERLI]: "0xdD69DB25F6D620A7baD3023c5d32761D353D3De9",
-  [NetworkId.MAINNET]: "",
+  [NetworkId.MAINNET]: "0x4f7A67464B5976d7547c860109e4432d50AfB38e",
 };
 
 export const WETH_METH_OFT_UNIV2 = {
