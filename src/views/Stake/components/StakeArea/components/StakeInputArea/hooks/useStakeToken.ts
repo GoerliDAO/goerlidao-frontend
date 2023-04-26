@@ -1,13 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ContractReceipt } from "ethers";
 import toast from "react-hot-toast";
-import {
-  GDAO_ADDRESSES,
-  GOERLI_STAKING_ADDR,
-  GOHM_ADDRESSES,
-  OHM_ADDRESSES,
-  SOHM_ADDRESSES,
-} from "src/constants/addresses";
+import { GDAO_ADDRESSES, GOERLI_STAKING_ADDR, SGDAO_ADDRESSES, XGDAO_ADDRESSES } from "src/constants/addresses";
 import { trackGAEvent, trackGtagEvent } from "src/helpers/analytics/trackGAEvent";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { balanceQueryKey, useBalance } from "src/hooks/useBalance";
@@ -55,8 +49,8 @@ export const useStakeToken = () => {
     },
     onSuccess: async (tx, data) => {
       const keysToRefetch = [
-        balanceQueryKey(address, OHM_ADDRESSES, networks.MAINNET),
-        balanceQueryKey(address, data.toToken === "sOHM" ? SOHM_ADDRESSES : GOHM_ADDRESSES, networks.MAINNET),
+        balanceQueryKey(address, GDAO_ADDRESSES, networks.MAINNET),
+        balanceQueryKey(address, data.toToken === "sOHM" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES, networks.MAINNET),
         warmupQueryKey(address, networks.MAINNET),
       ];
 

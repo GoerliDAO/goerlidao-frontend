@@ -18,7 +18,7 @@ const jsonRpcUrlMap = {
   1: [mainnet_RPC_URL],
 };
 
-const tokens = ["WETH", "USDC"];
+const tokens = ["WETH", "USDC", "SGDAO", "GDAO", "XGDAO"];
 
 const TokensList: React.FC<TokensListProps> = ({ selected, tokens }) => {
   return (

@@ -12,8 +12,8 @@ import React, { useEffect, useState } from "react";
 import { WalletConnectedGuard } from "src/components/WalletConnectedGuard";
 import {
   GDAO_ADDRESSES,
+  GOERLI_STAKING_ADDR,
   SGDAO_ADDRESSES,
-  STAKING_ADDRESSES,
   XGDAO_ADDRESSES,
   ZAP_ADDRESSES,
 } from "src/constants/addresses";
@@ -119,7 +119,8 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
     : swapAssetType.name === "sGDAO"
     ? "Wrap"
     : "Zap";
-  const contractAddress = contractRouting === "Stake" || contractRouting === "Wrap" ? STAKING_ADDRESSES : ZAP_ADDRESSES;
+  const contractAddress =
+    contractRouting === "Stake" || contractRouting === "Wrap" ? GOERLI_STAKING_ADDR : ZAP_ADDRESSES;
 
   const humanReadableRouting =
     currentAction === "STAKE"

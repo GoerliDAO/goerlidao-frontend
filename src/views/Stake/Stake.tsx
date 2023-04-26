@@ -11,7 +11,7 @@ import { useNetwork } from "wagmi";
 
 const Stake: React.FC = () => {
   const navigate = useNavigate();
-  const { chain = { id: 1 } } = useNetwork();
+  const { chain = { id: 5 } } = useNetwork();
   usePathForNetwork({ pathName: "stake", networkID: chain.id, navigate });
 
   return (

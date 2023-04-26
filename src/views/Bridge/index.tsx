@@ -5,6 +5,7 @@ import SwapCallsOutlinedIcon from "@mui/icons-material/SwapCallsOutlined";
 import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { useState } from "react";
+import { useAccount } from "wagmi";
 
 const TOKEN_LIST = [
   {
@@ -17,20 +18,29 @@ const TOKEN_LIST = [
       "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png",
   },
   {
-    name: "Tether USD",
-    address: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-    symbol: "USDT",
-    decimals: 6,
+    name: "Mainnet ETH",
+    address: "0xdD69DB25F6D620A7baD3023c5d32761D353D3De9",
+    symbol: "METH",
+    decimals: 18,
     chainId: 1,
     logoURI:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png",
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
   },
   {
-    name: "USD Coin",
-    address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-    symbol: "USDC",
-    decimals: 6,
-    chainId: 1,
+    name: "Test Goerli DAO",
+    address: "0xba7cac3e2a1391bb9d5edfd64793ccd4fd29dc09",
+    symbol: "GDAO",
+    decimals: 9,
+    chainId: 5,
+    logoURI:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  },
+  {
+    name: "Goerli ETH",
+    address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
+    symbol: "GETH",
+    decimals: 18,
+    chainId: 5,
     logoURI:
       "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
   },
@@ -48,6 +58,7 @@ const Bridge = () => {
   const [outputSelectedToken, setOutputSelectedToken] = useState(TOKEN_LIST[1]);
   const [inputAmount, setInputAmount] = useState(0);
   const [gasCost, setGasCost] = useState();
+  const { isConnected } = useAccount();
 
   const handleInputValue = (e: any) => {
     setInputAmount(e.target.value);
@@ -315,25 +326,27 @@ const Bridge = () => {
           </div>
 
           {/* CUSTOMER RECEIPT AND BRIDGE BUTTON */}
-          <div
-            style={{
-              color: theme.palette.mode === "dark" ? "#fff" : "#000",
-            }}
-            className="grid grid-cols-1 auto-rows-auto gap-4"
-          >
-            <div className="text-xs">
-              <div className="flex items-center justify-between">
-                <span>You will recieve</span>
-                <span>--</span>
+          {isConnected && (
+            <div
+              style={{
+                color: theme.palette.mode === "dark" ? "#fff" : "#000",
+              }}
+              className="grid grid-cols-1 auto-rows-auto gap-4"
+            >
+              <div className="text-xs">
+                <div className="flex items-center justify-between">
+                  <span>You will recieve</span>
+                  <span>--</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>Gas Cost</span>
+                  <span>--</span>
+                </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span>Gas Cost</span>
-                <span>--</span>
-              </div>
-            </div>
 
-            <button className="py-3 px-6 bg-blue-800 text-white w-full font-semibold">ENTER AMOUNT</button>
-          </div>
+              <button className="py-3 px-6 bg-blue-800 text-white w-full font-semibold">ENTER AMOUNT</button>
+            </div>
+          )}
         </div>
       </div>
     </>
