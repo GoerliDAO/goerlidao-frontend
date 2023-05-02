@@ -5,7 +5,13 @@ import SwapCallsOutlinedIcon from "@mui/icons-material/SwapCallsOutlined";
 import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { useState } from "react";
+import { GETH_ADDRESSES, METH_ADDRESSES, WETH_ADDRESSES } from "src/constants/addresses";
+import { useBalance } from "src/hooks/useBalance";
+import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { useAccount } from "wagmi";
+import { useNetwork } from "wagmi";
+
+const PREFIX = "BridgeInputArea";
 
 const TOKEN_LIST = [
   {
@@ -52,6 +58,8 @@ interface TokenListProps {
 }
 
 const Bridge = () => {
+  const networks = useTestableNetworks();
+  const { chain = { id: 1 } } = useNetwork();
   const theme = useTheme();
   const [selected, setSelected] = useState(TOKEN_LIST[0]);
   const [inputSelectedToken, setInputSelectedToken] = useState(TOKEN_LIST[0]);
@@ -59,6 +67,15 @@ const Bridge = () => {
   const [inputAmount, setInputAmount] = useState(0);
   const [gasCost, setGasCost] = useState();
   const { isConnected } = useAccount();
+
+  const [amount, setAmount] = useState("");
+  const [receiveAmount, setReceiveAmount] = useState("");
+  // balance stuff
+  // const addresses = fromToken === "GDAO" ? GDAO_ADDRESSES : fromToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES;
+  // const balance = useBalance(addresses)[networks.MAINNET].data;
+  const wethBalance = useBalance(WETH_ADDRESSES)[networks.MAINNET].data;
+  const gethBalance = useBalance(GETH_ADDRESSES)[networks.MAINNET].data;
+  const methBalance = useBalance(METH_ADDRESSES)[networks.MAINNET].data;
 
   const handleInputValue = (e: any) => {
     setInputAmount(e.target.value);

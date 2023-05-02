@@ -6,13 +6,16 @@ import {
   FUSE_POOL_18_ADDRESSES,
   FUSE_POOL_36_ADDRESSES,
   GDAO_ADDRESSES,
+  GETH_ADDRESSES,
   GOHM_ADDRESSES,
   GOHM_TOKEMAK_ADDRESSES,
+  METH_ADDRESSES,
   OHM_ADDRESSES,
   SGDAO_ADDRESSES,
   SOHM_ADDRESSES,
   V1_OHM_ADDRESSES,
   V1_SOHM_ADDRESSES,
+  WETH_ADDRESSES,
   WSOHM_ADDRESSES,
   XGDAO_ADDRESSES,
 } from "src/constants/addresses";
@@ -97,3 +100,6 @@ export const useWsohmBalance = () => useBalance(WSOHM_ADDRESSES);
 export const useV1OhmBalance = () => useBalance(V1_OHM_ADDRESSES);
 export const useV1SohmBalance = () => useBalance(V1_SOHM_ADDRESSES);
 export const useGohmTokemakBalance = () => useBalance(GOHM_TOKEMAK_ADDRESSES);
+export const useWethBalance = () => useBalance(WETH_ADDRESSES);
+export const useMethBalance = () => useBalance(METH_ADDRESSES);
+export const useGethBalance = () => useBalance(GETH_ADDRESSES);
