@@ -124,7 +124,7 @@ const TokenModal: FC<OHMTokenModalProps> = ({
           ) : (
             <>
               {parseInt(sGdaoBalance) > 0 && <TokenItem name="sGDAO" balance={sGdaoBalance} />}
-              <TokenItem name="gOHM" balance={xGdaoBalance} data-testid="xGDAO-select" />
+              <TokenItem name="xGDAO" balance={xGdaoBalance} data-testid="xGDAO-select" />
             </>
           )}
         </List>

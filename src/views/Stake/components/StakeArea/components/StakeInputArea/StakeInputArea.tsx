@@ -300,8 +300,8 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
                 open={tokenModalOpen}
                 handleSelect={name => setStakedAssetType(name)}
                 handleClose={() => setTokenModalOpen(false)}
-                sOhmBalance={sGdaoBalance && sGdaoBalance.toString({ decimals: 2 })}
-                gOhmBalance={xGdaoBalance && xGdaoBalance.toString({ decimals: 2 })}
+                sGdaoBalance={sGdaoBalance && sGdaoBalance.toString({ decimals: 2 })}
+                xGdaoBalance={xGdaoBalance && xGdaoBalance.toString({ decimals: 2 })}
               />
             )}
             {zapTokenModalOpen && (
@@ -311,16 +311,16 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
                   setSwapAssetType(name);
                 }}
                 handleClose={() => setZapTokenModalOpen(false)}
-                ohmBalance={gdaoBalance && gdaoBalance.toString({ decimals: 2 })}
-                sOhmBalance={sGdaoBalance && sGdaoBalance.toString({ decimals: 2 })}
-                gOhmBalance={xGdaoBalance && xGdaoBalance.toString({ decimals: 2 })}
+                gdaoBalance={gdaoBalance && gdaoBalance.toString({ decimals: 2 })}
+                sGdaoBalance={sGdaoBalance && sGdaoBalance.toString({ decimals: 2 })}
+                xGdaoBalance={xGdaoBalance && xGdaoBalance.toString({ decimals: 2 })}
                 showZapAssets
               />
             )}
             {contractRouting === "Zap" && (
               <ZapTransactionDetails
                 inputQuantity={amount}
-                outputGOHM={stakedAssetType.name === "xGDAO" ? true : false}
+                outputXGDAO={stakedAssetType.name === "xGDAO" ? true : false}
                 swapTokenBalance={swapAssetType}
                 handleOutputAmount={amount => setZapOutputAmount(amount)}
                 handleExchangeRate={rate => setZapExchangeRate(rate)}
@@ -331,7 +331,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
             {currentAction === "UNSTAKE" && liveInverseBonds && (
               <Box mb="6.5px">
                 <InfoNotification dismissible>
-                  {`Unstaking your OHM? Trade for Treasury Stables with no slippage & zero trading fees via`}
+                  {`Unstaking your GDAO? Trade for Treasury Stables with no slippage & zero trading fees via`}
                   &nbsp;
                   <Link href={`#/bonds`}>{`Inverse Bonds`}</Link>
                 </InfoNotification>
