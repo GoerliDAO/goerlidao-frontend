@@ -12,13 +12,45 @@ interface TokensListProps {
   tokens: Token[];
 }
 
+const TOKEN_LIST = [
+  {
+    name: "Mainnet ETH",
+    address: "0xdD69DB25F6D620A7baD3023c5d32761D353D3De9",
+    symbol: "METH",
+    decimals: 18,
+    chainId: 1,
+    logoURI:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  },
+  {
+    name: "Test Goerli DAO",
+    address: "0xe12873dfeab0ba61ac7b742fc3679f702a6808e9",
+    symbol: "GDAO",
+    decimals: 9,
+    chainId: 5,
+    logoURI:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  },
+  {
+    name: "Goerli ETH",
+    address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
+    symbol: "GETH",
+    decimals: 18,
+    chainId: 5,
+    logoURI:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  },
+];
+
 const mainnet_RPC_URL = import.meta.env.VITE_INFURA_URL_KEY;
+const goerli_RPC_URL = import.meta.env.VITE_INFURA_URL_KEY;
 
 const jsonRpcUrlMap = {
   1: [mainnet_RPC_URL],
+  5: [goerli_RPC_URL],
 };
 
-const tokens = ["WETH", "USDC", "SGDAO", "GDAO", "XGDAO"];
+const tokens = ["wETH", "ETH", "SGDAO", "GDAO", "XGDAO"];
 
 const TokensList: React.FC<TokensListProps> = ({ selected, tokens }) => {
   return (
@@ -35,75 +67,18 @@ const TokensList: React.FC<TokensListProps> = ({ selected, tokens }) => {
 
 const Swap = () => {
   const provider = useProvider();
-  // const getPairs = async () => {
-  //   try {
-  //     const currentPoolAddress = computePoolAddress({
-  //       factoryAddress: POOL_FACTORY_CONTRACT_ADDRESS,
-  //       tokenA: USDC_TOKEN,
-  //       tokenB: WETH_TOKEN,
-  //       fee: FeeAmount.LOWEST,
-  //     });
-
-  //     const poolContract = new ethers.Contract(currentPoolAddress, IUniswapV3PoolABI.abi, provider);
-
-  //     const [token0, token1, fee] = await Promise.all([
-  //       poolContract.token0(),
-  //       poolContract.token1(),
-  //       poolContract.fee(),
-  //     ]);
-
-  //     const quoterContract = new ethers.Contract(QUOTER_CONTRACT_ADDRESS, Quoter.abi, provider);
-
-  //     const quotedAmountOut = await quoterContract.callStatic.quoteExactInputSingle(
-  //       token0,
-  //       token1,
-  //       fee,
-  //       fromReadableAmount(10, 10).toString(),
-  //       0,
-  //     );
-
-  //     const number = ethers.BigNumber.from(quotedAmountOut);
-
-  //     console.log("This is the quoted amount: ", quotedAmountOut);
-  //     console.log("This is the final number :", number);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // // useEffect(() => {
-  // //   setProvider(new ethers.providers.Web3Provider(window.ethereum));
-  // //   getPairs();
-  // // }, []);
 
   return (
     <>
       <div className="Uniswap flex items-center justify-center">
-        <form className="hidden flex flex-col">
-          <fieldset className="flex flex-row">
-            <input
-              className="border border-purple-400 rounded mb-2 px-4 py-2 bg-slate-50 text-xl rounded-tr-none rounded-br-none border-r-0 w-full"
-              type="text"
-              placeholder="0.0"
-            />
-            <TokensList selected="USDC" tokens={tokens} />
-          </fieldset>
-          <fieldset className="flex flex-row">
-            <input
-              className="border border-purple-400 rounded mb-2 px-4 py-2 bg-slate-50 text-xl rounded-tr-none rounded-br-none border-r-0 w-full"
-              type="text"
-              placeholder="0.0"
-              readOnly
-            />
-            <TokensList selected="WETH" tokens={tokens} />
-          </fieldset>
-        </form>
         <div className="Uniswap my-10">
           <SwapWidget
+            //   provider={provider}
             jsonRpcUrlMap={jsonRpcUrlMap}
+            tokenList={TOKEN_LIST}
             brandedFooter={false}
-            //@ts-ignore
-            provider={provider}
+            defaultInputTokenAddress={TOKEN_LIST[0].address}
+            defaultOutputTokenAddress={TOKEN_LIST[1].address}
           />
         </div>
       </div>

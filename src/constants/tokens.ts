@@ -2,13 +2,13 @@ import {
   DAI_ADDRESSES,
   FRAX_ADDRESSES,
   GDAO_ADDRESSES,
+  GDAO_GETH_LP_ADDRESSES,
   LUSD_ADDRESSES,
   OHM_ADDRESSES,
   OHM_DAI_BALANCER_LP_ADDRESSES,
   OHM_DAI_LP_ADDRESSES,
   SGDAO_ADDRESSES,
   SOHM_ADDRESSES,
-  TGD_WETH_LP_ADDRESSES,
   UST_ADDRESSES,
   V1_OHM_ADDRESSES,
   V1_SOHM_ADDRESSES,
@@ -184,12 +184,12 @@ export const OHM_DAI_LP_TOKEN = new Token({
     "https://app.sushi.com/add/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5/0x6b175474e89094c44da98b954eedeac495271d0f",
 });
 
-export const TGD_WETH_LP_TOKEN = new Token({
+export const GDAO_GETH_LP_TOKEN = new Token({
   decimals: 18,
-  name: "TGD-WETH LP",
+  name: "GDAO-GETH LP",
   icons: ["GDAO", "wETH"],
   factory: PairContract__factory,
-  addresses: TGD_WETH_LP_ADDRESSES,
+  addresses: GDAO_GETH_LP_ADDRESSES,
   purchaseUrl: "https://app.uniswap.org/#/swap?outputCurrency=0xba7cac3e2a1391bb9d5edfd64793ccd4fd29dc09",
 });
 

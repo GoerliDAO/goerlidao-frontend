@@ -1,16 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ContractReceipt } from "ethers";
 import toast from "react-hot-toast";
-import {
-  GDAO_ADDRESSES,
-  GOERLI_STAKING_ADDR,
-  OHM_ADDRESSES,
-  SGDAO_ADDRESSES,
-  STAKING_ADDRESSES,
-} from "src/constants/addresses";
+import { GDAO_ADDRESSES, GOERLI_STAKING_ADDR, SGDAO_ADDRESSES } from "src/constants/addresses";
 import { trackGAEvent, trackGtagEvent } from "src/helpers/analytics/trackGAEvent";
 import { balanceQueryKey, useBalance } from "src/hooks/useBalance";
-import { useDynamicGoerliStakingContract, useDynamicStakingContract } from "src/hooks/useContract";
+import { useDynamicGoerliStakingContract } from "src/hooks/useContract";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { warmupQueryKey } from "src/hooks/useWarmupInfo";
 import { EthersError } from "src/lib/EthersTypes";
@@ -23,8 +17,9 @@ export const useClaimToken = () => {
   const client = useQueryClient();
   const { address = "" } = useAccount();
   const networks = useTestableNetworks();
-  const balance = useBalance(OHM_ADDRESSES)[networks.MAINNET].data;
-  const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
+  // const balance = useBalance(OHM_ADDRESSES)[networks.MAINNET].data;
+  const balance = useBalance(GDAO_ADDRESSES)[networks.MAINNET].data;
+  // const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
   const goerliContract = useDynamicGoerliStakingContract(GOERLI_STAKING_ADDR, true);
 
   return useMutation<ContractReceipt, EthersError, { toToken: string }>({

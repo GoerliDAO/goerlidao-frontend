@@ -15,15 +15,6 @@ const PREFIX = "BridgeInputArea";
 
 const TOKEN_LIST = [
   {
-    name: "Dai Stablecoin",
-    address: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-    symbol: "DAI",
-    decimals: 18,
-    chainId: 1,
-    logoURI:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png",
-  },
-  {
     name: "Mainnet ETH",
     address: "0xdD69DB25F6D620A7baD3023c5d32761D353D3De9",
     symbol: "METH",
