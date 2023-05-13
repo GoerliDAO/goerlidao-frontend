@@ -1,3 +1,5 @@
+import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
+import { NodeModulesPolyfillPlugin } from "@esbuild-plugins/node-modules-polyfill";
 import react from "@vitejs/plugin-react";
 import polyfillNode from "rollup-plugin-polyfill-node";
 import { defineConfig } from "vite";
@@ -12,7 +14,7 @@ export default ({ mode }) => {
       }),
       viteTsconfigPaths(),
       svgrPlugin(),
-      polyfillNode(),
+      { ...polyfillNode({ fs: true }), enforce: "post" },
     ],
     resolve: {
       alias: {
@@ -38,6 +40,20 @@ export default ({ mode }) => {
     },
     optimizeDeps: {
       include: ["@emotion/use-insertion-effect-with-fallbacks"],
+      esbuildOptions: {
+        // Node.js global to browser globalThis
+        define: {
+          global: "globalThis",
+        },
+        // Enable esbuild polyfill plugins
+        plugins: [
+          NodeGlobalsPolyfillPlugin({
+            process: true,
+            buffer: true,
+          }),
+          NodeModulesPolyfillPlugin(),
+        ],
+      },
     },
   });
 };
