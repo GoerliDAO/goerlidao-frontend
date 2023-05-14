@@ -112,7 +112,7 @@ export const ConnectButton = () => {
                     >
                       {!mobile ? (
                         <button
-                          className="p-2 text-black text-2xl font-semibold px-5 py-1.5 border border-black"
+                          className="p-2 text-black text-sm font-semibold px-5 py-1.5 border border-black"
                           style={{
                             background: "#fff",
                             border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
