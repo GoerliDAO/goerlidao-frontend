@@ -1,9 +1,10 @@
-import { Box, Divider, Link, Paper, SvgIcon, Typography, useTheme } from "@mui/material";
+import { Box, Link, Paper, Typography, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Icon, NavItem } from "@olympusdao/component-library";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { ReactComponent as OlympusIcon } from "src/assets/icons/olympus-nav-header.svg";
+import { ReactComponent as GDAOBlackApe } from "src/assets/logos/GDAOBlackApe.svg";
+import { ReactComponent as GDAOWhiteApe } from "src/assets/logos/GDAOWhiteApe.svg";
 import { sortByDiscount } from "src/helpers/bonds/sortByDiscount";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
@@ -33,56 +34,44 @@ const NavContent: React.VFC = () => {
     <Paper className="dapp-sidebar">
       <Box className="dapp-sidebar-inner" display="flex" justifyContent="space-between" flexDirection="column">
         <div className="dapp-menu-top">
-          <Box className="branding-header">
-            <Link href="https://olympusdao.finance" target="_blank" rel="noopener noreferrer">
-              <SvgIcon
-                color="primary"
-                viewBox="0 0 50 50"
-                component={OlympusIcon}
-                style={{ minWidth: "51px", minHeight: "51px", width: "51px" }}
-              />
+          <div className="flex items-center justify-center my-5">
+            <Link className="flex flex-col items-center" href="/" target="_blank" rel="noopener noreferrer">
+              {theme.palette.mode === "light" ? <GDAOBlackApe /> : <GDAOWhiteApe />}
               <Typography fontSize="24px" fontWeight="700" lineHeight="32px">
-                Olympus
+                GoerliDAO
               </Typography>
             </Link>
-          </Box>
+          </div>
 
           <div className="dapp-menu-links">
             <div className="dapp-nav" id="navbarNav">
               {chain.id === networks.MAINNET && (
-                <>
-                  <NavItem to="/dashboard" icon="dashboard" label={`Dashboard`} />
-                  <Box className="menu-divider">
-                    <Divider sx={{ borderColor: theme.colors.gray[600] }} />
-                  </Box>
-                  <NavItem to="/bonds" icon="bond" label={`Bond`}>
-                    <Bonds />
-                    <InverseBonds />
-                  </NavItem>
-                  <NavItem to="/range" icon="range" label={`Range`}>
-                    <RangePrice bidOrAsk="ask" />
-                    <RangePrice bidOrAsk="bid" />
-                  </NavItem>
-                  <NavItem to="/stake" icon="stake" label={`Stake`} />
-                  <NavItem href="https://vote.olympusdao.finance/" icon="voting" label={`Governance`} />
-                </>
+                <div className="grid grid-cols-1 grid-rows-6 gap-4 m-4">
+                  <Link className="" href="/donate" target="_blank" rel="noopener noreferrer">
+                    - Donate
+                  </Link>
+                  <Link className="" href="/bridge" target="_blank" rel="noopener noreferrer">
+                    - Bridge
+                  </Link>
+                  <Link className="" href="/swap" target="_blank" rel="noopener noreferrer">
+                    - Swap
+                  </Link>
+                  <Link className="" href="/stake" target="_blank" rel="noopener noreferrer">
+                    - Stake
+                  </Link>
+                  <Link className="" href="/bond" target="_blank" rel="noopener noreferrer">
+                    - Bond
+                  </Link>
+                  <Link className="" href="/stats" target="_blank" rel="noopener noreferrer">
+                    - Stats
+                  </Link>
+                </div>
               )}
-              <Box className="menu-divider">
-                <Divider sx={{ borderColor: theme.colors.gray[600] }} />
-              </Box>
-              <NavItem icon="bridge" label={`Bridge`} to="/bridge" />
-              <NavItem icon="transparency" label={`Transparency`} href="https://www.olympusdao.finance/transparency" />
-              <Box className="menu-divider">
-                <Divider sx={{ borderColor: theme.colors.gray[600] }} />
-              </Box>
             </div>
           </div>
         </div>
         <Box>
-          <NavItem href="https://forum.olympusdao.finance/" icon="forum" label={`Forum`} />
           <NavItem href="https://docs.olympusdao.finance/" icon="docs" label={`Docs`} />
-          <NavItem href="https://immunefi.com/bounty/olympus/" icon="alert-circle" label={`Bug Bounty`} />
-          <NavItem href="https://grants.olympusdao.finance/" icon="grants" label={`Grants`} />
           <StyledBox display="flex" justifyContent="space-around" paddingY="24px">
             <Link href="https://github.com/OlympusDAO" target="_blank" rel="noopener noreferrer">
               <Icon name="github" className={classes.gray} />

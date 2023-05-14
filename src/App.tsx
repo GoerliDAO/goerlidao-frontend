@@ -194,7 +194,6 @@ function App() {
             <StagingNotification />
             <TopBar theme={theme} toggleTheme={toggleTheme} handleDrawerToggle={handleDrawerToggle} />
 
-            {/* HIDDEN UNTIL FINAL LANDING PAGE IS DONE, THEN DELETED */}
             <nav className="hidden">
               {isSmallerScreen ? (
                 <NavDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />

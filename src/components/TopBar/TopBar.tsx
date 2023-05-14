@@ -1,8 +1,8 @@
 // import "src/components/TopBar/TopBar.scss";
-import { Button, SvgIcon, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
-import { ReactComponent as MenuIcon } from "src/assets/icons/hamburger.svg";
 import { ReactComponent as GDAOBlackApe } from "src/assets/logos/GDAOBlackApe.svg";
 import { ReactComponent as GDAOFullBlackLogo } from "src/assets/logos/GDAOFullBlack.svg";
 import { ReactComponent as GDAOFullWhiteLogo } from "src/assets/logos/GDAOFullWhite.svg";
@@ -149,16 +149,16 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
           </div>
 
           {!desktop && (
-            <Button
+            <button
+              style={{
+                color: renderedColor(),
+              }}
               id="hamburger"
               aria-label="open drawer"
-              size="large"
-              variant="text"
-              color="secondary"
               onClick={handleDrawerToggle}
             >
-              <SvgIcon component={MenuIcon} />
-            </Button>
+              <GiHamburgerMenu />
+            </button>
           )}
         </div>
       </div>
