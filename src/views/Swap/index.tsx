@@ -1,4 +1,3 @@
-import { SwapWidget } from "@uniswap/widgets";
 import React from "react";
 import Footer from "src/components/Footer";
 import { useProvider } from "wagmi";
@@ -70,17 +69,8 @@ const Swap = () => {
 
   return (
     <>
-      <div className="Uniswap flex items-center justify-center">
-        <div className="Uniswap my-10">
-          <SwapWidget
-            //   provider={provider}
-            jsonRpcUrlMap={jsonRpcUrlMap}
-            tokenList={TOKEN_LIST}
-            brandedFooter={false}
-            defaultInputTokenAddress={TOKEN_LIST[0].address}
-            defaultOutputTokenAddress={TOKEN_LIST[1].address}
-          />
-        </div>
+      <div className="flex items-center justify-center">
+        <iframe height={500} style={{ borderRadius: 20 }} src="https://graceful-cactus-2bd4c8.netlify.app/"></iframe>
       </div>
       <Footer />
     </>
