@@ -24,13 +24,11 @@ const Donate = () => {
 
   const getContractData = async () => {
     // Replace with your contract address and ABI
-    const contractAddress = "0xd85435F248cC9c000DBAA5bE342ad0c78a644b48";
+    const contractAddress = "";
     const contractABI = donateABI; // Replace with the ABI of your contract
 
     // Create an instance of the contract
-    const provider = new ethers.providers.JsonRpcProvider(
-      "https://goerli.infura.io/v3/b42fdbed6f7d4990a5f1fed9c4599ad2",
-    );
+    const provider = new ethers.providers.JsonRpcProvider("");
     const contract = new ethers.Contract(contractAddress, contractABI, provider);
 
     const owner = await contract.owner();
