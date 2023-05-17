@@ -1,6 +1,5 @@
 import React from "react";
 import Footer from "src/components/Footer";
-import { useProvider } from "wagmi";
 
 declare let window: any;
 
@@ -65,12 +64,11 @@ const TokensList: React.FC<TokensListProps> = ({ selected, tokens }) => {
 };
 
 const Swap = () => {
-  const provider = useProvider();
-
   return (
     <>
       <div className="flex items-center justify-center">
         <iframe height={500} style={{ borderRadius: 20 }} src="https://graceful-cactus-2bd4c8.netlify.app/"></iframe>
+        <iframe height={500} style={{ borderRadius: 20 }} src="https://gdao-swap.vercel.app/"></iframe>
       </div>
       <Footer />
     </>

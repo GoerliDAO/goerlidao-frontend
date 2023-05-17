@@ -1,4 +1,5 @@
 import { useTheme } from "@mui/material";
+import { getAccount } from "@wagmi/core";
 import { ethers } from "ethers";
 import React from "react";
 import { useEffect, useState } from "react";
@@ -6,9 +7,14 @@ import donateABI from "src/abi/donateABI";
 import Footer from "src/components/Footer";
 
 const Donate = () => {
+  const account = getAccount();
+  console.log("this is your account :", account);
   const theme = useTheme();
+  const contractAddress = "0x08F81f3be4a03E0332643B8bF80D74744a11bF32";
+  const contractABI = donateABI;
   const [totalTokens, setTotalTokens] = React.useState(10);
   const [donationAmount, setDonationAmount] = React.useState(0);
+  console.log("donationAmount :", donationAmount);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -22,41 +28,47 @@ const Donate = () => {
     }
   };
 
-  const getContractData = async () => {
-    // Replace with your contract address and ABI
-    const contractAddress = "";
-    const contractABI = donateABI; // Replace with the ABI of your contract
+  const deposit = async () => {
+    try {
+      if (!window.ethereum) {
+        alert("Please install MetaMask first.");
+        return;
+      }
 
-    // Create an instance of the contract
-    const provider = new ethers.providers.JsonRpcProvider("");
+      const provider = new ethers.providers.Web3Provider(window.ethereum as ethers.providers.ExternalProvider);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(contractAddress, contractABI, signer);
+      const depositAmount = ethers.utils.parseEther(donationAmount.toString());
+      const tx = await contract.deposit({ value: depositAmount });
+      await tx.wait();
+      alert("Deposit successful!");
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred, check the console for details");
+    }
+  };
+
+  const getContractData = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum as ethers.providers.ExternalProvider);
     const contract = new ethers.Contract(contractAddress, contractABI, provider);
 
-    const owner = await contract.owner();
-    // const cap = await contract.cap();
-    // const total = await contract.total();
-    // const depositCoin = await contract.depositCoin();
-    const individualCap = await contract.individualCap().toString();
-    const saleToken = await contract.saleToken();
+    const cap = await contract.cap();
+    const share = await contract.share(account.address);
+    const individualCap = await contract.individualCap();
     const saleConcluded = await contract.saleConcluded();
 
     return {
-      owner,
-      // cap,
-      // total,
-      // depositCoin,
+      cap,
+      share,
       individualCap,
-      saleToken,
       saleConcluded,
     };
   };
 
   const [donationEventContractData, setDonationEventContractData] = useState({
-    owner: "",
-    // cap: 0,
-    // total: 0,
-    // depositCoin: '',
+    cap: 0,
+    share: 0,
     individualCap: 0,
-    saleToken: "",
     saleConcluded: false,
   });
 
@@ -87,7 +99,7 @@ const Donate = () => {
           >
             <div className="grid grid-cols-1 grid-rows-2 gap-2 p-4 rounded-xl">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold underline">$GDAO DONATION EVENT</span>
+                <span className="text-sm font-semibold underline">GOERLIDAO Donation Event</span>
                 <div
                   style={{
                     backgroundColor: theme.palette.mode === "dark" ? "#fff" : "#000",
@@ -96,7 +108,7 @@ const Donate = () => {
                   }}
                   className="p-1 rounded-md font-semibold"
                 >
-                  {donationEventContractData.saleConcluded ? "EVENT OPEN NOW" : "EVENT NOW CLOSED"}
+                  {!donationEventContractData.saleConcluded ? "EVENT OPEN NOW" : "EVENT NOW CLOSED"}
                 </div>
               </div>
 
@@ -143,33 +155,19 @@ const Donate = () => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 grid-rows-4 p-2 rounded-b-lg">
-              <div className="flex items-center justify-between">
-                <p>Token Address:</p>
-                <a
-                  className="underline"
-                  target="_blank"
-                  href={`https://goerli.etherscan.io/address/${donationEventContractData.saleToken}`}
-                >
-                  {donationEventContractData.saleToken}
-                </a>
-              </div>
-              <div className="flex items-center justify-between">
-                <p>Swap Rate</p>
-                <span>1Ξ = ? GDAO</span>
-              </div>
+            <div className="grid grid-cols-1 grid-rows-2 p-2 rounded-b-lg">
               <div className="py-2.5 flex items-center justify-between">
                 <p>Max. Individual Contribution</p>
-                <span>{donationEventContractData.individualCap}Ξ</span>
+                <span>{(donationEventContractData.individualCap / 10 ** 18).toString()}Ξ</span>
               </div>
               <div className="flex items-center justify-between">
                 <p>Multisig</p>
                 <a
                   className="underline"
                   target="_blank"
-                  href={`https://goerli.etherscan.io/address/${donationEventContractData.owner}`}
+                  href="https://goerli.etherscan.io/address/0x453935F8BdB458F69E87E238E41A222d4FC7813f"
                 >
-                  {donationEventContractData.owner}
+                  0x453935F8BdB458F69E87E238E41A222d4FC7813f
                 </a>
               </div>
             </div>
@@ -183,7 +181,7 @@ const Donate = () => {
             }}
             className="font-semibold mt-2.5 rounded-md p-2"
           >
-            MY CONTRIBUTION: 0Ξ
+            MY CONTRIBUTION: {(donationEventContractData.share / 10 ** 18).toString()}Ξ (GETH)
           </div>
 
           <div className="my-2.5 rounded-md shadow-sm">
@@ -200,7 +198,10 @@ const Donate = () => {
               <span className="text-gray-500 sm:text-sm">Ξ</span>
             </div>
           </div>
-          <button className="w-full p-2 text-center bg-white text-black border border-black font-extrabold rounded-md mt-2.5">
+          <button
+            onClick={deposit}
+            className="w-full p-2 text-center bg-white text-black border border-black font-extrabold rounded-md mt-2.5"
+          >
             Donate
           </button>
         </div>
