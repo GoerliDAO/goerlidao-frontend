@@ -1,5 +1,6 @@
 import "src/style.scss";
 
+import { ApolloProvider } from "@apollo/client";
 import { useMediaQuery } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
@@ -25,26 +26,24 @@ import { shouldTriggerSafetyCheck } from "src/helpers";
 import { useGoogleAnalytics } from "src/hooks/useGoogleAnalytics";
 import useTheme from "src/hooks/useTheme";
 import { chains } from "src/hooks/wagmi";
+import client from "src/lib/ApolloClientSetup";
 import { getMigrationAllowances, loadAccountDetails } from "src/slices/AccountSlice";
 import { loadAppDetails } from "src/slices/AppSlice";
 import { AppDispatch } from "src/store";
 import { dark as darkTheme } from "src/themes/dark.js";
 import { girth as gTheme } from "src/themes/girth.js";
 import { light as lightTheme } from "src/themes/light.js";
-import { BondModalContainer } from "src/views/Bond/components/BondModal/BondModal";
-import { BondModalContainerV3 } from "src/views/Bond/components/BondModal/BondModalContainerV3";
 import LandingPage from "src/views/LandingPage";
 import { useAccount, useConnect, useNetwork, useProvider } from "wagmi";
 
 // Dynamic Imports for code splitting
-const Bond = lazy(() => import("./views/Bond"));
 const Bridge = lazy(() => import("./views/Bridge"));
 const TreasuryDashboard = lazy(() => import("./views/TreasuryDashboard/TreasuryDashboard"));
 const NotFound = lazy(() => import("./views/404/NotFound"));
 const V1Stake = lazy(() => import("./views/V1-Stake/V1-Stake"));
-const Range = lazy(() => import("./views/Range"));
 const Swap = lazy(() => import("./views/Swap"));
 const Donate = lazy(() => import("./views/Donate"));
+const Bond = lazy(() => import("./views/Bond"));
 
 const PREFIX = "App";
 
@@ -179,75 +178,73 @@ function App() {
 
   return (
     <>
-      <RainbowKitProvider
-        chains={chains}
-        theme={
-          theme === "dark"
-            ? rainbowDarkTheme({ accentColor: "#676B74" })
-            : rainbowLightTheme({ accentColor: "#E0E2E3", accentColorForeground: "#181A1D" })
-        }
-      >
-        <ThemeProvider theme={themeMode}>
-          <CssBaseline />
-          <div className={`app ${isSmallerScreen && "tablet"} ${isSmallScreen && "mobile"} ${theme}`}>
-            <Toaster>{t => <Messages toast={t} />}</Toaster>
-            <StagingNotification />
-            <TopBar theme={theme} toggleTheme={toggleTheme} handleDrawerToggle={handleDrawerToggle} />
+      <ApolloProvider client={client}>
+        <RainbowKitProvider
+          chains={chains}
+          theme={
+            theme === "dark"
+              ? rainbowDarkTheme({ accentColor: "#676B74" })
+              : rainbowLightTheme({ accentColor: "#E0E2E3", accentColorForeground: "#181A1D" })
+          }
+        >
+          <ThemeProvider theme={themeMode}>
+            <CssBaseline />
+            <div className={`app ${isSmallerScreen && "tablet"} ${isSmallScreen && "mobile"} ${theme}`}>
+              <Toaster>{t => <Messages toast={t} />}</Toaster>
+              <StagingNotification />
+              <TopBar theme={theme} toggleTheme={toggleTheme} handleDrawerToggle={handleDrawerToggle} />
 
-            <nav className="hidden">
-              {isSmallerScreen ? (
-                <NavDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
-              ) : (
-                <Sidebar />
-              )}
-            </nav>
+              <nav className="hidden">
+                {isSmallerScreen ? (
+                  <NavDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+                ) : (
+                  <Sidebar />
+                )}
+              </nav>
 
-            <div className={`${classes.content} ${isSmallerScreen && classes.contentShift}`}>
-              <MigrationCallToAction setMigrationModalOpen={setMigrationModalOpen} />
-              <Suspense fallback={<div></div>}>
-                <Routes>
-                  <Route path="/" element={<LandingPage />} />
-                  <Route
-                    path="/stake"
-                    element={<StakeVersionContainer setMigrationModalOpen={setMigrationModalOpen} />}
-                  />
-                  <Route path="/v1-stake" element={<V1Stake setMigrationModalOpen={setMigrationModalOpen} />} />
-                  <Route path="/bonds/v3/:id" element={<BondModalContainerV3 />} />
-                  <Route path="/bonds/v3/inverse/:id" element={<BondModalContainerV3 />} />
-                  <Route path="/bonds/:id" element={<BondModalContainer />} />
-                  <Route path="/bonds/inverse/:id" element={<BondModalContainer />} />
-                  <Route path="/swap" element={<Swap />} />
-                  <Route path="/bonds" element={<Bond />} />
-                  <Route path="/bonds/inverse" element={<Bond />} />
-                  <Route path="/bridge" element={<Bridge />} />
-                  <Route path="/donate" element={<Donate />} />
-                  <Route path="/stats/*" element={<TreasuryDashboard />} />
-                  <Route path="/range/*" element={<Range />} />
-                  <Route
-                    path={"/info/*"}
-                    element={<Wallet open={true} component="info" theme={theme} toggleTheme={toggleTheme} />}
-                  />
-                  <Route
-                    path={"/utility"}
-                    element={<Wallet open={true} component="utility" theme={theme} toggleTheme={toggleTheme} />}
-                  />
-                  <Route
-                    path={"/wallet/history"}
-                    element={<Wallet open={true} component="wallet/history" theme={theme} toggleTheme={toggleTheme} />}
-                  />
-                  <Route
-                    path="/wallet"
-                    element={<Wallet open={true} component="wallet" theme={theme} toggleTheme={toggleTheme} />}
-                  ></Route>
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
+              <div className={`${classes.content} ${isSmallerScreen && classes.contentShift}`}>
+                <MigrationCallToAction setMigrationModalOpen={setMigrationModalOpen} />
+                <Suspense fallback={<div></div>}>
+                  <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route
+                      path="/stake"
+                      element={<StakeVersionContainer setMigrationModalOpen={setMigrationModalOpen} />}
+                    />
+                    <Route path="/v1-stake" element={<V1Stake setMigrationModalOpen={setMigrationModalOpen} />} />
+                    <Route path="/swap" element={<Swap />} />
+                    <Route path="/bond" element={<Bond />} />
+                    <Route path="/bridge" element={<Bridge />} />
+                    <Route path="/donate" element={<Donate />} />
+                    <Route path="/stats/*" element={<TreasuryDashboard />} />
+                    <Route
+                      path={"/info/*"}
+                      element={<Wallet open={true} component="info" theme={theme} toggleTheme={toggleTheme} />}
+                    />
+                    <Route
+                      path={"/utility"}
+                      element={<Wallet open={true} component="utility" theme={theme} toggleTheme={toggleTheme} />}
+                    />
+                    <Route
+                      path={"/wallet/history"}
+                      element={
+                        <Wallet open={true} component="wallet/history" theme={theme} toggleTheme={toggleTheme} />
+                      }
+                    />
+                    <Route
+                      path="/wallet"
+                      element={<Wallet open={true} component="wallet" theme={theme} toggleTheme={toggleTheme} />}
+                    ></Route>
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
+              </div>
             </div>
-          </div>
 
-          <MigrationNotification isModalOpen={migrationModalOpen} onClose={migModalClose} />
-        </ThemeProvider>
-      </RainbowKitProvider>
+            <MigrationNotification isModalOpen={migrationModalOpen} onClose={migModalClose} />
+          </ThemeProvider>
+        </RainbowKitProvider>
+      </ApolloProvider>
     </>
   );
 }

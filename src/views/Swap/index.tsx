@@ -66,9 +66,9 @@ const TokensList: React.FC<TokensListProps> = ({ selected, tokens }) => {
 const Swap = () => {
   return (
     <>
-      <div className="flex items-center justify-center">
-        <iframe height={500} style={{ borderRadius: 20 }} src="https://graceful-cactus-2bd4c8.netlify.app/"></iframe>
-        <iframe height={500} style={{ borderRadius: 20 }} src="https://gdao-swap.vercel.app/"></iframe>
+      <div className="mt-10 flex items-center justify-center">
+        {/* <iframe height={500} style={{ borderRadius: 20 }} src="https://graceful-cactus-2bd4c8.netlify.app/"></iframe> */}
+        <iframe height={470} style={{ borderRadius: 20 }} src="https://gdao-swap.vercel.app/"></iframe>
       </div>
       <Footer />
     </>

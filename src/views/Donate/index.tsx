@@ -89,7 +89,7 @@ const Donate = () => {
 
   return (
     <>
-      <div className="container mx-auto flex items-center justify-center">
+      <div className="mt-5 container mx-auto flex items-center justify-center">
         <div className="sm:w-1/2 w-full h-full flex flex-col text-sm">
           <div
             style={{

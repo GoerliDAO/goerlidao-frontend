@@ -10,7 +10,7 @@ import { useFaucet } from "src/components/TopBar/Wallet/hooks/useFaucet";
 import { GetTokenPrice } from "src/components/TopBar/Wallet/queries";
 import { formatCurrency, formatNumber, trim } from "src/helpers";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
-import { prettifySeconds, prettifySecondsInDays } from "src/helpers/timeUtil";
+import { prettifySeconds } from "src/helpers/timeUtil";
 import { nonNullable } from "src/helpers/types/nonNullable";
 import {
   useFuseBalance,
@@ -28,7 +28,6 @@ import { useOhmPrice } from "src/hooks/usePrices";
 import { useStakingRebaseRate } from "src/hooks/useStakingRebaseRate";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { NetworkId } from "src/networkDetails";
-import { useBondNotes } from "src/views/Bond/components/ClaimBonds/hooks/useBondNotes";
 import { useNextRebaseDate } from "src/views/Stake/components/StakeArea/components/RebaseTimer/hooks/useNextRebaseDate";
 import { useNetwork } from "wagmi";
 
@@ -128,7 +127,6 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
     .filter(nonNullable)
     .reduce((res, bal) => res.add(bal), new DecimalBigNumber("0", 18));
 
-  const notes = useBondNotes().data;
   const formattedohmBalance = ohmBalance.toString({ decimals: 4, trim: false, format: true });
   const formattedgdaoBalance = gdaoBalance.toString({ decimals: 4, trim: false, format: true });
   const formattedV1OhmBalance = v1OhmBalance.toString({ decimals: 4, trim: false, format: true });
@@ -211,23 +209,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
     // },
   ];
 
-  const bondsArray =
-    notes?.map(note => ({
-      key: note.id,
-      symbol: note.bond.quoteToken.icons,
-      balance: note.payout.toString({ decimals: 4, trim: false }),
-      label: "(Bond)",
-      timeRemaining:
-        Date.now() > note.matured ? "Fully Vested" : prettifySecondsInDays((note.matured - Date.now()) / 1000),
-      assetValue: note.payout.toApproxNumber() * gOhmPrice,
-      underlyingSymbol: "gOHM",
-      pnl: Number(note.payout) === 0 ? 0 : formatCurrency(note.payout.toApproxNumber() * gOhmPriceChange, 2),
-      ctaText: "Claim",
-      ctaOnClick: () => navigate("/bonds"),
-      geckoTicker: "governance-ohm",
-    })) || [];
-
-  const assets = [...tokenArray, ...bondsArray];
+  const assets = [...tokenArray];
   const walletTotalValueUSD = Object.values(assets).reduce((totalValue, token) => totalValue + token.assetValue, 0);
 
   const faucetMutation = useFaucet();

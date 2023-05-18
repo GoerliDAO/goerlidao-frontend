@@ -22,7 +22,6 @@ import { useBalance } from "src/hooks/useBalance";
 import { useCurrentIndex } from "src/hooks/useCurrentIndex";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { useZapExecute } from "src/hooks/useZapExecute";
-import { useLiveBonds } from "src/views/Bond/hooks/useLiveBonds";
 import StakeConfirmationModal from "src/views/Stake/components/StakeArea/components/StakeInputArea/components/StakeConfirmationModal";
 import TokenModal, {
   ModalHandleSelectProps,
@@ -141,10 +140,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
   const isMutationSuccess =
     stakeMutation.isSuccess || unstakeMutation.isSuccess || zapExecute.isSuccess || wrapMutation.isSuccess;
 
-  const bonds = useLiveBonds({ isInverseBond: true }).data;
   const amountExceedsBalance = balance && new DecimalBigNumber(amount).gt(balance) ? true : false;
-
-  const liveInverseBonds = bonds && bonds.length > 0;
 
   const ohmOnChange = (value: string, spendAsset: boolean) => {
     if (!currentIndex) return null;
@@ -327,15 +323,6 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
                 handleSlippageAmount={slippage => setZapSlippageAmount(slippage)}
                 handleMinAmount={minAmount => setZapMinAmount(minAmount)}
               />
-            )}
-            {currentAction === "UNSTAKE" && liveInverseBonds && (
-              <Box mb="6.5px">
-                <InfoNotification dismissible>
-                  {`Unstaking your GDAO? Trade for Treasury Stables with no slippage & zero trading fees via`}
-                  &nbsp;
-                  <Link href={`#/bonds`}>{`Inverse Bonds`}</Link>
-                </InfoNotification>
-              </Box>
             )}
             {contractRouting === "Zap" && (
               <Box mt="21px" mb="6.5px">

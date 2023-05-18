@@ -24,7 +24,6 @@ interface NavLinkProps {
 
 function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
   const location = useLocation();
-  // const
   const theme = useTheme();
   console.log("This is the theme : ", theme);
   const desktop = useMediaQuery(theme.breakpoints.up(1048));
@@ -40,6 +39,7 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
     switch (true) {
       case location.pathname === "/bridge" ||
         location.pathname === "/swap" ||
+        location.pathname === "/bond" ||
         location.pathname === "/stake" ||
         location.pathname === "/stats":
         return theme.palette.mode === "light" ? (
@@ -100,6 +100,7 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
         return "#FFF";
       case location.pathname === "/bridge" ||
         location.pathname === "/swap" ||
+        location.pathname === "/bond" ||
         location.pathname === "/stake" ||
         location.pathname === "/stats" ||
         location.pathname === "/donate":
@@ -137,7 +138,7 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
           <Link to="/bridge">Bridge</Link>
           <Link to="/swap">Swap</Link>
           <Link to="/stake">Stake</Link>
-          <Link to="/bonds">Bond</Link>
+          <Link to="/bond">Bond</Link>
           <Link to="/stats">Stats</Link>
         </div>
 

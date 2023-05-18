@@ -9,13 +9,9 @@ import { SupplyRatePerBlock } from "src/components/TopBar/Wallet/queries";
 import { OHM_ADDRESSES } from "src/constants/addresses";
 import { formatCurrency, formatNumber, parseBigNumber, trim } from "src/helpers";
 import { balancerPools, convexPools, curvePools, fraxPools } from "src/helpers/AllExternalPools";
-import { sortByDiscount } from "src/helpers/bonds/sortByDiscount";
-import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
-import { prettifySecondsInDays } from "src/helpers/timeUtil";
 import { useStakingRebaseRate } from "src/hooks/useStakingRebaseRate";
 import { ExternalPool } from "src/lib/ExternalPool";
 import { NetworkId } from "src/networkDetails";
-import { useLiveBonds } from "src/views/Bond/hooks/useLiveBonds";
 import {
   BalancerPoolAPY,
   BalancerSwapFees,
@@ -54,7 +50,6 @@ const GetOhm: FC = () => {
   const fuseSupplyApy =
     supplyRate && (Math.pow((parseBigNumber(supplyRate) / ethMantissa) * blocksPerDay + 1, daysPerYear) - 1) * 100;
 
-  const bonds = useLiveBonds().data;
   const fiveDayRate = Math.pow(1 + rebaseRate, 5 * 3) - 1;
 
   return (
@@ -97,21 +92,6 @@ const GetOhm: FC = () => {
               href={`/stake`}
               disableFlip
             />
-            <Typography variant="h6" className={classes.title}>
-              Bonds
-            </Typography>
-            {bonds &&
-              sortByDiscount(bonds).map(bond => (
-                <ItemCard
-                  key={bond.id}
-                  tokens={bond.quoteToken.icons}
-                  value={`$${bond.price.inUsd.toString({ decimals: 2, trim: false })}`}
-                  roi={`${bond.discount.mul(new DecimalBigNumber("100")).toString({ decimals: 2, trim: false })}%`}
-                  days={prettifySecondsInDays(bond.duration)}
-                  href={`/bonds/${bond.id}`}
-                  hrefText={`Bond ${bond.quoteToken.name}`}
-                />
-              ))}
             <Typography variant="h6" className={classes.title}>
               Stake
             </Typography>
