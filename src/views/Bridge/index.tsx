@@ -78,7 +78,7 @@ const TOKEN_LIST = [
   {
     name: "ETH on Mainnet",
     address: "0xdD69DB25F6D620A7baD3023c5d32761D353D3De9",
-    symbol: "METH",
+    symbol: "ETH",
     decimals: 18,
     chainId: 1,
     logoURI:
@@ -483,7 +483,9 @@ const Bridge = () => {
 
               <button
                 onClick={() => {
-                  if (inputAmount <= 0) return;
+                  if (inputAmount <= 0) {
+                    alert("No zero inputs");
+                  }
                   console.log(parseEther(String(Number(inputAmount) + 0.0015)).toString());
                   bridge?.writeAsync?.();
                 }}
