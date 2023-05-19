@@ -15,7 +15,7 @@ const PREFIX = "BridgeInputArea";
 
 const TOKEN_LIST = [
   {
-    name: "Mainnet ETH",
+    name: "ETH on Mainnet",
     address: "0xdD69DB25F6D620A7baD3023c5d32761D353D3De9",
     symbol: "METH",
     decimals: 18,
@@ -23,17 +23,47 @@ const TOKEN_LIST = [
     logoURI:
       "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
   },
+  // {
+  //   name: "Test Goerli DAO",
+  //   address: "0xba7cac3e2a1391bb9d5edfd64793ccd4fd29dc09",
+  //   symbol: "GDAO",
+  //   decimals: 9,
+  //   chainId: 5,
+  //   logoURI:
+  //     "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  // },
   {
-    name: "Test Goerli DAO",
-    address: "0xba7cac3e2a1391bb9d5edfd64793ccd4fd29dc09",
-    symbol: "GDAO",
-    decimals: 9,
+    name: "GETH on Mainnet",
+    address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
+    symbol: "GETH",
+    decimals: 18,
     chainId: 5,
     logoURI:
       "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
   },
+];
+
+const TOKEN_LIST_GOERLI = [
   {
-    name: "Goerli ETH",
+    name: "METH on Goerli",
+    address: "0xdD69DB25F6D620A7baD3023c5d32761D353D3De9",
+    symbol: "METH",
+    decimals: 18,
+    chainId: 1,
+    logoURI:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  },
+  // {
+  //   name: "Test Goerli DAO",
+  //   address: "0xba7cac3e2a1391bb9d5edfd64793ccd4fd29dc09",
+  //   symbol: "GDAO",
+  //   decimals: 9,
+  //   chainId: 5,
+  //   logoURI:
+  //     "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  // },
+  {
+    name: "GETH on Goerli",
     address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
     symbol: "GETH",
     decimals: 18,
@@ -54,7 +84,7 @@ const Bridge = () => {
   const theme = useTheme();
   const [selected, setSelected] = useState(TOKEN_LIST[0]);
   const [inputSelectedToken, setInputSelectedToken] = useState(TOKEN_LIST[0]);
-  const [outputSelectedToken, setOutputSelectedToken] = useState(TOKEN_LIST[1]);
+  const [outputSelectedToken, setOutputSelectedToken] = useState(TOKEN_LIST[0]);
   const [inputAmount, setInputAmount] = useState(0);
   const [gasCost, setGasCost] = useState();
   const { isConnected } = useAccount();
@@ -73,9 +103,13 @@ const Bridge = () => {
   };
 
   const handleInputToken = (e: any) => {
-    const token = TOKEN_LIST.find(token => token.name === e.target.value);
+    const token = e;
+    const index = TOKEN_LIST.findIndex(x => x.name == e.name);
+    console.log(token);
     //@ts-ignore
     setInputSelectedToken(token);
+    //@ts-ignore
+    setOutputSelectedToken(TOKEN_LIST_GOERLI[index]);
   };
 
   const handleOutputToken = (e: any) => {
@@ -109,7 +143,7 @@ const Bridge = () => {
 
           {/* INPUT + LISTBOX */}
           <div className="w-full z-50">
-            <Listbox value={inputSelectedToken} onChange={setInputSelectedToken}>
+            <Listbox value={inputSelectedToken} onChange={handleInputToken}>
               <div className="relative border border-black">
                 <Listbox.Button className="relative w-full cursor-default bg-white py-2 pl-3 pr-10 text-left shadow-md sm:text-sm">
                   <div className="relative flex items-center justify-between">
@@ -119,8 +153,8 @@ const Bridge = () => {
                         style={{ color: theme.palette.mode === "dark" ? "#000" : "#000" }}
                         className="flex flex-col truncate mx-2 text-xs"
                       >
-                        <span>{inputSelectedToken.name}</span>
-                        <span>{inputSelectedToken.symbol}</span>
+                        <span>{inputSelectedToken?.name}</span>
+                        <span>{inputSelectedToken?.symbol}</span>
                       </div>
                       <KeyboardArrowDownOutlinedIcon className="pointer-events-none flex items-center pr-2" />
                     </div>
@@ -144,7 +178,7 @@ const Bridge = () => {
                       {({ selected }) => (
                         <div className="flex items-center justify-between">
                           <span className={`pl-5 block truncate ${selected ? "font-medium" : "font-normal"}`}>
-                            <Typography style={{ fontSize: "0.7rem" }}>{token.name}</Typography>
+                            <Typography style={{ fontSize: "0.7rem" }}>{token?.name}</Typography>
                           </span>
                           {selected ? (
                             <span className="absolute inset-y-0 left-0 flex items-center text-amber-600">
@@ -168,7 +202,7 @@ const Bridge = () => {
                   }}
                   className="m-1 text-xs absolute top-0 right-0"
                 >
-                  {inputSelectedToken.symbol}
+                  {inputSelectedToken?.symbol}
                 </span>
               </div>
             </Listbox>
@@ -191,6 +225,7 @@ const Bridge = () => {
                   type="number"
                   name="price"
                   id="price"
+                  value={inputAmount}
                   style={{
                     color: theme.palette.mode === "dark" ? "#000" : "#000",
                   }}
@@ -224,7 +259,7 @@ const Bridge = () => {
 
           {/* OUTPUT + LISTBOX */}
           <div className="w-full z-50">
-            <Listbox value={outputSelectedToken} onChange={setOutputSelectedToken}>
+            <Listbox value={outputSelectedToken} disabled onChange={setOutputSelectedToken}>
               <div className="relative border border-black">
                 <Listbox.Button className="relative w-full cursor-default bg-white py-2 pl-3 pr-10 text-left shadow-md sm:text-sm">
                   <div className="relative flex items-center justify-between">
@@ -234,8 +269,8 @@ const Bridge = () => {
                         style={{ color: theme.palette.mode === "dark" ? "#000" : "#000" }}
                         className="flex flex-col truncate mx-2 text-xs"
                       >
-                        <span>{outputSelectedToken.name}</span>
-                        <span>{outputSelectedToken.symbol}</span>
+                        <span>{outputSelectedToken?.name}</span>
+                        <span>{outputSelectedToken?.symbol}</span>
                       </div>
                       <KeyboardArrowDownOutlinedIcon className="pointer-events-none flex items-center pr-2" />
                     </div>
@@ -283,7 +318,7 @@ const Bridge = () => {
                   }}
                   className="m-1 text-xs absolute top-0 right-0"
                 >
-                  {outputSelectedToken.symbol}
+                  {outputSelectedToken?.symbol}
                 </span>
               </div>
             </Listbox>
@@ -306,6 +341,7 @@ const Bridge = () => {
                   type="number"
                   name="price"
                   id="price"
+                  value={inputAmount}
                   style={{
                     color: theme.palette.mode === "dark" ? "#000" : "#000",
                   }}
@@ -344,15 +380,19 @@ const Bridge = () => {
               <div className="text-xs">
                 <div className="flex items-center justify-between">
                   <span>You will recieve</span>
-                  <span>--</span>
+                  <span>
+                    {inputAmount} {outputSelectedToken.name}
+                  </span>
                 </div>
-                <div className="flex items-center justify-between">
+                {/* <div className="flex items-center justify-between">
                   <span>Gas Cost</span>
                   <span>--</span>
-                </div>
+                </div> */}
               </div>
 
-              <button className="py-3 px-6 bg-blue-800 text-white w-full font-semibold">ENTER AMOUNT</button>
+              <button className="py-3 px-6 bg-blue-800 text-white w-full font-semibold">
+                {inputAmount == 0 ? "ENTER AMOUNT" : "BRIDGE"}
+              </button>
             </div>
           )}
         </div>
