@@ -1,15 +1,76 @@
 import { Listbox } from "@headlessui/react";
 import CheckIcon from "@mui/icons-material/Check";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
-import SwapCallsOutlinedIcon from "@mui/icons-material/SwapCallsOutlined";
 import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material";
+import { parseEther } from "ethers/lib/utils";
 import { useState } from "react";
-import { GETH_ADDRESSES, METH_ADDRESSES, WETH_ADDRESSES } from "src/constants/addresses";
-import { useBalance } from "src/hooks/useBalance";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
+import { useBalance, useContractWrite, usePrepareContractWrite } from "wagmi";
 import { useAccount } from "wagmi";
 import { useNetwork } from "wagmi";
+
+const abi = [
+  {
+    inputs: [
+      { internalType: "address", name: "_oft", type: "address" },
+      { internalType: "address", name: "_nativeOft", type: "address" },
+      { internalType: "address", name: "_uniswapRouter", type: "address" },
+    ],
+    stateMutability: "nonpayable",
+    type: "constructor",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "amountIn", type: "uint256" },
+      { internalType: "uint16", name: "dstChainId", type: "uint16" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "address payable", name: "refundAddress", type: "address" },
+      { internalType: "address", name: "zroPaymentAddress", type: "address" },
+      { internalType: "bytes", name: "adapterParams", type: "bytes" },
+    ],
+    name: "bridge",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "nativeOft",
+    outputs: [{ internalType: "contract INativeOFT", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "oft",
+    outputs: [{ internalType: "contract IOFTCore", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "amountIn", type: "uint256" },
+      { internalType: "uint256", name: "amountOutMin", type: "uint256" },
+      { internalType: "uint16", name: "dstChainId", type: "uint16" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "address payable", name: "refundAddress", type: "address" },
+      { internalType: "address", name: "zroPaymentAddress", type: "address" },
+      { internalType: "bytes", name: "adapterParams", type: "bytes" },
+    ],
+    name: "swapAndBridge",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "uniswapRouter",
+    outputs: [{ internalType: "contract IUniswapV2Router02", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+];
 
 const PREFIX = "BridgeInputArea";
 
@@ -32,15 +93,15 @@ const TOKEN_LIST = [
   //   logoURI:
   //     "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
   // },
-  {
-    name: "GETH on Mainnet",
-    address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
-    symbol: "GETH",
-    decimals: 18,
-    chainId: 5,
-    logoURI:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
-  },
+  // {
+  //   name: "GETH on Mainnet",
+  //   address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
+  //   symbol: "GETH",
+  //   decimals: 18,
+  //   chainId: 5,
+  //   logoURI:
+  //     "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  // },
 ];
 
 const TOKEN_LIST_GOERLI = [
@@ -62,15 +123,15 @@ const TOKEN_LIST_GOERLI = [
   //   logoURI:
   //     "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
   // },
-  {
-    name: "GETH on Goerli",
-    address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
-    symbol: "GETH",
-    decimals: 18,
-    chainId: 5,
-    logoURI:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
-  },
+  // {
+  //   name: "GETH on Goerli",
+  //   address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
+  //   symbol: "GETH",
+  //   decimals: 18,
+  //   chainId: 5,
+  //   logoURI:
+  //     "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  // },
 ];
 
 interface TokenListProps {
@@ -84,22 +145,49 @@ const Bridge = () => {
   const theme = useTheme();
   const [selected, setSelected] = useState(TOKEN_LIST[0]);
   const [inputSelectedToken, setInputSelectedToken] = useState(TOKEN_LIST[0]);
-  const [outputSelectedToken, setOutputSelectedToken] = useState(TOKEN_LIST[0]);
+  const [outputSelectedToken, setOutputSelectedToken] = useState(TOKEN_LIST_GOERLI[0]);
   const [inputAmount, setInputAmount] = useState(0);
   const [gasCost, setGasCost] = useState();
   const { isConnected } = useAccount();
 
   const [amount, setAmount] = useState("");
   const [receiveAmount, setReceiveAmount] = useState("");
+  const account = useAccount();
+  const prepared = usePrepareContractWrite({
+    chainId: 1,
+    address: "0x0A9f824C05A74F577A536A8A0c673183a872Dff4",
+    abi,
+    functionName: "bridge",
+    args: [
+      parseEther(inputAmount.toString()),
+      154,
+      account?.address,
+      account?.address,
+      "0x0000000000000000000000000000000000000000",
+      "0x",
+      { value: parseEther(String(Number(inputAmount) + 0.0015)).toString() },
+    ],
+  });
+  //@ts-ignore
+  const bridge = useContractWrite(prepared.config);
   // balance stuff
   // const addresses = fromToken === "GDAO" ? GDAO_ADDRESSES : fromToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES;
   // const balance = useBalance(addresses)[networks.MAINNET].data;
-  const wethBalance = useBalance(WETH_ADDRESSES)[networks.MAINNET].data;
-  const gethBalance = useBalance(GETH_ADDRESSES)[networks.MAINNET].data;
-  const methBalance = useBalance(METH_ADDRESSES)[networks.MAINNET].data;
+  // const wethBalance = useBalance(WETH_ADDRESSES)[networks.MAINNET].data;
+  // const gethBalance = useBalance(GETH_ADDRESSES)[networks.MAINNET].data;
+  // const methBalance = useBalance(METH_ADDRESSES)[networks.MAINNET].data;
+
+  const ethBalance = useBalance({
+    // @ts-ignore
+    addressOrName: account?.address,
+    formatUnits: "ether",
+  });
+  console.log(account, ethBalance);
 
   const handleInputValue = (e: any) => {
-    setInputAmount(e.target.value);
+    if (Number(e.target.value) > Number(ethBalance.data?.formatted) - 0.0015)
+      setInputAmount(Number(ethBalance.data?.formatted) - 0.0015);
+    else setInputAmount(e.target.value);
   };
 
   const handleInputToken = (e: any) => {
@@ -209,16 +297,18 @@ const Bridge = () => {
             <div className="z-30 border-l border-r border-b border-black">
               <div className="relative rounded-md shadow-sm">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                  <button
+                  {/* <button
                     style={{
                       fontSize: 9,
                       fontWeight: 500,
+                      marginLeft:-40,
                       color: theme.palette.mode === "dark" ? "#000" : "#000",
                     }}
+                    onClick={() => setInputAmount(Number(ethBalance.data?.formatted))}
                     className="bg-gray-300 p-1.5"
                   >
                     MAX
-                  </button>
+                  </button> */}
                 </div>
                 <input
                   onChange={handleInputValue}
@@ -246,16 +336,16 @@ const Bridge = () => {
                       fontSize: "0.6rem",
                     }}
                   >
-                    0.00
+                    {ethBalance?.data?.formatted}
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div onClick={handleSwap} className="flex justify-center">
+          {/* <div onClick={handleSwap} className="flex justify-center">
             <SwapCallsOutlinedIcon />
-          </div>
+          </div> */}
 
           {/* OUTPUT + LISTBOX */}
           <div className="w-full z-50">
@@ -325,7 +415,8 @@ const Bridge = () => {
             <div className="z-30 border-l border-r border-b border-black">
               <div className="relative rounded-md shadow-sm">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                  <button
+                  {/* <button
+                  onClick={() => setInputAmount(Number(ethBalance.data?.formatted))}
                     style={{
                       fontSize: 9,
                       fontWeight: 500,
@@ -334,7 +425,7 @@ const Bridge = () => {
                     className="bg-gray-300 p-1.5"
                   >
                     MAX
-                  </button>
+                  </button> */}
                 </div>
                 <input
                   onChange={handleInputValue}
@@ -348,7 +439,7 @@ const Bridge = () => {
                   className="block w-full p-4 pl-12 pr-12 sm:text-sm"
                   placeholder="0.00"
                 />
-                <div className="absolute inset-y-0 right-0 flex flex-col justify-center p-1.5 text-gray-400">
+                {/* <div className="absolute inset-y-0 right-0 flex flex-col justify-center p-1.5 text-gray-400">
                   <span
                     style={{
                       fontSize: "0.6rem",
@@ -362,9 +453,9 @@ const Bridge = () => {
                       fontSize: "0.6rem",
                     }}
                   >
-                    0.00
+                    {0.00}
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -384,13 +475,20 @@ const Bridge = () => {
                     {inputAmount} {outputSelectedToken.name}
                   </span>
                 </div>
-                {/* <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between">
                   <span>Gas Cost</span>
-                  <span>--</span>
-                </div> */}
+                  <span>0.0015 ETH messaging + gas</span>
+                </div>
               </div>
 
-              <button className="py-3 px-6 bg-blue-800 text-white w-full font-semibold">
+              <button
+                onClick={() => {
+                  if (inputAmount <= 0) return;
+                  console.log(parseEther(String(Number(inputAmount) + 0.0015)).toString());
+                  bridge?.writeAsync?.();
+                }}
+                className="py-3 px-6 bg-blue-800 text-white w-full font-semibold"
+              >
                 {inputAmount == 0 ? "ENTER AMOUNT" : "BRIDGE"}
               </button>
             </div>
