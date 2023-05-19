@@ -15,17 +15,19 @@ const Footer = () => {
       }}
     >
       <div className="container mx-auto flex items-end justify-between font-semibold">
-        <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-1 text-xs">
+        <div className="grid grid-cols-1 md:grid-cols-1 grid-rows-3 gap-2 text-xs">
+          <a href="">Donate</a>
           <a href="">Docs</a>
-          <a href="">Discord</a>
+          <a href="">Stats</a>
         </div>
         <div className="flex flex-col justify-center items-center">
           {theme === "dark" ? <FooterApeWhite className="w-20" /> : <FooterApeBlue className="w-20" />}
           <span className="text-xs">© Gööööööööööööööööööööööööerli</span>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+        <div className="grid grid-cols-1 md:grid-rows-3 gap-2 text-xs">
           <a href="">Twitter</a>
           <a href="">Telegram</a>
+          <a href="">Discord</a>
         </div>
       </div>
     </div>

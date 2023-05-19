@@ -132,14 +132,12 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
             color: renderedColor(),
           }}
           id="navLinks"
-          className="hidden md:grid grid-cols-6 grid-rows-1 gap-8 text-xs font-base"
+          className="hidden md:grid grid-cols-4 grid-rows-1 gap-8 text-xs font-base"
         >
-          <Link to="/donate">Donate</Link>
           <Link to="/bridge">Bridge</Link>
           <Link to="/swap">Swap</Link>
           <Link to="/stake">Stake</Link>
           <Link to="/bond">Bond</Link>
-          <Link to="/stats">Stats</Link>
         </div>
 
         <div className="flex items-center justify-between">

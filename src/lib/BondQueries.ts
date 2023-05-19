@@ -1,8 +1,82 @@
 import { gql } from "@apollo/client";
 
-export const VESTING_TOKENS = gql`
+export const GET_GDAO_MARKETS = gql`
   {
-    ownerBalances(where: { owner_contains_nocase: OWNER_ADDRESS, balance_gt: 0 }) {
+    markets(where: { hasClosed: false, name_contains: "GDAO", network: "goerli" }) {
+      id
+      name
+      network
+      auctioneer
+      teller
+      marketId
+      owner
+      callbackAddress
+      capacity
+      capacityInQuote
+      chainId
+      minPrice
+      scale
+      start
+      conclusion
+      payoutToken {
+        id
+        address
+        symbol
+        decimals
+        name
+      }
+      quoteToken {
+        id
+        address
+        symbol
+        decimals
+        name
+        lpPair {
+          token0 {
+            id
+            address
+            symbol
+            decimals
+            name
+            typeName
+          }
+          token1 {
+            id
+            address
+            symbol
+            decimals
+            name
+            typeName
+          }
+        }
+        balancerWeightedPool {
+          id
+          vaultAddress
+          poolId
+          constituentTokens {
+            id
+            address
+            symbol
+            decimals
+            name
+            typeName
+          }
+        }
+      }
+      vesting
+      vestingType
+      isInstantSwap
+      hasClosed
+      totalBondedAmount
+      totalPayoutAmount
+      creationBlockTimestamp
+    }
+  }
+`;
+
+export const USER_VESTING_TOKENS = gql`
+  query VestingTokens($ownerAddress: String!) {
+    ownerBalances(where: { owner_contains_nocase: $ownerAddress, balance_gt: 0 }) {
       id
       tokenId
       owner
