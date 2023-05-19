@@ -213,10 +213,6 @@ const Bridge = () => {
     setOutputSelectedToken(temp);
   };
 
-  console.log("This is the input amount : ", inputAmount);
-  console.log("This is the input token : ", inputSelectedToken);
-  console.log("This is the output token : ", outputSelectedToken);
-
   return (
     <>
       <div className="my-20 flex items-center justify-center">
