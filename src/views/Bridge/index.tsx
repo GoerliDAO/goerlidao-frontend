@@ -93,15 +93,15 @@ const TOKEN_LIST = [
   //   logoURI:
   //     "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
   // },
-  // {
-  //   name: "GETH on Mainnet",
-  //   address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
-  //   symbol: "GETH",
-  //   decimals: 18,
-  //   chainId: 5,
-  //   logoURI:
-  //     "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
-  // },
+  {
+    name: "GETH on Mainnet",
+    address: "0xdD69DB25F6D620A7baD3023c5d32761D353D3De9",
+    symbol: "GETH",
+    decimals: 18,
+    chainId: 5,
+    logoURI:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  },
 ];
 
 const TOKEN_LIST_GOERLI = [
@@ -114,24 +114,16 @@ const TOKEN_LIST_GOERLI = [
     logoURI:
       "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
   },
-  // {
-  //   name: "Test Goerli DAO",
-  //   address: "0xba7cac3e2a1391bb9d5edfd64793ccd4fd29dc09",
-  //   symbol: "GDAO",
-  //   decimals: 9,
-  //   chainId: 5,
-  //   logoURI:
-  //     "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
-  // },
-  // {
-  //   name: "GETH on Goerli",
-  //   address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
-  //   symbol: "GETH",
-  //   decimals: 18,
-  //   chainId: 5,
-  //   logoURI:
-  //     "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
-  // },
+
+  {
+    name: "GETH on Goerli",
+    address: "0x4f7a67464b5976d7547c860109e4432d50afb38e",
+    symbol: "GETH",
+    decimals: 18,
+    chainId: 5,
+    logoURI:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  },
 ];
 
 interface TokenListProps {
@@ -168,8 +160,26 @@ const Bridge = () => {
       { value: parseEther(String(Number(inputAmount) + 0.0015)).toString() },
     ],
   });
+
+  const prepareGeth = usePrepareContractWrite({
+    chainId: 1,
+    address: "0xdd69db25f6d620a7bad3023c5d32761d353d3de9",
+    abi,
+    functionName: "sendFrom",
+    args: [
+      account?.address,
+      154,
+      account?.address,
+      parseEther(inputAmount.toString()),
+      account?.address,
+      "0x0000000000000000000000000000000000000000",
+      "0x",
+      { value: parseEther(String(Number(inputAmount) + 0.0015)).toString() },
+    ],
+  });
   //@ts-ignore
   const bridge = useContractWrite(prepared.config);
+  const sendFrom = useContractWrite(prepareGeth.config);
   // balance stuff
   // const addresses = fromToken === "GDAO" ? GDAO_ADDRESSES : fromToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES;
   // const balance = useBalance(addresses)[networks.MAINNET].data;
@@ -184,10 +194,25 @@ const Bridge = () => {
   });
   console.log(account, ethBalance);
 
+  const gethBalance = useBalance({
+    // @ts-ignore
+    addressOrName: account?.address,
+    token: "0xdd69db25f6d620a7bad3023c5d32761d353d3de9",
+    chainId: 1,
+    // formatUnits: "ether",
+  });
+  console.log(account, gethBalance);
+
   const handleInputValue = (e: any) => {
-    if (Number(e.target.value) > Number(ethBalance.data?.formatted) - 0.0015)
-      setInputAmount(Number(ethBalance.data?.formatted) - 0.0015);
-    else setInputAmount(e.target.value);
+    if (inputSelectedToken == TOKEN_LIST[0]) {
+      if (Number(e.target.value) > Number(ethBalance.data?.formatted) - 0.0015)
+        setInputAmount(Number(ethBalance.data?.formatted) - 0.0015);
+      else setInputAmount(e.target.value);
+    } else {
+      if (Number(e.target.value) > Number(gethBalance.data?.formatted) - 0.0015)
+        setInputAmount(Number(gethBalance.data?.formatted) - 0.0015);
+      else setInputAmount(e.target.value);
+    }
   };
 
   const handleInputToken = (e: any) => {
@@ -332,7 +357,7 @@ const Bridge = () => {
                       fontSize: "0.6rem",
                     }}
                   >
-                    {ethBalance?.data?.formatted}
+                    {inputSelectedToken == TOKEN_LIST[0] ? ethBalance?.data?.formatted : gethBalance?.data?.formatted}
                   </span>
                 </div>
               </div>
@@ -483,7 +508,11 @@ const Bridge = () => {
                     alert("No zero inputs");
                   }
                   console.log(parseEther(String(Number(inputAmount) + 0.0015)).toString());
-                  bridge?.writeAsync?.();
+                  if (inputSelectedToken == TOKEN_LIST[0]) {
+                    bridge?.writeAsync?.();
+                  } else {
+                    sendFrom?.writeAsync?.();
+                  }
                 }}
                 className="py-3 px-6 bg-blue-800 text-white w-full font-semibold"
               >
