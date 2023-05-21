@@ -3,7 +3,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material";
-import { parseEther } from "ethers/lib/utils";
+import { parseEther, parseUnits } from "ethers/lib/utils";
 import { useState } from "react";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { useBalance, useContractWrite, usePrepareContractWrite } from "wagmi";
@@ -170,11 +170,11 @@ const Bridge = () => {
       account?.address,
       154,
       account?.address,
-      parseEther(inputAmount.toString()),
+      parseUnits(inputAmount.toString(), 18),
       account?.address,
       "0x0000000000000000000000000000000000000000",
       "0x",
-      { value: parseEther(String(Number(inputAmount) + 0.0015)).toString() },
+      { value: parseEther("0.0015").toString() },
     ],
   });
   //@ts-ignore
