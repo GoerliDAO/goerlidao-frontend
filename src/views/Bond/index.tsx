@@ -1,19 +1,21 @@
+import { useQuery } from "@apollo/client";
 import React from "react";
 import BondCards from "src/components/BondCards";
 import Footer from "src/components/Footer";
+import { USER_VESTING_TOKENS } from "src/lib/BondQueries";
 import { useAccount } from "wagmi";
 
 const Bond = () => {
   const account = useAccount();
 
   // User Vesting Tokens Query
-  // const {
-  //   loading: userVestedTokensLoading,
-  //   error: userVestedTokensError,
-  //   data: userVestedTokenData,
-  // } = useQuery(USER_VESTING_TOKENS, {
-  //   variables: { ownerAddress: account },
-  // });
+  const {
+    loading: userVestedTokensLoading,
+    error: userVestedTokensError,
+    data: userVestedTokenData,
+  } = useQuery(USER_VESTING_TOKENS, {
+    variables: { ownerAddress: account },
+  });
 
   return (
     <>
