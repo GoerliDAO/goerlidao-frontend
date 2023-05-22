@@ -40,7 +40,6 @@ import { useAccount, useConnect, useNetwork, useProvider } from "wagmi";
 const Bridge = lazy(() => import("./views/Bridge"));
 const TreasuryDashboard = lazy(() => import("./views/TreasuryDashboard/TreasuryDashboard"));
 const NotFound = lazy(() => import("./views/404/NotFound"));
-const V1Stake = lazy(() => import("./views/V1-Stake/V1-Stake"));
 const Swap = lazy(() => import("./views/Swap"));
 const Donate = lazy(() => import("./views/Donate"));
 const Bond = lazy(() => import("./views/Bond"));
@@ -137,10 +136,7 @@ function App() {
     }
     loadDetails("app");
   }, []);
-
-  // this useEffect picks up any time a user Connects via the button
   useEffect(() => {
-    // don't load ANY details until wallet is Connected
     if (isConnected && provider) {
       loadDetails("account");
     }
@@ -179,6 +175,21 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          gutter={8}
+          containerClassName=""
+          containerStyle={{}}
+          toastOptions={{
+            className: "",
+            duration: 5000,
+            style: {
+              background: "#363636",
+              color: "#fff",
+            },
+          }}
+        />
         <RainbowKitProvider
           chains={chains}
           theme={
@@ -211,7 +222,6 @@ function App() {
                       path="/stake"
                       element={<StakeVersionContainer setMigrationModalOpen={setMigrationModalOpen} />}
                     />
-                    <Route path="/v1-stake" element={<V1Stake setMigrationModalOpen={setMigrationModalOpen} />} />
                     <Route path="/swap" element={<Swap />} />
                     <Route path="/bond" element={<Bond />} />
                     <Route path="/bridge" element={<Bridge />} />

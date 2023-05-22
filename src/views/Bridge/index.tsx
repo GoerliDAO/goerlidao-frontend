@@ -5,6 +5,7 @@ import SwapCallsOutlinedIcon from "@mui/icons-material/SwapCallsOutlined";
 import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { useState } from "react";
+import Footer from "src/components/Footer";
 import { GETH_ADDRESSES, METH_ADDRESSES, WETH_ADDRESSES } from "src/constants/addresses";
 import { useBalance } from "src/hooks/useBalance";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
@@ -357,6 +358,7 @@ const Bridge = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

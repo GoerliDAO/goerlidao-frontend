@@ -27,7 +27,6 @@ export default ({ mode }) => {
       rollupOptions: {
         external: [
           '@uniswap/widgets',
-          '@mui/material/node_modules/@mui/utils/esm/elementAcceptingRef.js',
         ],
       },
     },

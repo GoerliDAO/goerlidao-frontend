@@ -12,7 +12,7 @@ import { useOldAssetsDetected } from "src/hooks/useOldAssetsDetected";
 import { useOldAssetsEnoughToMigrate } from "src/hooks/useOldAssetsEnoughToMigrate";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { NetworkId } from "src/networkDetails";
-import { Stake, V1Stake } from "src/views";
+import Stake from "src/views/Stake/Stake";
 
 export const StakeVersionContainer: React.FC<{ setMigrationModalOpen: Dispatch<SetStateAction<boolean>> }> = props => {
   const oldAssetsDetected = useOldAssetsDetected();
@@ -41,5 +41,5 @@ export const StakeVersionContainer: React.FC<{ setMigrationModalOpen: Dispatch<S
 
   if (newAssetsDetected || (!newAssetsDetected && !oldAssetsDetected) || !oldAssetsEnoughToMigrate) return <Stake />;
 
-  return <V1Stake setMigrationModalOpen={props.setMigrationModalOpen} />;
+  return null;
 };

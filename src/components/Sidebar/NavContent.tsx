@@ -65,21 +65,21 @@ const NavContent: React.VFC = () => {
           </div>
         </div>
         <Box>
-          <NavItem href="https://docs.olympusdao.finance/" icon="docs" label={`Docs`} />
+          <NavItem href="https://docs.goerli.com/" icon="docs" label={`Docs`} />
           <StyledBox display="flex" justifyContent="space-around" paddingY="24px">
             <Link href="https://github.com/OlympusDAO" target="_blank" rel="noopener noreferrer">
               <Icon name="github" className={classes.gray} />
             </Link>
 
-            <Link href="https://olympusdao.medium.com/" target="_blank" rel="noopener noreferrer">
+            <Link href="https://goerlidao.medium.com/" target="_blank" rel="noopener noreferrer">
               <Icon name="medium" className={classes.gray} />
             </Link>
 
-            <Link href="https://twitter.com/OlympusDAO" target="_blank" rel="noopener noreferrer">
+            <Link href="https://twitter.com/goerlidao" target="_blank" rel="noopener noreferrer">
               <Icon name="twitter" className={classes.gray} />
             </Link>
 
-            <Link href="https://discord-invite.olympusdao.finance" target="_blank" rel="noopener noreferrer">
+            <Link href="" target="_blank" rel="noopener noreferrer">
               <Icon name="discord" className={classes.gray} />
             </Link>
           </StyledBox>

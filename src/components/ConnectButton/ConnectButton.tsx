@@ -1,4 +1,4 @@
-import { Box, Button, Link, SvgIcon, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Link, SvgIcon, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Icon, OHMButtonProps, PrimaryButton } from "@olympusdao/component-library";
 import { ConnectButton as RainbowConnectButton } from "@rainbow-me/rainbowkit";
 import { Link as RouterLink, useLocation } from "react-router-dom";
@@ -59,6 +59,7 @@ export const InPageConnectButton = ({
 export const ConnectButton = () => {
   const location = useLocation();
   const theme = useTheme();
+  console.log(" This is a theme: ", theme);
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const walletDrawerOpen =
@@ -121,8 +122,8 @@ export const ConnectButton = () => {
                           {`CONNECT WALLET`}
                         </button>
                       ) : (
-                        <Button
-                          sx={{
+                        <button
+                          style={{
                             fontSize: "0.875rem",
                             height: "39px",
                             minWidth: "39px",
@@ -132,7 +133,7 @@ export const ConnectButton = () => {
                           }}
                         >
                           <SvgIcon component={WalletIcon} />
-                        </Button>
+                        </button>
                       )}
                     </Link>
                   );
@@ -149,7 +150,6 @@ export const ConnectButton = () => {
                           marginRight: "9px",
                           fontSize: "0.875rem",
                           height: "39px",
-                          borderRadius: "6px",
                           padding: "9px 18px",
                           cursor: "pointer",
                           fontWeight: 500,
@@ -208,39 +208,40 @@ export const ConnectButton = () => {
                       style={{ marginRight: "0px" }}
                     >
                       {mobile ? (
-                        <Button
-                          sx={{
+                        <button
+                          style={{
                             fontSize: "0.875rem",
                             height: "39px",
                             minWidth: "39px",
-                            borderRadius: "6px",
-                            background:
-                              theme.palette.mode === "dark" ? theme.colors.gray[500] : theme.colors.paper.card,
-                            color: theme.colors.gray[10],
-                            "&:hover": {
-                              background:
-                                theme.palette.mode === "dark" ? theme.colors.gray[90] : theme.colors.paper.cardHover,
-                              color: theme.colors.gray[10],
-                            },
                           }}
                         >
                           <SvgIcon component={WalletIcon} />
-                        </Button>
+                        </button>
                       ) : (
-                        <Button
-                          sx={{
+                        <button
+                          className="flex items-center"
+                          style={{
                             padding: "9px 18px",
                             marginLeft: "9px",
-                            fontSize: "0.875rem",
-                            height: "39px",
-                            background: theme.colors.gray[500],
-                            color: theme.colors.gray[10],
-                            "&:hover": { background: theme.colors.gray[90], color: theme.colors.gray[10] },
+                            fontSize: "0.8rem",
+                            height: "35px",
+                            backgroundColor: theme.palette.mode === "dark" ? "#000" : "#fff",
+                            color: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
+                            border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
                           }}
                         >
-                          <SvgIcon component={WalletIcon} style={{ marginRight: "9px" }} />
+                          <svg
+                            className="flex items-center justify-center"
+                            style={{
+                              marginRight: "5px",
+                            }}
+                            height="7"
+                            width="7"
+                          >
+                            <circle cx="3" cy="3" r="3" fill="lightgreen" />
+                          </svg>
                           {chain.unsupported ? "Unsupported Network" : account.displayName}
-                        </Button>
+                        </button>
                       )}
                     </Link>
                   )}

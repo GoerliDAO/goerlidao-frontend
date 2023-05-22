@@ -3,6 +3,7 @@ import "src/views/Stake/Stake.scss";
 import { Box } from "@mui/material";
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "src/components/Footer";
 import { usePathForNetwork } from "src/hooks/usePathForNetwork";
 import { ClaimsArea } from "src/views/Stake/components/ClaimsArea/ClaimsArea";
 // import { ExternalStakePools } from "src/views/Stake/components/ExternalStakePools/ExternalStakePools";
@@ -15,11 +16,14 @@ const Stake: React.FC = () => {
   usePathForNetwork({ pathName: "stake", networkID: chain.id, navigate });
 
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">
-      <StakeArea />
-      {/* <ExternalStakePools /> */}
-      <ClaimsArea />
-    </Box>
+    <>
+      <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">
+        <StakeArea />
+        {/* <ExternalStakePools /> */}
+        <ClaimsArea />
+      </Box>
+      <Footer />
+    </>
   );
 };
 

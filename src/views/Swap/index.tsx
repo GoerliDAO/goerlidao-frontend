@@ -40,8 +40,8 @@ const TOKEN_LIST = [
   },
 ];
 
-const mainnet_RPC_URL = import.meta.env.VITE_INFURA_URL_KEY;
-const goerli_RPC_URL = import.meta.env.VITE_INFURA_URL_KEY;
+const mainnet_RPC_URL = import.meta.env.MAINNET_VITE_INFURA_URL_KEY;
+const goerli_RPC_URL = import.meta.env.GOERLI_VITE_INFURA_URL_KEY;
 
 const jsonRpcUrlMap = {
   1: [mainnet_RPC_URL],
@@ -69,6 +69,14 @@ const Swap = () => {
       <div className="mt-10 flex items-center justify-center">
         {/* <iframe height={500} style={{ borderRadius: 20 }} src="https://graceful-cactus-2bd4c8.netlify.app/"></iframe> */}
         <iframe height={470} style={{ borderRadius: 20 }} src="https://gdao-swap.vercel.app/"></iframe>
+        {/* <SwapWidget
+        tokenList={[
+          { name: 'GDAO', symbol: 'GDAO', address: '0xE12873DFEab0Ba61aC7b742fc3679F702a6808e9', decimals: 9, chainId: 5 },
+          { name: 'USD//C', symbol: 'USDC', address: '0x07865c6E87B9F70255377e024ace6630C1Eaa37F', decimals: 6, chainId: 5}
+        ]}
+        jsonRpcUrlMap={jsonRpcUrlMap}
+        defaultOutputTokenAddress={'0xE12873DFEab0Ba61aC7b742fc3679F702a6808e9'} 
+        defaultChainId={5}/> */}
       </div>
       <Footer />
     </>

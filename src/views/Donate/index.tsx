@@ -14,15 +14,10 @@ const Donate = () => {
   const contractABI = donateABI;
   const [totalTokens, setTotalTokens] = React.useState(10);
   const [donationAmount, setDonationAmount] = React.useState(0);
-  console.log("donationAmount :", donationAmount);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-
-    // Remove any non-digit characters from the input value
     const sanitizedValue = value.replace(/\D/g, "");
-
-    // Check if the input is a valid number and not less than 0
     if (sanitizedValue === "" || (Number(sanitizedValue) >= 0 && !isNaN(Number(sanitizedValue)))) {
       setDonationAmount(Number(sanitizedValue));
     }
@@ -54,22 +49,33 @@ const Donate = () => {
 
     const cap = await contract.cap();
     const share = await contract.share(account.address);
+    const formattedShare = ethers.utils.formatEther(share);
+
+    // individual cap in wei and converted to ether
     const individualCap = await contract.individualCap();
+    const formattedIndividualCap = ethers.utils.formatEther(individualCap);
+
     const saleConcluded = await contract.saleConcluded();
 
+    // total donated in wei and converted to ether
+    const total = await contract.total();
+    const totalInEther = ethers.utils.formatEther(total);
+
     return {
-      cap,
-      share,
+      formattedIndividualCap,
+      formattedShare,
       individualCap,
       saleConcluded,
+      totalInEther,
     };
   };
 
   const [donationEventContractData, setDonationEventContractData] = useState({
-    cap: 0,
-    share: 0,
+    formattedIndividualCap: "0",
+    formattedShare: "0",
     individualCap: 0,
     saleConcluded: false,
+    totalInEther: "0",
   });
 
   useEffect(() => {
@@ -85,7 +91,7 @@ const Donate = () => {
     fetchContractData();
   }, []);
 
-  console.log("This is your contract data:", donationEventContractData);
+  console.log("This is your contract data: ", donationEventContractData);
 
   return (
     <>
@@ -99,7 +105,7 @@ const Donate = () => {
           >
             <div className="grid grid-cols-1 grid-rows-2 gap-2 p-4 rounded-xl">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold underline">GOERLIDAO Donation Event</span>
+                <span className="text-sm font-extrabold">GOERLIDAO Donation Event</span>
                 <div
                   style={{
                     backgroundColor: theme.palette.mode === "dark" ? "#fff" : "#000",
@@ -113,12 +119,12 @@ const Donate = () => {
               </div>
 
               <div className="flex flex-col">
-                <span style={{ fontSize: 11 }}>
-                  TOTAL $GETH CONTRIBUTED: <span className="font-bold">0Ξ</span>
+                <span style={{ fontSize: 10 }}>
+                  TOTAL $GETH CONTRIBUTED: <span className="font-bold">{donationEventContractData.totalInEther}Ξ</span>
                 </span>
               </div>
 
-              <div className="flex flex-col hidden">
+              <div className="flex-col hidden">
                 <div
                   style={{
                     border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
@@ -158,7 +164,7 @@ const Donate = () => {
             <div className="grid grid-cols-1 grid-rows-2 p-2 rounded-b-lg">
               <div className="py-2.5 flex items-center justify-between">
                 <p>Max. Individual Contribution</p>
-                <span>{(donationEventContractData.individualCap / 10 ** 18).toString()}Ξ</span>
+                <span>{donationEventContractData.formattedIndividualCap}Ξ</span>
               </div>
               <div className="flex items-center justify-between">
                 <p>Multisig</p>
@@ -181,7 +187,7 @@ const Donate = () => {
             }}
             className="font-semibold mt-2.5 rounded-md p-2"
           >
-            MY CONTRIBUTION: {(donationEventContractData.share / 10 ** 18).toString()}Ξ (GETH)
+            MY CONTRIBUTION: {donationEventContractData.formattedShare}Ξ (GETH)
           </div>
 
           <div className="my-2.5 rounded-md shadow-sm">
@@ -199,6 +205,7 @@ const Donate = () => {
             </div>
           </div>
           <button
+            disabled={!account}
             onClick={deposit}
             className="w-full p-2 text-center bg-white text-black border border-black font-extrabold rounded-md mt-2.5"
           >

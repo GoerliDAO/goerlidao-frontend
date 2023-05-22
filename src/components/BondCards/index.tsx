@@ -1,22 +1,24 @@
 import React from "react";
 import useTheme from "src/hooks/useTheme";
 
-// interface BondCardsProps {
+interface BondCardsProps {
+  bondToken: string;
+  bondId: string;
+}
 
-// }
-
-const BondCards = () => {
+const BondCards: React.FC<BondCardsProps> = ({ bondToken, bondId }) => {
   const [theme, toggleTheme] = useTheme();
 
   return (
     <>
       <div
         style={{
-          background: theme === "dark" ? "#1F1F1F" : "#FFFFFF",
+          border: theme === "dark" ? "1px solid #000" : "1px solid #FFFFFF",
         }}
-        className=""
+        className="p-2 rounded-md"
       >
-        <div className="flex flex-col"></div>
+        <div className="flex flex-col">{bondToken}</div>
+        <div className="flex flex-col">{bondId}</div>
       </div>
     </>
   );

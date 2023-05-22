@@ -1,6 +1,6 @@
 import { Box, SwipeableDrawer, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Icon, SecondaryButton, TabBar } from "@olympusdao/component-library";
+import { Icon, SecondaryButton } from "@olympusdao/component-library";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ConnectButton, InPageConnectButton } from "src/components/ConnectButton/ConnectButton";
@@ -121,14 +121,14 @@ export function Wallet(props: {
               />
             </Box>
           </Box>
-          <TabBar
+          {/* <TabBar
             items={[
-              { label: "Wallet", to: "/wallet" },
-              { label: "Utility", to: "/utility" },
-              { label: "Info", to: "/info" },
+              // { label: "Wallet", to: "/wallet" },
+              // { label: "Utility", to: "/utility" },
+              // { label: "Info", to: "/info" },
             ]}
             mb={"18px"}
-          />
+          /> */}
         </Box>
         <Box
           style={{
