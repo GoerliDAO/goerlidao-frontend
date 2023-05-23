@@ -18,7 +18,6 @@ import { MigrationCallToAction } from "src/components/MigrationCallToAction";
 import { MigrationNotification } from "src/components/MigrationNotification";
 import NavDrawer from "src/components/Sidebar/NavDrawer";
 import Sidebar from "src/components/Sidebar/Sidebar";
-import StagingNotification from "src/components/StagingNotification";
 import { StakeVersionContainer } from "src/components/StakeVersionContainer";
 import TopBar from "src/components/TopBar/TopBar";
 import Wallet from "src/components/TopBar/Wallet";
@@ -202,7 +201,6 @@ function App() {
             <CssBaseline />
             <div className={`app ${isSmallerScreen && "tablet"} ${isSmallScreen && "mobile"} ${theme}`}>
               <Toaster>{t => <Messages toast={t} />}</Toaster>
-              <StagingNotification />
               <TopBar theme={theme} toggleTheme={toggleTheme} handleDrawerToggle={handleDrawerToggle} />
 
               <nav className="hidden">

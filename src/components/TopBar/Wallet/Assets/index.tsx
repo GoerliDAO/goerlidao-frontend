@@ -146,6 +146,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
     //   alwaysShow: true,
     // },
     {
+      //@ts-ignore
       symbol: ["GDAO"] as OHMTokenStackProps["tokens"],
       balance: formattedgdaoBalance,
       assetValue: gdaoBalance.toApproxNumber() * ohmPrice,
@@ -158,6 +159,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
     //   assetValue: v1OhmBalance.toApproxNumber() * ohmPrice,
     // },
     {
+      //@ts-ignore
       symbol: ["sGDAO"] as OHMTokenStackProps["tokens"],
       balance: formattedSOhmBalance,
       timeRemaining:
@@ -192,6 +194,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
     //   geckoTicker: "governance-ohm",
     // },
     {
+      //@ts-ignore
       symbol: ["xGDAO"] as OHMTokenStackProps["tokens"],
       balance: formattedgOhmBalance,
       assetValue: gOhmPrice * totalGohmBalance.toApproxNumber(),

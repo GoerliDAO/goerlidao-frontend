@@ -56,8 +56,8 @@ import { publicProvider } from "wagmi/providers/public";
 
 export const { chains, provider, webSocketProvider } = configureChains(
   [
-    { ...chain.mainnet, rpcUrls: { default: "https://rpc.ankr.com/eth" } },
     { ...chain.goerli, rpcUrls: { default: "https://rpc.ankr.com/eth_goerli" } },
+    //{ ...chain.mainnet, rpcUrls: { default: "https://rpc.ankr.com/eth" } },
   ],
   [
     jsonRpcProvider({ rpc: chain => ({ http: chain.rpcUrls.default }) }),
@@ -77,7 +77,7 @@ const connectors = connectorsForWallets([
       braveWallet({ chains, shimDisconnect: true }),
       rainbowWallet({ chains }),
       walletConnectWallet({ chains }),
-      coinbaseWallet({ appName: "Olympus DAO", chains }),
+      coinbaseWallet({ appName: "GoerliDAO", chains }),
       ...(needsInjectedWalletFallback ? [injectedWallet({ chains, shimDisconnect: true })] : []),
     ],
   },

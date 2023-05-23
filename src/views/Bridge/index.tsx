@@ -259,10 +259,15 @@ const Bridge = () => {
                 <Listbox.Button className="relative w-full cursor-default bg-white py-2 pl-3 pr-10 text-left shadow-md sm:text-sm">
                   <div className="relative flex items-center justify-between">
                     <div className="flex items-end justify-between">
-                      <div className="w-8 h-8 border border-black"></div>
+                      <div className="w-8 h-8">
+                        <img src={inputSelectedToken?.logoURI} className="w-full h-full" />
+                      </div>
                       <div
-                        style={{ color: theme.palette.mode === "dark" ? "#000" : "#000" }}
-                        className="flex flex-col truncate mx-2 text-xs"
+                        style={{
+                          color: theme.palette.mode === "dark" ? "#000" : "#000",
+                          fontSize: "0.7rem",
+                        }}
+                        className="flex flex-col truncate mx-2"
                       >
                         <span>{inputSelectedToken?.name}</span>
                         <span>{inputSelectedToken?.symbol}</span>
@@ -377,10 +382,15 @@ const Bridge = () => {
                 <Listbox.Button className="relative w-full cursor-default bg-white py-2 pl-3 pr-10 text-left shadow-md sm:text-sm">
                   <div className="relative flex items-center justify-between">
                     <div className="flex items-end justify-between">
-                      <div className="w-8 h-8 border border-black"></div>
+                      <div className="w-8 h-8">
+                        <img src={outputSelectedToken?.logoURI} className="w-full h-full" />
+                      </div>
                       <div
-                        style={{ color: theme.palette.mode === "dark" ? "#000" : "#000" }}
-                        className="flex flex-col truncate mx-2 text-xs"
+                        style={{
+                          color: theme.palette.mode === "dark" ? "#000" : "#000",
+                          fontSize: "0.7rem",
+                        }}
+                        className="flex flex-col truncate mx-2"
                       >
                         <span>{outputSelectedToken?.name}</span>
                         <span>{outputSelectedToken?.symbol}</span>
