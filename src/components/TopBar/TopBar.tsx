@@ -135,10 +135,10 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
           className="hidden md:grid grid-cols-5 grid-rows-1 gap-8 text-xs font-base"
         >
           <Link to="/donate">Donate</Link>
-          <Link to="/bridge">Bridge</Link>
-          <Link to="/swap">Swap</Link>
-          <Link to="/stake">Stake</Link>
-          <Link to="/bond">Bond</Link>
+          <Link to="/">Bridge</Link>
+          <Link to="/">Swap</Link>
+          <Link to="/">Stake</Link>
+          <Link to="/">Bond</Link>
         </div>
 
         <div className="flex items-center justify-between">

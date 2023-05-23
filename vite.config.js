@@ -3,6 +3,7 @@ import polyfillNode from "rollup-plugin-polyfill-node";
 import { defineConfig } from "vite";
 import svgrPlugin from "vite-plugin-svgr";
 import viteTsconfigPaths from "vite-tsconfig-paths";
+import commonjs from '@rollup/plugin-commonjs';
 
 export default ({ mode }) => {
   return defineConfig({
@@ -12,7 +13,13 @@ export default ({ mode }) => {
       }),
       viteTsconfigPaths(),
       svgrPlugin(),
-      polyfillNode(),
+      { ...polyfillNode({ fs: true }), enforce: "post" },
+      commonjs({
+        include: 'node_modules/**',
+        namedExports: {
+          'node_modules/@emotion/memoize/dist/memoize.cjs.js': ['memoize']
+        }
+      }),
     ],
     resolve: {
       alias: {

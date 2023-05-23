@@ -19,7 +19,6 @@ import { MigrationNotification } from "src/components/MigrationNotification";
 import NavDrawer from "src/components/Sidebar/NavDrawer";
 import Sidebar from "src/components/Sidebar/Sidebar";
 import StagingNotification from "src/components/StagingNotification";
-import { StakeVersionContainer } from "src/components/StakeVersionContainer";
 import TopBar from "src/components/TopBar/TopBar";
 import Wallet from "src/components/TopBar/Wallet";
 import { shouldTriggerSafetyCheck } from "src/helpers";
@@ -218,15 +217,7 @@ function App() {
                 <Suspense fallback={<div></div>}>
                   <Routes>
                     <Route path="/" element={<LandingPage />} />
-                    <Route
-                      path="/stake"
-                      element={<StakeVersionContainer setMigrationModalOpen={setMigrationModalOpen} />}
-                    />
-                    <Route path="/swap" element={<Swap />} />
-                    <Route path="/bond" element={<Bond />} />
-                    <Route path="/bridge" element={<Bridge />} />
                     <Route path="/donate" element={<Donate />} />
-                    <Route path="/stats/*" element={<TreasuryDashboard />} />
                     <Route
                       path={"/info/*"}
                       element={<Wallet open={true} component="info" theme={theme} toggleTheme={toggleTheme} />}
