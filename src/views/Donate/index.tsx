@@ -17,9 +17,10 @@ const Donate = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    const sanitizedValue = value.replace(/\D/g, "");
-    if (sanitizedValue === "" || (Number(sanitizedValue) >= 0 && !isNaN(Number(sanitizedValue)))) {
-      setDonationAmount(Number(sanitizedValue));
+    const sanitizedValue = value.replace(/[^0-9.]/g, ""); // allow only digits and decimal point
+    const floatValue = parseFloat(sanitizedValue);
+    if (sanitizedValue === "" || (!isNaN(floatValue) && floatValue >= 0)) {
+      setDonationAmount(floatValue);
     }
   };
 
