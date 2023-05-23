@@ -50,7 +50,7 @@ const Donate = () => {
 
     const cap = await contract.cap();
     const share = await contract.share(account.address);
-    const formattedShare = ethers.utils.formatEther(share);
+    const shareInEther = ethers.utils.formatEther(share);
 
     // individual cap in wei and converted to ether
     const individualCap = await contract.individualCap();
@@ -64,7 +64,7 @@ const Donate = () => {
 
     return {
       formattedIndividualCap,
-      formattedShare,
+      shareInEther,
       individualCap,
       saleConcluded,
       totalInEther,
@@ -73,7 +73,7 @@ const Donate = () => {
 
   const [donationEventContractData, setDonationEventContractData] = useState({
     formattedIndividualCap: "0",
-    formattedShare: "0",
+    shareInEther: "0",
     individualCap: 0,
     saleConcluded: false,
     totalInEther: "0",
@@ -188,7 +188,7 @@ const Donate = () => {
             }}
             className="font-semibold mt-2.5 rounded-md p-2"
           >
-            MY CONTRIBUTION: {donationEventContractData.formattedShare}Ξ (GETH)
+            MY CONTRIBUTION: {donationEventContractData.shareInEther}Ξ (GETH)
           </div>
 
           <div className="my-2.5 rounded-md shadow-sm">
