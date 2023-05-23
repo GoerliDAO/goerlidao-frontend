@@ -3,6 +3,7 @@ import { getAccount } from "@wagmi/core";
 import { ethers } from "ethers";
 import React from "react";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import donateABI from "src/abi/donateABI";
 import Footer from "src/components/Footer";
 
@@ -37,10 +38,10 @@ const Donate = () => {
       const depositAmount = ethers.utils.parseEther(donationAmount.toString());
       const tx = await contract.deposit({ value: depositAmount });
       await tx.wait();
-      alert("Deposit successful!");
+      toast.success(`Successfully donated ${donationAmount}Ξ}`);
     } catch (err) {
       console.error(err);
-      alert("An error occurred, check the console for details");
+      toast.error("There was an error donating. Contact us if you need help.");
     }
   };
 
