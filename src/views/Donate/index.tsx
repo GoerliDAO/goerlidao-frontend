@@ -180,17 +180,6 @@ const Donate = () => {
             </div>
           </div>
 
-          <div
-            style={{
-              backgroundColor: theme.palette.mode === "dark" ? "#fff" : "#000",
-              color: theme.palette.mode === "dark" ? "#000" : "#fff",
-              fontSize: "0.7rem",
-            }}
-            className="font-semibold mt-2.5 rounded-md p-2"
-          >
-            MY CONTRIBUTION: {donationEventContractData.shareInEther}Ξ (GETH)
-          </div>
-
           <div className="my-2.5 rounded-md shadow-sm">
             <input
               min={0}
