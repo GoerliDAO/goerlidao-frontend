@@ -220,7 +220,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
 
   return (
     <StyledFade in={true}>
-      <Box>
+      <div>
         <Box display="flex" flexDirection="row" justifyContent="space-between">
           <WalletBalance
             title="Balance"
@@ -231,9 +231,6 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
         <Box display="flex" flexDirection="row" className={classes.selector} mb="18px" mt="18px">
           <Link component={NavLink} to="/wallet" end>
             <Typography>My Wallet</Typography>
-          </Link>
-          <Link component={NavLink} to="/wallet/history">
-            <Typography>History</Typography>
           </Link>
         </Box>
         {(() => {
@@ -250,7 +247,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
               );
           }
         })()}
-      </Box>
+      </div>
     </StyledFade>
   );
 };

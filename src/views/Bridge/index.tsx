@@ -81,8 +81,7 @@ const TOKEN_LIST = [
     symbol: "ETH",
     decimals: 18,
     chainId: 1,
-    logoURI:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+    logoURI: "https://goerli.etherscan.io/images/main/empty-token.png",
   },
   // {
   //   name: "Test Goerli DAO",
@@ -99,8 +98,7 @@ const TOKEN_LIST = [
     symbol: "GETH",
     decimals: 18,
     chainId: 5,
-    logoURI:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+    logoURI: "https://etherscan.io/token/images/goerli-eth.png",
   },
 ];
 
@@ -111,8 +109,7 @@ const TOKEN_LIST_GOERLI = [
     symbol: "METH",
     decimals: 18,
     chainId: 1,
-    logoURI:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+    logoURI: "https://goerli.etherscan.io/images/main/empty-token.png",
   },
 
   {
@@ -121,8 +118,7 @@ const TOKEN_LIST_GOERLI = [
     symbol: "GETH",
     decimals: 18,
     chainId: 5,
-    logoURI:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+    logoURI: "https://goerli.etherscan.io/images/main/empty-token.png",
   },
 ];
 
