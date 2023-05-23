@@ -1,6 +1,6 @@
 import { Box, SwipeableDrawer, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Icon, SecondaryButton } from "@olympusdao/component-library";
+import { Icon } from "@olympusdao/component-library";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ConnectButton, InPageConnectButton } from "src/components/ConnectButton/ConnectButton";
@@ -22,7 +22,6 @@ const classes = {
 // TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   [`& .${classes.networkSelector}`]: {
-    background: theme.colors.gray[700],
     minHeight: "39px",
     borderRadius: "6px",
     padding: "9px 18px",
@@ -39,11 +38,6 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   [`&.${classes.root}`]: {
     width: "460px",
     maxWidth: "100%",
-  },
-
-  [`& .${classes.paper}`]: {
-    maxWidth: "100%",
-    background: theme.colors.gray[700],
   },
 }));
 
@@ -77,7 +71,8 @@ export function Wallet(props: {
 
   const DisconnectButton = () => {
     const { disconnect } = useDisconnect();
-    return <SecondaryButton onClick={disconnect}>Disconnect</SecondaryButton>;
+    //@ts-ignore
+    return <button onClick={disconnect}>Disconnect Wallet</button>;
   };
 
   const ConnectMessage = () => (

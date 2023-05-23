@@ -1,7 +1,7 @@
 export const lightPalette = {
   paper: {
     background: "linear-gradient(65.7deg, #F5F5F5 8.35%, #FFFFFF 100%)",
-    card: "#EFEAE0",
+    card: "#FAFAFB",
     cardHover: "#FFFBF5",
   },
   fontColor: "#000000",
@@ -14,7 +14,7 @@ export const lightPalette = {
     pnlGain: "#3D9C70",
   },
   gray: {
-    700: "#FAFAFB",
+    700: "#C6D9F9",
     600: "#A3A3A3",
     500: "#676B74",
     90: "#3F4552",

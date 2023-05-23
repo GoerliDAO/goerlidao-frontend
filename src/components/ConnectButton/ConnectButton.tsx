@@ -169,10 +169,6 @@ export const ConnectButton = () => {
                           padding: "9px 18px",
                           cursor: "pointer",
                           background: theme.palette.mode === "light" ? theme.colors.paper.card : theme.colors.gray[600],
-                          "&:hover": {
-                            background:
-                              theme.palette.mode === "light" ? theme.colors.paper.cardHover : theme.colors.gray[500],
-                          },
                         }}
                         onClick={openChainModal}
                       >
@@ -219,13 +215,13 @@ export const ConnectButton = () => {
                         </button>
                       ) : (
                         <button
-                          className="flex items-center"
+                          className="flex items-center uppercase"
                           style={{
                             padding: "9px 18px",
                             marginLeft: "9px",
                             fontSize: "0.8rem",
                             height: "35px",
-                            backgroundColor: theme.palette.mode === "dark" ? "#000" : "#fff",
+                            backgroundColor: theme.palette.mode === "dark" ? "transparent" : "#fff",
                             color: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
                             border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
                           }}

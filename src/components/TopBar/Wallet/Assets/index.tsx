@@ -1,8 +1,8 @@
-import { Box, Fade, Link, Typography } from "@mui/material";
+import { Box, Fade } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { OHMTokenStackProps, WalletBalance } from "@olympusdao/component-library";
 import { FC, useState } from "react";
-import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Balances from "src/components/TopBar/Wallet/Assets/Balances";
 import { TransactionHistory } from "src/components/TopBar/Wallet/Assets/TransactionHistory";
@@ -102,6 +102,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   const { data: gohmFuseBalance = new DecimalBigNumber("0", 18) } = useFuseBalance()[NetworkId.MAINNET];
   const { data: gohmTokemakBalance = new DecimalBigNumber("0", 18) } = useGohmTokemakBalance()[NetworkId.MAINNET];
   const [faucetToken, setFaucetToken] = useState("OHM V2");
+  const theme = useTheme();
 
   const gohmTokens = [
     gohmFuseBalance,
@@ -229,9 +230,13 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
           />
         </Box>
         <Box display="flex" flexDirection="row" className={classes.selector} mb="18px" mt="18px">
-          <Link component={NavLink} to="/wallet" end>
-            <Typography>My Wallet</Typography>
-          </Link>
+          <span
+            style={{
+              color: theme.palette.mode === "light" ? "#000" : "#fff",
+            }}
+          >
+            My Wallet
+          </span>
         </Box>
         {(() => {
           switch (props.path) {
