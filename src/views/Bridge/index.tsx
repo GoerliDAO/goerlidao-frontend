@@ -191,6 +191,7 @@ const Bridge = () => {
     // @ts-ignore
     addressOrName: account?.address,
     formatUnits: "ether",
+    chainId: 1,
   });
   console.log(account, ethBalance);
 
