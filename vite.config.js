@@ -12,7 +12,7 @@ export default ({ mode }) => {
       }),
       viteTsconfigPaths(),
       svgrPlugin(),
-      polyfillNode(),
+      { ...polyfillNode({ fs: true }), enforce: "post" },
     ],
     resolve: {
       alias: {
