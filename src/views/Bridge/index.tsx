@@ -209,8 +209,8 @@ const Bridge = () => {
         setInputAmount(Number(ethBalance.data?.formatted) - 0.0015);
       else setInputAmount(e.target.value);
     } else {
-      if (Number(e.target.value) > Number(gethBalance.data?.formatted) - 0.0015)
-        setInputAmount(Number(gethBalance.data?.formatted) - 0.0015);
+      if (Number(e.target.value) > Number(gethBalance.data?.formatted))
+        setInputAmount(Number(gethBalance.data?.formatted));
       else setInputAmount(e.target.value);
     }
   };
