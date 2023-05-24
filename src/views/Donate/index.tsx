@@ -9,7 +9,6 @@ import Footer from "src/components/Footer";
 
 const Donate = () => {
   const account = getAccount();
-  console.log("this is your account :", account);
   const theme = useTheme();
   const contractAddress = "0x08F81f3be4a03E0332643B8bF80D74744a11bF32";
   const contractABI = donateABI;

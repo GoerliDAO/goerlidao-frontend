@@ -74,6 +74,32 @@ export const GET_GDAO_MARKETS = gql`
   }
 `;
 
+export const BOND_PURCHASES_ON_MARKET = gql`
+  query bondPurchases($marketId: ID!) {
+    bondPurchases(first: 1000, where: { marketId: $marketId }, orderBy: timestamp) {
+      id
+      recipient
+      payout
+      amount
+      timestamp
+      purchasePrice
+      postPurchasePrice
+      quoteToken {
+        id
+        name
+        symbol
+        address
+      }
+      payoutToken {
+        id
+        name
+        symbol
+        address
+      }
+    }
+  }
+`;
+
 export const USER_VESTING_TOKENS = gql`
   query VestingTokens($ownerAddress: String!) {
     ownerBalances(where: { owner_contains_nocase: $ownerAddress, balance_gt: 0 }) {
