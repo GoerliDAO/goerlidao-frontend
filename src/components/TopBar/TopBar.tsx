@@ -25,7 +25,6 @@ interface NavLinkProps {
 function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
   const location = useLocation();
   const theme = useTheme();
-  console.log("This is the theme : ", theme);
   const desktop = useMediaQuery(theme.breakpoints.up(1048));
 
   const renderedLogo = () => {
