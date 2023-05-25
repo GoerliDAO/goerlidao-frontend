@@ -3,7 +3,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material";
-import { parseEther, parseUnits } from "ethers/lib/utils";
+import { parseEther } from "ethers/lib/utils";
 import { useState } from "react";
 import Footer from "src/components/Footer";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
@@ -147,7 +147,7 @@ const Bridge = () => {
     abi,
     functionName: "bridge",
     args: [
-      parseEther(inputAmount.toString()),
+      parseEther(inputAmount.toString() || "0"),
       154,
       account?.address,
       account?.address,
@@ -166,7 +166,7 @@ const Bridge = () => {
       account?.address,
       154,
       account?.address,
-      parseUnits(inputAmount.toString(), 18),
+      parseEther(inputAmount.toString() || "0"),
       account?.address,
       "0x0000000000000000000000000000000000000000",
       "0x",
