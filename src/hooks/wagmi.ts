@@ -10,7 +10,6 @@ import {
   walletConnectWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 import { chain, configureChains, createClient } from "wagmi";
-import { alchemyProvider } from "wagmi/providers/alchemy";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { publicProvider } from "wagmi/providers/public";
 
@@ -56,12 +55,15 @@ import { publicProvider } from "wagmi/providers/public";
 
 export const { chains, provider, webSocketProvider } = configureChains(
   [
-    { ...chain.goerli, rpcUrls: { default: "https://rpc.ankr.com/eth_goerli" } },
+    {
+      ...chain.goerli,
+      rpcUrls: { infura: import.meta.env.GOERLI_VITE_INFURA_URL_KEY, default: "https://rpc.ankr.com/eth_goerli" },
+    },
     { ...chain.mainnet, rpcUrls: { default: "https://rpc.ankr.com/eth" } },
   ],
   [
     jsonRpcProvider({ rpc: chain => ({ http: chain.rpcUrls.default }) }),
-    alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_ID }),
+    //alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_ID }),
     publicProvider(),
   ],
 );
