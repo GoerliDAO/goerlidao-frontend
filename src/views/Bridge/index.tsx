@@ -7,7 +7,7 @@ import { parseEther } from "ethers/lib/utils";
 import { useState } from "react";
 import Footer from "src/components/Footer";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
-import { useBalance, useContractWrite, usePrepareContractWrite } from "wagmi";
+import { useBalance, useContractWrite, usePrepareContractWrite, useSwitchNetwork } from "wagmi";
 import { useAccount, useNetwork } from "wagmi";
 
 const abiGETH = [
@@ -625,6 +625,7 @@ interface TokenListProps {
 }
 
 const Bridge = () => {
+  const { chains, error, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork();
   const networks = useTestableNetworks();
   const { chain = { id: 1 } } = useNetwork();
   const theme = useTheme();
@@ -1022,8 +1023,10 @@ const Bridge = () => {
                   }
                   console.log(parseEther(String(Number(inputAmount) + 0.0015)).toString());
                   if (inputSelectedToken == TOKEN_LIST[0]) {
+                    switchNetwork?.(1);
                     bridge?.writeAsync?.();
                   } else {
+                    switchNetwork?.(1);
                     sendFrom?.writeAsync?.();
                   }
                 }}
