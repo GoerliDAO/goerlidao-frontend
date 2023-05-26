@@ -51,17 +51,17 @@ const Bond = () => {
     ownerPayoutAllowance: "0",
     discount: "0",
   });
-  console.log("selected :", selected);
   console.log("contractDetails :", contractDetails);
 
   const {
-    data: quoteTokenPrice,
+    data: wrappedEthPrice,
     error,
     isLoading,
   } = useSWR("https://api.coingecko.com/api/v3/simple/price?ids=weth&vs_currencies=usd", fetcher, {
-    refreshInterval: 10000,
+    refreshInterval: 10000000,
     revalidateOnFocus: false,
   });
+  const [quoteTokenPrice, setQuoteTokenPrice] = useState<any>(null);
 
   console.log("quoteTokenPrice :", quoteTokenPrice?.weth?.usd);
 
@@ -73,8 +73,6 @@ const Bond = () => {
       setInputValue(floatValue);
     }
   };
-
-  const marketId = "181";
 
   // User Vesting Tokens Query
   // const {
@@ -172,6 +170,7 @@ const Bond = () => {
 
   useEffect(() => {
     retrieveContractDetails(selected);
+    setQuoteTokenPrice(wrappedEthPrice);
   }, [selected]);
 
   return (

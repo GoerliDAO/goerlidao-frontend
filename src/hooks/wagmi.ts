@@ -55,7 +55,10 @@ import { publicProvider } from "wagmi/providers/public";
 
 export const { chains, provider, webSocketProvider } = configureChains(
   [
-    { ...chain.goerli, rpcUrls: { default: "https://rpc.ankr.com/eth_goerli" } },
+    {
+      ...chain.goerli,
+      rpcUrls: { infura: import.meta.env.GOERLI_VITE_INFURA_URL_KEY, default: "https://rpc.ankr.com/eth_goerli" },
+    },
     { ...chain.mainnet, rpcUrls: { default: "https://rpc.ankr.com/eth" } },
   ],
   [
