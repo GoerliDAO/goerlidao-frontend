@@ -204,7 +204,9 @@ const Bridge = () => {
   const handleInputValue = (e: any) => {
     if (inputSelectedToken == TOKEN_LIST[0]) {
       if (Number(e.target.value) > Number(ethBalance.data?.formatted) - 0.0015)
-        setInputAmount(Number(ethBalance.data?.formatted) - 0.0015);
+        setInputAmount(
+          Number(ethBalance.data?.formatted) - 0.0015 < 0 ? 0 : Number(ethBalance.data?.formatted) - 0.0015,
+        );
       else setInputAmount(e.target.value);
     } else {
       if (Number(e.target.value) > Number(gethBalance.data?.formatted))
