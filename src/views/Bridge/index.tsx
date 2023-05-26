@@ -644,7 +644,7 @@ const Bridge = () => {
     abi,
     functionName: "bridge",
     args: [
-      parseEther(inputAmount.toFixed(18) || "0"),
+      parseEther(inputAmount ? Number(inputAmount).toFixed(18) : "0"),
       154,
       account?.address,
       account?.address,
@@ -663,7 +663,7 @@ const Bridge = () => {
       account?.address,
       154,
       account?.address,
-      parseEther(inputAmount.toFixed(18) || "0"),
+      parseEther(inputAmount ? Number(inputAmount).toFixed(18) : "0"),
       account?.address,
       "0x0000000000000000000000000000000000000000",
       "0x",
@@ -702,13 +702,17 @@ const Bridge = () => {
     if (inputSelectedToken == TOKEN_LIST[0]) {
       if (Number(e.target.value) > Number(ethBalance.data?.formatted) - 0.0015)
         setInputAmount(
-          Number(ethBalance.data?.formatted) - 0.0015 < 0 ? 0 : Number(ethBalance.data?.formatted) - 0.0015,
+          Number(
+            (Number(ethBalance.data?.formatted) - 0.0015 < 0 ? 0 : Number(ethBalance.data?.formatted) - 0.0015).toFixed(
+              18,
+            ),
+          ),
         );
-      else setInputAmount(e.target.value);
+      else setInputAmount(Number(Number(e.target.value).toFixed(18)));
     } else {
       if (Number(e.target.value) > Number(gethBalance.data?.formatted))
-        setInputAmount(Number(gethBalance.data?.formatted));
-      else setInputAmount(e.target.value);
+        setInputAmount(Number(Number(gethBalance.data?.formatted).toFixed(18)));
+      else setInputAmount(Number(Number(e.target.value).toFixed(18)));
     }
   };
 
@@ -838,6 +842,7 @@ const Bridge = () => {
                   type="number"
                   name="price"
                   id="price"
+                  step="0.000000000000000001"
                   value={inputAmount}
                   style={{
                     color: theme.palette.mode === "dark" ? "#000" : "#000",
@@ -960,6 +965,7 @@ const Bridge = () => {
                   type="number"
                   name="price"
                   id="price"
+                  step="0.000000000000000001"
                   value={inputAmount}
                   style={{
                     color: theme.palette.mode === "dark" ? "#000" : "#000",
