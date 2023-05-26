@@ -147,13 +147,13 @@ const Bridge = () => {
     abi,
     functionName: "bridge",
     args: [
-      parseEther(inputAmount.toString() || "0"),
+      parseEther(inputAmount.toFixed(18) || "0"),
       154,
       account?.address,
       account?.address,
       "0x0000000000000000000000000000000000000000",
       "0x",
-      { value: parseEther(String(Number(inputAmount) + 0.0015)).toString() },
+      { value: parseEther(String((Number(inputAmount) + 0.0015).toFixed(18))) },
     ],
   });
 
@@ -166,11 +166,11 @@ const Bridge = () => {
       account?.address,
       154,
       account?.address,
-      parseEther(inputAmount.toString() || "0"),
+      parseEther(inputAmount.toFixed(18) || "0"),
       account?.address,
       "0x0000000000000000000000000000000000000000",
       "0x",
-      { value: parseEther("0.0015").toString() },
+      { value: parseEther("0.0015") },
     ],
   });
   //@ts-ignore
