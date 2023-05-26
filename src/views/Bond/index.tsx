@@ -254,17 +254,7 @@ const Bond = () => {
             <Tab.Group>
               <Tab.List className="flex items-center justify-around">
                 <Tab>Purchase Bond</Tab>
-                <Tab
-                  onClick={() => {
-                    if (contractDetails.isLive) {
-                      alert("Market is live, cannot redeem bond");
-                    } else {
-                      alert("Market is not live, cannot redeem bond");
-                    }
-                  }}
-                >
-                  Redeem Bond
-                </Tab>
+                <Tab>Redeem Bond</Tab>
               </Tab.List>
               <Tab.Panels>
                 <Tab.Panel>
