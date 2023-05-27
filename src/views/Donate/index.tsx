@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import donateABI from "src/abi/donateABI";
 import Footer from "src/components/Footer";
+import { useSwitchNetwork } from "wagmi";
 
 const Donate = () => {
   const account = getAccount();
@@ -23,6 +24,7 @@ const Donate = () => {
       setDonationAmount(floatValue);
     }
   };
+  const { switchNetwork } = useSwitchNetwork();
 
   const deposit = async () => {
     try {
@@ -30,7 +32,7 @@ const Donate = () => {
         alert("Please install MetaMask first.");
         return;
       }
-
+      switchNetwork?.(5);
       const provider = new ethers.providers.Web3Provider(window.ethereum as ethers.providers.ExternalProvider);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(contractAddress, contractABI, signer);
