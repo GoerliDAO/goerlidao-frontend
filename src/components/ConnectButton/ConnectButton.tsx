@@ -59,7 +59,6 @@ export const InPageConnectButton = ({
 export const ConnectButton = () => {
   const location = useLocation();
   const theme = useTheme();
-  console.log(" This is a theme: ", theme);
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const walletDrawerOpen =

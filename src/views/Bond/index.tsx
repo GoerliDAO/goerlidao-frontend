@@ -53,6 +53,14 @@ const Bond = () => {
   });
   console.log("contractDetails :", contractDetails);
 
+  const fetchWETHPriceData = async () => {
+    const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=weth&vs_currencies=usd");
+    const data = await response.json();
+    const wethPrice = data.weth.usd;
+    setQuoteTokenPrice(wethPrice);
+    console.log("Coin Data :", data);
+  };
+
   const {
     data: wrappedEthPrice,
     error,
@@ -169,8 +177,8 @@ const Bond = () => {
   };
 
   useEffect(() => {
+    fetchWETHPriceData();
     retrieveContractDetails(selected);
-    setQuoteTokenPrice(wrappedEthPrice);
   }, [selected]);
 
   return (
@@ -251,7 +259,7 @@ const Bond = () => {
             </div>
 
             <Tab.Group>
-              <Tab.List className="flex items-center justify-around">
+              <Tab.List className="text-xs flex items-center justify-around">
                 <Tab>Purchase Bond</Tab>
                 <Tab>Redeem Bond</Tab>
               </Tab.List>

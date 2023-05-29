@@ -166,7 +166,7 @@ function App() {
     } else {
       document.body.style.backgroundColor = "#C6D9F9";
       document.body.style.backgroundColor =
-        "linear-gradient(to right, rgba(232, 232, 252, 1), rgba(232, 232, 252, 0.72))";
+        "linear-gradient(to right, rgba(232, 232, 252, 1), rgba(232, 232, 252, 0.72)";
       document.body.style.color = "#000";
     }
   }, [theme]);
