@@ -215,7 +215,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
         style={{
           border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
         }}
-        className="rounded-xl shadow-md"
+        className="rounded-xl shadow-xl"
       >
         <SwapCard
           id="ohm-input"
@@ -255,7 +255,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
         style={{
           border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
         }}
-        className="rounded-xl shadow-md"
+        className="rounded-xl shadow-xl"
       >
         <SwapCard
           id="staked-input"
@@ -361,9 +361,9 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
                     <button
                       style={{
                         border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
-                        background: theme.palette.mode === "dark" ? "#000" : "#fff",
+                        background: theme.palette.mode === "dark" ? "#151722" : "#C6D8F9",
                       }}
-                      className="rounded-xl w-full mt-2 h-12 shadow-md font-bold"
+                      className="rounded-xl w-full mt-2 h-12 shadow-xl font-bold"
                       data-testid="submit-button"
                       //@ts-ignore
                       loading={isMutating}
