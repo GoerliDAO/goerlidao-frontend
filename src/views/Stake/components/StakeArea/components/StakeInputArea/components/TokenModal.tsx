@@ -59,7 +59,6 @@ const TokenModal: FC<OHMTokenModalProps> = ({
           handleSelect({ name, balance, icon, address, price, decimals });
           handleClose();
         }}
-        sx={{ borderBottom: `1px solid ${theme.colors.gray[500]}` }}
         {...props}
       >
         {icon ? (

@@ -45,7 +45,7 @@ export const girth = createTheme(
           700: "#181A1D",
           600: "#292C32",
           500: "#3F4552",
-          90: "#676B74",
+          90: "#1D2026",
           40: "#A3A3A3",
           10: girthTheme.color,
         },

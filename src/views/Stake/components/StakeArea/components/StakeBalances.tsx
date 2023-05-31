@@ -72,37 +72,38 @@ export const StakeBalances = () => {
 
   return (
     <>
-      <DataRow
-        id="user-balance"
-        title={`Unstaked Balance`}
-        isLoading={!gdaoBalance}
-        balance={`${formatBalance(gdaoBalance)} GDAO`}
-      />
-
-      <DataRow
-        id="user-staked-balance"
-        isLoading={!allBalancesLoaded}
-        title={`Total Staked Balance`}
-        balance={`${totalStakedBalance} GDAO`}
-      >
-        {sohmBalance?.gt("0") && (
-          <DataRow
-            indented
-            title={`sGDAO`}
-            id="sohm-balance"
-            isLoading={!sgdaoBalance}
-            balance={`${formatBalance(sgdaoBalance)} sGDAO`}
-          />
-        )}
-
+      <div>
         <DataRow
-          indented
-          title={`xGDAO`}
-          isLoading={!xgdaoBalances[networks.MAINNET].data}
-          balance={`${formatBalance(xgdaoBalances[networks.MAINNET].data)} xGDAO`}
+          id="user-balance"
+          title={`Unstaked Balance`}
+          isLoading={!gdaoBalance}
+          balance={`${formatBalance(gdaoBalance)} GDAO`}
         />
 
-        {/* {hasVisibleBalance(gohmBalances[NetworkId.ARBITRUM].data) && (
+        <DataRow
+          id="user-staked-balance"
+          isLoading={!allBalancesLoaded}
+          title={`Total Staked Balance`}
+          balance={`${totalStakedBalance} GDAO`}
+        >
+          {sohmBalance?.gt("0") && (
+            <DataRow
+              indented
+              title={`sGDAO`}
+              id="sohm-balance"
+              isLoading={!sgdaoBalance}
+              balance={`${formatBalance(sgdaoBalance)} sGDAO`}
+            />
+          )}
+
+          <DataRow
+            indented
+            title={`xGDAO`}
+            isLoading={!xgdaoBalances[networks.MAINNET].data}
+            balance={`${formatBalance(xgdaoBalances[networks.MAINNET].data)} xGDAO`}
+          />
+
+          {/* {hasVisibleBalance(gohmBalances[NetworkId.ARBITRUM].data) && (
           <DataRow
             indented
             title={`gOHM (Arbitrum)`}
@@ -200,7 +201,8 @@ export const StakeBalances = () => {
             balance={`${formatBalance(wsohmBalances[NetworkId.AVALANCHE].data)} wsOHM`}
           />
         )} */}
-      </DataRow>
+        </DataRow>
+      </div>
     </>
   );
 };
