@@ -1,6 +1,5 @@
 import "src/views/Stake/Stake.scss";
 
-import { Box } from "@mui/material";
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "src/components/Footer";
@@ -17,11 +16,11 @@ const Stake: React.FC = () => {
 
   return (
     <>
-      <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">
+      <div className="container mx-auto flex items-center justify-center">
         <StakeArea />
         {/* <ExternalStakePools /> */}
         <ClaimsArea />
-      </Box>
+      </div>
       <Footer />
     </>
   );

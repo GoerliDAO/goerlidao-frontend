@@ -71,7 +71,7 @@ const Bond = () => {
   });
   const [quoteTokenPrice, setQuoteTokenPrice] = useState<any>(null);
 
-  console.log("quoteTokenPrice :", quoteTokenPrice?.weth?.usd);
+  console.log("quoteTokenPrice :", quoteTokenPrice);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -145,7 +145,7 @@ const Bond = () => {
     const price = Number(marketPrice) * shift;
     const quoteTokensPerPayoutToken = price / Math.pow(10, 36);
     // quote token hardcoded in for now. will need to use uniswap to get price
-    const discountedPrice = quoteTokensPerPayoutToken * quoteTokenPrice.weth.usd;
+    const discountedPrice = quoteTokensPerPayoutToken * quoteTokenPrice;
 
     // will need to get payout token price (gdao) to figure out discount
     // hardcoded gdao value for now

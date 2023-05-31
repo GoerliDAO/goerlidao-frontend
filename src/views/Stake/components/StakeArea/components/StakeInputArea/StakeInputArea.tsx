@@ -1,4 +1,5 @@
 import { Avatar, Box, Link, Tab, Tabs } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import {
   InfoNotification,
@@ -73,6 +74,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
+  const theme = useTheme();
   const networks = useTestableNetworks();
   const [stakedAssetType, setStakedAssetType] = useState<ModalHandleSelectProps>({ name: "xGDAO" });
   const [swapAssetType, setSwapAssetType] = useState<ModalHandleSelectProps>({ name: "GDAO" });
@@ -209,30 +211,37 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
         : swapAssetType.balance;
 
     return (
-      <SwapCard
-        id="ohm-input"
-        token={
-          swapAssetType.icon ? (
-            <Avatar src={swapAssetType.icon} sx={{ width: "21px", height: "21px" }} />
-          ) : (
-            (swapAssetType.name as OHMSwapCardProps["token"])
-          )
-        }
-        tokenName={swapAssetType.name}
-        tokenOnClick={currentAction === "STAKE" ? () => setZapTokenModalOpen(true) : undefined}
-        inputProps={{ "data-testid": "ohm-input", min: "0" }}
-        value={currentAction === "STAKE" ? amount : receiveAmount}
-        onChange={event => +event.target.value >= 0 && ohmOnChange(event.target.value, currentAction === "STAKE")}
-        info={`Balance: ${balance} ${swapAssetType.name}`}
-        endString={currentAction === "STAKE" ? "Max" : ""}
-        endStringOnClick={() => balance && ohmOnChange(balance, currentAction === "STAKE")}
-        disabled={isMutating}
-        inputWidth={`${
-          (currentAction === "STAKE" ? amount : receiveAmount).length > 0
-            ? (currentAction === "STAKE" ? amount : receiveAmount).length
-            : 1
-        }ch`}
-      />
+      <div
+        style={{
+          border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
+        }}
+        className="rounded-xl shadow-xl"
+      >
+        <SwapCard
+          id="ohm-input"
+          token={
+            swapAssetType.icon ? (
+              <Avatar src={swapAssetType.icon} sx={{ width: "21px", height: "21px" }} />
+            ) : (
+              (swapAssetType.name as OHMSwapCardProps["token"])
+            )
+          }
+          tokenName={swapAssetType.name}
+          tokenOnClick={currentAction === "STAKE" ? () => setZapTokenModalOpen(true) : undefined}
+          inputProps={{ "data-testid": "ohm-input", min: "0" }}
+          value={currentAction === "STAKE" ? amount : receiveAmount}
+          onChange={event => +event.target.value >= 0 && ohmOnChange(event.target.value, currentAction === "STAKE")}
+          info={`Balance: ${balance} ${swapAssetType.name}`}
+          endString={currentAction === "STAKE" ? "Max" : ""}
+          endStringOnClick={() => balance && ohmOnChange(balance, currentAction === "STAKE")}
+          disabled={isMutating}
+          inputWidth={`${
+            (currentAction === "STAKE" ? amount : receiveAmount).length > 0
+              ? (currentAction === "STAKE" ? amount : receiveAmount).length
+              : 1
+          }ch`}
+        />
+      </div>
     );
   };
 
@@ -242,23 +251,30 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
       sGdaoBalance && currentAction === "UNSTAKE" ? { tokenOnClick: () => setTokenModalOpen(true) } : {};
 
     return (
-      <SwapCard
-        id="staked-input"
-        inputProps={{ "data-testid": "staked-input", min: "0" }}
-        token={stakedAssetType.name as OHMSwapCardProps["token"]}
-        value={currentAction === "STAKE" ? receiveAmount : amount}
-        onChange={event => +event.target.value >= 0 && ohmOnChange(event.target.value, currentAction === "UNSTAKE")}
-        info={`Balance: ${balance ? balance.toString({ decimals: 2 }) : "0.00"} ${stakedAssetType.name}`}
-        endString={currentAction === "UNSTAKE" ? "Max" : ""}
-        endStringOnClick={() => balance && ohmOnChange(balance.toString(), currentAction === "UNSTAKE")}
-        inputWidth={`${
-          (currentAction === "STAKE" ? receiveAmount : amount).length > 0
-            ? (currentAction === "STAKE" ? receiveAmount : amount).length
-            : 1
-        }ch`}
-        disabled={isMutating}
-        {...tokenOnClick}
-      />
+      <div
+        style={{
+          border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
+        }}
+        className="rounded-xl shadow-xl"
+      >
+        <SwapCard
+          id="staked-input"
+          inputProps={{ "data-testid": "staked-input", min: "0" }}
+          token={stakedAssetType.name as OHMSwapCardProps["token"]}
+          value={currentAction === "STAKE" ? receiveAmount : amount}
+          onChange={event => +event.target.value >= 0 && ohmOnChange(event.target.value, currentAction === "UNSTAKE")}
+          info={`Balance: ${balance ? balance.toString({ decimals: 2 }) : "0.00"} ${stakedAssetType.name}`}
+          endString={currentAction === "UNSTAKE" ? "Max" : ""}
+          endStringOnClick={() => balance && ohmOnChange(balance.toString(), currentAction === "UNSTAKE")}
+          inputWidth={`${
+            (currentAction === "STAKE" ? receiveAmount : amount).length > 0
+              ? (currentAction === "STAKE" ? receiveAmount : amount).length
+              : 1
+          }ch`}
+          disabled={isMutating}
+          {...tokenOnClick}
+        />
+      </div>
     );
   };
 
@@ -271,26 +287,25 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
           aria-label="stake tabs"
           indicatorColor="primary"
           key={String(props.isZoomed)}
-          className="stake-tab-buttons"
+          className="stake-tab-buttons my-5"
           value={currentAction === "STAKE" ? 0 : 1}
           //hides the tab underline sliding animation in while <Zoom> is loading
           TabIndicatorProps={!props.isZoomed ? { style: { display: "none" } } : undefined}
           onChange={(_, view: number) => setCurrentAction(view === 0 ? "STAKE" : "UNSTAKE")}
         >
           <Tab aria-label="stake-button" label="Stake" />
-
           <Tab aria-label="unstake-button" label={`Unstake`} />
         </Tabs>
 
-        <Box display="flex" flexDirection="row" width="100%" justifyContent="center" mt="24px">
-          <Box display="flex" flexDirection="column" width="100%" maxWidth="476px">
-            <Box mb="21px">
+        <div className="flex items-center justify-center">
+          <Box className="rounded-lg" style={{}} display="flex" flexDirection="column" width="100%" maxWidth="476px">
+            <div className="">
               <SwapCollection
                 UpperSwapCard={currentAction === "STAKE" ? OhmSwapCard() : GohmSwapCard()}
                 LowerSwapCard={currentAction === "STAKE" ? GohmSwapCard() : OhmSwapCard()}
                 arrowOnClick={() => setCurrentAction(currentAction === "STAKE" ? "UNSTAKE" : "STAKE")}
               />
-            </Box>
+            </div>
             {tokenModalOpen && (
               <TokenModal
                 open={tokenModalOpen}
@@ -343,25 +358,33 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
                 {contractRouting === "Stake" && (
                   <>
                     {/* <AcknowledgeWarmupCheckbox /> */}
-                    <PrimaryButton
+                    <button
+                      style={{
+                        border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
+                        background: theme.palette.mode === "dark" ? "#151722" : "#C6D8F9",
+                      }}
+                      className="rounded-xl w-full mt-2 h-12 shadow-xl font-bold"
                       data-testid="submit-button"
+                      //@ts-ignore
                       loading={isMutating}
                       fullWidth
                       disabled={isMutating || !amount || amountExceedsBalance || parseFloat(amount) === 0}
                       onClick={() => setConfirmationModalOpen(true)}
                     >
-                      {amountExceedsBalance
-                        ? "Amount exceeds balance"
-                        : !amount || parseFloat(amount) === 0
-                        ? "Enter an amount"
-                        : currentAction === "STAKE"
-                        ? isMutating
-                          ? "Confirming Staking in your wallet"
-                          : "Stake"
-                        : isMutating
-                        ? "Confirming Unstaking in your wallet "
-                        : "Unstake"}
-                    </PrimaryButton>
+                      <span className="uppercase text-xs">
+                        {amountExceedsBalance
+                          ? "Amount exceeds balance"
+                          : !amount || parseFloat(amount) === 0
+                          ? "Enter an amount"
+                          : currentAction === "STAKE"
+                          ? isMutating
+                            ? "Confirming Staking in your wallet"
+                            : "Stake"
+                          : isMutating
+                          ? "Confirming Unstaking in your wallet "
+                          : "Unstake"}
+                      </span>
+                    </button>
                   </>
                 )}
 
@@ -413,7 +436,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
               </WalletConnectedGuard>
             </Box>
           </Box>
-        </Box>
+        </div>
       </StyledBox>
       <StakeConfirmationModal
         open={confirmationModalOpen}
