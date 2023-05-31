@@ -1,5 +1,6 @@
 import { useTheme } from "@mui/material";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FiCornerRightDown } from "react-icons/fi";
 import { ReactComponent as CeramicApe } from "src/assets/GDAO-ceramic-ape.svg";
 // other icons
@@ -17,7 +18,6 @@ import { ReactComponent as DarkSwapIcon } from "src/assets/icons/swapping-dark.s
 import { ReactComponent as LightSwapIcon } from "src/assets/icons/swapping-light.svg";
 import FAQ from "src/components/FAQ";
 import Footer from "src/components/Footer";
-
 interface FeaturesProps {
   title: string;
   description: string;
@@ -72,6 +72,27 @@ const Features = ({ title, description, icon, actionLink, actionTitle }: Feature
 
 const LandingPage = () => {
   const theme = useTheme();
+
+  const [data, setPrice] = useState([0]);
+  const [liq, setLiquidity] = useState([0]);
+
+  useEffect(() => {
+    const token_addr = "0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5"; // update to GDAO (currently OHM)
+    const url = `https://api.dexscreener.com/latest/dex/search/?q=${token_addr}`;
+    axios
+      .get(url)
+      .then(res => {
+        console.log(res.data);
+        const json_data = JSON.stringify(res.data.pairs[0]);
+        const price_ = JSON.parse(json_data).priceUsd;
+        setPrice(price_);
+
+        const liq_ = JSON.parse(json_data).liquidity.usd;
+        setLiquidity(liq_);
+        console.log(`price usd: ${price_}`);
+      })
+      .catch(err => console.log(err));
+  }, []);
 
   return (
     <>
@@ -168,7 +189,7 @@ const LandingPage = () => {
                   }}
                   className="text-3xl md:text-5xl"
                 >
-                  $0
+                  ${liq}
                 </span>
               </div>
 
@@ -181,6 +202,18 @@ const LandingPage = () => {
                   className="text-3xl md:text-5xl"
                 >
                   2
+                </span>
+              </div>
+
+              <div>
+                <p className="my-2.5 text-lg">GDAO Price</p>
+                <span
+                  style={{
+                    color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF",
+                  }}
+                  className="text-3xl md:text-5xl"
+                >
+                  ${data}
                 </span>
               </div>
             </div>
