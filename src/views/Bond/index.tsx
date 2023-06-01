@@ -29,7 +29,6 @@ const Bond = () => {
   const account = useAccount();
   const theme = useTheme();
   const [wethPrice, setWethPrice] = useState([0]);
-  console.log("wethPrice :", wethPrice);
   const [bondTab, setBondTab] = useState(true);
   const [inputValue, setInputValue] = useState(0);
   const [selected, setSelected] = useState(markets[0].id);
@@ -58,15 +57,6 @@ const Bond = () => {
   });
   console.log("contractDetails :", contractDetails);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    const sanitizedValue = value.replace(/[^0-9.]/g, ""); // allow only digits and decimal point
-    const floatValue = parseFloat(sanitizedValue);
-    if (sanitizedValue === "" || (!isNaN(floatValue) && floatValue >= 0)) {
-      setInputValue(floatValue);
-    }
-  };
-
   // User Vesting Tokens Query
   // const {
   //   loading: userVestedTokensLoading,
@@ -77,6 +67,15 @@ const Bond = () => {
   // });
 
   // console.log("userVestedTokenData :", userVestedTokenData)
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    const sanitizedValue = value.replace(/[^0-9.]/g, ""); // allow only digits and decimal point
+    const floatValue = parseFloat(sanitizedValue);
+    if (sanitizedValue === "" || (!isNaN(floatValue) && floatValue >= 0)) {
+      setInputValue(floatValue);
+    }
+  };
 
   const referrerAddress = "0x0000000000000000000000000000000000000000";
   const ownerAddress = "0xeBf84bbAA9562Fe5Ee0CdEd52dA80063C7af5FDc";
@@ -179,7 +178,7 @@ const Bond = () => {
           style={{
             border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
           }}
-          className="p-4 rounded-lg"
+          className="p-4 rounded-lg w-full md:w-1/2"
         >
           <div className="flex flex-col">
             <Listbox value={selected} onChange={setSelected}>
@@ -237,11 +236,11 @@ const Bond = () => {
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-bold">Market Price</span>
-                <span className="">{contractDetails.marketPrice}</span>
+                <span className="">{ethers.utils.formatUnits(contractDetails.marketPrice)}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-bold">Purchase Limit</span>
-                <span className="">{contractDetails.currentCapacity}</span>
+                <span className="">{ethers.utils.formatEther(contractDetails.currentCapacity)}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-bold">Max Amount Accepted</span>
@@ -251,8 +250,8 @@ const Bond = () => {
 
             <Tab.Group>
               <Tab.List className="text-xs flex items-center justify-around">
-                <Tab>Purchase Bond</Tab>
-                <Tab>Redeem Bond</Tab>
+                <Tab className="underline">Purchase Bond</Tab>
+                <Tab className="underline">Redeem Bond</Tab>
               </Tab.List>
               <Tab.Panels>
                 <Tab.Panel>
