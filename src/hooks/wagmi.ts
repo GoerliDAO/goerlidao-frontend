@@ -10,7 +10,6 @@ import {
   walletConnectWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 import { chain, configureChains, createClient } from "wagmi";
-import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { publicProvider } from "wagmi/providers/public";
 
 // adding in more chains..
@@ -61,11 +60,7 @@ export const { chains, provider, webSocketProvider } = configureChains(
     },
     { ...chain.mainnet, rpcUrls: { default: "https://rpc.ankr.com/eth" } },
   ],
-  [
-    jsonRpcProvider({ rpc: chain => ({ http: chain.rpcUrls.default }) }),
-    //alchemyProvider({ apiKey: import.meta.env.VITE_ALCHEMY_ID }),
-    publicProvider(),
-  ],
+  [publicProvider()],
 );
 
 const needsInjectedWalletFallback =

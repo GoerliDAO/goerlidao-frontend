@@ -2,19 +2,22 @@ import { Listbox, Tab } from "@headlessui/react";
 import CheckIcon from "@mui/icons-material/Check";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import { useTheme } from "@mui/material";
+import axios from "axios";
 import { BigNumber, ethers } from "ethers";
 import React, { useEffect, useState } from "react";
 import bondFixedTerm from "src/abi/bond-protocol/bondFixedTerm";
 import gdaoABI from "src/abi/bond-protocol/gdaoABI";
 import Footer from "src/components/Footer";
-import useSWR from "swr";
 import { useAccount } from "wagmi";
 
-const markets = [{ id: "181", marketName: "GDAO / WETH", decimals: 18 }];
-
-const fetcher = (url: string, ...args: any[]): Promise<any> => {
-  return fetch(url, ...args).then(res => res.json());
-};
+const markets = [
+  {
+    id: "181",
+    marketName: "GDAO / WETH",
+    quoteTokenDecimals: 18,
+    payoutTokenDecimals: 9,
+  },
+];
 
 const auctioneerContractAddress = "0xF75DAFffaF63f5D935f8A481EE827d68974FD992";
 const payoutTokenAddress = "0x4AB540a00C618DE15aC7D297Bb7250d0D8314a6B";
@@ -25,6 +28,7 @@ const payoutTokenContract = new ethers.Contract(payoutTokenAddress, gdaoABI, pro
 const Bond = () => {
   const account = useAccount();
   const theme = useTheme();
+  const [wethPrice, setWethPrice] = useState([0]);
   const [bondTab, setBondTab] = useState(true);
   const [inputValue, setInputValue] = useState(0);
   const [selected, setSelected] = useState(markets[0].id);
@@ -53,35 +57,6 @@ const Bond = () => {
   });
   console.log("contractDetails :", contractDetails);
 
-  const fetchWETHPriceData = async () => {
-    const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=weth&vs_currencies=usd");
-    const data = await response.json();
-    const wethPrice = data.weth.usd;
-    setQuoteTokenPrice(wethPrice);
-    console.log("Coin Data :", data);
-  };
-
-  const {
-    data: wrappedEthPrice,
-    error,
-    isLoading,
-  } = useSWR("https://api.coingecko.com/api/v3/simple/price?ids=weth&vs_currencies=usd", fetcher, {
-    refreshInterval: 10000000,
-    revalidateOnFocus: false,
-  });
-  const [quoteTokenPrice, setQuoteTokenPrice] = useState<any>(null);
-
-  console.log("quoteTokenPrice :", quoteTokenPrice);
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    const sanitizedValue = value.replace(/[^0-9.]/g, ""); // allow only digits and decimal point
-    const floatValue = parseFloat(sanitizedValue);
-    if (sanitizedValue === "" || (!isNaN(floatValue) && floatValue >= 0)) {
-      setInputValue(floatValue);
-    }
-  };
-
   // User Vesting Tokens Query
   // const {
   //   loading: userVestedTokensLoading,
@@ -93,20 +68,14 @@ const Bond = () => {
 
   // console.log("userVestedTokenData :", userVestedTokenData)
 
-  // const retrieveContractDetails = async (id: string) => {
-  //   const marketPrice = await contract.marketPrice(id);
-  //   const currentCapacity = await contract.currentCapacity(id);
-  //   const maxPayout = await contract.maxPayout(id);
-  //   //let amount = ethers.utils.parseEther(inputValue.toString());
-  //   //let payoutFor = await contract.payoutFor(id, amount, '0');
-
-  //   setContractDetails({
-  //     marketPrice: ethers.utils.formatEther(marketPrice),
-  //     currentCapacity: ethers.utils.formatEther(currentCapacity),
-  //     maxPayout: ethers.utils.formatEther(maxPayout),
-  //     //payoutFor: payoutFor.toString(),
-  //   });
-  // };
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    const sanitizedValue = value.replace(/[^0-9.]/g, ""); // allow only digits and decimal point
+    const floatValue = parseFloat(sanitizedValue);
+    if (sanitizedValue === "" || (!isNaN(floatValue) && floatValue >= 0)) {
+      setInputValue(floatValue);
+    }
+  };
 
   const referrerAddress = "0x0000000000000000000000000000000000000000";
   const ownerAddress = "0xeBf84bbAA9562Fe5Ee0CdEd52dA80063C7af5FDc";
@@ -145,7 +114,8 @@ const Bond = () => {
     const price = Number(marketPrice) * shift;
     const quoteTokensPerPayoutToken = price / Math.pow(10, 36);
     // quote token hardcoded in for now. will need to use uniswap to get price
-    const discountedPrice = quoteTokensPerPayoutToken * quoteTokenPrice;
+    //@ts-ignore
+    const discountedPrice = quoteTokensPerPayoutToken * wethPrice;
 
     // will need to get payout token price (gdao) to figure out discount
     // hardcoded gdao value for now
@@ -158,7 +128,9 @@ const Bond = () => {
     const maxPayout = Number(marketInfo.maxPayout) / Math.pow(10, 18);
     // will need to get payout token price (gdao) to figure out discount
     // maxPayoutUSD = maxPayout * payoutToken.price;
-    const maxPayoutUsd = maxPayout * quoteTokenPrice.weth.usd;
+    //@ts-ignore
+    const maxPayoutUsd = maxPayout * wethPrice;
+    console.log("maxpayout :", maxPayoutUsd);
 
     const formattedMaxAccepted = (Number(maxAmountAccepted) - Number(maxAmountAccepted) * 0.005) / Math.pow(10, 18);
 
@@ -177,9 +149,27 @@ const Bond = () => {
   };
 
   useEffect(() => {
-    fetchWETHPriceData();
     retrieveContractDetails(selected);
   }, [selected]);
+
+  useEffect(() => {
+    const fetchData = () => {
+      const token_addr = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"; // update to GDAO (currently OHM)
+      const url = `https://api.dexscreener.com/latest/dex/search/?q=${token_addr}`;
+      axios
+        .get(url)
+        .then(res => {
+          console.log(res.data);
+          const json_data = JSON.stringify(res.data.pairs[0]);
+          const price_ = JSON.parse(json_data).priceUsd;
+          setWethPrice(price_);
+        })
+        .catch(err => console.log(err));
+    };
+    fetchData(); // fetch data immediately
+    const intervalId = setInterval(fetchData, 5 * 60 * 1000); // fetch data every 5 mins
+    return () => clearInterval(intervalId); // clean up on component unmount
+  }, []);
 
   return (
     <>
@@ -188,7 +178,7 @@ const Bond = () => {
           style={{
             border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
           }}
-          className="p-4 rounded-lg"
+          className="p-4 rounded-lg w-full md:w-1/2"
         >
           <div className="flex flex-col">
             <Listbox value={selected} onChange={setSelected}>
@@ -208,12 +198,12 @@ const Bond = () => {
                           active ? "bg-amber-100 text-amber-900" : "text-gray-900"
                         }`
                       }
-                      value={market}
+                      value={market.marketName}
                     >
                       {({ selected }) => (
                         <>
                           <span className={`block truncate ${selected ? "font-medium" : "font-normal"}`}>
-                            {market.marketName}
+                            {market.id} - {market.marketName}
                           </span>
                           {selected ? (
                             <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
@@ -246,11 +236,11 @@ const Bond = () => {
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-bold">Market Price</span>
-                <span className="">{contractDetails.marketPrice}</span>
+                <span className="">{ethers.utils.formatUnits(contractDetails.marketPrice)}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-bold">Purchase Limit</span>
-                <span className="">{contractDetails.currentCapacity}</span>
+                <span className="">{ethers.utils.formatEther(contractDetails.currentCapacity)}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-bold">Max Amount Accepted</span>
@@ -260,8 +250,8 @@ const Bond = () => {
 
             <Tab.Group>
               <Tab.List className="text-xs flex items-center justify-around">
-                <Tab>Purchase Bond</Tab>
-                <Tab>Redeem Bond</Tab>
+                <Tab className="underline">Purchase Bond</Tab>
+                <Tab className="underline">Redeem Bond</Tab>
               </Tab.List>
               <Tab.Panels>
                 <Tab.Panel>
