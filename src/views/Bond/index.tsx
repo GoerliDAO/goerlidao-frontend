@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 import bondFixedTerm from "src/abi/bond-protocol/bondFixedTerm";
 import gdaoABI from "src/abi/bond-protocol/gdaoABI";
 import Footer from "src/components/Footer";
-import { useAccount } from "wagmi";
+import { erc20ABI, useAccount, useContractRead, useContractWrite, usePrepareContractWrite } from "wagmi";
 
 const markets = [
   {
@@ -18,7 +18,379 @@ const markets = [
     payoutTokenDecimals: 9,
   },
 ];
-
+const bondABI = [
+  {
+    inputs: [
+      { internalType: "address", name: "protocol_", type: "address" },
+      { internalType: "contract IBondAggregator", name: "aggregator_", type: "address" },
+      { internalType: "address", name: "guardian_", type: "address" },
+      { internalType: "contract Authority", name: "authority_", type: "address" },
+    ],
+    stateMutability: "nonpayable",
+    type: "constructor",
+  },
+  { inputs: [], name: "Teller_InvalidCallback", type: "error" },
+  { inputs: [], name: "Teller_InvalidParams", type: "error" },
+  { inputs: [], name: "Teller_NotAuthorized", type: "error" },
+  {
+    inputs: [
+      { internalType: "contract ERC20", name: "underlying", type: "address" },
+      { internalType: "uint48", name: "expiry", type: "uint48" },
+    ],
+    name: "Teller_TokenDoesNotExist",
+    type: "error",
+  },
+  {
+    inputs: [{ internalType: "uint48", name: "maturesOn", type: "uint48" }],
+    name: "Teller_TokenNotMatured",
+    type: "error",
+  },
+  { inputs: [], name: "Teller_UnsupportedToken", type: "error" },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "address", name: "owner", type: "address" },
+      { indexed: true, internalType: "address", name: "operator", type: "address" },
+      { indexed: false, internalType: "bool", name: "approved", type: "bool" },
+    ],
+    name: "ApprovalForAll",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "address", name: "user", type: "address" },
+      { indexed: true, internalType: "contract Authority", name: "newAuthority", type: "address" },
+    ],
+    name: "AuthorityUpdated",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "uint256", name: "id", type: "uint256" },
+      { indexed: true, internalType: "address", name: "referrer", type: "address" },
+      { indexed: false, internalType: "uint256", name: "amount", type: "uint256" },
+      { indexed: false, internalType: "uint256", name: "payout", type: "uint256" },
+    ],
+    name: "Bonded",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: false, internalType: "uint256", name: "tokenId", type: "uint256" },
+      { indexed: true, internalType: "contract ERC20", name: "underlying", type: "address" },
+      { indexed: true, internalType: "uint48", name: "expiry", type: "uint48" },
+    ],
+    name: "ERC1155BondTokenCreated",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "address", name: "user", type: "address" },
+      { indexed: true, internalType: "address", name: "newOwner", type: "address" },
+    ],
+    name: "OwnerUpdated",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "address", name: "operator", type: "address" },
+      { indexed: true, internalType: "address", name: "from", type: "address" },
+      { indexed: true, internalType: "address", name: "to", type: "address" },
+      { indexed: false, internalType: "uint256[]", name: "ids", type: "uint256[]" },
+      { indexed: false, internalType: "uint256[]", name: "amounts", type: "uint256[]" },
+    ],
+    name: "TransferBatch",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "address", name: "operator", type: "address" },
+      { indexed: true, internalType: "address", name: "from", type: "address" },
+      { indexed: true, internalType: "address", name: "to", type: "address" },
+      { indexed: false, internalType: "uint256", name: "id", type: "uint256" },
+      { indexed: false, internalType: "uint256", name: "amount", type: "uint256" },
+    ],
+    name: "TransferSingle",
+    type: "event",
+  },
+  {
+    inputs: [],
+    name: "FEE_DECIMALS",
+    outputs: [{ internalType: "uint48", name: "", type: "uint48" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "authority",
+    outputs: [{ internalType: "contract Authority", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "", type: "address" },
+      { internalType: "uint256", name: "", type: "uint256" },
+    ],
+    name: "balanceOf",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address[]", name: "owners", type: "address[]" },
+      { internalType: "uint256[]", name: "ids", type: "uint256[]" },
+    ],
+    name: "balanceOfBatch",
+    outputs: [{ internalType: "uint256[]", name: "balances", type: "uint256[]" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256[]", name: "tokenIds_", type: "uint256[]" },
+      { internalType: "uint256[]", name: "amounts_", type: "uint256[]" },
+    ],
+    name: "batchRedeem",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "contract ERC20[]", name: "tokens_", type: "address[]" },
+      { internalType: "address", name: "to_", type: "address" },
+    ],
+    name: "claimFees",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "contract ERC20", name: "underlying_", type: "address" },
+      { internalType: "uint48", name: "expiry_", type: "uint48" },
+      { internalType: "uint256", name: "amount_", type: "uint256" },
+    ],
+    name: "create",
+    outputs: [
+      { internalType: "uint256", name: "", type: "uint256" },
+      { internalType: "uint256", name: "", type: "uint256" },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "createFeeDiscount",
+    outputs: [{ internalType: "uint48", name: "", type: "uint48" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "contract ERC20", name: "underlying_", type: "address" },
+      { internalType: "uint48", name: "expiry_", type: "uint48" },
+    ],
+    name: "deploy",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "referrer_", type: "address" }],
+    name: "getFee",
+    outputs: [{ internalType: "uint48", name: "", type: "uint48" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "contract ERC20", name: "underlying_", type: "address" },
+      { internalType: "uint48", name: "expiry_", type: "uint48" },
+    ],
+    name: "getTokenId",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "pure",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "tokenId_", type: "uint256" }],
+    name: "getTokenNameAndSymbol",
+    outputs: [
+      { internalType: "string", name: "", type: "string" },
+      { internalType: "string", name: "", type: "string" },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "", type: "address" },
+      { internalType: "address", name: "", type: "address" },
+    ],
+    name: "isApprovedForAll",
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "owner",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "protocolFee",
+    outputs: [{ internalType: "uint48", name: "", type: "uint48" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "recipient_", type: "address" },
+      { internalType: "address", name: "referrer_", type: "address" },
+      { internalType: "uint256", name: "id_", type: "uint256" },
+      { internalType: "uint256", name: "amount_", type: "uint256" },
+      { internalType: "uint256", name: "minAmountOut_", type: "uint256" },
+    ],
+    name: "purchase",
+    outputs: [
+      { internalType: "uint256", name: "", type: "uint256" },
+      { internalType: "uint48", name: "", type: "uint48" },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256", name: "tokenId_", type: "uint256" },
+      { internalType: "uint256", name: "amount_", type: "uint256" },
+    ],
+    name: "redeem",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "", type: "address" }],
+    name: "referrerFees",
+    outputs: [{ internalType: "uint48", name: "", type: "uint48" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "", type: "address" },
+      { internalType: "contract ERC20", name: "", type: "address" },
+    ],
+    name: "rewards",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "from", type: "address" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint256[]", name: "ids", type: "uint256[]" },
+      { internalType: "uint256[]", name: "amounts", type: "uint256[]" },
+      { internalType: "bytes", name: "data", type: "bytes" },
+    ],
+    name: "safeBatchTransferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "from", type: "address" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint256", name: "id", type: "uint256" },
+      { internalType: "uint256", name: "amount", type: "uint256" },
+      { internalType: "bytes", name: "data", type: "bytes" },
+    ],
+    name: "safeTransferFrom",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "operator", type: "address" },
+      { internalType: "bool", name: "approved", type: "bool" },
+    ],
+    name: "setApprovalForAll",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "contract Authority", name: "newAuthority", type: "address" }],
+    name: "setAuthority",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint48", name: "discount_", type: "uint48" }],
+    name: "setCreateFeeDiscount",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
+    name: "setOwner",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint48", name: "fee_", type: "uint48" }],
+    name: "setProtocolFee",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint48", name: "fee_", type: "uint48" }],
+    name: "setReferrerFee",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "bytes4", name: "interfaceId", type: "bytes4" }],
+    name: "supportsInterface",
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    name: "tokenMetadata",
+    outputs: [
+      { internalType: "bool", name: "active", type: "bool" },
+      { internalType: "contract ERC20", name: "underlying", type: "address" },
+      { internalType: "uint8", name: "decimals", type: "uint8" },
+      { internalType: "uint48", name: "expiry", type: "uint48" },
+      { internalType: "uint256", name: "supply", type: "uint256" },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+];
+const quoteTokenAddress = "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6";
 const auctioneerContractAddress = "0xF75DAFffaF63f5D935f8A481EE827d68974FD992";
 const payoutTokenAddress = "0x4AB540a00C618DE15aC7D297Bb7250d0D8314a6B";
 const provider = new ethers.providers.Web3Provider(window.ethereum as ethers.providers.ExternalProvider);
@@ -32,6 +404,38 @@ const Bond = () => {
   const [bondTab, setBondTab] = useState(true);
   const [inputValue, setInputValue] = useState(0);
   const [selected, setSelected] = useState(markets[0].id);
+
+  const referrerAddress = "0x0000000000000000000000000000000000000000";
+  const ownerAddress = "0xeBf84bbAA9562Fe5Ee0CdEd52dA80063C7af5FDc";
+  const tellerAddress = "0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6";
+  const wantApproval = useContractRead({
+    abi: erc20ABI,
+    functionName: "allowance",
+    address: quoteTokenAddress,
+    args: [account?.address || "0x0", tellerAddress],
+  });
+
+  const wantApproveConfig = usePrepareContractWrite({
+    abi: erc20ABI,
+    functionName: "approve",
+    address: quoteTokenAddress,
+    args: [tellerAddress, ethers.constants.MaxUint256],
+  });
+
+  const buyBondConfig = usePrepareContractWrite({
+    abi: bondABI,
+    functionName: "purchase",
+    address: tellerAddress,
+    args: [
+      account?.address || "0x0",
+      account?.address || "0x0",
+      selected,
+      ethers.utils.parseEther(inputValue.toString()),
+      0,
+    ],
+  });
+  const wantApprove = useContractWrite(wantApproveConfig.config);
+  const buyBond = useContractWrite(buyBondConfig.config);
   const [contractDetails, setContractDetails] = useState<{
     marketPrice: string;
     currentCapacity: string;
@@ -74,12 +478,10 @@ const Bond = () => {
     const floatValue = parseFloat(sanitizedValue);
     if (sanitizedValue === "" || (!isNaN(floatValue) && floatValue >= 0)) {
       setInputValue(floatValue);
+    } else {
+      setInputValue(0);
     }
   };
-
-  const referrerAddress = "0x0000000000000000000000000000000000000000";
-  const ownerAddress = "0xeBf84bbAA9562Fe5Ee0CdEd52dA80063C7af5FDc";
-  const tellerAddress = "0x007F7735baF391e207E3aA380bb53c4Bd9a5Fed6";
 
   const retrieveContractDetails = async (id: string) => {
     const [
@@ -262,11 +664,29 @@ const Bond = () => {
                     name="price"
                     id="price"
                     className="block w-full rounded-md border-0 py-1.5 mt-2 pl-3 pr-20 text-gray-900 ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    placeholder="Enter bond amount"
+                    placeholder="Enter bond amount in quote token"
                   />
-                  <button className="w-full p-2 text-center bg-white text-black border border-black font-extrabold rounded-md mt-2.5">
-                    Bond
-                  </button>
+
+                  {wantApproval.data?.lt(ethers.utils.parseEther(inputValue.toString()) || 0) ? (
+                    <button
+                      onClick={() => wantApprove?.writeAsync?.()}
+                      className="w-full p-2 text-center bg-white text-black border border-black font-extrabold rounded-md mt-2.5"
+                    >
+                      Approve
+                    </button>
+                  ) : (
+                    <></>
+                  )}
+                  {wantApproval.data?.gte(ethers.utils.parseEther(inputValue.toString()) || 0) ? (
+                    <button
+                      onClick={() => buyBond?.writeAsync?.()}
+                      className="w-full p-2 text-center bg-white text-black border border-black font-extrabold rounded-md mt-2.5"
+                    >
+                      Bond
+                    </button>
+                  ) : (
+                    <></>
+                  )}
                 </Tab.Panel>
                 <Tab.Panel>
                   <input
