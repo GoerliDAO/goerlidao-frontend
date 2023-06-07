@@ -28,7 +28,7 @@ const payoutTokenContract = new ethers.Contract(payoutTokenAddress, gdaoABI, pro
 const Bond = () => {
   const account = useAccount();
   const theme = useTheme();
-  const [wethPrice, setWethPrice] = useState([0]);
+  const [wethPrice, setWethPrice] = useState(0);
   const [bondTab, setBondTab] = useState(true);
   const [inputValue, setInputValue] = useState(0);
   const [selected, setSelected] = useState(markets[0].id);
@@ -56,6 +56,25 @@ const Bond = () => {
     discount: "0",
   });
   console.log("contractDetails :", contractDetails);
+
+  useEffect(() => {
+    const fetchData = () => {
+      const token_addr = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"; // update to GDAO (currently OHM)
+      const url = `https://api.dexscreener.com/latest/dex/search/?q=${token_addr}`;
+      axios
+        .get(url)
+        .then(res => {
+          console.log(res.data);
+          const json_data = JSON.stringify(res.data.pairs[0]);
+          const price_ = JSON.parse(json_data).priceUsd;
+          setWethPrice(price_);
+        })
+        .catch(err => console.log(err));
+    };
+    fetchData(); // fetch data immediately
+    const intervalId = setInterval(fetchData, 30 * 1000); // fetch data every 5 mins
+    return () => clearInterval(intervalId); // clean up on component unmount
+  }, [selected]);
 
   // User Vesting Tokens Query
   // const {
@@ -120,7 +139,7 @@ const Bond = () => {
     // will need to get payout token price (gdao) to figure out discount
     // hardcoded gdao value for now
     // let discount = (discountedPrice - payoutToken.price) / payoutToken.price;
-    let discount = (discountedPrice - 0.000051848112998) / 0.000051848112998;
+    let discount = (discountedPrice - wethPrice) / wethPrice;
     discount *= 100;
 
     const capacity = Number(currentCapacity) / Math.pow(10, 18);
@@ -151,25 +170,6 @@ const Bond = () => {
   useEffect(() => {
     retrieveContractDetails(selected);
   }, [selected]);
-
-  useEffect(() => {
-    const fetchData = () => {
-      const token_addr = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"; // update to GDAO (currently OHM)
-      const url = `https://api.dexscreener.com/latest/dex/search/?q=${token_addr}`;
-      axios
-        .get(url)
-        .then(res => {
-          console.log(res.data);
-          const json_data = JSON.stringify(res.data.pairs[0]);
-          const price_ = JSON.parse(json_data).priceUsd;
-          setWethPrice(price_);
-        })
-        .catch(err => console.log(err));
-    };
-    fetchData(); // fetch data immediately
-    const intervalId = setInterval(fetchData, 5 * 60 * 1000); // fetch data every 5 mins
-    return () => clearInterval(intervalId); // clean up on component unmount
-  }, []);
 
   return (
     <>
@@ -240,7 +240,7 @@ const Bond = () => {
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-bold">Purchase Limit</span>
-                <span className="">{ethers.utils.formatEther(contractDetails.currentCapacity)}</span>
+                <span className="">{contractDetails.currentCapacity}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-bold">Max Amount Accepted</span>

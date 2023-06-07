@@ -127,7 +127,7 @@ const LandingPage = () => {
               border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
               background: theme.palette.mode === "dark" ? "#181818" : "#E8E8FC",
             }}
-            className="font-base my-10 border border-black"
+            className="hidden font-base my-10 border border-black"
           >
             <div className="p-4 flex items-end">
               <p style={{ color: theme.palette.mode === "dark" ? "#FFFFFF" : "#0202FF" }} className="text-5xl">

@@ -123,7 +123,8 @@ const Donate = () => {
 
               <div className="flex flex-col">
                 <span style={{ fontSize: 10 }}>
-                  TOTAL $GETH CONTRIBUTED: <span className="font-bold">{donationEventContractData.totalInEther}Ξ</span>
+                  TOTAL $GETH CONTRIBUTED:{" "}
+                  <span className="font-bold">{donationEventContractData.totalInEther}Ξ / 1,000,000Ξ</span>
                 </span>
               </div>
 
@@ -167,7 +168,7 @@ const Donate = () => {
             <div className="grid grid-cols-1 grid-rows-2 p-2 rounded-b-lg">
               <div className="py-2.5 flex items-center justify-between">
                 <p>Max. Individual Contribution</p>
-                <span>{donationEventContractData.formattedIndividualCap}Ξ</span>
+                <span>25,000Ξ</span>
               </div>
               <div className="flex items-center justify-between">
                 <p>Multisig</p>
