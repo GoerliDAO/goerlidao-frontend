@@ -77,7 +77,7 @@ const LandingPage = () => {
   const [liq, setLiquidity] = useState([0]);
 
   useEffect(() => {
-    const token_addr = "0x4AB540a00C618DE15aC7D297Bb7250d0D8314a6B"; // update to GDAO (currently OHM)
+    const token_addr = "0xd59Abc4D7E6948De9344574A3a63754186e17a2C"; // update to GDAO (currently OHM)
     const url = `https://api.dexscreener.com/latest/dex/search/?q=${token_addr}`;
     axios
       .get(url)
