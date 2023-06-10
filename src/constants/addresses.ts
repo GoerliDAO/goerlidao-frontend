@@ -57,7 +57,7 @@ export const OHM_DAI_LP_ADDRESSES = {
 };
 
 export const GDAO_GETH_LP_ADDRESSES = {
-  [NetworkId.TESTNET_GOERLI]: "0x3602be0be22509d144e180fcb1a39490bd165824da75cb1f7819d08b93968252",
+  [NetworkId.TESTNET_GOERLI]: "0x7a19f9671e72a10cc388b25527c3af9b18cd7069",
   [NetworkId.MAINNET]: "",
 };
 
