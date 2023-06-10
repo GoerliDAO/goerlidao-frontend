@@ -2,6 +2,7 @@ import { useTheme } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FiCornerRightDown } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import { ReactComponent as CeramicApe } from "src/assets/GDAO-ceramic-ape.svg";
 // other icons
 import { ReactComponent as DarkBondIcon } from "src/assets/icons/bonding-dark.svg";
@@ -18,6 +19,7 @@ import { ReactComponent as DarkSwapIcon } from "src/assets/icons/swapping-dark.s
 import { ReactComponent as LightSwapIcon } from "src/assets/icons/swapping-light.svg";
 import FAQ from "src/components/FAQ";
 import Footer from "src/components/Footer";
+
 interface FeaturesProps {
   title: string;
   description: string;
@@ -112,12 +114,12 @@ const LandingPage = () => {
               With LayerZero’s bridge, real money exists on Goerli. This means that Goerli is no longer a testnet. It is
               now a canary network for Ethereum. GoerliDAO is the first production project built on Goerli mainnet.
             </p>
-            <a
+            <Link
               className="text-sm my-5 px-6 py-2 tracking-wider border border-white text-white font-semibold"
-              href="/stake"
+              to="/donate"
             >
               Discover How
-            </a>
+            </Link>
           </div>
         </div>
 
