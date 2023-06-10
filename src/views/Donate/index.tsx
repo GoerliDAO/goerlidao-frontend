@@ -8,6 +8,28 @@ import donateABI from "src/abi/donateABI";
 import Footer from "src/components/Footer";
 import { useSwitchNetwork } from "wagmi";
 
+type CountdownResult = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
+const calculateCountdown = (startDate: Date, endDate: Date): CountdownResult => {
+  const totalMilliseconds = endDate.getTime() - startDate.getTime();
+
+  const totalSeconds = Math.floor(totalMilliseconds / 1000);
+  const totalMinutes = Math.floor(totalSeconds / 60);
+  const totalHours = Math.floor(totalMinutes / 60);
+
+  const days = Math.floor(totalHours / 24);
+  const hours = totalHours % 24;
+  const minutes = totalMinutes % 60;
+  const seconds = totalSeconds % 60;
+
+  return { days, hours, minutes, seconds };
+};
+
 const Donate = () => {
   const account = getAccount();
   const theme = useTheme();
@@ -15,15 +37,30 @@ const Donate = () => {
   const contractABI = donateABI;
   const [totalTokens, setTotalTokens] = React.useState(10);
   const [donationAmount, setDonationAmount] = React.useState(0);
+  const [totalDonated, setTotalDonated] = React.useState(0);
+  const [totalPercentage, setTotalPercentage] = React.useState(0);
+
+  const useEthereumProvider = () => {
+    return new ethers.providers.Web3Provider(window.ethereum as ethers.providers.ExternalProvider);
+  };
+
+  const provider = useEthereumProvider();
+
+  const infuraProvider = new ethers.providers.JsonRpcProvider(
+    "https://goerli.infura.io/v3/b42fdbed6f7d4990a5f1fed9c4599ad2",
+  );
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    const sanitizedValue = value.replace(/[^0-9.]/g, ""); // allow only digits and decimal point
-    const floatValue = parseFloat(sanitizedValue);
-    if (sanitizedValue === "" || (!isNaN(floatValue) && floatValue >= 0)) {
+    const floatValue = parseFloat(event.target.value);
+    if (!isNaN(floatValue) && floatValue >= 0) {
       setDonationAmount(floatValue);
     }
   };
+
+  function formatBigNumber(value: any, fallback = "--") {
+    return value.isZero() ? fallback : ethers.utils.formatEther(value);
+  }
+
   const { switchNetwork } = useSwitchNetwork();
 
   const deposit = async () => {
@@ -33,7 +70,6 @@ const Donate = () => {
         return;
       }
       switchNetwork?.(5);
-      const provider = new ethers.providers.Web3Provider(window.ethereum as ethers.providers.ExternalProvider);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(contractAddress, contractABI, signer);
       const depositAmount = ethers.utils.parseEther(donationAmount.toString());
@@ -42,43 +78,39 @@ const Donate = () => {
       toast.success(`Successfully donated ${donationAmount}Ξ}`);
     } catch (err) {
       console.error(err);
-      toast.error("There was an error donating. Contact us if you need help.");
+      toast.error(
+        "There was an error donating. Make sure you're on Goerli network. If the problem continues contact us.",
+      );
+    }
+  };
+
+  const getTotalCap = async () => {
+    try {
+      const infuraContract = new ethers.Contract(contractAddress, contractABI, infuraProvider);
+      const total = await infuraContract.total();
+      const totalInEther = ethers.utils.formatEther(total);
+      const totalInEtherPercentage = (parseFloat(totalInEther) / 1000000) * 100;
+      setTotalDonated(total);
+      setTotalPercentage(totalInEtherPercentage);
+    } catch (err) {
+      console.error(err);
     }
   };
 
   const getContractData = async () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum as ethers.providers.ExternalProvider);
     const contract = new ethers.Contract(contractAddress, contractABI, provider);
-
-    const cap = await contract.cap();
     const share = await contract.share(account.address);
-    const shareInEther = ethers.utils.formatEther(share);
-
-    // individual cap in wei and converted to ether
-    const individualCap = await contract.individualCap();
-    const formattedIndividualCap = ethers.utils.formatEther(individualCap);
-
     const saleConcluded = await contract.saleConcluded();
 
-    // total donated in wei and converted to ether
-    const total = await contract.total();
-    const totalInEther = ethers.utils.formatEther(total);
-
     return {
-      formattedIndividualCap,
-      shareInEther,
-      individualCap,
+      share,
       saleConcluded,
-      totalInEther,
     };
   };
 
   const [donationEventContractData, setDonationEventContractData] = useState({
-    formattedIndividualCap: "0",
-    shareInEther: "0",
-    individualCap: 0,
+    share: ethers.constants.Zero,
     saleConcluded: false,
-    totalInEther: "0",
   });
 
   useEffect(() => {
@@ -94,7 +126,19 @@ const Donate = () => {
     fetchContractData();
   }, []);
 
-  console.log("This is your contract data: ", donationEventContractData);
+  useEffect(() => {
+    getTotalCap();
+  }, []);
+
+  // Full breakdown of the countdown object:
+  // 2024: This is the full year.
+  // 11: This is the month, in JavaScript months are 0-indexed. 0 = January, 11 = December.
+  // 31: This is the day of the month.
+  // 23: This is the hour in 24-hour format (so 23 represents 11 PM).
+  // 59: The first 59 is the minute.
+  // 59: The second 59 is the second.
+  // 11:59:59 PM on December 31, 2024
+  const countdown = calculateCountdown(new Date(), new Date(2023, 11, 31, 23, 59, 59));
 
   return (
     <>
@@ -106,7 +150,7 @@ const Donate = () => {
             }}
             className="relative text-xs flex flex-col rounded-lg"
           >
-            <div className="grid grid-cols-1 grid-rows-2 gap-2 p-4 rounded-xl">
+            <div className="grid grid-cols-1 grid-rows-2 gap-2 p-2 rounded-xl">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-extrabold">GOERLIDAO Donation Event</span>
                 <div
@@ -117,15 +161,31 @@ const Donate = () => {
                   }}
                   className="p-1 rounded-md font-semibold"
                 >
-                  {!donationEventContractData.saleConcluded ? "EVENT OPEN NOW" : "EVENT NOW CLOSED"}
+                  {!donationEventContractData.saleConcluded ? "EVENT OPEN NOW" : "EVENT NOW CLOSED"} - {countdown.days}d{" "}
+                  {countdown.hours}h {countdown.minutes}m {countdown.seconds}s
                 </div>
               </div>
 
-              <div className="flex flex-col">
-                <span style={{ fontSize: 10 }}>
-                  TOTAL $GETH CONTRIBUTED:{" "}
-                  <span className="font-bold">{donationEventContractData.totalInEther}Ξ / 1,000,000Ξ</span>
-                </span>
+              <div className="relative">
+                <div className="flex mb-2 items-center justify-between">
+                  <div>
+                    <div className="flex flex-col">
+                      <span style={{ fontSize: 11 }}>
+                        TOTAL $GETH CONTRIBUTED:{" "}
+                        <span className="font-bold">{ethers.utils.formatEther(totalDonated)}Ξ / 1,000,000Ξ</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-xs font-semibold inline-block text-blue-600">{totalPercentage}%</span>
+                  </div>
+                </div>
+                <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-300">
+                  <div
+                    style={{ width: `${totalPercentage}%` }}
+                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
+                  ></div>
+                </div>
               </div>
 
               <div className="flex-col hidden">
@@ -165,8 +225,12 @@ const Donate = () => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 grid-rows-2 p-2 rounded-b-lg">
-              <div className="py-2.5 flex items-center justify-between">
+            <div className="grid grid-cols-1 grid-rows-2 gap-2 p-2 rounded-b-lg">
+              <div className="flex items-center justify-between">
+                <p>Your Total Contribution</p>
+                <span>{formatBigNumber(donationEventContractData.share)}Ξ</span>
+              </div>
+              <div className="flex items-center justify-between">
                 <p>Max. Individual Contribution</p>
                 <span>25,000Ξ</span>
               </div>
