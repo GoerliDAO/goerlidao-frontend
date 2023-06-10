@@ -634,11 +634,18 @@ const Bond = () => {
                 <span className="font-bold">Discount</span>
                 <span style={{ color: parseFloat(contractDetails.discount) < 0 ? "red" : "green" }}>
                   {contractDetails.discount}
+                  {console.log("discount :", contractDetails.discount)}
                 </span>
               </div>
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <span className="font-bold">Market Price</span>
                 <span className="">{ethers.utils.formatUnits(contractDetails.marketPrice)}</span>
+              </div> */}
+              <div className="flex items-center justify-between">
+                <span className="font-bold">Bond Price</span>
+                <span className="">
+                  {ethers.utils.formatUnits(ethers.utils.formatUnits(contractDetails.marketPrice).split(".")[0])}
+                </span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-bold">Purchase Limit</span>
