@@ -430,11 +430,12 @@ const Bond = () => {
       account?.address || "0x0",
       account?.address || "0x0",
       selected,
-      ethers.utils.parseEther(inputValue.toString()),
+      ethers.utils.parseEther((inputValue || 0).toString()),
       0,
     ],
   });
   const wantApprove = useContractWrite(wantApproveConfig.config);
+  // @ts-ignore
   const buyBond = useContractWrite(buyBondConfig.config);
   const [contractDetails, setContractDetails] = useState<{
     marketPrice: string;
@@ -674,7 +675,7 @@ const Bond = () => {
                     placeholder="Enter bond amount in quote token"
                   />
 
-                  {wantApproval.data?.lt(ethers.utils.parseEther(inputValue.toString()) || 0) ? (
+                  {wantApproval.data?.lt(ethers.utils.parseEther((inputValue || 0).toString()) || 0) ? (
                     <button
                       onClick={() => wantApprove?.writeAsync?.()}
                       className="w-full p-2 text-center bg-white text-black border border-black font-extrabold rounded-md mt-2.5"
@@ -684,7 +685,7 @@ const Bond = () => {
                   ) : (
                     <></>
                   )}
-                  {wantApproval.data?.gte(ethers.utils.parseEther(inputValue.toString()) || 0) ? (
+                  {wantApproval.data?.gte(ethers.utils.parseEther((inputValue || 0).toString()) || 0) ? (
                     <button
                       onClick={() => buyBond?.writeAsync?.()}
                       className="w-full p-2 text-center bg-white text-black border border-black font-extrabold rounded-md mt-2.5"
