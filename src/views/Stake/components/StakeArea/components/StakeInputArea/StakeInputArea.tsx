@@ -234,7 +234,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
           info={`Balance: ${balance} ${swapAssetType.name}`}
           endString={currentAction === "STAKE" ? "Max" : ""}
           endStringOnClick={() => balance && ohmOnChange(balance, currentAction === "STAKE")}
-          disabled={isMutating}
+          disabled={isMutating || chain.id != 5}
           inputWidth={`${
             (currentAction === "STAKE" ? amount : receiveAmount).length > 0
               ? (currentAction === "STAKE" ? amount : receiveAmount).length
@@ -271,7 +271,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
               ? (currentAction === "STAKE" ? receiveAmount : amount).length
               : 1
           }ch`}
-          disabled={isMutating}
+          disabled={isMutating || chain.id != 5}
           {...tokenOnClick}
         />
       </div>
@@ -368,11 +368,15 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
                       //@ts-ignore
                       loading={isMutating}
                       fullWidth
-                      disabled={isMutating || !amount || amountExceedsBalance || parseFloat(amount) === 0}
+                      disabled={
+                        chain.id != 5 || isMutating || !amount || amountExceedsBalance || parseFloat(amount) === 0
+                      }
                       onClick={() => setConfirmationModalOpen(true)}
                     >
                       <span className="uppercase text-xs">
-                        {amountExceedsBalance
+                        {chain.id != 5
+                          ? "Switch to Goerli"
+                          : amountExceedsBalance
                           ? "Amount exceeds balance"
                           : !amount || parseFloat(amount) === 0
                           ? "Enter an amount"
