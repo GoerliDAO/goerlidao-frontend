@@ -226,10 +226,10 @@ const Donate = () => {
               </div>
             </div>
             <div className="grid grid-cols-1 grid-rows-2 gap-2 p-2 rounded-b-lg">
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <p>Your Total Contribution</p>
                 <span>{formatBigNumber(donationEventContractData.share)}Ξ</span>
-              </div>
+              </div> */}
               <div className="flex items-center justify-between">
                 <p>Max. Individual Contribution</p>
                 <span>25,000Ξ</span>
