@@ -497,7 +497,7 @@ const Bond = () => {
       .then(res => {
         console.log(res.data);
         const json_data = JSON.stringify(res.data.pairs[0]);
-        const price_ = JSON.parse(json_data).priceUsd;
+        const price_ = JSON.parse(json_data).priceNative;
         setMPrice(price_);
 
         // const liq_ = JSON.parse(json_data).liquidity.usd;
