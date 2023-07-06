@@ -404,6 +404,7 @@ const Bond = () => {
   const [bondTab, setBondTab] = useState(true);
   const [inputValue, setInputValue] = useState(0);
   const [selected, setSelected] = useState(markets[0].id);
+  const [mPrice, setMPrice] = useState("");
 
   const referrerAddress = "0x0000000000000000000000000000000000000000";
   const ownerAddress = "0xeBf84bbAA9562Fe5Ee0CdEd52dA80063C7af5FDc";
@@ -413,6 +414,13 @@ const Bond = () => {
     functionName: "allowance",
     address: quoteTokenAddress,
     args: [account?.address || "0x0", tellerAddress],
+  });
+
+  const wantBalance = useContractRead({
+    abi: erc20ABI,
+    functionName: "balanceOf",
+    address: quoteTokenAddress,
+    args: [account?.address || "0x0"],
   });
 
   const wantApproveConfig = usePrepareContractWrite({
@@ -480,6 +488,24 @@ const Bond = () => {
     const intervalId = setInterval(fetchData, 30 * 1000); // fetch data every 5 mins
     return () => clearInterval(intervalId); // clean up on component unmount
   }, [selected]);
+
+  useEffect(() => {
+    const pair_addr = "0x7a19f9671E72a10CC388b25527C3AF9b18cD7069"; // update to GDAO
+    const url = `https://api.dexscreener.com/latest/dex/pairs/goerli/${pair_addr}`;
+    axios
+      .get(url)
+      .then(res => {
+        console.log(res.data);
+        const json_data = JSON.stringify(res.data.pairs[0]);
+        const price_ = JSON.parse(json_data).priceNative;
+        setMPrice(price_);
+
+        // const liq_ = JSON.parse(json_data).liquidity.usd;
+        // setLiquidity(liq_);
+        console.log(`price usd: ${price_}`);
+      })
+      .catch(err => console.log(err));
+  }, []);
 
   // User Vesting Tokens Query
   // const {
@@ -628,26 +654,76 @@ const Bond = () => {
               className="text-xs my-5 p-2 rounded-md grid grid-cols-1 auto-rows-auto gap-2"
             >
               <div className="flex items-center justify-between">
-                <span className="font-bold">Status</span>
-                <span className="">{contractDetails.isLive ? "Live" : "Not Live"}</span>
+                <span className="font-bold">Bond Price (WETH)</span>
+                <span className="">
+                  {ethers.utils.formatUnits(ethers.utils.formatUnits(contractDetails.marketPrice).split(".")[0])}
+                </span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="font-bold">Market Price (WETH)</span>
+                <span className="">{mPrice}</span>
+              </div>
+            </div>
+
+            <div
+              style={{
+                border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
+              }}
+              className="text-xs my-5 p-2 rounded-md grid grid-cols-1 auto-rows-auto gap-2"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-bold">Your balance (WETH)</span>
+                <span className="">{ethers.utils.formatUnits(wantBalance?.data || 0)}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="font-bold">You bond (WETH)</span>
+                <span className="">{inputValue ? inputValue : "--"}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="font-bold">You will get (GDAO)</span>
+                <span className="">
+                  {inputValue
+                    ? inputValue /
+                      Number(
+                        ethers.utils.formatUnits(ethers.utils.formatUnits(contractDetails.marketPrice).split(".")[0]),
+                      )
+                    : "--"}
+                </span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="font-bold">Vesting term</span>
+                <span className="">14 days</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-bold">Discount</span>
-                <span style={{ color: parseFloat(contractDetails.discount) < 0 ? "red" : "green" }}>
-                  {contractDetails.discount}
-                  {console.log("discount :", contractDetails.discount)}
+                <span
+                  style={{
+                    color:
+                      Number(mPrice) -
+                        Number(
+                          ethers.utils.formatUnits(ethers.utils.formatUnits(contractDetails.marketPrice).split(".")[0]),
+                        ) <
+                      0
+                        ? "red"
+                        : "green",
+                  }}
+                >
+                  {(
+                    ((Number(mPrice) -
+                      Number(
+                        ethers.utils.formatUnits(ethers.utils.formatUnits(contractDetails.marketPrice).split(".")[0]),
+                      )) /
+                      Number(mPrice)) *
+                    100
+                  ).toFixed(2)}
+                  %{console.log("discount :", contractDetails.discount)}
                 </span>
               </div>
               {/* <div className="flex items-center justify-between">
                 <span className="font-bold">Market Price</span>
                 <span className="">{ethers.utils.formatUnits(contractDetails.marketPrice)}</span>
               </div> */}
-              <div className="flex items-center justify-between">
-                <span className="font-bold">Bond Price</span>
-                <span className="">
-                  {ethers.utils.formatUnits(ethers.utils.formatUnits(contractDetails.marketPrice).split(".")[0])}
-                </span>
-              </div>
+
               <div className="flex items-center justify-between">
                 <span className="font-bold">Purchase Limit</span>
                 <span className="">{contractDetails.currentCapacity}</span>
