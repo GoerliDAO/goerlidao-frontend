@@ -1,5 +1,6 @@
 // import "src/components/TopBar/TopBar.scss";
 import { useMediaQuery, useTheme } from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
 import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
@@ -134,10 +135,16 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
           className="hidden md:grid grid-cols-5 grid-rows-1 gap-8 text-xs font-base"
         >
           <Link to="/donate">Donate</Link>
-          <Link to="/bridge">Bridge</Link>
+          <Tooltip title="Coming Soon">
+            <Link to="">Bridge</Link>
+          </Tooltip>
           <Link to="/swap">Swap</Link>
-          <Link to="/stake">Stake</Link>
-          <Link to="/bond">Bond</Link>
+          <Tooltip title="Coming Soon">
+            <Link to="">Stake</Link>
+          </Tooltip>
+          <Tooltip title="Coming Soon">
+            <Link to="">Bond</Link>
+          </Tooltip>
         </div>
 
         <div className="flex items-center justify-between">

@@ -118,7 +118,7 @@ const LandingPage = () => {
               className="text-sm my-5 px-6 py-2 tracking-wider border border-white text-white font-semibold"
               to="/donate"
             >
-              Discover How
+              Donation Event Live!
             </Link>
           </div>
         </div>

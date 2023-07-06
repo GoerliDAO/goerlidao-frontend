@@ -18,10 +18,8 @@ import { MigrationCallToAction } from "src/components/MigrationCallToAction";
 import { MigrationNotification } from "src/components/MigrationNotification";
 import NavDrawer from "src/components/Sidebar/NavDrawer";
 import Sidebar from "src/components/Sidebar/Sidebar";
-import { StakeVersionContainer } from "src/components/StakeVersionContainer";
 import TopBar from "src/components/TopBar/TopBar";
 import Wallet from "src/components/TopBar/Wallet";
-import { shouldTriggerSafetyCheck } from "src/helpers";
 import { useGoogleAnalytics } from "src/hooks/useGoogleAnalytics";
 import useTheme from "src/hooks/useTheme";
 import { chains } from "src/hooks/wagmi";
@@ -130,9 +128,6 @@ function App() {
   // ... if we don't wait we'll ALWAYS fire API calls via JsonRpc because provider has not
   // ... been reloaded within App.
   useEffect(() => {
-    if (shouldTriggerSafetyCheck()) {
-      toast("Safety Check: Always verify you're on https://goerli.com");
-    }
     loadDetails("app");
   }, []);
   useEffect(() => {
@@ -216,15 +211,16 @@ function App() {
                 <Suspense fallback={<div></div>}>
                   <Routes>
                     <Route path="/" element={<LandingPage />} />
-                    <Route
+                    {/* <Route
                       path="/stake"
                       element={<StakeVersionContainer setMigrationModalOpen={setMigrationModalOpen} />}
-                    />
-                    <Route path="/swap" element={<Swap />} />
+                    /> */}
+                    {/* 
                     <Route path="/bond" element={<Bond />} />
-                    <Route path="/bridge" element={<Bridge />} />
+                    <Route path="/bridge" element={<Bridge />} /> */}
+                    <Route path="/swap" element={<Swap />} />
                     <Route path="/donate" element={<Donate />} />
-                    <Route path="/stats/*" element={<TreasuryDashboard />} />
+                    {/* <Route path="/stats/*" element={<TreasuryDashboard />} /> */}
                     <Route
                       path={"/info/*"}
                       element={<Wallet open={true} component="info" theme={theme} toggleTheme={toggleTheme} />}
