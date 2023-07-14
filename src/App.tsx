@@ -218,6 +218,7 @@ function App() {
                     {/* 
                     <Route path="/bond" element={<Bond />} />
                     <Route path="/bridge" element={<Bridge />} /> */}
+                    <Route path="/bridge" element={<Bridge />} />
                     <Route path="/swap" element={<Swap />} />
                     <Route path="/donate" element={<Donate />} />
                     {/* <Route path="/stats/*" element={<TreasuryDashboard />} /> */}
