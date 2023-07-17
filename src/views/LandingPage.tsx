@@ -262,7 +262,7 @@ const LandingPage = () => {
               title="Governance"
               description="As a GDAO staker, your governance rights will allow you to participate in allocating funds for investments, financing new projects, and distributing grants to developers building on Goerli. "
               icon={theme.palette.mode === "dark" ? <LightGovernanceIcon /> : <DarkGovernanceIcon />}
-              actionLink="governance"
+              actionLink="/"
               actionTitle="Coming Soon"
             />
           </div>
