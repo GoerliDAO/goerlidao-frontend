@@ -16,6 +16,28 @@ type CountdownResult = {
 };
 
 const calculateCountdown = (startDate: Date, endDate: Date): CountdownResult => {
+  // Convert dates to UTC
+  startDate = new Date(
+    Date.UTC(
+      startDate.getFullYear(),
+      startDate.getMonth(),
+      startDate.getDate(),
+      startDate.getHours(),
+      startDate.getMinutes(),
+      startDate.getSeconds(),
+    ),
+  );
+  endDate = new Date(
+    Date.UTC(
+      endDate.getFullYear(),
+      endDate.getMonth(),
+      endDate.getDate(),
+      endDate.getHours(),
+      endDate.getMinutes(),
+      endDate.getSeconds(),
+    ),
+  );
+
   const totalMilliseconds = endDate.getTime() - startDate.getTime();
 
   const totalSeconds = Math.floor(totalMilliseconds / 1000);
@@ -39,6 +61,7 @@ const Donate = () => {
   const [donationAmount, setDonationAmount] = React.useState(0);
   const [totalDonated, setTotalDonated] = React.useState(0);
   const [totalPercentage, setTotalPercentage] = React.useState(0);
+  const [countdown, setCountdown] = useState<CountdownResult>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   const useEthereumProvider = () => {
     return new ethers.providers.Web3Provider(window.ethereum as ethers.providers.ExternalProvider);
@@ -138,7 +161,7 @@ const Donate = () => {
   // 59: The first 59 is the minute.
   // 59: The second 59 is the second.
   // 11:59:59 PM on December 31, 2024
-  const countdown = calculateCountdown(new Date(2023, 6, 17, 4, 0, 0), new Date(2023, 6, 19, 4, 0, 0));
+  const displayedCountdown = calculateCountdown(new Date(2023, 6, 17, 4, 0, 0), new Date(2023, 6, 19, 4, 0, 0));
 
   return (
     <>
@@ -161,8 +184,7 @@ const Donate = () => {
                   }}
                   className="p-1 rounded-md font-semibold"
                 >
-                  {!donationEventContractData.saleConcluded ? "EVENT OPEN NOW" : "EVENT NOW CLOSED"} - {countdown.days}d{" "}
-                  {countdown.hours}h {countdown.minutes}m {countdown.seconds}s
+                  {!donationEventContractData.saleConcluded ? "EVENT OPEN NOW" : "EVENT NOW CLOSED"}
                 </div>
               </div>
 
