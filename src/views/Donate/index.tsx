@@ -33,7 +33,7 @@ const calculateCountdown = (startDate: Date, endDate: Date): CountdownResult => 
 const Donate = () => {
   const account = getAccount();
   const theme = useTheme();
-  const contractAddress = "0x08F81f3be4a03E0332643B8bF80D74744a11bF32";
+  const contractAddress = "0xBed6b7b73c3468a1B29A130aaF78E2AbddFE5891";
   const contractABI = donateABI;
   const [totalTokens, setTotalTokens] = React.useState(10);
   const [donationAmount, setDonationAmount] = React.useState(0);
@@ -215,13 +215,13 @@ const Donate = () => {
               <div className="flex items-center justify-center">
                 <div className="font-base">
                   Starts at:
-                  <span className="font-extrabold"> 15 Apr, 18:00</span>
+                  <span className="font-extrabold"> July 17, 4pm UTC</span>
                 </div>
               </div>
               <div className="flex items-center justify-center">
                 <div className="font-base">
                   Ends at:
-                  <span className="font-extrabold"> 15 Apr, 18:00</span>
+                  <span className="font-extrabold"> July 18, 4pm UTC</span>
                 </div>
               </div>
             </div>
@@ -239,9 +239,9 @@ const Donate = () => {
                 <a
                   className="underline"
                   target="_blank"
-                  href="https://goerli.etherscan.io/address/0x453935F8BdB458F69E87E238E41A222d4FC7813f"
+                  href="https://goerli.etherscan.io/address/0x84D5eA43081b6Dc7dFfeBbdFA4D19f3F014b13D9"
                 >
-                  0x453935F8BdB458F69E87E238E41A222d4FC7813f
+                  0x84D5eA43081b6Dc7dFfeBbdFA4D19f3F014b13D9
                 </a>
               </div>
             </div>
