@@ -26,7 +26,7 @@ export default ({ mode }) => {
       outDir: "./build",
       rollupOptions: {
         external: [
-          'src/typechain'
+          'src/typechain/**'
         ],
       },
     },
