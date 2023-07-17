@@ -138,7 +138,7 @@ const Donate = () => {
   // 59: The first 59 is the minute.
   // 59: The second 59 is the second.
   // 11:59:59 PM on December 31, 2024
-  const countdown = calculateCountdown(new Date(), new Date(2023, 11, 31, 23, 59, 59));
+  const countdown = calculateCountdown(new Date(), new Date(2023, 7, 17, 4, 0, 0));
 
   return (
     <>
