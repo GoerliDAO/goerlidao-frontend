@@ -8,50 +8,6 @@ import donateABI from "src/abi/donateABI";
 import Footer from "src/components/Footer";
 import { useSwitchNetwork } from "wagmi";
 
-type CountdownResult = {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-};
-
-const calculateCountdown = (startDate: Date, endDate: Date): CountdownResult => {
-  // Convert dates to UTC
-  startDate = new Date(
-    Date.UTC(
-      startDate.getFullYear(),
-      startDate.getMonth(),
-      startDate.getDate(),
-      startDate.getHours(),
-      startDate.getMinutes(),
-      startDate.getSeconds(),
-    ),
-  );
-  endDate = new Date(
-    Date.UTC(
-      endDate.getFullYear(),
-      endDate.getMonth(),
-      endDate.getDate(),
-      endDate.getHours(),
-      endDate.getMinutes(),
-      endDate.getSeconds(),
-    ),
-  );
-
-  const totalMilliseconds = endDate.getTime() - startDate.getTime();
-
-  const totalSeconds = Math.floor(totalMilliseconds / 1000);
-  const totalMinutes = Math.floor(totalSeconds / 60);
-  const totalHours = Math.floor(totalMinutes / 60);
-
-  const days = Math.floor(totalHours / 24);
-  const hours = totalHours % 24;
-  const minutes = totalMinutes % 60;
-  const seconds = totalSeconds % 60;
-
-  return { days, hours, minutes, seconds };
-};
-
 const Donate = () => {
   const account = getAccount();
   const theme = useTheme();
@@ -61,10 +17,14 @@ const Donate = () => {
   const [donationAmount, setDonationAmount] = React.useState(0);
   const [totalDonated, setTotalDonated] = React.useState(0);
   const [totalPercentage, setTotalPercentage] = React.useState(0);
-  const [countdown, setCountdown] = useState<CountdownResult>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   const useEthereumProvider = () => {
-    return new ethers.providers.Web3Provider(window.ethereum as ethers.providers.ExternalProvider);
+    if (window.ethereum) {
+      return new ethers.providers.Web3Provider(window.ethereum as ethers.providers.ExternalProvider);
+    } else {
+      // Fallback to infura provider when window.ethereum is not available
+      return new ethers.providers.JsonRpcProvider("https://goerli.infura.io/v3/b42fdbed6f7d4990a5f1fed9c4599ad2");
+    }
   };
 
   const provider = useEthereumProvider();
@@ -152,16 +112,6 @@ const Donate = () => {
   useEffect(() => {
     getTotalCap();
   }, []);
-
-  // Full breakdown of the countdown object:
-  // 2024: This is the full year.
-  // 11: This is the month, in JavaScript months are 0-indexed. 0 = January, 11 = December.
-  // 31: This is the day of the month.
-  // 23: This is the hour in 24-hour format (so 23 represents 11 PM).
-  // 59: The first 59 is the minute.
-  // 59: The second 59 is the second.
-  // 11:59:59 PM on December 31, 2024
-  const displayedCountdown = calculateCountdown(new Date(2023, 6, 17, 4, 0, 0), new Date(2023, 6, 19, 4, 0, 0));
 
   return (
     <>
