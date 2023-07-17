@@ -107,7 +107,7 @@ const LandingPage = () => {
         >
           <div className="flex flex-col items-center justify-between">
             <h1 className="text-white w-full text-4xl md:w-1/2 md:text-4xl xl:text-7xl text-center font-light">
-              Empowering the Goerli ecosystem
+              Empowering the Goerli Ecosystem
             </h1>
             <CeramicApe style={{ width: "300px" }} className="w-full" />
             <p className="p-2 w-full md:w-1/2 text-xs md:text-sm text-center text-white">
