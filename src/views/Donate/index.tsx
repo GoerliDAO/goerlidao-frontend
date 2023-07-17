@@ -33,7 +33,7 @@ const calculateCountdown = (startDate: Date, endDate: Date): CountdownResult => 
 const Donate = () => {
   const account = getAccount();
   const theme = useTheme();
-  const contractAddress = "0xF9E1D38081336B8D4FEcF51ea52a171D57b1912c";
+  const contractAddress = "0xCcf1dA47ACf0df3f91ccA58842ca4bde1D90EA96";
   const contractABI = donateABI;
   const [totalTokens, setTotalTokens] = React.useState(10);
   const [donationAmount, setDonationAmount] = React.useState(0);
