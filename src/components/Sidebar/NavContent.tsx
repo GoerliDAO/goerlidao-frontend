@@ -1,6 +1,5 @@
 import { Box, Link, Paper, Typography, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Icon, NavItem } from "@olympusdao/component-library";
 import React from "react";
 import { ReactComponent as GDAOBlackApe } from "src/assets/logos/GDAOBlackApe.svg";
 import { ReactComponent as GDAOWhiteApe } from "src/assets/logos/GDAOWhiteApe.svg";
@@ -42,48 +41,19 @@ const NavContent: React.VFC = () => {
               {chain.id === networks.MAINNET && (
                 <div className="grid grid-cols-1 grid-rows-6 gap-4 m-4">
                   <Link className="" href="/donate" target="_blank" rel="noopener noreferrer">
-                    - Donate
+                    Donate
                   </Link>
                   <Link className="" href="/bridge" target="_blank" rel="noopener noreferrer">
-                    - Bridge
+                    Bridge
                   </Link>
                   <Link className="" href="/swap" target="_blank" rel="noopener noreferrer">
-                    - Swap
-                  </Link>
-                  <Link className="" href="/stake" target="_blank" rel="noopener noreferrer">
-                    - Stake
-                  </Link>
-                  <Link className="" href="/bond" target="_blank" rel="noopener noreferrer">
-                    - Bond
-                  </Link>
-                  <Link className="" href="/stats" target="_blank" rel="noopener noreferrer">
-                    - Stats
+                    Swap
                   </Link>
                 </div>
               )}
             </div>
           </div>
         </div>
-        <Box>
-          <NavItem href="https://docs.goerli.com/" icon="docs" label={`Docs`} />
-          <StyledBox display="flex" justifyContent="space-around" paddingY="24px">
-            <Link href="https://github.com/OlympusDAO" target="_blank" rel="noopener noreferrer">
-              <Icon name="github" className={classes.gray} />
-            </Link>
-
-            <Link href="https://goerlidao.medium.com/" target="_blank" rel="noopener noreferrer">
-              <Icon name="medium" className={classes.gray} />
-            </Link>
-
-            <Link href="https://twitter.com/goerlidao" target="_blank" rel="noopener noreferrer">
-              <Icon name="twitter" className={classes.gray} />
-            </Link>
-
-            <Link href="" target="_blank" rel="noopener noreferrer">
-              <Icon name="discord" className={classes.gray} />
-            </Link>
-          </StyledBox>
-        </Box>
       </Box>
     </Paper>
   );
