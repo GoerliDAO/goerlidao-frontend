@@ -58,15 +58,15 @@ const Features = ({ title, description, icon, actionLink, actionTitle }: Feature
       />
       <div className="p-4 grid grid-cols-1 grid-rows-2 gap-8">
         <p className="text-base">{description}</p>
-        <a
+        <Link
           style={{
             border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
           }}
           className="w-fit h-fit px-10 py-2 text-base border border-black"
-          href={`/${actionLink}`}
+          to={`${actionLink}`}
         >
           {actionTitle}
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -246,7 +246,7 @@ const LandingPage = () => {
               title="Staking"
               description="By staking GDAO, you contribute to the growth of the Goerli ecosystem while earning rewards for your participation. Stakers deposit GDAO into the protocol to earn rewards and participate in governance processes. "
               icon={theme.palette.mode === "dark" ? <LightStakeIcon /> : <DarkStakeIcon />}
-              actionLink="stake"
+              actionLink="/"
               actionTitle="Stake"
             />
 
@@ -254,7 +254,7 @@ const LandingPage = () => {
               title="Bonding"
               description="You can exchange various tokens for GDAO at a discounted rate by bonding. Bond sales provide additional liquidity and reserve assets to the GoerliDAO treasury, ensuring favorable trading conditions and deep liquidity for GDAO."
               icon={theme.palette.mode === "dark" ? <LightBondIcon /> : <DarkBondIcon />}
-              actionLink="bond"
+              actionLink="/"
               actionTitle="Bond"
             />
 
