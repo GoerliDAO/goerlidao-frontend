@@ -19,14 +19,17 @@ const Footer = () => {
           <a target="_blank" href="https://twitter.com/GoerliDAO">
             Twitter
           </a>
+          <a target="_blank" href="https://t.me/goerli_dao">
+            Telegram
+          </a>
         </div>
         <div className="flex flex-col justify-center items-center">
           {theme === "dark" ? <FooterApeWhite className="w-20" /> : <FooterApeBlue className="w-20" />}
           <span className="text-xs">© Gööööööööööööööööööööööööerli</span>
         </div>
         <div className="grid grid-cols-1 md:grid-rows-3 gap-2 text-xs">
-          <a target="_blank" href="https://t.me/goerli_dao">
-            Telegram
+          <a target="_blank" href="https://goerli.one/">
+            Goerli Portal
           </a>
         </div>
       </div>
