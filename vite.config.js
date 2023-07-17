@@ -23,12 +23,7 @@ export default ({ mode }) => {
       },
     },
     build: {
-      outDir: "./build",
-      rollupOptions: {
-        external: [
-          'src/typechain/**'
-        ],
-      },
+      outDir: "./build"
     },
     test: {
       setupFiles: "src/setupTests.tsx",
