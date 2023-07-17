@@ -1,6 +1,7 @@
-import { Box, Link, Paper, Typography, useTheme } from "@mui/material";
+import { Box, Paper, Typography, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as GDAOBlackApe } from "src/assets/logos/GDAOBlackApe.svg";
 import { ReactComponent as GDAOWhiteApe } from "src/assets/logos/GDAOWhiteApe.svg";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
@@ -28,7 +29,7 @@ const NavContent: React.VFC = () => {
       <Box className="dapp-sidebar-inner" display="flex" justifyContent="space-between" flexDirection="column">
         <div className="dapp-menu-top">
           <div className="flex items-center justify-center my-5">
-            <Link className="flex flex-col items-center" href="/" target="_blank" rel="noopener noreferrer">
+            <Link className="flex flex-col items-center" to="/">
               {theme.palette.mode === "light" ? <GDAOBlackApe /> : <GDAOWhiteApe />}
               <Typography fontSize="24px" fontWeight="700" lineHeight="32px">
                 GoerliDAO
@@ -40,13 +41,13 @@ const NavContent: React.VFC = () => {
             <div className="dapp-nav" id="navbarNav">
               {chain.id === networks.MAINNET && (
                 <div className="grid grid-cols-1 grid-rows-6 gap-4 m-4">
-                  <Link className="" href="/donate" target="_blank" rel="noopener noreferrer">
+                  <Link className="" to="/donate">
                     Donate
                   </Link>
-                  <Link className="" href="/bridge" target="_blank" rel="noopener noreferrer">
+                  <Link className="" to="/bridge">
                     Bridge
                   </Link>
-                  <Link className="" href="/swap" target="_blank" rel="noopener noreferrer">
+                  <Link className="" to="/swap">
                     Swap
                   </Link>
                 </div>
