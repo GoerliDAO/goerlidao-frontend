@@ -155,6 +155,7 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
           {!desktop && (
             <button
               style={{
+                paddingLeft: 10,
                 color: renderedColor(),
               }}
               id="hamburger"
