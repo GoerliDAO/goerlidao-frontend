@@ -135,9 +135,6 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
           className="hidden md:grid grid-cols-5 grid-rows-1 gap-8 text-xs font-base"
         >
           <Link to="/donate">Donate</Link>
-          {/* <Tooltip title="Coming Soon">
-            <Link to="">Bridge</Link>
-          </Tooltip> */}
           <Link to="/bridge">Bridge</Link>
           <Link to="/swap">Swap</Link>
           <Tooltip title="Coming Soon">
