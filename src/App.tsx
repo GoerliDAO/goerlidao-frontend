@@ -18,6 +18,7 @@ import { MigrationCallToAction } from "src/components/MigrationCallToAction";
 import { MigrationNotification } from "src/components/MigrationNotification";
 import NavDrawer from "src/components/Sidebar/NavDrawer";
 import Sidebar from "src/components/Sidebar/Sidebar";
+import { StakeVersionContainer } from "src/components/StakeVersionContainer";
 import TopBar from "src/components/TopBar/TopBar";
 import Wallet from "src/components/TopBar/Wallet";
 import { useGoogleAnalytics } from "src/hooks/useGoogleAnalytics";
@@ -32,7 +33,6 @@ import { girth as gTheme } from "src/themes/girth.js";
 import { light as lightTheme } from "src/themes/light.js";
 import LandingPage from "src/views/LandingPage";
 import { useAccount, useConnect, useNetwork, useProvider } from "wagmi";
-
 // Dynamic Imports for code splitting
 const Bridge = lazy(() => import("./views/Bridge"));
 const TreasuryDashboard = lazy(() => import("./views/TreasuryDashboard/TreasuryDashboard"));
@@ -211,10 +211,10 @@ function App() {
                 <Suspense fallback={<div></div>}>
                   <Routes>
                     <Route path="/" element={<LandingPage />} />
-                    {/* <Route
+                    <Route
                       path="/stake"
                       element={<StakeVersionContainer setMigrationModalOpen={setMigrationModalOpen} />}
-                    /> */}
+                    />
 
                     {/* <Route path="/bond" element={<Bond />} /> */}
                     <Route path="/bridge" element={<Bridge />} />

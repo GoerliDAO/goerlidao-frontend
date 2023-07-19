@@ -7,7 +7,7 @@ import { StakeFiveDayYield } from "src/views/Stake/components/StakeArea/componen
 import { StakeInputArea } from "src/views/Stake/components/StakeArea/components/StakeInputArea/StakeInputArea";
 import { StakeNextRebaseAmount } from "src/views/Stake/components/StakeArea/components/StakeNextRebaseAmount";
 import { StakeRebaseYield } from "src/views/Stake/components/StakeArea/components/StakeRebaseYield";
-import { CurrentIndex, StakingAPY } from "src/views/TreasuryDashboard/components/Metric/Metric";
+import { StakingAPY } from "src/views/TreasuryDashboard/components/Metric/Metric";
 import { useAccount } from "wagmi";
 
 export const StakeArea: React.FC = () => {
@@ -26,7 +26,7 @@ export const StakeArea: React.FC = () => {
         >
           <StakingAPY className="stake-apy" />
           <Metric className="text-xs" label="Time until next rebase" metric={<RebaseTimer />} />
-          <CurrentIndex className="stake-index" />
+          {/* <CurrentIndex className="stake-index" /> */}
         </div>
 
         <StakeInputArea isZoomed={isZoomed} />

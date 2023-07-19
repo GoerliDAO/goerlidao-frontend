@@ -1,6 +1,5 @@
 import { AssetCard, OHMTokenStackProps } from "@olympusdao/component-library";
 import { GetTokenPrice } from "src/components/TopBar/Wallet/queries";
-import { formatCurrency } from "src/helpers";
 
 interface TokenArray {
   assetValue: number;
@@ -35,22 +34,22 @@ const Balances = (props: { token: TokenArray }) => {
       <AssetCard
         token={props.token.symbol}
         label={props.token.label}
-        assetValue={formatCurrency(props.token.assetValue, 2)}
+        // assetValue={formatCurrency(props.token.assetValue, 2)}
         assetBalance={`${props.token.balance} ${
           props.token.underlyingSymbol ? props.token.underlyingSymbol : props.token.symbol
         }`}
-        pnl={
-          props.token.pnl
-            ? props.token.pnl
-            : Number(props.token.balance) > 0
-            ? formatCurrency(
-                Number(props.token.balance) === 0
-                  ? 0
-                  : props.token.assetValue - Number(props.token.assetValue) / (1 + priceFeed.usd_24h_change / 100),
-                2,
-              )
-            : ""
-        }
+        // pnl={
+        //   props.token.pnl
+        //     ? props.token.pnl
+        //     : Number(props.token.balance) > 0
+        //     ? formatCurrency(
+        //         Number(props.token.balance) === 0
+        //           ? 0
+        //           : props.token.assetValue - Number(props.token.assetValue) / (1 + priceFeed.usd_24h_change / 100),
+        //         2,
+        //       )
+        //     : ""
+        // }
         timeRemaining={props.token.timeRemaining}
         {...extraProps}
         {...lineThree}

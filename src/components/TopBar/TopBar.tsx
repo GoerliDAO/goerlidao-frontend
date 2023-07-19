@@ -137,9 +137,9 @@ function TopBar({ handleDrawerToggle, toggleTheme }: TopBarProps) {
           <Link to="/donate">Donate</Link>
           <Link to="/bridge">Bridge</Link>
           <Link to="/swap">Swap</Link>
-          <Tooltip title="Coming Soon">
-            <Link to="">Stake</Link>
-          </Tooltip>
+          {/* <Tooltip title="Coming Soon"> */}
+          <Link to="/stake">Stake</Link>
+          {/* </Tooltip> */}
           <Tooltip title="Coming Soon">
             <Link to="">Bond</Link>
           </Tooltip>
