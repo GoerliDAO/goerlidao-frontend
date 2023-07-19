@@ -50,6 +50,9 @@ const NavContent: React.VFC = () => {
                   <Link className="" to="/swap">
                     Swap
                   </Link>
+                  <Link className="" to="/stake">
+                    Stake
+                  </Link>
                 </div>
               )}
             </div>

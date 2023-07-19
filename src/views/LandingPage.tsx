@@ -250,7 +250,7 @@ const LandingPage = () => {
               title="Staking"
               description="By staking GDAO, you contribute to the growth of the Goerli ecosystem while earning rewards for your participation. Stakers deposit GDAO into the protocol to earn rewards and participate in governance processes. "
               icon={theme.palette.mode === "dark" ? <LightStakeIcon /> : <DarkStakeIcon />}
-              actionLink="/"
+              actionLink="stake"
               actionTitle="Stake"
             />
 
