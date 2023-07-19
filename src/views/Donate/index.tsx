@@ -134,7 +134,7 @@ const Donate = () => {
                   }}
                   className="p-1 rounded-md font-semibold"
                 >
-                  {!donationEventContractData.saleConcluded ? "EVENT OPEN NOW" : "EVENT NOW CLOSED"}
+                  {"EVENT NOW CLOSED"}
                 </div>
               </div>
 
@@ -220,27 +220,10 @@ const Donate = () => {
           </div>
 
           <div className="my-2.5 rounded-md shadow-sm">
-            <input
-              disabled
-              min={0}
-              type="number"
-              onChange={handleInputChange}
-              name="price"
-              id="price"
-              className="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-900 ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              placeholder="Enter donation amount"
-            />
             <div className="absolute inset-y-0 right-3 flex items-center">
               <span className="text-gray-500 sm:text-sm">Ξ</span>
             </div>
           </div>
-          <button
-            disabled={!account}
-            onClick={deposit}
-            className="w-full p-2 text-center bg-white text-black border border-black font-extrabold rounded-md mt-2.5"
-          >
-            Donate
-          </button>
         </div>
       </div>
 

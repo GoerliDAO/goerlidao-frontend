@@ -120,7 +120,7 @@ const LandingPage = () => {
               to="features"
               smooth={true}
             >
-              Discover Now
+              Discover How
             </ScrollLink>
           </div>
         </div>
