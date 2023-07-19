@@ -221,6 +221,7 @@ const Donate = () => {
 
           <div className="my-2.5 rounded-md shadow-sm">
             <input
+              disabled
               min={0}
               type="number"
               onChange={handleInputChange}

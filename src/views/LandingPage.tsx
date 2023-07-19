@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FiCornerRightDown } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { Element, Link as ScrollLink } from "react-scroll";
 import { ReactComponent as CeramicApe } from "src/assets/GDAO-ceramic-ape.svg";
 // other icons
 import { ReactComponent as DarkBondIcon } from "src/assets/icons/bonding-dark.svg";
@@ -114,12 +115,13 @@ const LandingPage = () => {
               With LayerZero’s bridge, real money exists on Goerli. This means that Goerli is no longer a testnet. It is
               now a canary network for Ethereum. GoerliDAO is the first production project built on Goerli mainnet.
             </p>
-            <Link
-              className="text-sm my-5 px-6 py-2 tracking-wider border border-white text-white font-semibold"
-              to="/donate"
+            <ScrollLink
+              className="cursor-pointer text-sm my-5 px-6 py-2 tracking-wider border border-white text-white font-semibold"
+              to="features"
+              smooth={true}
             >
-              Donation Event Live!
-            </Link>
+              Discover Now
+            </ScrollLink>
           </div>
         </div>
 
@@ -221,9 +223,11 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <div className="container mx-auto my-20 flex items-center justify-center">
-            <span className="md:w-1/2 text-center font-light text-4xl md:text-6xl">Discover the Power of GDAO</span>
-          </div>
+          <Element name="features">
+            <div className="container mx-auto my-20 flex items-center justify-center">
+              <span className="md:w-1/2 text-center font-light text-4xl md:text-6xl">Discover the Power of GDAO</span>
+            </div>
+          </Element>
 
           <div className="grid grid-cols-1 md:grid-cols-2 auto-rows-auto gap-4">
             <Features
