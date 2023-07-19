@@ -75,7 +75,7 @@ export const useStakeToken = () => {
         token: data.toToken,
       });
 
-      toast(`Successfully staked OHM`);
+      toast(`Successfully staked GDAO`);
     },
   });
 };
