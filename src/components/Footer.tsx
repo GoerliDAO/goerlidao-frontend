@@ -28,6 +28,9 @@ const Footer = () => {
           <span className="text-xs">© Gööööööööööööööööööööööööerli</span>
         </div>
         <div className="grid grid-cols-1 md:grid-rows-3 gap-2 text-xs">
+          <a target="_blank" href="/whitepaper.pdf">
+            Whitepaper
+          </a>
           <a target="_blank" href="https://goerli.one/">
             Goerli Portal
           </a>
