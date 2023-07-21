@@ -4,6 +4,7 @@ import { ethers } from "ethers";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import GDAO_METH_BOND from "src/abi/GDAO_METH_BOND";
+import Countdown from "src/components/Countdown";
 import Footer from "src/components/Footer";
 import useSWR from "swr";
 import { useSwitchNetwork } from "wagmi";
@@ -13,7 +14,7 @@ const fetcher = (url: any) => fetch(url).then(res => res.json());
 const Bond = () => {
   const account = getAccount();
   const theme = useTheme();
-  const contractAddress = "0xCcf1dA47ACf0df3f91ccA58842ca4bde1D90EA96";
+  const contractAddress = "0x5ce2Cb38C5864C9CF990176dA3300CB96EDEc95E";
   const contractABI = GDAO_METH_BOND;
   const [totalTokens, setTotalTokens] = React.useState(10);
   const [totalDonated, setTotalDonated] = React.useState(0);
@@ -147,7 +148,7 @@ const Bond = () => {
                     }}
                     className="p-1 rounded-md font-semibold"
                   >
-                    {"EVENT NOW CLOSED"}
+                    <Countdown />
                   </div>
                 </div>
 
@@ -190,7 +191,7 @@ const Bond = () => {
                 </div>
               </div>
 
-              <div className="border border-black p-2 rounded-md">
+              <div className="rounded-md">
                 <div className="relative">
                   <div className="flex items-center justify-between">
                     <p className="font-bold">Bond Price (GDAO/METH)</p>
