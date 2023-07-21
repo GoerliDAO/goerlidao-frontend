@@ -216,7 +216,7 @@ function App() {
                       element={<StakeVersionContainer setMigrationModalOpen={setMigrationModalOpen} />}
                     />
 
-                    {/* <Route path="/bond" element={<Bond />} /> */}
+                    <Route path="/bond" element={<Bond />} />
                     <Route path="/bridge" element={<Bridge />} />
                     <Route path="/swap" element={<Swap />} />
                     <Route path="/donate" element={<Donate />} />

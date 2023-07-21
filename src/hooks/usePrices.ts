@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { NetworkId } from "src/constants";
 import { OHM_TOKEN } from "src/constants/tokens";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
@@ -15,14 +16,36 @@ const url = `https://api.dexscreener.com/latest/dex/search/?q=${token_addr}`;
 /**
  * Returns the market price of OHM.
  */
-export const useGdaoPrice = async () => {
-  const price = async () => {
-    const { data: response } = await axios.get(url);
-    const price_ = JSON.parse(JSON.stringify(response.data.pairs[0])).priceUsd;
-    console.log(price_);
-    return price_;
-  };
-  return price;
+// export const useGdaoPrice = async () => {
+//   const price = async () => {
+//     const { data: response } = await axios.get(url);
+//     const price_ = JSON.parse(JSON.stringify(response.data.pairs[0])).priceUsd;
+//     console.log(price_);
+//     return price_;
+//   };
+//   return price;
+// };
+
+export const useGdaoPrice = () => {
+  const [price, setPrice] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPrice = async () => {
+      try {
+        const url = "https://api.dexscreener.com/latest/dex/search/?q=GDAO";
+        const { data: response } = await axios.get(url);
+        const price_ = JSON.parse(JSON.stringify(response.data.pairs[0])).priceUsd;
+        setPrice(price_);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchPrice();
+  }, []);
+
+  return { price, error };
 };
 
 export const xgdaoPriceQueryKey = (marketPrice?: number, currentIndex?: DecimalBigNumber) =>
