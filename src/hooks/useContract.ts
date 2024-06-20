@@ -21,9 +21,11 @@ import CURVE_GAUGE_DEPOSIT_ABI from "src/abi/CurveGaugeDeposit.json";
 import CURVE_POOL_ABI from "src/abi/CurvePool.json";
 import DEV_FAUCET from "src/abi/DevFaucet.json";
 import FUSE_PROXY_ABI from "src/abi/FuseProxy.json";
+import GOERLI_STAKING from "src/abi/GoerliStaking.json";
 import IERC20_ABI from "src/abi/IERC20.json";
 import STAKING_ABI from "src/abi/OlympusStakingv2.json";
 import PAIR_CONTRACT_ABI from "src/abi/PairContract.json";
+import SGDAO_ABI from "src/abi/sGDAO.json";
 import SOHM_ABI from "src/abi/sOhmv2.json";
 import { AddressMap } from "src/constants/addresses";
 import { Providers } from "src/helpers/providers/Providers/Providers";
@@ -34,9 +36,11 @@ import {
   CurvePool,
   DevFaucet,
   FuseProxy,
+  GoerliStaking,
   IERC20,
   OlympusStakingv2,
   PairContract,
+  SGDAO,
   SOhmv2,
 } from "src/typechain";
 import { BalancerV2Pool } from "src/typechain/BalancerV2Pool";
@@ -107,12 +111,13 @@ export const createMultipleStaticContracts = <TContract extends Contract = Contr
 
 // Static contracts
 export const useStaticSohmContract = createStaticContract<SOhmv2>(SOHM_ABI.abi);
+export const useStaticSgdaoContract = createStaticContract<SGDAO>(SGDAO_ABI.abi);
 export const useStaticTokenContract = createStaticContract<IERC20>(IERC20_ABI.abi);
 export const useStaticFuseContract = createStaticContract<FuseProxy>(FUSE_PROXY_ABI.abi);
 export const useStaticPairContract = createStaticContract<PairContract>(PAIR_CONTRACT_ABI.abi);
 export const useStaticStakingContract = createStaticContract<OlympusStakingv2>(STAKING_ABI);
+export const useStaticGoerliStakingContract = createStaticContract<GoerliStaking>(GOERLI_STAKING.abi);
 export const useStaticBondContract = createStaticContract<BondDepository>(BOND_ABI.abi);
-
 export const useStaticBalancerV2PoolContract = createStaticContract<BalancerV2Pool>(BALANCERV2_POOL_ABI.abi);
 export const useStaticBalancerVaultContract = createStaticContract<BalancerVault>(BALANCER_VAULT_ABI.abi);
 export const useStaticCurvePoolContract = createStaticContract<CurvePool>(CURVE_POOL_ABI.abi);
@@ -124,6 +129,7 @@ export const useStaticCurveGaugeDepositContract = createStaticContract<CurveGaug
 // Dynamic contracts
 export const useDynamicTokenContract = createDynamicContract<IERC20>(IERC20_ABI.abi);
 export const useDynamicStakingContract = createDynamicContract<OlympusStakingv2>(STAKING_ABI);
+export const useDynamicGoerliStakingContract = createDynamicContract<GoerliStaking>(GOERLI_STAKING.abi);
 export const useDynamicMigratorContract = createDynamicContract<CrossChainMigrator>(CROSS_CHAIN_MIGRATOR_ABI.abi);
 export const useDynamicFaucetContract = createDynamicContract<DevFaucet>(DEV_FAUCET.abi);
 

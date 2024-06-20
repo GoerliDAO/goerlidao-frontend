@@ -9,7 +9,7 @@ import { lightPalette as colors } from "src/themes/lightPalette";
 const lightTheme = {
   gridButtonHoverBackground: "rgba(118, 130, 153, 0.2)",
   gridButtonActiveBackground: "rgba(118, 130, 153, 0.7)",
-  switchBg: "#FCFCFC",
+  switchBg: "#C6D9F9",
 };
 
 export const light = createTheme(
@@ -49,7 +49,7 @@ export const light = createTheme(
           styleOverrides: `
             ${fonts}
             body {
-              background-color:"#FCF7EF";
+              background-color:"#C6D9F9";
             }
             `,
         },

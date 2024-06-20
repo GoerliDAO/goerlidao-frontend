@@ -141,11 +141,11 @@ export const BackingPerOHM: React.FC<AbstractedMetricProps & MetricSubgraphProps
 export const BackingPerGOHM: React.FC<AbstractedMetricProps & MetricSubgraphProps> = props => {
   const { data: liquidBackingPerGOhmCirculating } = useLiquidBackingPerGOhm(props.subgraphUrls);
 
-  const tooltip = `Liquid backing per gOHM is synthetically calculated as liquid backing multiplied by the current index and divided by OHM floating supply.`;
+  const tooltip = `Liquid backing per xGDAO is synthetically calculated as liquid backing multiplied by the current index and divided by GDAO floating supply.`;
 
   const _props: MetricProps = {
     ...props,
-    label: `Liquid Backing per gOHM`,
+    label: `Liquid Backing per xGDAO`,
     tooltip: tooltip,
   };
 
@@ -160,10 +160,10 @@ export const CurrentIndex: React.FC<AbstractedMetricProps & MetricSubgraphProps>
   const _props: MetricProps = {
     ...props,
     label: `Current Index`,
-    tooltip: `The current index tracks the amount of OHM accumulated since the beginning of staking. Basically, how much OHM one would have if they staked and held 1 OHM from launch.`,
+    tooltip: `The current index tracks the amount of GDAO accumulated since the beginning of staking. Basically, how much GDAO one would have if they staked and held 1 GDAO from launch.`,
   };
 
-  if (currentIndex) _props.metric = `${formatNumber(currentIndex, 2)} OHM`;
+  if (currentIndex) _props.metric = `${formatNumber(currentIndex, 2)} GDAO`;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;

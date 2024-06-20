@@ -9,7 +9,7 @@ import SlippageModal from "src/views/Zap/SlippageModal";
 
 export interface OHMZapTransactionDetailsProps {
   inputQuantity: string;
-  outputGOHM: boolean;
+  outputXGDAO: boolean;
   swapTokenBalance: ModalHandleSelectProps;
   handleExchangeRate: (exchangeRate: number) => void;
   handleOutputAmount: (outputAmount: string) => void;
@@ -22,7 +22,7 @@ export interface OHMZapTransactionDetailsProps {
  */
 const ZapTransactionDetails: FC<OHMZapTransactionDetailsProps> = ({
   inputQuantity,
-  outputGOHM,
+  outputXGDAO,
   swapTokenBalance,
   handleExchangeRate,
   handleOutputAmount,
@@ -39,20 +39,21 @@ const ZapTransactionDetails: FC<OHMZapTransactionDetailsProps> = ({
   // TODO use DecimalBigNumber
   const exchangeRate: number | null = useMemo(() => {
     if (
-      outputGOHM != null &&
+      outputXGDAO != null &&
       swapTokenBalance &&
       ohmMarketPrice.data &&
       gOhmMarketPrice.data &&
       swapTokenBalance.price
     ) {
       return (
-        (outputGOHM === undefined || outputGOHM === null || outputGOHM ? gOhmMarketPrice.data : ohmMarketPrice.data) /
-        swapTokenBalance.price
+        (outputXGDAO === undefined || outputXGDAO === null || outputXGDAO
+          ? gOhmMarketPrice.data
+          : ohmMarketPrice.data) / swapTokenBalance.price
       );
     } else {
       return null;
     }
-  }, [outputGOHM, ohmMarketPrice, gOhmMarketPrice, swapTokenBalance]);
+  }, [outputXGDAO, ohmMarketPrice, gOhmMarketPrice, swapTokenBalance]);
 
   const outputQuantity = exchangeRate ? (+inputQuantity / exchangeRate).toString() : "";
   // Number(outputQuantity) * (1 - +customSlippage / 100)
@@ -67,7 +68,7 @@ const ZapTransactionDetails: FC<OHMZapTransactionDetailsProps> = ({
   }, [minimumAmount]);
 
   const exchangeRateString = `${trim(exchangeRate || 0, 4)} ${swapTokenBalance.name} =
-    1 ${outputGOHM ? "gOHM" : "sOHM"}`;
+    1 ${outputXGDAO ? "gOHM" : "sOHM"}`;
 
   useMemo(() => {
     handleExchangeRate(exchangeRate ? exchangeRate : 0);
@@ -99,8 +100,11 @@ const ZapTransactionDetails: FC<OHMZapTransactionDetailsProps> = ({
           </Box>
         }
       />
-      <DataRow title="Exchange Rate" balance={`${outputGOHM == null || !swapTokenBalance ? "" : exchangeRateString}`} />
-      <DataRow title="Minimum You Get" balance={`${minimumAmountString} ${outputGOHM ? "gOHM" : "sOHM"}`}></DataRow>
+      <DataRow
+        title="Exchange Rate"
+        balance={`${outputXGDAO == null || !swapTokenBalance ? "" : exchangeRateString}`}
+      />
+      <DataRow title="Minimum You Get" balance={`${minimumAmountString} ${outputXGDAO ? "gOHM" : "sOHM"}`}></DataRow>
       <SlippageModal
         handleClose={() => setSlippageModalOpen(false)}
         modalOpen={slippageModalOpen}

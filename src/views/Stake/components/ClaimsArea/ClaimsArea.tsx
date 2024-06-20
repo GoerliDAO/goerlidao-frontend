@@ -45,7 +45,7 @@ export const ClaimsArea = () => {
   const { data: claim } = useWarmupClaim();
   const { data: warmupDate, isClaimable } = useWarmupDate();
 
-  if (!isConnected || !claim || claim?.gohm.eq("0")) return <></>;
+  if (!isConnected || !claim || claim?.xgdao.eq("0")) return <></>;
   const warmupTooltip = `Your claim earns rebases during warmup. You can emergency withdraw, but this forfeits the rebases`;
 
   return (

@@ -66,7 +66,7 @@ const StakeConfirmationModal = (props: {
                     checkedIcon={<CheckBoxOutlined viewBox="0 0 24 24" />}
                   />
                 }
-                label={`I understand the OHM I’m staking will only be available to claim 2 epochs after my transaction is confirmed`}
+                label={`I understand the GDAO I’m staking will only be available to claim 2 epochs after my transaction is confirmed`}
               />
             </Box>
           </>

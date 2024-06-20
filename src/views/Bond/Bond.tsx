@@ -2,7 +2,6 @@ import { Box, Tab, Tabs } from "@mui/material";
 import { MetricCollection, Paper } from "@olympusdao/component-library";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PageTitle from "src/components/PageTitle";
 import { getSubgraphUrls } from "src/helpers/SubgraphUrlHelper";
 import { BondList } from "src/views/Bond/components/BondList";
 import { ClaimBonds } from "src/views/Bond/components/ClaimBonds/ClaimBonds";
@@ -66,7 +65,6 @@ export const Bond = () => {
 
   return (
     <>
-      <PageTitle name={currentAction === "INVERSE" ? "Inverse Bonds" : "Bonds"} />
       <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column">
         <ClaimBonds />
         <ClaimBondsV3 />

@@ -17,9 +17,9 @@ type OHMTokenModalProps = {
   open: boolean;
   handleSelect: (data: ModalHandleSelectProps) => void;
   handleClose: () => void;
-  ohmBalance?: string;
-  sOhmBalance?: string;
-  gOhmBalance?: string;
+  gdaoBalance?: string;
+  sGdaoBalance?: string;
+  xGdaoBalance?: string;
   showZapAssets?: boolean;
 };
 /**
@@ -29,9 +29,9 @@ const TokenModal: FC<OHMTokenModalProps> = ({
   open,
   handleSelect,
   handleClose,
-  ohmBalance = "0.00",
-  sOhmBalance = "0.00",
-  gOhmBalance = "0.00",
+  gdaoBalance = "0.00",
+  sGdaoBalance = "0.00",
+  xGdaoBalance = "0.00",
   showZapAssets = false,
 }) => {
   const theme = useTheme();
@@ -102,8 +102,8 @@ const TokenModal: FC<OHMTokenModalProps> = ({
               </Box>
             ) : (
               <>
-                <TokenItem name="OHM" balance={ohmBalance} />
-                {parseInt(sOhmBalance) > 0 && <TokenItem name="sOHM" balance={sOhmBalance} />}
+                <TokenItem name="GDAO" balance={gdaoBalance} />
+                {parseInt(sGdaoBalance) > 0 && <TokenItem name="sGDAO" balance={sGdaoBalance} />}
                 {Object.entries(tokensBalance)
                   .filter(token => !token[1].hide)
                   .sort((tokenA, tokenB) => tokenB[1].balanceUSD - tokenA[1].balanceUSD)
@@ -123,8 +123,8 @@ const TokenModal: FC<OHMTokenModalProps> = ({
             )
           ) : (
             <>
-              {parseInt(sOhmBalance) > 0 && <TokenItem name="sOHM" balance={sOhmBalance} />}
-              <TokenItem name="gOHM" balance={gOhmBalance} data-testid="gOHM-select" />
+              {parseInt(sGdaoBalance) > 0 && <TokenItem name="sGDAO" balance={sGdaoBalance} />}
+              <TokenItem name="xGDAO" balance={xGdaoBalance} data-testid="xGDAO-select" />
             </>
           )}
         </List>

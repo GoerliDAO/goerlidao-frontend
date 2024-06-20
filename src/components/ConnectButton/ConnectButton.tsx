@@ -91,8 +91,6 @@ export const ConnectButton = () => {
                         borderRadius: "6px",
                         padding: "9px 18px",
                         cursor: "pointer",
-                        background: theme.colors.paper.card,
-                        "&:hover": { background: theme.colors.paper.cardHover },
                       }}
                       onClick={() => {
                         fireAnalyticsEvent();
@@ -113,10 +111,15 @@ export const ConnectButton = () => {
                       sx={{ zIndex: 18 }}
                     >
                       {!mobile ? (
-                        <PrimaryButton>
-                          <SvgIcon component={WalletIcon} style={{ marginRight: "9px" }} />
-                          {`Connect Wallet`}
-                        </PrimaryButton>
+                        <button
+                          className="p-2 text-black text-sm font-semibold px-5 py-1.5 border border-black"
+                          style={{
+                            background: "#fff",
+                            border: theme.palette.mode === "dark" ? "1px solid #fff" : "1px solid #000",
+                          }}
+                        >
+                          {`CONNECT WALLET`}
+                        </button>
                       ) : (
                         <Button
                           sx={{
@@ -124,14 +127,8 @@ export const ConnectButton = () => {
                             height: "39px",
                             minWidth: "39px",
                             borderRadius: "6px",
-                            background:
-                              theme.palette.mode === "dark" ? theme.colors.gray[500] : theme.colors.paper.card,
-                            color: theme.colors.gray[10],
-                            "&:hover": {
-                              background:
-                                theme.palette.mode === "dark" ? theme.colors.gray[90] : theme.colors.paper.cardHover,
-                              color: theme.colors.gray[10],
-                            },
+                            background: "#fff",
+                            color: theme.palette.mode === "dark" ? theme.colors.gray[10] : theme.colors.gray[500],
                           }}
                         >
                           <SvgIcon component={WalletIcon} />
@@ -232,7 +229,6 @@ export const ConnectButton = () => {
                       ) : (
                         <Button
                           sx={{
-                            borderRadius: "6px",
                             padding: "9px 18px",
                             marginLeft: "9px",
                             fontSize: "0.875rem",

@@ -1,10 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ContractReceipt } from "ethers";
 import toast from "react-hot-toast";
-import { OHM_ADDRESSES, STAKING_ADDRESSES } from "src/constants/addresses";
+import { GDAO_ADDRESSES, GOERLI_STAKING_ADDR, STAKING_ADDRESSES } from "src/constants/addresses";
 import { trackGAEvent, trackGtagEvent } from "src/helpers/analytics/trackGAEvent";
 import { balanceQueryKey } from "src/hooks/useBalance";
-import { useDynamicStakingContract } from "src/hooks/useContract";
+import { useDynamicGoerliStakingContract, useDynamicStakingContract } from "src/hooks/useContract";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { useWarmupClaim, warmupQueryKey } from "src/hooks/useWarmupInfo";
 import { EthersError } from "src/lib/EthersTypes";
@@ -18,18 +18,20 @@ export const useForfeitToken = () => {
   const { address = "" } = useAccount();
   const networks = useTestableNetworks();
   const { data: claim } = useWarmupClaim();
-  const claimBalance = claim?.sohm;
+  // const claimBalance = claim?.sohm;
+  const _claimBalance = claim?.sgdao;
   const contract = useDynamicStakingContract(STAKING_ADDRESSES, true);
+  const goerliContract = useDynamicGoerliStakingContract(GOERLI_STAKING_ADDR, true);
 
   return useMutation<ContractReceipt, EthersError>({
     mutationFn: async () => {
-      if (!claimBalance) throw new Error(`Please refresh your page and try again`);
+      if (!_claimBalance) throw new Error(`Please refresh your page and try again`);
 
-      if (!contract) throw new Error(`Please switch to the Ethereum network to forfeit your warmup`);
+      if (!goerliContract) throw new Error(`Please switch to the Ethereum network to forfeit your warmup`);
 
       if (!address) throw new Error(`Please refresh your page and try again`);
 
-      const transaction = await contract.forfeit();
+      const transaction = await goerliContract.forfeit();
       return transaction.wait();
     },
     onError: error => {
@@ -37,7 +39,8 @@ export const useForfeitToken = () => {
     },
     onSuccess: async (tx, data) => {
       const keysToRefetch = [
-        balanceQueryKey(address, OHM_ADDRESSES, networks.MAINNET),
+        // balanceQueryKey(address, OHM_ADDRESSES, networks.MAINNET),
+        balanceQueryKey(address, GDAO_ADDRESSES, networks.MAINNET),
         warmupQueryKey(address, networks.MAINNET),
       ];
 

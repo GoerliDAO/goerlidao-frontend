@@ -14,6 +14,7 @@ import { prettifySeconds, prettifySecondsInDays } from "src/helpers/timeUtil";
 import { nonNullable } from "src/helpers/types/nonNullable";
 import {
   useFuseBalance,
+  useGdaoBalance,
   useGohmBalance,
   useGohmTokemakBalance,
   useOhmBalance,
@@ -92,6 +93,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   const { data: currentIndex = new DecimalBigNumber("0", 9) } = useCurrentIndex();
   const { data: nextRebaseDate } = useNextRebaseDate();
   const { data: rebaseRate = 0 } = useStakingRebaseRate();
+  const { data: gdaoBalance = new DecimalBigNumber("0", 9) } = useGdaoBalance()[networks.MAINNET];
   const { data: ohmBalance = new DecimalBigNumber("0", 9) } = useOhmBalance()[networks.MAINNET];
   const { data: v1OhmBalance = new DecimalBigNumber("0", 9) } = useV1OhmBalance()[networks.MAINNET];
   const { data: v1SohmBalance = new DecimalBigNumber("0", 9) } = useV1SohmBalance()[networks.MAINNET];
@@ -128,6 +130,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
 
   const notes = useBondNotes().data;
   const formattedohmBalance = ohmBalance.toString({ decimals: 4, trim: false, format: true });
+  const formattedgdaoBalance = gdaoBalance.toString({ decimals: 4, trim: false, format: true });
   const formattedV1OhmBalance = v1OhmBalance.toString({ decimals: 4, trim: false, format: true });
   const formattedV1SohmBalance = v1SohmBalance.toString({ decimals: 4, trim: false, format: true });
   const formattedWsOhmBalance = totalWsohmBalance.toString({ decimals: 4, trim: false, format: true });
@@ -138,50 +141,74 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
   const rebaseAmountPerDay = rebaseRate * Number(formattedSOhmBalance) * 3;
 
   const tokenArray = [
+    // {
+    //   symbol: ["OHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedohmBalance,
+    //   assetValue: ohmBalance.toApproxNumber() * ohmPrice,
+    //   alwaysShow: true,
+    // },
     {
-      symbol: ["OHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedohmBalance,
-      assetValue: ohmBalance.toApproxNumber() * ohmPrice,
+      symbol: ["GDAO"] as OHMTokenStackProps["tokens"],
+      balance: formattedgdaoBalance,
+      assetValue: gdaoBalance.toApproxNumber() * ohmPrice,
       alwaysShow: true,
     },
+    // {
+    //   symbol: ["OHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedV1OhmBalance,
+    //   label: "(v1)",
+    //   assetValue: v1OhmBalance.toApproxNumber() * ohmPrice,
+    // },
     {
-      symbol: ["OHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedV1OhmBalance,
-      label: "(v1)",
-      assetValue: v1OhmBalance.toApproxNumber() * ohmPrice,
-    },
-    {
-      symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["sGDAO"] as OHMTokenStackProps["tokens"],
       balance: formattedSOhmBalance,
       timeRemaining:
         nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
       assetValue: sOhmBalance.toApproxNumber() * ohmPrice,
       alwaysShow: true,
       lineThreeLabel: "Rebases per day",
-      lineThreeValue: Number(formattedSOhmBalance) > 0 ? `${trim(rebaseAmountPerDay, 3)} sOHM ` : undefined,
+      lineThreeValue: Number(formattedSOhmBalance) > 0 ? `${trim(rebaseAmountPerDay, 3)} sGDAO ` : undefined,
     },
+    // {
+    //   symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedSOhmBalance,
+    //   timeRemaining:
+    //     nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
+    //   assetValue: sOhmBalance.toApproxNumber() * ohmPrice,
+    //   alwaysShow: true,
+    //   lineThreeLabel: "Rebases per day",
+    //   lineThreeValue: Number(formattedSOhmBalance) > 0 ? `${trim(rebaseAmountPerDay, 3)} sOHM ` : undefined,
+    // },
+    // {
+    //   symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedV1SohmBalance,
+    //   label: "(v1)",
+    //   timeRemaining:
+    //     nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
+    //   assetValue: v1SohmBalance.toApproxNumber() * ohmPrice,
+    // },
+    // {
+    //   symbol: ["wsOHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedWsOhmBalance,
+    //   assetValue: gOhmPrice * totalWsohmBalance.toApproxNumber(),
+    //   geckoTicker: "governance-ohm",
+    // },
     {
-      symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedV1SohmBalance,
-      label: "(v1)",
-      timeRemaining:
-        nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
-      assetValue: v1SohmBalance.toApproxNumber() * ohmPrice,
-    },
-    {
-      symbol: ["wsOHM"] as OHMTokenStackProps["tokens"],
-      balance: formattedWsOhmBalance,
-      assetValue: gOhmPrice * totalWsohmBalance.toApproxNumber(),
-      geckoTicker: "governance-ohm",
-    },
-    {
-      symbol: ["gOHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["xGDAO"] as OHMTokenStackProps["tokens"],
       balance: formattedgOhmBalance,
       assetValue: gOhmPrice * totalGohmBalance.toApproxNumber(),
       pnl: formattedgOhmBalance ? 0 : formatCurrency(totalGohmBalance.toApproxNumber() * gOhmPriceChange, 2),
       alwaysShow: true,
       geckoTicker: "governance-ohm",
     },
+    // {
+    //   symbol: ["gOHM"] as OHMTokenStackProps["tokens"],
+    //   balance: formattedgOhmBalance,
+    //   assetValue: gOhmPrice * totalGohmBalance.toApproxNumber(),
+    //   pnl: formattedgOhmBalance ? 0 : formatCurrency(totalGohmBalance.toApproxNumber() * gOhmPriceChange, 2),
+    //   alwaysShow: true,
+    //   geckoTicker: "governance-ohm",
+    // },
   ];
 
   const bondsArray =
@@ -213,7 +240,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
           <WalletBalance
             title="Balance"
             usdBalance={formatCurrency(walletTotalValueUSD, 2)}
-            underlyingBalance={`${formatNumber(walletTotalValueUSD / (ohmPrice !== 0 ? ohmPrice : 1), 2)} OHM`}
+            underlyingBalance={`${formatNumber(walletTotalValueUSD / (ohmPrice !== 0 ? ohmPrice : 1), 2)} GDAO`}
           />
         </Box>
         <Box display="flex" flexDirection="row" className={classes.selector} mb="18px" mt="18px">

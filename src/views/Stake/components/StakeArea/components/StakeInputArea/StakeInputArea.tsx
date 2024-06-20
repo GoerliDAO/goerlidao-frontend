@@ -11,10 +11,10 @@ import { parseUnits } from "ethers/lib/utils";
 import React, { useEffect, useState } from "react";
 import { WalletConnectedGuard } from "src/components/WalletConnectedGuard";
 import {
-  GOHM_ADDRESSES,
-  OHM_ADDRESSES,
-  SOHM_ADDRESSES,
-  STAKING_ADDRESSES,
+  GDAO_ADDRESSES,
+  GOERLI_STAKING_ADDR,
+  SGDAO_ADDRESSES,
+  XGDAO_ADDRESSES,
   ZAP_ADDRESSES,
 } from "src/constants/addresses";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
@@ -75,9 +75,10 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
   const networks = useTestableNetworks();
-  const [stakedAssetType, setStakedAssetType] = useState<ModalHandleSelectProps>({ name: "gOHM" });
-  const [swapAssetType, setSwapAssetType] = useState<ModalHandleSelectProps>({ name: "OHM" });
-  const { chain = { id: 1 } } = useNetwork();
+  const [stakedAssetType, setStakedAssetType] = useState<ModalHandleSelectProps>({ name: "xGDAO" });
+  const [swapAssetType, setSwapAssetType] = useState<ModalHandleSelectProps>({ name: "GDAO" });
+  // const { chain = { id: 1 } } = useNetwork();
+  const { chain = { id: 5 } } = useNetwork();
 
   const [currentAction, setCurrentAction] = useState<"STAKE" | "UNSTAKE">("STAKE");
   const [tokenModalOpen, setTokenModalOpen] = useState(false);
@@ -95,20 +96,31 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
   const [receiveAmount, setReceiveAmount] = useState("");
   const [zapExchangeRate, setZapExchangeRate] = useState(0);
   const [zapOutputAmount, setZapOutputAmount] = useState("");
-  const addresses = fromToken === "OHM" ? OHM_ADDRESSES : fromToken === "sOHM" ? SOHM_ADDRESSES : GOHM_ADDRESSES;
+  // const addresses = fromToken === "OHM" ? OHM_ADDRESSES : fromToken === "sOHM" ? SOHM_ADDRESSES : GOHM_ADDRESSES;
+  const addresses = fromToken === "GDAO" ? GDAO_ADDRESSES : fromToken === "sGDAO" ? SGDAO_ADDRESSES : XGDAO_ADDRESSES;
 
+  // const balance = useBalance(addresses)[networks.MAINNET].data;
+  // const ohmBalance = useBalance(OHM_ADDRESSES)[networks.MAINNET].data;
+  // const sOhmBalance = useBalance(SOHM_ADDRESSES)[networks.MAINNET].data;
+  // const gOhmBalance = useBalance(GOHM_ADDRESSES)[networks.MAINNET].data;
   const balance = useBalance(addresses)[networks.MAINNET].data;
-  const ohmBalance = useBalance(OHM_ADDRESSES)[networks.MAINNET].data;
-  const sOhmBalance = useBalance(SOHM_ADDRESSES)[networks.MAINNET].data;
-  const gOhmBalance = useBalance(GOHM_ADDRESSES)[networks.MAINNET].data;
+  const gdaoBalance = useBalance(GDAO_ADDRESSES)[networks.MAINNET].data;
+  const sGdaoBalance = useBalance(SGDAO_ADDRESSES)[networks.MAINNET].data;
+  const xGdaoBalance = useBalance(XGDAO_ADDRESSES)[networks.MAINNET].data;
   const { data: currentIndex } = useCurrentIndex();
 
-  const contractRouting = ["OHM", "gOHM"].includes(swapAssetType.name)
+  // const contractRouting = ["OHM", "gOHM"].includes(swapAssetType.name)
+  //   ? "Stake"
+  //   : swapAssetType.name === "sOHM"
+  //   ? "Wrap"
+  //   : "Zap";
+  const contractRouting = ["GDAO", "XGDAO"].includes(swapAssetType.name)
     ? "Stake"
-    : swapAssetType.name === "sOHM"
+    : swapAssetType.name === "sGDAO"
     ? "Wrap"
     : "Zap";
-  const contractAddress = contractRouting === "Stake" || contractRouting === "Wrap" ? STAKING_ADDRESSES : ZAP_ADDRESSES;
+  const contractAddress =
+    contractRouting === "Stake" || contractRouting === "Wrap" ? GOERLI_STAKING_ADDR : ZAP_ADDRESSES;
 
   const humanReadableRouting =
     currentAction === "STAKE"
@@ -123,7 +135,8 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
 
   // Staking/unstaking mutation stuff
   const stakeMutation = useStakeToken();
-  const unstakeMutation = useUnstakeToken(stakedAssetType.name === "gOHM" ? "gOHM" : "sOHM");
+  // const unstakeMutation = useUnstakeToken(stakedAssetType.name === "gOHM" ? "gOHM" : "sOHM");
+  const unstakeMutation = useUnstakeToken(stakedAssetType.name === "xGDAO" ? "xGDAO" : "sGDAO");
   const isMutating = (currentAction === "STAKE" ? stakeMutation : unstakeMutation).isLoading;
   const isMutationSuccess =
     stakeMutation.isSuccess || unstakeMutation.isSuccess || zapExecute.isSuccess || wrapMutation.isSuccess;
@@ -147,10 +160,10 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
     } else {
       if ((currentAction === "STAKE" && spendAsset) || (currentAction === "UNSTAKE" && !spendAsset)) {
         oppositeAmount =
-          stakedAssetType.name === "gOHM" ? new DecimalBigNumber(value, 9).div(currentIndex, 18).toString() : value;
+          stakedAssetType.name === "xGDAO" ? new DecimalBigNumber(value, 9).div(currentIndex, 18).toString() : value;
       } else {
         oppositeAmount =
-          stakedAssetType.name === "gOHM" ? new DecimalBigNumber(value, 18).mul(currentIndex).toString() : value;
+          stakedAssetType.name === "xGDAO" ? new DecimalBigNumber(value, 18).mul(currentIndex).toString() : value;
       }
     }
     spendAsset ? setReceiveAmount(oppositeAmount) : setAmount(oppositeAmount);
@@ -168,10 +181,10 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
     ohmOnChange(amount, currentAction === "UNSTAKE");
     //If we're unstaking we reset swap asset back to OHM. this is all you can receive when unstaking.
     if (currentAction === "UNSTAKE") {
-      setSwapAssetType({ name: "OHM" });
+      setSwapAssetType({ name: "GDAO" });
     }
-    if (currentAction === "STAKE" && stakedAssetType.name === "sOHM") {
-      setStakedAssetType({ name: "gOHM" });
+    if (currentAction === "STAKE" && stakedAssetType.name === "sGDAO") {
+      setStakedAssetType({ name: "xGDAO" });
     }
   }, [currentAction]);
 
@@ -189,13 +202,13 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
 
   const OhmSwapCard = () => {
     const balance =
-      swapAssetType.name === "sOHM"
-        ? sOhmBalance
-          ? sOhmBalance.toString({ decimals: 2 })
+      swapAssetType.name === "sGDAO"
+        ? sGdaoBalance
+          ? sGdaoBalance.toString({ decimals: 2 })
           : "0.00"
-        : swapAssetType.name === "OHM"
-        ? ohmBalance
-          ? ohmBalance.toString({ decimals: 2 })
+        : swapAssetType.name === "GDAO"
+        ? gdaoBalance
+          ? gdaoBalance.toString({ decimals: 2 })
           : "0.00"
         : swapAssetType.balance;
 
@@ -228,9 +241,9 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
   };
 
   const GohmSwapCard = () => {
-    const balance = stakedAssetType.name === "sOHM" ? sOhmBalance : gOhmBalance;
+    const balance = stakedAssetType.name === "sGDAO" ? sGdaoBalance : xGdaoBalance;
     const tokenOnClick =
-      sOhmBalance && currentAction === "UNSTAKE" ? { tokenOnClick: () => setTokenModalOpen(true) } : {};
+      sGdaoBalance && currentAction === "UNSTAKE" ? { tokenOnClick: () => setTokenModalOpen(true) } : {};
 
     return (
       <SwapCard
@@ -287,8 +300,8 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
                 open={tokenModalOpen}
                 handleSelect={name => setStakedAssetType(name)}
                 handleClose={() => setTokenModalOpen(false)}
-                sOhmBalance={sOhmBalance && sOhmBalance.toString({ decimals: 2 })}
-                gOhmBalance={gOhmBalance && gOhmBalance.toString({ decimals: 2 })}
+                sGdaoBalance={sGdaoBalance && sGdaoBalance.toString({ decimals: 2 })}
+                xGdaoBalance={xGdaoBalance && xGdaoBalance.toString({ decimals: 2 })}
               />
             )}
             {zapTokenModalOpen && (
@@ -298,16 +311,16 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
                   setSwapAssetType(name);
                 }}
                 handleClose={() => setZapTokenModalOpen(false)}
-                ohmBalance={ohmBalance && ohmBalance.toString({ decimals: 2 })}
-                sOhmBalance={sOhmBalance && sOhmBalance.toString({ decimals: 2 })}
-                gOhmBalance={gOhmBalance && gOhmBalance.toString({ decimals: 2 })}
+                gdaoBalance={gdaoBalance && gdaoBalance.toString({ decimals: 2 })}
+                sGdaoBalance={sGdaoBalance && sGdaoBalance.toString({ decimals: 2 })}
+                xGdaoBalance={xGdaoBalance && xGdaoBalance.toString({ decimals: 2 })}
                 showZapAssets
               />
             )}
             {contractRouting === "Zap" && (
               <ZapTransactionDetails
                 inputQuantity={amount}
-                outputGOHM={stakedAssetType.name === "gOHM" ? true : false}
+                outputXGDAO={stakedAssetType.name === "xGDAO" ? true : false}
                 swapTokenBalance={swapAssetType}
                 handleOutputAmount={amount => setZapOutputAmount(amount)}
                 handleExchangeRate={rate => setZapExchangeRate(rate)}
@@ -318,7 +331,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
             {currentAction === "UNSTAKE" && liveInverseBonds && (
               <Box mb="6.5px">
                 <InfoNotification dismissible>
-                  {`Unstaking your OHM? Trade for Treasury Stables with no slippage & zero trading fees via`}
+                  {`Unstaking your GDAO? Trade for Treasury Stables with no slippage & zero trading fees via`}
                   &nbsp;
                   <Link href={`#/bonds`}>{`Inverse Bonds`}</Link>
                 </InfoNotification>
